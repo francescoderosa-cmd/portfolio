@@ -1,0 +1,8 @@
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+*.log
+
+# Git installer left in this folder — do not commit it
+Git/
+Git-*.exe

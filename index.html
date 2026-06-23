@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Francesco de Rosa — Digital & Service Designer</title>
+<meta name="description" content="Francesco de Rosa — Digital & Service Design Lead with 15 years of experience across luxury, tech, finance and humanitarian contexts. From Prada and TIM to WFP field research in active crisis zones.">
+<meta name="author" content="Francesco de Rosa">
+<meta name="theme-color" content="#1B3A4B">
+<!-- Open Graph / social sharing -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Francesco de Rosa — Digital & Service Designer">
+<meta property="og:description" content="Designing for people, systems for life. 15 years turning complex problems into clear, usable experiences — from luxury e-commerce to humanitarian programmes.">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Francesco de Rosa — Digital & Service Designer">
+<meta name="twitter:description" content="Designing for people, systems for life. From luxury e-commerce to humanitarian programmes in active crisis zones.">
+<!-- Inline SVG favicon (the nav mark) -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Crect width='18' height='18' rx='4' fill='%231B3A4B'/%3E%3Crect x='2' y='4' width='8' height='1.5' rx='.75' fill='%23A8D8EA'/%3E%3Crect x='2' y='7.5' width='11' height='1.5' rx='.75' fill='%236DC4E0'/%3E%3Crect x='2' y='11' width='6' height='1.5' rx='.75' fill='%232D7D9A'/%3E%3Ccircle cx='13.5' cy='11.5' r='3' fill='%232D7D9A'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#1B3A4B;--teal:#2D7D9A;--slate:#5B8FA8;--ice:#A8D8EA;--warm:#F2F0EB;--serif:'DM Serif Display',Georgia,serif;--sans:'DM Sans',system-ui,sans-serif;--r:12px;--b:0.5px solid rgba(27,58,75,0.12);}
+*{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;}
+body{font-family:var(--sans);background:var(--warm);color:var(--navy);-webkit-font-smoothing:antialiased;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+.f1{animation:fadeUp .55s .08s both}.f2{animation:fadeUp .55s .18s both}.f3{animation:fadeUp .55s .3s both}.f4{animation:fadeUp .55s .44s both}
+.page{display:none}.page.active{display:block}
+
+/* NAV */
+nav{display:flex;align-items:center;justify-content:space-between;padding:20px 48px;border-bottom:var(--b);background:var(--warm);position:sticky;top:0;z-index:100;}
+.n-logo{display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;}
+.n-mark{width:34px;height:34px;border-radius:8px;background:var(--navy);display:flex;align-items:center;justify-content:center;}
+.n-name{font-family:var(--serif);font-size:16px;color:var(--navy);}
+.n-name span{color:var(--teal);}
+.n-links{display:flex;gap:28px;align-items:center;}
+.n-link{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--slate);cursor:pointer;transition:color .2s;}
+.n-link:hover{color:var(--navy);}
+.n-cta{font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;padding:9px 20px;border-radius:20px;border:1px solid var(--teal);color:var(--teal);background:transparent;cursor:pointer;transition:all .2s;text-decoration:none;}
+.n-cta:hover{background:var(--teal);color:#fff;}
+
+/* SHARED */
+.ey{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--teal);font-weight:500;margin-bottom:12px;display:block;}
+.ey-l{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--ice);opacity:.65;font-weight:500;margin-bottom:12px;display:block;}
+.st{font-family:var(--serif);font-size:34px;color:var(--navy);font-weight:400;line-height:1.15;margin-bottom:26px;}
+.st-l{font-family:var(--serif);font-size:34px;color:#fff;font-weight:400;line-height:1.15;margin-bottom:26px;}
+.sec{padding:60px 48px;}
+.sec.alt{background:rgba(255,255,255,.45);}
+.sec.dk{background:var(--navy);}
+.btn-p{font-size:13px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;padding:14px 28px;border-radius:4px;background:var(--navy);color:var(--ice);border:none;cursor:pointer;transition:background .2s;}
+.btn-p:hover{background:var(--teal);}
+
+/* COVER */
+.cov{background:var(--navy);padding:70px 48px 0;}
+.cov-top{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;padding-bottom:52px;}
+.cov-tag{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--ice);opacity:.6;margin-bottom:14px;display:block;}
+.cov-title{font-family:var(--serif);font-size:50px;color:#fff;font-weight:400;line-height:1.06;letter-spacing:-.022em;margin-bottom:18px;}
+.cov-title em{color:var(--ice);font-style:italic;}
+.cov-sub{font-size:15px;color:rgba(168,216,234,.75);line-height:1.65;margin-bottom:22px;}
+.cov-chips{display:flex;flex-wrap:wrap;gap:7px;}
+.cov-chip{font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:5px 12px;border-radius:20px;border:1px solid rgba(168,216,234,.2);color:rgba(168,216,234,.7);}
+.cov-meta{display:flex;flex-direction:column;gap:14px;}
+.cm-i{border-left:2px solid rgba(168,216,234,.2);padding-left:14px;}
+.cm-l{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:rgba(168,216,234,.5);margin-bottom:3px;}
+.cm-v{font-size:13px;color:#fff;line-height:1.4;}
+.cov-nums{display:grid;grid-template-columns:repeat(4,1fr);border-top:0.5px solid rgba(168,216,234,.1);background:rgba(0,0,0,.15);}
+.cn{padding:22px 20px;border-right:0.5px solid rgba(168,216,234,.1);text-align:center;}
+.cn:last-child{border-right:none;}
+.cn-big{font-family:var(--serif);font-size:36px;color:var(--ice);line-height:1;}
+.cn-lbl{font-size:11px;color:rgba(168,216,234,.55);margin-top:5px;line-height:1.4;}
+
+/* BACK BAR */
+.back-bar{padding:16px 48px;border-bottom:var(--b);display:flex;align-items:center;gap:8px;cursor:pointer;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--slate);transition:color .2s;}
+.back-bar:hover{color:var(--navy);}
+
+/* NEXT CS */
+.next-cs{display:flex;align-items:center;justify-content:space-between;padding:52px 48px;background:rgba(255,255,255,.5);border-top:var(--b);}
+.next-lbl{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);margin-bottom:8px;display:block;}
+.next-title{font-family:var(--serif);font-size:26px;color:var(--navy);font-weight:400;}
+.next-btn{font-size:12px;letter-spacing:.08em;text-transform:uppercase;padding:13px 26px;border-radius:4px;border:1px solid var(--teal);color:var(--teal);background:transparent;cursor:pointer;transition:all .2s;white-space:nowrap;}
+.next-btn:hover{background:var(--teal);color:#fff;}
+
+/* PROCESS BAR */
+.pb-wrap{height:46px;background:rgba(27,58,75,.06);border-radius:8px;overflow:hidden;display:flex;}
+.pb-seg{display:flex;align-items:center;justify-content:center;}
+.pb-lbl{font-size:9px;color:#fff;font-weight:500;letter-spacing:.06em;text-transform:uppercase;}
+.pv-row{display:flex;align-items:center;gap:10px;margin-bottom:8px;}
+.pv-name{font-size:11px;color:var(--slate);min-width:96px;}
+.pv-bg{flex:1;height:8px;background:rgba(27,58,75,.08);border-radius:4px;overflow:hidden;}
+.pv-fill{height:100%;border-radius:4px;}
+.pv-val{font-size:12px;font-weight:500;color:var(--navy);min-width:36px;text-align:right;}
+.pv-2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:22px;}
+.pv-card{padding:20px;border-radius:var(--r);border:var(--b);background:rgba(255,255,255,.7);}
+.pv-head{font-size:12px;font-weight:500;color:var(--navy);margin-bottom:12px;text-transform:uppercase;letter-spacing:.08em;}
+
+/* JOURNEY */
+.jgrid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:28px;}
+.jcard{border-radius:var(--r);overflow:hidden;border:var(--b);background:rgba(255,255,255,.8);}
+.jhead{padding:18px 20px 14px;display:flex;gap:12px;align-items:center;border-bottom:0.5px solid rgba(27,58,75,.08);}
+.jav{width:44px;height:44px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:18px;}
+.jname{font-size:14px;font-weight:500;color:var(--navy);}
+.jrole{font-size:11px;color:var(--slate);margin-top:2px;}
+.jstages{display:flex;justify-content:space-between;margin-bottom:6px;padding:14px 20px 4px;}
+.jstage{font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--slate);text-align:center;flex:1;}
+.jcurve{padding:0 20px 6px;}
+.jmoms{padding:0 20px 16px;display:flex;flex-direction:column;gap:6px;}
+.jmom{display:flex;align-items:flex-start;gap:8px;font-size:12px;color:var(--slate);line-height:1.5;}
+.jdot{width:7px;height:7px;border-radius:50%;flex-shrink:0;margin-top:4px;}
+.jquote{margin:0 20px 18px;padding:12px 14px;border-left:2px solid var(--teal);border-radius:0 8px 8px 0;background:rgba(45,125,154,.06);font-family:var(--serif);font-style:italic;font-size:13px;color:var(--navy);line-height:1.5;}
+
+/* GAPS */
+.ggrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:26px;}
+.gcard{border-radius:var(--r);overflow:hidden;border:var(--b);background:rgba(255,255,255,.7);}
+.gtop{padding:16px 18px 0;display:flex;align-items:flex-start;justify-content:space-between;}
+.gbig{font-family:var(--serif);font-size:40px;color:var(--navy);line-height:1;opacity:.1;}
+.gicon{width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center;}
+.gbody{padding:8px 18px 18px;}
+.gtitle{font-size:13px;font-weight:500;color:var(--navy);margin-bottom:5px;}
+.gtext{font-size:12px;color:var(--slate);line-height:1.55;}
+.gsev{display:inline-flex;font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:3px 9px;border-radius:20px;margin-top:9px;}
+
+/* RECS */
+.rgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:26px;}
+.rcard{padding:22px;border-radius:var(--r);border:var(--b);background:rgba(255,255,255,.7);}
+.rnum{font-family:var(--serif);font-size:46px;color:var(--teal);opacity:.15;line-height:1;}
+.rhead{display:flex;align-items:center;gap:10px;margin-top:-16px;}
+.ricon{width:30px;height:30px;border-radius:8px;background:var(--navy);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.rtitle{font-size:14px;font-weight:500;color:var(--navy);}
+.rtext{font-size:13px;color:var(--slate);line-height:1.6;margin-top:9px;}
+.rchips{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px;}
+.rchip{font-size:10px;padding:3px 9px;border-radius:20px;background:rgba(45,125,154,.08);color:var(--teal);letter-spacing:.06em;text-transform:uppercase;}
+
+/* IMPACT */
+.istrip{background:var(--navy);padding:52px 48px;}
+.igrid{display:grid;grid-template-columns:repeat(4,1fr);border-top:0.5px solid rgba(168,216,234,.12);margin-top:26px;}
+.iitem{padding:22px 18px;border-right:0.5px solid rgba(168,216,234,.1);text-align:center;}
+.iitem:last-child{border-right:none;}
+.ibig{font-family:var(--serif);font-size:42px;color:var(--ice);line-height:1;margin-bottom:7px;}
+.ilbl{font-size:12px;color:rgba(168,216,234,.6);line-height:1.45;}
+
+/* TIMELINE */
+.tl{display:flex;flex-direction:column;margin-top:26px;padding-left:20px;position:relative;}
+.tl::before{content:'';position:absolute;left:18px;top:22px;bottom:22px;width:1px;background:rgba(27,58,75,.12);}
+.tli{display:grid;grid-template-columns:42px 1fr;gap:18px;padding-bottom:26px;margin-left:-20px;}
+.tli:last-child{padding-bottom:0;}
+.tldot{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative;z-index:1;font-size:11px;font-weight:500;}
+.tldate{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);margin-bottom:4px;}
+.tltitle{font-size:14px;font-weight:500;color:var(--navy);margin-bottom:6px;}
+.tltext{font-size:13px;color:var(--slate);line-height:1.6;}
+.tlchips{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;}
+.tlchip{font-size:10px;padding:3px 9px;border-radius:20px;background:rgba(45,125,154,.08);color:var(--teal);letter-spacing:.06em;text-transform:uppercase;}
+
+/* USERS */
+.ugrid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:26px;}
+.ucard{padding:20px;border-radius:var(--r);border:var(--b);background:rgba(255,255,255,.7);}
+.uicon{width:38px;height:38px;border-radius:10px;margin-bottom:11px;display:flex;align-items:center;justify-content:center;}
+.utype{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);margin-bottom:5px;}
+.uname{font-size:14px;font-weight:500;color:var(--navy);margin-bottom:9px;}
+.uneeds{display:flex;flex-direction:column;gap:5px;}
+.un{font-size:12px;color:var(--slate);line-height:1.5;display:flex;align-items:flex-start;gap:6px;}
+.undot{width:4px;height:4px;border-radius:50%;background:var(--teal);flex-shrink:0;margin-top:6px;}
+
+/* ADMIN */
+.arow{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:26px;}
+.acard{border-radius:10px;overflow:hidden;border:var(--b);}
+.ahead{padding:12px 14px;display:flex;align-items:center;gap:8px;}
+.an{font-family:var(--serif);font-size:22px;font-weight:400;line-height:1;color:#fff;}
+.albl{font-size:11px;font-weight:500;color:#fff;letter-spacing:.04em;}
+.abody{padding:10px 14px 14px;background:rgba(255,255,255,.6);}
+.aex{font-size:12px;color:var(--navy);font-weight:500;margin-bottom:4px;}
+.ause{font-size:11px;color:var(--slate);line-height:1.5;}
+
+/* KPI */
+.kgrid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:26px;}
+.kcard{padding:18px 12px;border-radius:10px;border:0.5px solid rgba(168,216,234,.15);background:rgba(255,255,255,.06);text-align:center;}
+.knum{font-family:var(--serif);font-size:26px;color:var(--ice);margin-bottom:5px;}
+.ktgt{font-size:10px;color:rgba(168,216,234,.5);text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px;}
+.klbl{font-size:11px;color:rgba(168,216,234,.65);line-height:1.4;}
+
+/* COUNTRIES */
+.ctgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px;}
+.ctcard{border-radius:var(--r);overflow:hidden;border:0.5px solid rgba(168,216,234,.12);background:rgba(255,255,255,.07);}
+.ctflag{height:66px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.04);}
+.ctbody{padding:13px 15px;}
+.ctname{font-size:13px;font-weight:500;color:#fff;margin-bottom:3px;}
+.ctfocus{font-size:12px;color:var(--teal);margin-bottom:6px;}
+.ctinfo{font-size:11px;color:rgba(168,216,234,.6);line-height:1.5;}
+
+/* BA */
+.ba{display:grid;grid-template-columns:1fr 1fr;gap:3px;border-radius:var(--r);overflow:hidden;margin-top:8px;}
+.ba-b{background:#f0ede8;border:var(--b);padding:26px;}
+.ba-a{background:var(--navy);padding:26px;}
+.ba-lbl{font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+.ba-dot{width:7px;height:7px;border-radius:50%;}
+.ba-title{font-family:var(--serif);font-size:20px;margin-bottom:13px;}
+.ba-items{display:flex;flex-direction:column;gap:8px;margin-bottom:18px;}
+.ba-item{display:flex;align-items:flex-start;gap:8px;font-size:12px;line-height:1.5;}
+
+/* HOME HERO */
+.hero{padding:80px 48px 72px;display:grid;grid-template-columns:1fr 380px;gap:56px;align-items:start;border-bottom:var(--b);}
+.htag{font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--teal);margin-bottom:22px;display:block;}
+.hname{font-family:var(--serif);font-size:64px;font-weight:400;color:var(--navy);line-height:1.02;letter-spacing:-.025em;margin-bottom:28px;}
+.hname em{color:var(--teal);font-style:italic;}
+.hintro{font-size:18px;color:var(--slate);line-height:1.65;max-width:500px;margin-bottom:34px;}
+.hpills{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:38px;}
+.pill{font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:500;padding:7px 16px;border-radius:20px;border:1px solid rgba(27,58,75,.2);color:var(--navy);}
+.hacts{display:flex;gap:16px;align-items:center;}
+.hghost{font-size:13px;color:var(--teal);text-decoration:none;display:flex;align-items:center;gap:7px;cursor:pointer;}
+.scard{border:var(--b);border-radius:var(--r);overflow:hidden;background:rgba(255,255,255,.6);}
+.sr{padding:20px 24px;border-bottom:var(--b);display:flex;align-items:baseline;gap:14px;}
+.sr:last-child{border-bottom:none;}
+.sr-big{font-family:var(--serif);font-size:38px;color:var(--navy);line-height:1;}
+.sr-desc{font-size:13px;color:var(--slate);line-height:1.4;}
+
+/* WORK */
+.wsec{padding:70px 48px;}
+.wsec-h{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:34px;}
+.wsec-t{font-family:var(--serif);font-size:34px;color:var(--navy);font-weight:400;}
+.wsec-l{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);}
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;}
+.ccard{border-radius:var(--r);overflow:hidden;border:var(--b);background:rgba(255,255,255,.7);cursor:pointer;transition:border-color .2s,transform .2s;}
+.ccard:hover{border-color:var(--teal);transform:translateY(-2px);}
+.cthumb{height:180px;display:flex;align-items:flex-end;padding:16px;position:relative;overflow:hidden;}
+.tbg{position:absolute;font-family:var(--serif);font-size:80px;color:var(--navy);opacity:.06;bottom:-10px;right:-4px;line-height:1;white-space:nowrap;letter-spacing:-.04em;}
+.tpill{position:relative;z-index:1;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);font-weight:500;background:rgba(255,255,255,.8);padding:4px 10px;border-radius:20px;}
+.cbody{padding:22px 22px 24px;}
+.ctag{font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:500;color:var(--teal);margin-bottom:7px;display:block;}
+.cname{font-size:17px;font-weight:500;color:var(--navy);margin-bottom:9px;line-height:1.3;}
+.cdesc{font-size:13px;color:var(--slate);line-height:1.6;margin-bottom:15px;}
+.cchips{display:flex;gap:6px;flex-wrap:wrap;}
+.cchip{font-size:10px;text-transform:uppercase;letter-spacing:.08em;padding:3px 9px;border-radius:20px;background:rgba(27,58,75,.06);color:var(--navy);}
+
+/* LEGACY GRID */
+.lgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px;}
+.lcard{border-radius:10px;overflow:hidden;border:var(--b);background:rgba(255,255,255,.5);cursor:pointer;transition:border-color .2s;}
+.lcard:hover{border-color:var(--teal);}
+.lthumb{height:88px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
+.lbody{padding:12px 16px 14px;}
+.lclient{font-size:13px;font-weight:500;color:var(--navy);margin-bottom:3px;}
+.ltype{font-size:11px;color:var(--slate);}
+
+/* ABOUT */
+.asec{padding:70px 48px;display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;background:rgba(255,255,255,.4);border-top:var(--b);}
+.aquote{font-family:var(--serif);font-style:italic;font-size:28px;color:var(--navy);line-height:1.35;margin-bottom:18px;}
+.atext{font-size:14px;color:var(--slate);line-height:1.75;}
+.alist{display:flex;flex-direction:column;gap:12px;}
+.aitem{display:flex;align-items:flex-start;gap:13px;padding:16px 18px;border-radius:10px;border:var(--b);background:rgba(255,255,255,.6);}
+.aicon{width:32px;height:32px;border-radius:8px;background:var(--navy);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.aititle{font-size:13px;font-weight:500;color:var(--navy);margin-bottom:3px;}
+.aidesc{font-size:12px;color:var(--slate);line-height:1.5;}
+
+/* CONTACT */
+.cotsec{padding:70px 48px;border-top:var(--b);display:flex;align-items:center;justify-content:space-between;}
+.cot-title{font-family:var(--serif);font-size:40px;color:var(--navy);margin-bottom:10px;}
+.cot-sub{font-size:15px;color:var(--slate);}
+.cot-links{display:flex;flex-direction:column;gap:12px;align-items:flex-end;}
+.cot-link{font-size:14px;color:var(--teal);text-decoration:none;display:flex;align-items:center;gap:8px;}
+footer{padding:18px 48px;border-top:var(--b);display:flex;justify-content:space-between;align-items:center;}
+.ft-name{font-family:var(--serif);font-size:14px;color:var(--slate);}
+.ft-copy{font-size:11px;color:rgba(27,58,75,.35);letter-spacing:.06em;text-transform:uppercase;}
+
+/* CBT PERSONAS STRIP */
+.pgrid5{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:26px;}
+.pcard{padding:16px;border-radius:var(--r);border:var(--b);background:rgba(255,255,255,.7);}
+.pav{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:16px;margin-bottom:10px;}
+.pname{font-size:13px;font-weight:500;color:var(--navy);margin-bottom:2px;}
+.pcountry{font-size:11px;color:var(--teal);margin-bottom:8px;}
+.pchallenge{font-size:11px;color:var(--slate);line-height:1.5;}
+
+/* PATHWAY VISUAL */
+.path-steps{display:flex;gap:0;margin-top:26px;overflow:hidden;border-radius:var(--r);}
+.pstep{flex:1;padding:18px 14px;background:var(--navy);border-right:1px solid rgba(168,216,234,.1);position:relative;}
+.pstep:last-child{border-right:none;}
+.pstep-num{font-family:var(--serif);font-size:22px;color:var(--ice);opacity:.3;line-height:1;margin-bottom:6px;}
+.pstep-title{font-size:12px;font-weight:500;color:#fff;margin-bottom:5px;line-height:1.3;}
+.pstep-desc{font-size:11px;color:rgba(168,216,234,.6);line-height:1.4;}
+
+/* CASHBOOK FEATURES */
+.fgrid3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:26px;}
+.fcard{padding:20px;border-radius:var(--r);border:var(--b);background:rgba(255,255,255,.7);}
+.fcard-icon{width:36px;height:36px;border-radius:9px;display:flex;align-items:center;justify-content:center;margin-bottom:12px;}
+.fcard-title{font-size:13px;font-weight:500;color:var(--navy);margin-bottom:7px;}
+.fcard-text{font-size:12px;color:var(--slate);line-height:1.55;}
+
+/* SCREEN MOCKUP */
+.screens{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:26px;}
+.screen-card{border-radius:var(--r);overflow:hidden;border:var(--b);background:rgba(255,255,255,.7);}
+.screen-top{height:40px;display:flex;align-items:center;padding:0 14px;gap:6px;}
+.screen-dot{width:7px;height:7px;border-radius:50%;}
+.screen-body{padding:16px;}
+
+/* LEGACY PAGE */
+.legacy-hero{padding:56px 48px;border-bottom:var(--b);}
+.lh-tag{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--teal);margin-bottom:14px;display:block;}
+.lh-title{font-family:var(--serif);font-size:44px;color:var(--navy);font-weight:400;line-height:1.1;margin-bottom:16px;}
+.lh-sub{font-size:16px;color:var(--slate);line-height:1.65;max-width:600px;}
+.lg-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;padding:48px;}
+.lg-card{border-radius:var(--r);overflow:hidden;border:var(--b);background:rgba(255,255,255,.7);}
+.lg-thumb{height:140px;display:flex;align-items:flex-end;padding:14px;position:relative;overflow:hidden;}
+.lg-tbg{position:absolute;font-family:var(--serif);font-size:64px;color:var(--navy);opacity:.07;bottom:-8px;right:-2px;letter-spacing:-.04em;}
+.lg-pill{position:relative;z-index:1;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);background:rgba(255,255,255,.8);padding:4px 10px;border-radius:20px;}
+.lg-body{padding:20px 22px 22px;}
+.lg-client{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);margin-bottom:5px;}
+.lg-name{font-size:16px;font-weight:500;color:var(--navy);margin-bottom:9px;line-height:1.3;}
+.lg-desc{font-size:13px;color:var(--slate);line-height:1.6;margin-bottom:14px;}
+.lg-nums{display:flex;gap:20px;}
+.lgn-v{font-family:var(--serif);font-size:22px;color:var(--navy);line-height:1;}
+.lgn-l{font-size:11px;color:var(--slate);margin-top:2px;}
+
+/* MOBILE NAV TOGGLE (hidden on desktop) */
+.n-toggle{display:none;background:none;border:none;cursor:pointer;padding:6px;}
+
+/* ───────────────── RESPONSIVE ───────────────── */
+@media (max-width:900px){
+  nav{padding:16px 24px;}
+  .sec,.wsec,.istrip,.cov{padding-left:24px;padding-right:24px;}
+  .cov{padding-top:48px;}
+  .back-bar,.next-cs,.cotsec,.legacy-hero,footer{padding-left:24px;padding-right:24px;}
+  .hero{padding:48px 24px;grid-template-columns:1fr;gap:36px;}
+  .hname{font-size:48px;}
+  .hintro{font-size:16px;}
+  .cov-top{grid-template-columns:1fr;gap:28px;padding-bottom:36px;}
+  .cov-title{font-size:38px;}
+  .asec{grid-template-columns:1fr;gap:32px;padding:48px 24px;}
+  .lg-grid{grid-template-columns:1fr;gap:16px;padding:32px 24px;}
+  .jgrid,.rgrid,.ugrid,.pv-2,.screens{grid-template-columns:1fr;}
+  .ggrid,.fgrid3,.ctgrid{grid-template-columns:1fr 1fr;}
+  .fgrid{grid-template-columns:1fr;}
+  .lgrid{grid-template-columns:1fr 1fr;}
+  .pgrid5,.kgrid,.arow{grid-template-columns:repeat(2,1fr);}
+  .st,.st-l,.wsec-t{font-size:28px;}
+  .cot-title{font-size:32px;}
+}
+@media (max-width:600px){
+  /* collapse the desktop nav links into a tap menu */
+  .n-toggle{display:inline-flex;}
+  .n-links{position:absolute;top:100%;left:0;right:0;background:var(--warm);flex-direction:column;align-items:flex-start;gap:0;padding:0 24px;border-bottom:var(--b);max-height:0;overflow:hidden;transition:max-height .25s ease;}
+  .n-links.open{max-height:240px;padding:8px 24px 16px;}
+  .n-links .n-link,.n-links .n-cta{width:100%;padding:12px 0;}
+  .n-cta{text-align:left;border:none;color:var(--teal);}
+  nav{position:relative;flex-wrap:wrap;}
+
+  .hname{font-size:38px;}
+  .cov-title{font-size:30px;}
+  .hintro{font-size:15px;}
+  .cov-nums,.igrid{grid-template-columns:1fr 1fr;}
+  .cn{border-bottom:0.5px solid rgba(168,216,234,.1);}
+  .iitem{border-bottom:0.5px solid rgba(168,216,234,.1);}
+  .cn:nth-child(even),.iitem:nth-child(even){border-right:none;}
+  .ggrid,.fgrid3,.ctgrid,.lgrid,.pgrid5,.kgrid,.arow{grid-template-columns:1fr;}
+  .next-cs{flex-direction:column;align-items:flex-start;gap:18px;}
+  .cotsec{flex-direction:column;align-items:flex-start;gap:24px;}
+  .cot-links{align-items:flex-start;}
+  /* horizontal scroll for the dense step strips instead of squashing them */
+  .path-steps{overflow-x:auto;}
+  .path-steps .pstep{min-width:140px;}
+  .jstages{font-size:8px;}
+  .st,.st-l,.wsec-t{font-size:24px;}
+  footer{flex-direction:column;gap:10px;align-items:flex-start;}
+  .sec,.wsec,.istrip,.cov,.back-bar,.next-cs,.cotsec,.legacy-hero,footer{padding-left:18px;padding-right:18px;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="n-logo" onclick="showPage('home')">
+    <div class="n-mark"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="2" y="4" width="8" height="1.5" rx=".75" fill="#A8D8EA"/><rect x="2" y="7.5" width="11" height="1.5" rx=".75" fill="#6DC4E0"/><rect x="2" y="11" width="6" height="1.5" rx=".75" fill="#2D7D9A"/><circle cx="13.5" cy="11.5" r="3" fill="#2D7D9A"/><path d="M11.5 11.5l1.2 1.4 2-2.2" stroke="#A8D8EA" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <span class="n-name">Francesco <span>de Rosa</span></span>
+  </a>
+  <button class="n-toggle" aria-label="Menu" onclick="toggleMenu()"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M3 6h16M3 11h16M3 16h16" stroke="#1B3A4B" stroke-width="1.5" stroke-linecap="round"/></svg></button>
+  <div class="n-links" id="nav-links">
+    <span class="n-link" onclick="scrollToSection('work-section')">Work</span>
+    <span class="n-link" onclick="scrollToSection('about-section')">About</span>
+    <a class="n-cta" href="mailto:france.derosa@gmail.com">Get in touch</a>
+  </div>
+</nav>
+
+<!-- ══════════════════════ HOME ══════════════════════ -->
+<div id="page-home" class="page active">
+  <section class="hero">
+    <div>
+      <span class="htag f1">Digital &amp; Service Designer — Rome, IT</span>
+      <h1 class="hname f2">Designing<br>for <em>people,</em><br>systems for life.</h1>
+      <p class="hintro f3">15 years of experience turning complex problems into clear, usable experiences. From luxury e-commerce to humanitarian programmes in active crisis zones.</p>
+      <div class="hpills f3"><span class="pill">Service Design</span><span class="pill">UX Research</span><span class="pill">Design Strategy</span><span class="pill">Digital Transformation</span></div>
+      <div class="hacts f4">
+        <button class="btn-p" onclick="scrollToSection('work-section')">View work</button>
+        <a class="hghost" href="mailto:france.derosa@gmail.com"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="1" y="3" width="12" height="8" rx="1.5" stroke="#2D7D9A" stroke-width="1.2"/><path d="M1 4.5l6 4 6-4" stroke="#2D7D9A" stroke-width="1.2" stroke-linecap="round"/></svg>Contact me</a>
+      </div>
+    </div>
+    <div class="scard f2">
+      <div class="sr"><span class="sr-big">15</span><span class="sr-desc">years of experience across<br>luxury, tech, humanitarian</span></div>
+      <div class="sr"><span class="sr-big">7</span><span class="sr-desc">countries — field research<br>in active crisis contexts</span></div>
+      <div class="sr"><span class="sr-big">3</span><span class="sr-desc">national governments<br>supported through WFP</span></div>
+      <div class="sr"><span class="sr-big">20+</span><span class="sr-desc">iconic brands — Prada,<br>TIM, Ferrero, Luxottica</span></div>
+    </div>
+  </section>
+
+  <section class="wsec" id="work-section">
+    <div class="wsec-h"><h2 class="wsec-t">Featured work — WFP</h2></div>
+    <div class="fgrid">
+      <div class="ccard" onclick="showPage('grenada')">
+        <div class="cthumb" style="background:#E4F0EC;"><span class="tbg">Grenada</span><span class="tpill">Service Design · 2025</span></div>
+        <div class="cbody"><span class="ctag">Government · Service Design · Gap Analysis</span><p class="cname">Grenada — social protection system redesign</p><p class="cdesc">End-to-end service design with the Government of Grenada. Process mapping, gap analysis, and digital transformation blueprint for SEED + BRISP.</p><div class="cchips"><span class="cchip">Process mapping</span><span class="cchip">Gap analysis</span><span class="cchip">User journeys</span><span class="cchip">Gov. advisory</span></div></div>
+      </div>
+      <div class="ccard" onclick="showPage('hungermap')">
+        <div class="cthumb" style="background:#E0EBF3;"><span class="tbg">Hunger</span><span class="tpill">UX Research · 2024–25</span></div>
+        <div class="cbody"><span class="ctag">WFP · Data Visualization · Product Design</span><p class="cname">HungerMap — from static map to prediction engine</p><p class="cdesc">Full UX research cycle — workshops, Figma prototype, field testing in Nigeria, Yemen, and Cameroon for WFP's food security tool.</p><div class="cchips"><span class="cchip">UX Research</span><span class="cchip">Data viz</span><span class="cchip">Figma prototype</span><span class="cchip">Usability testing</span></div></div>
+      </div>
+      <div class="ccard" onclick="showPage('cbt')">
+        <div class="cthumb" style="background:#E8EDF3;"><span class="tbg">Dignity</span><span class="tpill">Humanitarian · Multi-country</span></div>
+        <div class="cbody"><span class="ctag">WFP · Service Research · 5 Countries</span><p class="cname">Designing for dignity in crisis</p><p class="cdesc">User journey maps for Cash-Based Transfer programmes. Field research across Gaza, Lebanon, Somalia, Ukraine, Jordan — designing for people in active conflict zones.</p><div class="cchips"><span class="cchip">Field research</span><span class="cchip">Journey maps</span><span class="cchip">Inclusive design</span></div></div>
+      </div>
+      <div class="ccard" onclick="showPage('cashbook')">
+        <div class="cthumb" style="background:#EAEfF2;"><span class="tbg">CashBook</span><span class="tpill">Product Design · WFP</span></div>
+        <div class="cbody"><span class="ctag">WFP · Product Design · Internal Tool</span><p class="cname">CashBook App — offline-first field operations tool</p><p class="cdesc">Concept and UX design of a WebApp for WFP field officers managing cash distributions — works offline, supports 3 user types, integrates with SharePoint.</p><div class="cchips"><span class="cchip">Product Design</span><span class="cchip">Offline-first</span><span class="cchip">Web App</span></div></div>
+      </div>
+    </div>
+
+    <div class="wsec-h" style="margin-top:48px;"><h2 class="wsec-t">Other work</h2><span class="wsec-l" style="cursor:pointer;" onclick="showPage('legacy')">View all →</span></div>
+    <div class="lgrid">
+      <div class="lcard" onclick="showPage('legacy')"><div class="lthumb" style="background:#F0EDE8;"><span style="font-family:var(--serif);font-size:28px;color:var(--navy);opacity:.12;">Prada</span></div><div class="lbody"><p class="lclient">Prada / Miu Miu</p><p class="ltype">Art Direction · E-commerce · 34 countries · 8 languages</p></div></div>
+      <div class="lcard" onclick="showPage('legacy')"><div class="lthumb" style="background:#ECEEF0;"><span style="font-family:var(--serif);font-size:28px;color:var(--navy);opacity:.12;">Edenred</span></div><div class="lbody"><p class="lclient">Edenred — Ticket Restaurant</p><p class="ltype">App Design · 2M+ iOS · 4.6 rating · 650K monthly users</p></div></div>
+      <div class="lcard" onclick="showPage('legacy')"><div class="lthumb" style="background:#E8EBF0;"><span style="font-family:var(--serif);font-size:28px;color:var(--navy);opacity:.12;">TIM</span></div><div class="lbody"><p class="lclient">TIM Music</p><p class="ltype">UX/UI · Omnichannel · 7 device types · 30M+ songs</p></div></div>
+    </div>
+  </section>
+
+  <section class="asec" id="about-section">
+    <div><p class="aquote">"I design the invisible thread between users and services."</p><p class="atext">I'm a Digital and Service Design Lead with 15 years of experience working across public sector, luxury, finance, healthcare, and humanitarian contexts. I work from research to strategy to execution — always starting with people.</p></div>
+    <div class="alist">
+      <div class="aitem"><div class="aicon"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="5.5" r="3" stroke="#A8D8EA" stroke-width="1.2"/><path d="M2 14c0-3.314 2.462-5 5.5-5s5.5 1.686 5.5 5" stroke="#A8D8EA" stroke-width="1.2" stroke-linecap="round"/></svg></div><div><p class="aititle">Human-centered, always</p><p class="aidesc">Every project starts with understanding the people affected — not the system.</p></div></div>
+      <div class="aitem"><div class="aicon"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><rect x="2" y="2" width="11" height="11" rx="2" stroke="#A8D8EA" stroke-width="1.2"/><path d="M5 7.5h5M5 10h3" stroke="#A8D8EA" stroke-width="1.2" stroke-linecap="round"/></svg></div><div><p class="aititle">From research to delivery</p><p class="aidesc">Research, strategy, process mapping, UX, UI, and implementation advisory.</p></div></div>
+      <div class="aitem"><div class="aicon"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M7.5 1.5L9 5h3.5L9.8 7.2l.8 3.3-3.1-1.9-3.1 1.9.8-3.3L2.5 5H6L7.5 1.5z" stroke="#A8D8EA" stroke-width="1.2" stroke-linejoin="round"/></svg></div><div><p class="aititle">High-stakes contexts</p><p class="aidesc">Luxury brands and conflict zones. Both demand the same rigour.</p></div></div>
+    </div>
+  </section>
+
+  <section class="cotsec"><div><h2 class="cot-title">Let's work together.</h2><p class="cot-sub">Available for senior design roles, consulting, and advisory.</p></div><div class="cot-links"><a class="cot-link" href="mailto:france.derosa@gmail.com"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="1" y="3" width="12" height="8" rx="1.5" stroke="#2D7D9A" stroke-width="1.2"/><path d="M1 4.5l6 4 6-4" stroke="#2D7D9A" stroke-width="1.2" stroke-linecap="round"/></svg>france.derosa@gmail.com</a><a class="cot-link" href="https://www.linkedin.com/in/francescoderosa" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="1" y="1" width="12" height="12" rx="3" stroke="#2D7D9A" stroke-width="1.2"/><path d="M5 10V6M5 4.5V4M9 10V7.5c0-1-.5-1.5-1.5-1.5S6 6.5 6 7.5V10" stroke="#2D7D9A" stroke-width="1.2" stroke-linecap="round"/></svg>LinkedIn</a></div></section>
+  <footer><span class="ft-name">Francesco de Rosa</span><span class="ft-copy">© 2025 — Digital &amp; Service Designer</span></footer>
+</div>
+
+<!-- ══════════════════════ GRENADA ══════════════════════ -->
+<div id="page-grenada" class="page">
+  <div class="back-bar" onclick="showPage('home')"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 2L4 7l5 5" stroke="#5B8FA8" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>All work</div>
+  <div class="cov">
+    <div class="cov-top">
+      <div><span class="cov-tag">WFP · Government of Grenada · 2025</span><h1 class="cov-title">Redesigning<br>social protection<br>in <em>Grenada.</em></h1><p class="cov-sub">End-to-end service design engagement with the Government of Grenada — mapping, analysing, and reimagining how cash assistance reaches the most vulnerable.</p><div class="cov-chips"><span class="cov-chip">Service Design</span><span class="cov-chip">Process Mapping</span><span class="cov-chip">Gap Analysis</span><span class="cov-chip">Gov. Advisory</span><span class="cov-chip">Digital Strategy</span></div></div>
+      <div class="cov-meta"><div class="cm-i"><p class="cm-l">Role</p><p class="cm-v">Digital &amp; Service Design Lead, WFP</p></div><div class="cm-i"><p class="cm-l">Client</p><p class="cm-v">Ministry of Social Development, Grenada</p></div><div class="cm-i"><p class="cm-l">Programmes</p><p class="cm-v">SEED (social protection) + BRISP (Hurricane Beryl emergency)</p></div><div class="cm-i"><p class="cm-l">Deliverables</p><p class="cm-v">Process maps · Gap analysis · User journeys · Digital blueprint</p></div></div>
+    </div>
+    <div class="cov-nums"><div class="cn"><p class="cn-big">2</p><p class="cn-lbl">programmes<br>fully mapped</p></div><div class="cn"><p class="cn-big">69</p><p class="cn-lbl">days — max<br>process time</p></div><div class="cn"><p class="cn-big">38+</p><p class="cn-lbl">process steps<br>documented</p></div><div class="cn"><p class="cn-big">1 gov</p><p class="cn-lbl">national government<br>supported</p></div></div>
+  </div>
+  <section class="sec alt">
+    <span class="ey">The challenge — process complexity</span><h2 class="st">A 69-day chain to reach one family.</h2>
+    <div style="margin-top:26px;"><div style="display:flex;justify-content:space-between;margin-bottom:8px;"><span style="font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--slate)">Application</span><span style="font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--slate)">Data &amp; Eligibility</span><span style="font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--slate)">Payment list</span><span style="font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--slate)">Distribution</span></div><div class="pb-wrap"><div class="pb-seg" style="width:12%;background:#2D7D9A"><span class="pb-lbl">4</span></div><div class="pb-seg" style="width:.5%;background:var(--warm)"></div><div class="pb-seg" style="width:23%;background:#1B3A4B"><span class="pb-lbl">9 steps</span></div><div class="pb-seg" style="width:.5%;background:var(--warm)"></div><div class="pb-seg" style="width:29%;background:#5B8FA8"><span class="pb-lbl">15 steps</span></div><div class="pb-seg" style="width:.5%;background:var(--warm)"></div><div class="pb-seg" style="flex:1;background:#0C3040"><span class="pb-lbl">10+ steps</span></div></div><div style="display:flex;justify-content:space-between;margin-top:8px;"><span style="font-size:10px;color:var(--slate)">Day 0</span><span style="font-size:10px;color:var(--slate)">Day 9</span><span style="font-size:10px;color:var(--slate)">Day 26</span><span style="font-size:10px;color:var(--slate)">Day 40</span><span style="font-size:10px;color:var(--slate)">Day 69</span></div></div>
+    <div class="pv-2"><div class="pv-card"><p class="pv-head">Today — SEED process</p><div class="pv-row"><span class="pv-name">Manual / paper</span><div class="pv-bg"><div class="pv-fill" style="width:82%;background:#1B3A4B"></div></div><span class="pv-val">82%</span></div><div class="pv-row"><span class="pv-name">Digital</span><div class="pv-bg"><div class="pv-fill" style="width:18%;background:#2D7D9A"></div></div><span class="pv-val">18%</span></div></div><div class="pv-card"><p class="pv-head">Target — after redesign</p><div class="pv-row"><span class="pv-name">Manual / paper</span><div class="pv-bg"><div class="pv-fill" style="width:20%;background:#1B3A4B"></div></div><span class="pv-val">20%</span></div><div class="pv-row"><span class="pv-name">Digital</span><div class="pv-bg"><div class="pv-fill" style="width:80%;background:#2D7D9A"></div></div><span class="pv-val">80%</span></div></div></div>
+  </section>
+  <section class="sec">
+    <span class="ey">User research — beneficiary journeys</span><h2 class="st">Two people. Two stories. The same broken system.</h2>
+    <div class="jgrid">
+      <div class="jcard"><div class="jhead"><div class="jav" style="background:#E8F2EC;color:#1B5E3B">J</div><div><p class="jname">Joseph, 68</p><p class="jrole">Cocoa farmer · Saint Andrew · BRISP</p></div></div><div class="jstages"><span class="jstage">Awareness</span><span class="jstage">Apply</span><span class="jstage">Wait</span><span class="jstage">Payment</span><span class="jstage">End</span></div><div class="jcurve"><svg viewBox="0 0 300 55" width="100%" style="display:block"><path d="M0,48 C40,48 50,25 80,26 C110,27 120,44 150,46 C180,48 190,16 220,18 C250,20 270,35 300,28" fill="none" stroke="#2D7D9A" stroke-width="2"/><circle cx="0" cy="48" r="3" fill="#2D7D9A"/><circle cx="80" cy="26" r="3" fill="#1D9E75"/><circle cx="150" cy="46" r="3" fill="#E24B4A"/><circle cx="220" cy="18" r="3" fill="#1D9E75"/><circle cx="300" cy="28" r="3" fill="#BA7517"/></svg></div><div class="jmoms"><div class="jmom"><div class="jdot" style="background:#1D9E75"></div>Saw a poster near his house — a friend encouraged him to apply</div><div class="jmom"><div class="jdot" style="background:#E24B4A"></div>Months of silence — no status update after registration</div><div class="jmom"><div class="jdot" style="background:#E24B4A"></div>Payment arrived late with wrong amount, no explanation</div><div class="jmom"><div class="jdot" style="background:#BA7517"></div>Programme ended — still in hurricane season, still worried</div></div><p class="jquote">"I suggest the Ministry comes and sees what I've done with my money."</p></div>
+      <div class="jcard"><div class="jhead"><div class="jav" style="background:#E3EEF5;color:#1B3A4B">A</div><div><p class="jname">Abigail, early 20s</p><p class="jrole">Student · Saint John · BRISP</p></div></div><div class="jstages"><span class="jstage">Awareness</span><span class="jstage">Apply</span><span class="jstage">Wait</span><span class="jstage">Payment</span><span class="jstage">End</span></div><div class="jcurve"><svg viewBox="0 0 300 55" width="100%" style="display:block"><path d="M0,48 C40,48 50,26 80,26 C110,26 120,50 150,52 C180,54 190,12 220,14 C250,16 270,28 300,52" fill="none" stroke="#2D7D9A" stroke-width="2"/><circle cx="0" cy="48" r="3" fill="#2D7D9A"/><circle cx="80" cy="26" r="3" fill="#1D9E75"/><circle cx="150" cy="52" r="3" fill="#E24B4A"/><circle cx="220" cy="14" r="3" fill="#1D9E75"/><circle cx="300" cy="52" r="3" fill="#E24B4A"/></svg></div><div class="jmoms"><div class="jmom"><div class="jdot" style="background:#1D9E75"></div>Applied digitally with staff support — smooth experience</div><div class="jmom"><div class="jdot" style="background:#E24B4A"></div>Months of silence — gave up hope, stopped trying to call</div><div class="jmom"><div class="jdot" style="background:#1D9E75"></div>Selected — continued university thanks to the assistance</div><div class="jmom"><div class="jdot" style="background:#E24B4A"></div>Cash pickup: everyone sees how much you receive, no privacy</div></div><p class="jquote">"The money was like a breath of fresh air."</p></div>
+    </div>
+  </section>
+  <section class="sec alt">
+    <span class="ey">Gap analysis</span><h2 class="st">Six systemic gaps. All fixable.</h2>
+    <div class="ggrid"><div class="gcard"><div class="gtop"><p class="gbig">69</p><div class="gicon" style="background:#FEF3E2"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="7" stroke="#BA7517" stroke-width="1.3"/><path d="M9 5v4l2.5 2" stroke="#BA7517" stroke-width="1.3" stroke-linecap="round"/></svg></div></div><div class="gbody"><p class="gtitle">Process time</p><p class="gtext">Up to 69 days application to payment. 82% manual steps.</p><span class="gsev" style="background:#FEF3E2;color:#854F0B">Critical</span></div></div><div class="gcard"><div class="gtop"><p class="gbig">0</p><div class="gicon" style="background:#FCF0EF"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="3" y="4" width="12" height="10" rx="2" stroke="#A32D2D" stroke-width="1.3"/><path d="M6 8h6M6 11h4" stroke="#A32D2D" stroke-width="1.3" stroke-linecap="round"/></svg></div></div><div class="gbody"><p class="gtitle">Digital audit trail</p><p class="gtext">Sensitive paysheets couriered by hand. No encryption.</p><span class="gsev" style="background:#FCF0EF;color:#791F1F">Critical</span></div></div><div class="gcard"><div class="gtop"><p class="gbig">0%</p><div class="gicon" style="background:#E8F4F0"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="7" r="3.5" stroke="#0F6E56" stroke-width="1.3"/><path d="M3 16c0-3.314 2.686-5 6-5s6 1.686 6 5" stroke="#0F6E56" stroke-width="1.3" stroke-linecap="round"/></svg></div></div><div class="gbody"><p class="gtitle">Non-selected notified</p><p class="gtext">Zero communication to rejected applicants. They wait for months.</p><span class="gsev" style="background:#FEF3E2;color:#854F0B">High</span></div></div><div class="gcard"><div class="gtop"><p class="gbig">2</p><div class="gicon" style="background:#E3EEF5"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="7" stroke="#185FA5" stroke-width="1.3"/><path d="M6 9h6M9 6v6" stroke="#185FA5" stroke-width="1.3" stroke-linecap="round"/></svg></div></div><div class="gbody"><p class="gtitle">Islands excluded</p><p class="gtext">Carriacou and Petite Martinique have zero SEED coverage.</p><span class="gsev" style="background:#E6F1FB;color:#185FA5">Medium</span></div></div><div class="gcard"><div class="gtop"><p class="gbig">4×</p><div class="gicon" style="background:#F0F4EE"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M4 5h10M4 9h10M4 13h6" stroke="#3B6D11" stroke-width="1.3" stroke-linecap="round"/></svg></div></div><div class="gbody"><p class="gtitle">Approval loops</p><p class="gtext">90-page paysheets re-printed for every error. Four manual stages.</p><span class="gsev" style="background:#FEF3E2;color:#854F0B">High</span></div></div><div class="gcard"><div class="gtop"><p class="gbig">0</p><div class="gicon" style="background:#F2EEF8"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 3v6l3.5 2" stroke="#534AB7" stroke-width="1.3" stroke-linecap="round"/><path d="M5 14s1-2 4-2 4 2 4 2" stroke="#534AB7" stroke-width="1.3" stroke-linecap="round"/></svg></div></div><div class="gbody"><p class="gtitle">Exit strategy</p><p class="gtext">No link between assistance and livelihood programmes.</p><span class="gsev" style="background:#E6F1FB;color:#185FA5">Medium</span></div></div></div>
+  </section>
+  <section class="sec">
+    <span class="ey">Recommendations</span><h2 class="st">Four pillars for lasting change.</h2>
+    <div class="rgrid"><div class="rcard"><p class="rnum">01</p><div class="rhead"><div class="ricon"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><rect x="2" y="3" width="11" height="9" rx="2" stroke="#A8D8EA" stroke-width="1.2"/><path d="M5 7.5h5M5 10h4" stroke="#A8D8EA" stroke-width="1.2" stroke-linecap="round"/></svg></div><p class="rtitle">Digital transformation</p></div><p class="rtext">Mobile data collection, e-signatures, automated SMS, digital audit trails. From 69 days to near-real-time.</p><div class="rchips"><span class="rchip">KoBoToolbox</span><span class="rchip">SMS automation</span><span class="rchip">E-signatures</span></div></div><div class="rcard"><p class="rnum">02</p><div class="rhead"><div class="ricon"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M7.5 1.5L9 5h3.5L9.8 7.2l.8 3.3-3.1-1.9-3.1 1.9.8-3.3L2.5 5H6L7.5 1.5z" stroke="#A8D8EA" stroke-width="1.2" stroke-linejoin="round"/></svg></div><p class="rtitle">Assurance &amp; controls</p></div><p class="rtext">Data protection protocols, FSP reconciliation, digital paysheet transmission.</p><div class="rchips"><span class="rchip">Data privacy</span><span class="rchip">FSP reconciliation</span></div></div><div class="rcard"><p class="rnum">03</p><div class="rhead"><div class="ricon"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><rect x="2" y="2" width="11" height="11" rx="2" stroke="#A8D8EA" stroke-width="1.2"/><path d="M5 7.5h5M7.5 5v5" stroke="#A8D8EA" stroke-width="1.2" stroke-linecap="round"/></svg></div><p class="rtitle">Maximise existing tools</p></div><p class="rtext">BMIS has case management — but staff barely use it. Capacity building before new investment.</p><div class="rchips"><span class="rchip">BMIS adoption</span><span class="rchip">Staff training</span></div></div><div class="rcard"><p class="rnum">04</p><div class="rhead"><div class="ricon"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="5.5" stroke="#A8D8EA" stroke-width="1.2"/><path d="M7.5 5v2.5l1.5 1.5" stroke="#A8D8EA" stroke-width="1.2" stroke-linecap="round"/></svg></div><p class="rtitle">Coverage &amp; exit strategy</p></div><p class="rtext">Expand to Carriacou and Petite Martinique. Link SEED to livelihoods.</p><div class="rchips"><span class="rchip">Island expansion</span><span class="rchip">Livelihood link</span></div></div></div>
+  </section>
+  <div class="istrip"><span class="ey-l">Impact</span><p class="st-l">Why this work matters.</p><div class="igrid"><div class="iitem"><p class="ibig">2</p><p class="ilbl">national programmes<br>fully mapped</p></div><div class="iitem"><p class="ibig">38+</p><p class="ilbl">process steps<br>documented</p></div><div class="iitem"><p class="ibig">1 gov</p><p class="ilbl">national government<br>advisory supported</p></div><div class="iitem"><p class="ibig">Real</p><p class="ilbl">recommendations built<br>on Joseph &amp; Abigail</p></div></div></div>
+  <div class="next-cs"><div><span class="next-lbl">Next case study</span><p class="next-title">HungerMap — prediction engine.</p></div><button class="next-btn" onclick="showPage('hungermap')">View next →</button></div>
+</div>
+
+<!-- ══════════════════════ HUNGERMAP ══════════════════════ -->
+<div id="page-hungermap" class="page">
+  <div class="back-bar" onclick="showPage('home')"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 2L4 7l5 5" stroke="#5B8FA8" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>All work</div>
+  <div class="cov">
+    <div class="cov-top">
+      <div><span class="cov-tag">WFP · Google.org · UI Design Lead + UX Research · 2024–2025</span><h1 class="cov-title">HungerMap —<br>one platform,<br><em>two worlds.</em></h1><p class="cov-sub">Led the UX research, UI design, and design leadership of the new HungerMap — a dual-audience platform for the general public (donors, governments, media) and for WFP experts (VAM Officers, Country Office colleagues). Balancing WFP brand identity with Google.org donor requirements.</p><div class="cov-chips"><span class="cov-chip">UI Design Lead</span><span class="cov-chip">UX Research</span><span class="cov-chip">Data Visualization</span><span class="cov-chip">Dual Audience</span><span class="cov-chip">WFP Brand</span><span class="cov-chip">Google.org</span></div></div>
+      <div class="cov-meta"><div class="cm-i"><p class="cm-l">Role</p><p class="cm-v">UI Design Lead + UX Research Lead, WFP</p></div><div class="cm-i"><p class="cm-l">Stakeholders</p><p class="cm-v">WFP internal + Google.org (principal donor)</p></div><div class="cm-i"><p class="cm-l">Audiences</p><p class="cm-v">External: donors, governments, media · Internal: VAM Officers, CO colleagues</p></div><div class="cm-i"><p class="cm-l">Timeline</p><p class="cm-v">Jul 2024 → Mar 2025 (9 months)</p></div></div>
+    </div>
+    <div class="cov-nums"><div class="cn"><p class="cn-big">2</p><p class="cn-lbl">audiences<br>one platform</p></div><div class="cn"><p class="cn-big">2</p><p class="cn-lbl">brand identities<br>balanced</p></div><div class="cn"><p class="cn-big">9mo</p><p class="cn-lbl">research to<br>UI delivery</p></div><div class="cn"><p class="cn-big">3</p><p class="cn-lbl">countries<br>tested</p></div></div>
+  </div>
+
+  <section class="sec alt">
+    <span class="ey">My role — design leadership</span>
+    <h2 class="st">Not just research. End-to-end design ownership.</h2>
+    <div class="ugrid">
+      <div class="ucard"><div class="uicon" style="background:#E1F5EE"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="7" r="3.5" stroke="#0F6E56" stroke-width="1.3"/><path d="M3 16c0-3.314 2.686-5 6-5s6 1.686 6 5" stroke="#0F6E56" stroke-width="1.3" stroke-linecap="round"/></svg></div><p class="utype">Research</p><p class="uname">UX Research Lead</p><div class="uneeds"><div class="un"><div class="undot"></div>Workshops with country officers in Nigeria, Yemen, Cameroon</div><div class="un"><div class="undot"></div>Critical user journeys for two distinct audiences</div><div class="un"><div class="undot"></div>UX highlights report and workshop summary</div></div></div>
+      <div class="ucard"><div class="uicon" style="background:#E6F1FB"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="2" y="2" width="14" height="14" rx="3" stroke="#185FA5" stroke-width="1.3"/><path d="M6 7h6M6 10h4" stroke="#185FA5" stroke-width="1.3" stroke-linecap="round"/></svg></div><p class="utype">Design</p><p class="uname">UI Design Lead</p><div class="uneeds"><div class="un"><div class="undot"></div>Led full UI production of both platform versions in Figma</div><div class="un"><div class="undot"></div>Visual system balancing WFP brand + Google.org requirements</div><div class="un"><div class="undot"></div>Component library, data viz system, admin level interactions</div></div></div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <span class="ey">The dual audience — two completely different users</span>
+    <h2 class="st">One platform. Two worlds.</h2>
+    <p style="font-size:14px;color:var(--slate);line-height:1.7;max-width:580px;margin-bottom:24px;">The previous HungerMap had one mode, built for internal technical use. The new platform needed to serve two very different audiences without creating two separate products — each with its own language, mental model, and information needs.</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;">
+      <div style="padding:22px;border-radius:12px;border:var(--b);background:rgba(0,159,218,.06);">
+        <p style="font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#007BA8;font-weight:500;margin-bottom:10px;">External audience</p>
+        <p style="font-size:15px;font-weight:500;color:var(--navy);margin-bottom:10px;">Donors · Country governments · Media · NGOs</p>
+        <div style="display:flex;flex-direction:column;gap:6px;">
+          <div class="un"><div class="undot"></div>Understand the scale and geography of hunger</div>
+          <div class="un"><div class="undot"></div>Connect with human context and stories from the field</div>
+          <div class="un"><div class="undot"></div>Share data to advocate and mobilise funding</div>
+          <div class="un"><div class="undot"></div>Language: accessible, visual-first, story-driven</div>
+        </div>
+      </div>
+      <div style="padding:22px;border-radius:12px;border:var(--b);background:rgba(27,58,75,.05);">
+        <p style="font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);font-weight:500;margin-bottom:10px;">Internal audience</p>
+        <p style="font-size:15px;font-weight:500;color:var(--navy);margin-bottom:10px;">VAM Officers · Country Office colleagues</p>
+        <div style="display:flex;flex-direction:column;gap:6px;">
+          <div class="un"><div class="undot"></div>Anticipate crises 30 days ahead with AI forecasting</div>
+          <div class="un"><div class="undot"></div>Drill to district level to plan interventions precisely</div>
+          <div class="un"><div class="undot"></div>Overlay conflict, rainfall, and market price data layers</div>
+          <div class="un"><div class="undot"></div>Language: technical, data-dense, decision-support</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec alt">
+    <span class="ey">Before / After — the visual transformation</span>
+    <h2 class="st">From a map tool to a dual-audience platform.</h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:24px;">
+      <div style="border-radius:12px;overflow:hidden;border:var(--b);">
+        <div style="padding:10px 14px;background:#f5f0eb;display:flex;align-items:center;justify-content:space-between;"><span style="font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--slate);">Old HungerMap</span><span style="font-size:10px;padding:3px 10px;border-radius:20px;background:rgba(27,58,75,.08);color:var(--slate);">Single version</span></div>
+        <div style="background:#1a2a3a;padding:0;">
+          <div style="height:32px;background:#003C5F;display:flex;align-items:center;padding:0 12px;"><span style="font-size:9px;font-weight:700;color:#fff;letter-spacing:.08em;">WFP HUNGERMAP</span></div>
+          <div style="height:160px;background:#1a2a3a;position:relative;overflow:hidden;">
+            <svg viewBox="0 0 380 160" width="100%" style="display:block"><rect width="380" height="160" fill="#1a2a3a"/><ellipse cx="90" cy="90" rx="50" ry="35" fill="#CC3333" opacity=".35"/><ellipse cx="190" cy="72" rx="70" ry="42" fill="#996600" opacity=".3"/><ellipse cx="280" cy="100" rx="52" ry="33" fill="#CC3333" opacity=".28"/><ellipse cx="115" cy="60" rx="38" ry="26" fill="#CC3333" opacity=".4"/></svg>
+            <div style="position:absolute;right:0;top:0;bottom:0;width:120px;background:rgba(0,20,35,.85);padding:10px;"><p style="font-size:8px;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px;">Legend</p><div style="display:flex;align-items:center;gap:5px;margin-bottom:4px;"><div style="width:7px;height:7px;border-radius:2px;background:#CC3333"></div><span style="font-size:8px;color:rgba(255,255,255,.5)">Crisis</span></div><div style="display:flex;align-items:center;gap:5px;margin-bottom:4px;"><div style="width:7px;height:7px;border-radius:2px;background:#FF8C00"></div><span style="font-size:8px;color:rgba(255,255,255,.5)">Emergency</span></div><div style="display:flex;align-items:center;gap:5px;margin-bottom:4px;"><div style="width:7px;height:7px;border-radius:2px;background:#FFD700"></div><span style="font-size:8px;color:rgba(255,255,255,.5)">Stressed</span></div></div>
+          </div>
+          <div style="height:50px;background:#0d1b2a;padding:8px 12px;display:flex;gap:14px;align-items:center;"><div style="text-align:center;"><p style="font-size:15px;color:rgba(255,255,255,.5);font-weight:500;">847M</p><p style="font-size:8px;color:rgba(255,255,255,.3)">food insecure</p></div><div style="width:0.5px;height:24px;background:rgba(255,255,255,.1)"></div><div style="text-align:center;"><p style="font-size:15px;color:rgba(255,255,255,.5);font-weight:500;">56</p><p style="font-size:8px;color:rgba(255,255,255,.3)">countries</p></div></div>
+          <div style="padding:8px 12px;background:#0d1b2a;border-top:0.5px solid rgba(255,255,255,.06);display:flex;flex-direction:column;gap:4px;"><div style="font-size:9px;color:rgba(255,255,255,.3);display:flex;align-items:center;gap:5px;"><span style="width:5px;height:5px;border-radius:50%;background:#E24B4A;flex-shrink:0"></span>No forecasting — current state only</div><div style="font-size:9px;color:rgba(255,255,255,.3);display:flex;align-items:center;gap:5px;"><span style="width:5px;height:5px;border-radius:50%;background:#E24B4A;flex-shrink:0"></span>No storytelling layer — data only</div><div style="font-size:9px;color:rgba(255,255,255,.3);display:flex;align-items:center;gap:5px;"><span style="width:5px;height:5px;border-radius:50%;background:#E24B4A;flex-shrink:0"></span>Single audience, no drill-down</div></div>
+        </div>
+      </div>
+      <div style="border-radius:12px;overflow:hidden;border:0.5px solid rgba(0,159,218,.3);">
+        <div style="padding:10px 14px;background:#E3F5FC;display:flex;align-items:center;justify-content:space-between;"><span style="font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:#007BA8;">New — Public version</span><span style="font-size:10px;padding:3px 10px;border-radius:20px;background:rgba(0,159,218,.1);color:#007BA8;">Donors · Governments · Media</span></div>
+        <div style="background:#0A1520;">
+          <div style="height:38px;background:#009FDA;display:flex;align-items:center;padding:0 12px;gap:8px;"><span style="font-size:11px;font-weight:700;color:#fff;">WFP</span><div style="width:1px;height:14px;background:rgba(255,255,255,.3)"></div><span style="font-size:9px;color:rgba(255,255,255,.8)">HungerMap</span><div style="display:flex;gap:10px;margin-left:auto;"><span style="font-size:8px;color:#fff;font-weight:500;border-bottom:1.5px solid #fff;padding-bottom:2px">Explore</span><span style="font-size:8px;color:rgba(255,255,255,.65)">Stories</span><span style="font-size:8px;color:rgba(255,255,255,.65)">Data</span></div></div>
+          <div style="background:linear-gradient(135deg,#003C5F 0%,#005F8E 100%);padding:14px 12px;">
+            <p style="font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:5px;">Global food security · 2025</p>
+            <p style="font-family:var(--serif);font-size:15px;color:#fff;line-height:1.25;margin-bottom:7px;">282 million people facing<br><em style="color:#A8D8EA;">acute food insecurity.</em></p>
+            <div style="display:flex;gap:12px;"><div style="text-align:center;"><p style="font-family:var(--serif);font-size:16px;color:#fff;">282M</p><p style="font-size:8px;color:rgba(255,255,255,.5);margin-top:2px">food insecure</p></div><div style="text-align:center;"><p style="font-family:var(--serif);font-size:16px;color:#fff;">58</p><p style="font-size:8px;color:rgba(255,255,255,.5);margin-top:2px">countries</p></div><div style="text-align:center;"><p style="font-family:var(--serif);font-size:16px;color:#fff;">+12%</p><p style="font-size:8px;color:rgba(255,255,255,.5);margin-top:2px">vs last year</p></div></div>
+          </div>
+          <div style="height:110px;background:#091828;position:relative;overflow:hidden;"><svg viewBox="0 0 380 110" width="100%" style="display:block"><rect width="380" height="110" fill="#091828"/><ellipse cx="80" cy="70" rx="50" ry="34" fill="#E24B4A" opacity=".28"/><ellipse cx="170" cy="55" rx="65" ry="38" fill="#BA7517" opacity=".22"/><ellipse cx="270" cy="75" rx="48" ry="30" fill="#E24B4A" opacity=".22"/><ellipse cx="100" cy="45" rx="35" ry="24" fill="#E24B4A" opacity=".38"/><circle cx="100" cy="45" r="4" fill="#fff" opacity=".7"/><rect x="108" y="37" width="78" height="20" rx="3" fill="rgba(0,0,0,.65)"/><text x="112" y="47" font-size="6.5" fill="#A8D8EA" font-family="sans-serif">Nigeria</text><text x="112" y="54" font-size="6" fill="#FFA0A0" font-family="sans-serif">25.3M in crisis</text></svg></div>
+          <div style="padding:8px 12px;background:#0A1520;border-top:0.5px solid rgba(168,216,234,.08);"><p style="font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:rgba(0,159,218,.8);margin-bottom:6px;">Stories from the field</p><div style="background:rgba(255,255,255,.05);border-radius:6px;padding:7px 9px;display:flex;gap:7px;align-items:center;margin-bottom:5px;border:0.5px solid rgba(255,255,255,.07);"><div style="width:22px;height:22px;border-radius:50%;background:#FAECE7;color:#993C1D;display:flex;align-items:center;justify-content:center;font-size:10px;flex-shrink:0;">N</div><div><p style="font-size:9px;font-weight:500;color:#fff;">Niger Delta</p><p style="font-size:8px;color:rgba(255,255,255,.4);">2.1M people · Conflict-driven</p></div></div><div style="background:rgba(255,255,255,.05);border-radius:6px;padding:7px 9px;display:flex;gap:7px;align-items:center;border:0.5px solid rgba(255,255,255,.07);"><div style="width:22px;height:22px;border-radius:50%;background:#E8F2EC;color:#1B5E3B;display:flex;align-items:center;justify-content:center;font-size:10px;flex-shrink:0;">Y</div><div><p style="font-size:9px;font-weight:500;color:#fff;">Southern Yemen</p><p style="font-size:8px;color:rgba(255,255,255,.4);">1.8M people · Climate + conflict</p></div></div></div>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:16px;border-radius:12px;overflow:hidden;border:0.5px solid rgba(27,58,75,.15);">
+      <div style="padding:10px 14px;background:#E3EEF5;display:flex;align-items:center;justify-content:space-between;"><span style="font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--navy);">New — Internal version</span><span style="font-size:10px;padding:3px 10px;border-radius:20px;background:rgba(27,58,75,.08);color:var(--navy);">VAM Officers · Country Office colleagues</span></div>
+      <div style="background:#040E16;">
+        <div style="height:38px;background:#1B3A4B;display:flex;align-items:center;padding:0 12px;gap:8px;"><span style="font-size:11px;font-weight:500;color:#fff;">HungerMap Internal</span><div style="display:flex;gap:6px;margin-left:auto;"><span style="font-size:9px;padding:3px 9px;border-radius:20px;background:rgba(45,125,154,.2);color:var(--ice);border:0.5px solid rgba(45,125,154,.3);">Live data</span><span style="font-size:9px;padding:3px 9px;border-radius:20px;background:rgba(0,159,218,.15);color:#7DD4F5;">30-day forecast</span></div></div>
+        <div style="height:8px;background:#0d1e2c;display:flex;align-items:center;padding:0 12px;gap:6px;border-bottom:0.5px solid rgba(168,216,234,.06);"><div style="display:flex;gap:5px;"><span style="font-size:8px;padding:3px 8px;border-radius:3px;background:var(--teal);color:#fff;">Admin L2</span><span style="font-size:8px;padding:3px 8px;border-radius:3px;background:rgba(168,216,234,.06);color:rgba(168,216,234,.5);border:0.5px solid rgba(168,216,234,.1);">Admin L1</span><span style="font-size:8px;padding:3px 8px;border-radius:3px;background:rgba(168,216,234,.06);color:rgba(168,216,234,.5);border:0.5px solid rgba(168,216,234,.1);">Admin L0</span><span style="font-size:8px;padding:3px 8px;border-radius:3px;background:rgba(45,125,154,.2);color:var(--ice);">FCS</span><span style="font-size:8px;padding:3px 8px;border-radius:3px;background:rgba(45,125,154,.2);color:var(--ice);">Conflict</span></div></div>
+        <div style="display:grid;grid-template-columns:1fr 100px;height:160px;">
+          <div style="background:#040E16;position:relative;overflow:hidden;"><svg viewBox="0 0 280 160" width="100%" style="display:block;height:100%"><rect width="280" height="160" fill="#040E16"/><ellipse cx="60" cy="90" rx="42" ry="30" fill="#E24B4A" opacity=".3"/><ellipse cx="140" cy="72" rx="58" ry="36" fill="#BA7517" opacity=".25"/><ellipse cx="210" cy="100" rx="40" ry="28" fill="#E24B4A" opacity=".22"/><ellipse cx="80" cy="62" rx="30" ry="22" fill="#E24B4A" opacity=".42"/><circle cx="80" cy="62" r="4" fill="#fff" opacity=".85"/><rect x="88" y="51" width="90" height="24" rx="3" fill="rgba(0,0,0,.75)"/><text x="92" y="63" font-size="7" fill="#A8D8EA" font-family="sans-serif">Borno State, Nigeria</text><text x="92" y="70" font-size="6" fill="#FFA0A0" font-family="sans-serif">FCS: 21.3 (Poor) ▼ Worsening</text></svg></div>
+          <div style="background:#0a1a26;border-left:0.5px solid rgba(168,216,234,.08);padding:10px;display:flex;flex-direction:column;gap:7px;"><div style="font-size:7px;letter-spacing:.1em;text-transform:uppercase;color:rgba(168,216,234,.4);margin-bottom:2px;">Area data</div><div style="background:rgba(168,216,234,.04);border-radius:4px;padding:6px 7px;border:0.5px solid rgba(168,216,234,.08);"><p style="font-size:7px;color:rgba(168,216,234,.45);text-transform:uppercase;letter-spacing:.06em;margin-bottom:2px;">FCS Score</p><p style="font-size:13px;font-weight:500;color:var(--ice);">21.3</p></div><div style="background:rgba(168,216,234,.04);border-radius:4px;padding:6px 7px;border:0.5px solid rgba(168,216,234,.08);"><p style="font-size:7px;color:rgba(168,216,234,.45);text-transform:uppercase;letter-spacing:.06em;margin-bottom:2px;">Pop.</p><p style="font-size:13px;font-weight:500;color:var(--ice);">2.4M</p></div><div style="background:rgba(168,216,234,.04);border-radius:4px;padding:6px 7px;border:0.5px solid rgba(168,216,234,.08);"><p style="font-size:7px;color:rgba(168,216,234,.45);text-transform:uppercase;letter-spacing:.06em;margin-bottom:2px;">Action</p><p style="font-size:11px;font-weight:500;color:var(--ice);">CBT</p></div></div>
+        </div>
+        <div style="background:#040E16;border-top:0.5px solid rgba(168,216,234,.06);padding:8px 12px;display:flex;align-items:center;gap:12px;"><div><p style="font-size:8px;letter-spacing:.08em;text-transform:uppercase;color:rgba(168,216,234,.45);">AI Forecast 30d</p><p style="font-size:14px;font-weight:500;color:var(--ice);">FCS → 18.7</p></div><svg viewBox="0 0 80 24" width="80" style="display:block"><polyline points="0,18 20,16 40,20 60,12 80,7" fill="none" stroke="#E24B4A" stroke-width="1.5"/><circle cx="80" cy="7" r="2" fill="#E24B4A"/></svg><div><p style="font-size:8px;color:rgba(168,216,234,.4);">Trend</p><p style="font-size:10px;color:#E24B4A;">▼ Critical threshold</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <span class="ey">Key design improvements — old vs new</span>
+    <h2 class="st">Six things that changed. All intentional.</h2>
+    <div class="rgrid">
+      <div class="rcard"><p class="rnum">01</p><div class="rhead"><div class="ricon"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="5.5" stroke="#A8D8EA" stroke-width="1.2"/><path d="M5 7.5l2 2 3-3" stroke="#A8D8EA" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><p class="rtitle">Single → Dual audience</p></div><p class="rtext">One flat map becomes two UX layers — storytelling for donors and governments, precision tools for VAM Officers and CO colleagues.</p></div>
+      <div class="rcard"><p class="rnum">02</p><div class="rhead"><div class="ricon"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M7.5 3v4.5l2.5 1.5" stroke="#A8D8EA" stroke-width="1.2" stroke-linecap="round"/><circle cx="7.5" cy="7.5" r="5.5" stroke="#A8D8EA" stroke-width="1.2"/></svg></div><p class="rtitle">Reactive → Predictive</p></div><p class="rtext">Old: current state only. New: 30-day AI forecasting enables WFP to act before a crisis reaches critical threshold — and justify resources to donors in advance.</p></div>
+      <div class="rcard"><p class="rnum">03</p><div class="rhead"><div class="ricon"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="5.5" stroke="#A8D8EA" stroke-width="1.2"/><path d="M5 7.5h5M7.5 5v5" stroke="#A8D8EA" stroke-width="1.2" stroke-linecap="round"/></svg></div><p class="rtitle">Country-only → Admin L0→L4</p></div><p class="rtext">From national overview to village-level drill-down. VAM Officers can now plan interventions with district precision instead of regional averages.</p></div>
+      <div class="rcard"><p class="rnum">04</p><div class="rhead"><div class="ricon"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><rect x="2" y="2" width="11" height="11" rx="2" stroke="#A8D8EA" stroke-width="1.2"/><path d="M5 7.5h5M5 5h5M5 10h3" stroke="#A8D8EA" stroke-width="1.2" stroke-linecap="round"/></svg></div><p class="rtitle">Data-only → Human + data</p></div><p class="rtext">The public version contextualises data with stories from affected regions — making the platform compelling for donors, governments, and media to act on.</p></div>
+      <div class="rcard"><p class="rnum">05</p><div class="rhead"><div class="ricon"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M3 8h2.5l2-5 2.5 10 2-5H14" stroke="#A8D8EA" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><p class="rtitle">Static → Live contextual layers</p></div><p class="rtext">Conflict, rainfall, and market price overlays let VAM Officers understand why FCS is declining — not just that it is — enabling smarter, faster decisions.</p></div>
+      <div class="rcard"><p class="rnum">06</p><div class="rhead"><div class="ricon"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M7.5 1.5L9 5h3.5L9.8 7.2l.8 3.3-3.1-1.9-3.1 1.9.8-3.3L2.5 5H6L7.5 1.5z" stroke="#A8D8EA" stroke-width="1.2" stroke-linejoin="round"/></svg></div><p class="rtitle">Generic → WFP + Google.org</p></div><p class="rtext">Designed to honour WFP brand identity while satisfying Google.org requirements as principal donor — one coherent visual system, two institutional identities.</p></div>
+    </div>
+  </section>
+
+  <section class="sec alt">
+    <span class="ey">Research process — 9 months</span>
+    <h2 class="st">From workshops to UI delivery.</h2>
+    <div class="tl">
+      <div class="tli"><div class="tldot" style="background:#E1F5EE;color:#085041">1</div><div><p class="tldate">Jul – Dec 2024</p><p class="tltitle">Workshops &amp; dual-audience architecture</p><p class="tltext">Facilitated workshops with country officers in Yemen, Nigeria, and Cameroon. Defined the dual-audience architecture — the strategic decision to serve two completely different user mental models in one platform. Confirmed MVP features and Google.org requirements.</p><div class="tlchips"><span class="tlchip">Workshops</span><span class="tlchip">Requirements</span><span class="tlchip">Audience mapping</span><span class="tlchip">Roadmap V1→V3</span></div></div></div>
+      <div class="tli"><div class="tldot" style="background:#E6F1FB;color:#0C447C">2</div><div><p class="tldate">Dec 2024 – Jan 2025</p><p class="tltitle">UX Research — critical user journeys for both audiences</p><p class="tltext">Mapped the distinct needs and mental models of both audiences. For the external audience: how do donors and governments go from awareness to action? For VAM Officers: how do they move from data to a resource allocation decision in under 2 minutes?</p><div class="tlchips"><span class="tlchip">UX research</span><span class="tlchip">Critical user journeys</span><span class="tlchip">UX highlights report</span></div></div></div>
+      <div class="tli"><div class="tldot" style="background:#FAEEDA;color:#633806">3</div><div><p class="tldate">Jan – Feb 2025</p><p class="tltitle">UI design leadership — Figma production</p><p class="tltext">Led the full UI production of both platform versions. Designed the visual system respecting WFP brand while incorporating Google.org requirements — typography, data visualisation colour system, component library, and admin level drill-down interactions.</p><div class="tlchips"><span class="tlchip">Figma prototype</span><span class="tlchip">WFP brand compliance</span><span class="tlchip">Google.org integration</span><span class="tlchip">Component library</span></div></div></div>
+      <div class="tli" style="padding-bottom:0"><div class="tldot" style="background:#1B3A4B;color:#A8D8EA">4</div><div><p class="tldate">Mar 2025</p><p class="tltitle">Usability testing — 3 country offices</p><p class="tltext">Structured testing of both platform versions in Nigeria, Yemen, and Cameroon with WFP Heads of Programme, VAM Officers, and Activity Managers.</p><div class="tlchips"><span class="tlchip">Nigeria · Yemen · Cameroon</span><span class="tlchip">15+ participants</span><span class="tlchip">Both audiences tested</span></div></div></div>
+    </div>
+  </section>
+
+  <section class="sec dk">
+    <span class="ey-l">Testing — usability targets</span><h2 class="st-l">Validated in the field.</h2>
+    <div class="kgrid"><div class="kcard"><p class="knum">85%</p><p class="ktgt">Target</p><p class="klbl">Task success rate</p></div><div class="kcard"><p class="knum">≤2'</p><p class="ktgt">Target</p><p class="klbl">Time on task</p></div><div class="kcard"><p class="knum">4/5</p><p class="ktgt">Target</p><p class="klbl">Satisfaction score</p></div><div class="kcard"><p class="knum">&lt;10%</p><p class="ktgt">Target</p><p class="klbl">Error rate</p></div><div class="kcard"><p class="knum">80%</p><p class="ktgt">Target</p><p class="klbl">Adoption likelihood</p></div></div>
+    <div class="ctgrid"><div class="ctcard"><div class="ctflag"><svg viewBox="0 0 40 28" width="40"><rect width="14" height="28" fill="#1B8B3B"/><rect x="14" width="12" height="28" fill="#fff"/><rect x="26" width="14" height="28" fill="#1B8B3B"/></svg></div><div class="ctbody"><p class="ctname">Nigeria</p><p class="ctfocus">Borno State — lean season planning</p><p class="ctinfo">5–7 participants · Heads of Programme + VAM</p></div></div><div class="ctcard"><div class="ctflag"><svg viewBox="0 0 40 28" width="40"><rect width="40" height="28" fill="#CC0000"/></svg></div><div class="ctbody"><p class="ctname">Yemen</p><p class="ctfocus">Flood impact analysis</p><p class="ctinfo">5–7 participants · Activity Managers + VAM</p></div></div><div class="ctcard"><div class="ctflag"><svg viewBox="0 0 40 28" width="40"><rect width="14" height="28" fill="#007A5E"/><rect x="14" width="12" height="28" fill="#CE1126"/><rect x="26" width="14" height="28" fill="#FCD116"/></svg></div><div class="ctbody"><p class="ctname">Cameroon</p><p class="ctfocus">Ground-truthing data alignment</p><p class="ctinfo">5–7 participants · Program Officers + NGO</p></div></div></div>
+  </section>
+
+  <div class="next-cs"><div><span class="next-lbl">Next case study</span><p class="next-title">Designing for dignity in crisis.</p></div><button class="next-btn" onclick="showPage('cbt')">View next →</button></div>
+</div>
+
+<!-- ══════════════════════ CBT JOURNEYS ══════════════════════ -->
+<div id="page-cbt" class="page">
+  <div class="back-bar" onclick="showPage('home')"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 2L4 7l5 5" stroke="#5B8FA8" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>All work</div>
+  <div class="cov">
+    <div class="cov-top">
+      <div><span class="cov-tag">WFP · Multi-country Research · 2023–2024</span><h1 class="cov-title">Designing for<br><em>dignity</em><br>in crisis.</h1><p class="cov-sub">User journey maps for WFP's Cash-Based Transfer programmes — field research across 5 countries in active crisis, designing for people who are illiterate, elderly, undocumented, or fleeing conflict.</p><div class="cov-chips"><span class="cov-chip">Service Design Research</span><span class="cov-chip">User Journey Mapping</span><span class="cov-chip">Humanitarian</span><span class="cov-chip">Inclusive Design</span></div></div>
+      <div class="cov-meta"><div class="cm-i"><p class="cm-l">Role</p><p class="cm-v">Digital &amp; Service Design Lead, WFP</p></div><div class="cm-i"><p class="cm-l">Countries</p><p class="cm-v">Gaza · Lebanon · Somalia · Ukraine · Jordan</p></div><div class="cm-i"><p class="cm-l">Users researched</p><p class="cm-v">Displaced families, elderly, illiterate, undocumented, minorities</p></div><div class="cm-i"><p class="cm-l">Output</p><p class="cm-v">User journey maps · Pathway to Digital Financial Inclusion framework</p></div></div>
+    </div>
+    <div class="cov-nums"><div class="cn"><p class="cn-big">5</p><p class="cn-lbl">countries in<br>active crisis</p></div><div class="cn"><p class="cn-big">6</p><p class="cn-lbl">real personas<br>researched</p></div><div class="cn"><p class="cn-big">1</p><p class="cn-lbl">strategic<br>framework</p></div><div class="cn"><p class="cn-big">M+</p><p class="cn-lbl">beneficiaries<br>impacted</p></div></div>
+  </div>
+
+  <section class="sec alt">
+    <span class="ey">The challenge — designing at the extremes</span>
+    <h2 class="st">The hardest UX challenge in the world:<br>design for people in crisis.</h2>
+    <p style="font-size:15px;color:var(--slate);line-height:1.7;max-width:620px;margin-bottom:28px;">WFP's Cash-Based Transfer programmes reach millions of people — but the experience of receiving that assistance was invisible. I mapped it, in five countries, through the eyes of the people living it. The constraint: every design decision had to work for users who may be illiterate, without a smartphone, without documents, or in an active conflict zone.</p>
+    <div class="pgrid5">
+      <div class="pcard"><div class="pav" style="background:#FAECE7;color:#993C1D">S</div><p class="pname">Saima, 37</p><p class="pcountry">Gaza</p><p class="pchallenge">3rd displacement. Has a phone and passport. Navigating cash assistance during active conflict.</p></div>
+      <div class="pcard"><div class="pav" style="background:#E1F5EE;color:#085041">F</div><p class="pname">Fawziye, 76</p><p class="pcountry">Lebanon</p><p class="pchallenge">Cannot read or write. Depends on family. Mobility issues. $65/month is her only income.</p></div>
+      <div class="pcard"><div class="pav" style="background:#E6F1FB;color:#0C447C">R</div><p class="pname">Rasha, 35</p><p class="pcountry">Lebanon</p><p class="pchallenge">Literate, helps neighbours register. Anxious about SMS timing. Helps others navigate the system.</p></div>
+      <div class="pcard"><div class="pav" style="background:#FAEEDA;color:#633806">A</div><p class="pname">Aamiina</p><p class="pcountry">Somalia</p><p class="pchallenge">No smartphone of her own. Uses husband's phone. Registered in husband's name by mistake.</p></div>
+      <div class="pcard"><div class="pav" style="background:#EDF0F8;color:#1B3A4B">D</div><p class="pname">Drina</p><p class="pcountry">Ukraine</p><p class="pchallenge">Roma community. No official ID. Denied help 3 times before WFP found a solution without ID.</p></div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <span class="ey">Field research — journey maps</span>
+    <h2 class="st">Their experience, told in their words.</h2>
+    <div class="jgrid">
+      <div class="jcard"><div class="jhead"><div class="jav" style="background:#FAECE7;color:#993C1D">S</div><div><p class="jname">Saima, 37 — Gaza</p><p class="jrole">IDM steps · Emergency CBT programme</p></div></div><div class="jstages"><span class="jstage">Sign up</span><span class="jstage">Notification</span><span class="jstage">Cash out</span><span class="jstage">Update</span><span class="jstage">Support</span></div><div class="jcurve"><svg viewBox="0 0 300 55" width="100%" style="display:block"><path d="M0,48 C30,48 45,20 80,22 C115,24 130,40 160,42 C190,44 210,18 240,20 C270,22 285,30 300,35" fill="none" stroke="#2D7D9A" stroke-width="2"/><circle cx="0" cy="48" r="3" fill="#2D7D9A"/><circle cx="80" cy="22" r="3" fill="#1D9E75"/><circle cx="160" cy="42" r="3" fill="#1D9E75"/><circle cx="240" cy="20" r="3" fill="#1D9E75"/><circle cx="300" cy="35" r="3" fill="#2D7D9A"/></svg></div><div class="jmoms"><div class="jmom"><div class="jdot" style="background:#1D9E75"></div>Found WFP via social media — registered with just a link</div><div class="jmom"><div class="jdot" style="background:#1D9E75"></div>Received SMS confirmation + unique cash-out code</div><div class="jmom"><div class="jdot" style="background:#1D9E75"></div>Cashed out at local vendor using ID and SMS code</div><div class="jmom"><div class="jdot" style="background:#1D9E75"></div>Can update her location via link each time she moves</div></div><p class="jquote">"I found out through social media that WFP is giving assistance and I can sign up with just a link."</p></div>
+      <div class="jcard"><div class="jhead"><div class="jav" style="background:#EDF0F8;color:#1B3A4B">D</div><div><p class="jname">Drina — Ukraine</p><p class="jrole">Emergency · Roma community · No documents</p></div></div><div class="jstages"><span class="jstage">Flee</span><span class="jstage">Register</span><span class="jstage">Denied</span><span class="jstage">WFP</span><span class="jstage">Voucher</span></div><div class="jcurve"><svg viewBox="0 0 300 55" width="100%" style="display:block"><path d="M0,45 C30,45 45,30 80,32 C115,34 130,52 160,54 C190,56 210,52 230,20 C250,-10 270,12 300,15" fill="none" stroke="#E24B4A" stroke-width="1.5" stroke-dasharray="4 3"/><path d="M0,48 C30,48 45,32 80,34 C115,36 130,54 160,55 C190,55 210,52 230,22 C250,-8 270,14 300,18" fill="none" stroke="#2D7D9A" stroke-width="2"/><circle cx="0" cy="48" r="3" fill="#2D7D9A"/><circle cx="80" cy="34" r="3" fill="#BA7517"/><circle cx="160" cy="55" r="3" fill="#E24B4A"/><circle cx="230" cy="22" r="3" fill="#1D9E75"/><circle cx="300" cy="18" r="3" fill="#2D7D9A"/></svg></div><div class="jmoms"><div class="jmom"><div class="jdot" style="background:#E24B4A"></div>Denied help 3 times — all NGOs required official ID</div><div class="jmom"><div class="jdot" style="background:#1D9E75"></div>WFP desk: can register online without ID</div><div class="jmom"><div class="jdot" style="background:#E24B4A"></div>Banks won't pay without ID — only option: supermarket voucher</div><div class="jmom"><div class="jdot" style="background:#2D7D9A"></div>Used voucher to buy food and medicine for her sick child</div></div><p class="jquote">"Will no one help us? Finally, I reach a desk with a blue flag."</p></div>
+    </div>
+  </section>
+
+  <section class="sec alt">
+    <span class="ey">Strategic output — pathway to digital financial inclusion</span>
+    <h2 class="st">From identity to economic empowerment.</h2>
+    <p style="font-size:14px;color:var(--slate);line-height:1.7;max-width:580px;margin-bottom:26px;">The research across 5 countries led to a strategic visual framework for WFP — mapping the full journey from the most basic requirement (having an ID) to women's economic empowerment by 2030.</p>
+    <div class="path-steps">
+      <div class="pstep"><p class="pstep-num">1</p><p class="pstep-title">Identity</p><p class="pstep-desc">Have an ID and open an account in own name</p></div>
+      <div class="pstep"><p class="pstep-num">2</p><p class="pstep-title">Cash inflow</p><p class="pstep-desc">Rely on regular cash from assistance or work</p></div>
+      <div class="pstep"><p class="pstep-num">3</p><p class="pstep-title">Capabilities</p><p class="pstep-desc">Trained and confident using digital financial services</p></div>
+      <div class="pstep"><p class="pstep-num">4</p><p class="pstep-title">Customer protection</p><p class="pstep-desc">Know rights and how to voice grievances</p></div>
+      <div class="pstep"><p class="pstep-num">5</p><p class="pstep-title">Digital financial services</p><p class="pstep-desc">Access to affordable digital products tailored to needs</p></div>
+      <div class="pstep" style="background:#2D7D9A"><p class="pstep-num" style="color:#fff;opacity:.4">6</p><p class="pstep-title">Digital economy</p><p class="pstep-desc" style="color:rgba(255,255,255,.7)">Perform digital transactions — buy and sell</p></div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <span class="ey">Design principles — what this research taught us</span>
+    <h2 class="st">Six rules for designing<br>in extreme contexts.</h2>
+    <div class="ggrid">
+      <div class="gcard"><div class="gtop"><p class="gbig">1</p><div class="gicon" style="background:#E1F5EE"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="7" r="3.5" stroke="#0F6E56" stroke-width="1.3"/><path d="M3 16c0-3.314 2.686-5 6-5s6 1.686 6 5" stroke="#0F6E56" stroke-width="1.3" stroke-linecap="round"/></svg></div></div><div class="gbody"><p class="gtitle">Design for the margin</p><p class="gtext">If it works for Fawziye (76, illiterate, mobility issues), it works for everyone. Design for the hardest case first.</p></div></div>
+      <div class="gcard"><div class="gtop"><p class="gbig">2</p><div class="gicon" style="background:#E6F1FB"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="3" y="5" width="12" height="8" rx="1.5" stroke="#185FA5" stroke-width="1.3"/><path d="M3 7l6 4 6-4" stroke="#185FA5" stroke-width="1.3" stroke-linecap="round"/></svg></div></div><div class="gbody"><p class="gtitle">Communicate proactively</p><p class="gtext">Rasha checks her phone every day waiting for the SMS. Uncertainty kills trust. Confirm every step.</p></div></div>
+      <div class="gcard"><div class="gtop"><p class="gbig">3</p><div class="gicon" style="background:#FEF3E2"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 3v6l3.5 2.5" stroke="#BA7517" stroke-width="1.3" stroke-linecap="round"/><circle cx="9" cy="9" r="7" stroke="#BA7517" stroke-width="1.3"/></svg></div></div><div class="gbody"><p class="gtitle">No ID ≠ No cash</p><p class="gtext">Drina was denied 3 times. WFP found a solution. Always have a backup pathway for undocumented users.</p></div></div>
+      <div class="gcard"><div class="gtop"><p class="gbig">4</p><div class="gicon" style="background:#FAECE7"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="7" stroke="#993C1D" stroke-width="1.3"/><path d="M6 9h6M9 6v6" stroke="#993C1D" stroke-width="1.3" stroke-linecap="round"/></svg></div></div><div class="gbody"><p class="gtitle">Proxy access matters</p><p class="gtext">Fawziye can't walk to the MTO. Aamiina doesn't have her own phone. Design for family and proxy use.</p></div></div>
+      <div class="gcard"><div class="gtop"><p class="gbig">5</p><div class="gicon" style="background:#E1F5EE"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 3L11 7H15L12 9.5l1 3.5L9 11l-4 2 1-3.5L3 7h4L9 3z" stroke="#0F6E56" stroke-width="1.3" stroke-linejoin="round"/></svg></div></div><div class="gbody"><p class="gtitle">Dignity in disbursement</p><p class="gtext">Abigail and Rasha both felt exposed at the cash point. Privacy in payment is not a luxury.</p></div></div>
+      <div class="gcard"><div class="gtop"><p class="gbig">6</p><div class="gicon" style="background:#E6F1FB"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="3" y="3" width="12" height="12" rx="2" stroke="#185FA5" stroke-width="1.3"/><path d="M6 9h6M6 6h6M6 12h4" stroke="#185FA5" stroke-width="1.3" stroke-linecap="round"/></svg></div></div><div class="gbody"><p class="gtitle">Offline-first always</p><p class="gtext">Aamiina's husband was in Mogadishu with the only phone. A shopkeeper helped. Design doesn't stop at connectivity.</p></div></div>
+    </div>
+  </section>
+
+  <div class="istrip"><span class="ey-l">Impact</span><p class="st-l">Design that reaches millions.</p><div class="igrid"><div class="iitem"><p class="ibig">5</p><p class="ilbl">countries in<br>active crisis</p></div><div class="iitem"><p class="ibig">6</p><p class="ilbl">real personas<br>from field research</p></div><div class="iitem"><p class="ibig">Global</p><p class="ilbl">framework adopted<br>by WFP CBT teams</p></div><div class="iitem"><p class="ibig">Real</p><p class="ilbl">every insight<br>from field interviews</p></div></div></div>
+  <div class="next-cs"><div><span class="next-lbl">Next case study</span><p class="next-title">CashBook App — field operations tool.</p></div><button class="next-btn" onclick="showPage('cashbook')">View next →</button></div>
+</div>
+
+<!-- ══════════════════════ CASHBOOK ══════════════════════ -->
+<div id="page-cashbook" class="page">
+  <div class="back-bar" onclick="showPage('home')"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 2L4 7l5 5" stroke="#5B8FA8" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>All work</div>
+  <div class="cov">
+    <div class="cov-top">
+      <div><span class="cov-tag">WFP · Internal Product Design · 2024</span><h1 class="cov-title">CashBook App —<br>one-stop-shop<br>for <em>cash operations.</em></h1><p class="cov-sub">Concept and UX design of a WebApp for WFP field officers. Works online and offline. Combines knowledge management with collaborative project management — built for the realities of field work.</p><div class="cov-chips"><span class="cov-chip">Product Design</span><span class="cov-chip">UX/UI</span><span class="cov-chip">Offline-first</span><span class="cov-chip">Web App</span><span class="cov-chip">Internal Tool</span></div></div>
+      <div class="cov-meta"><div class="cm-i"><p class="cm-l">Role</p><p class="cm-v">Digital &amp; Service Design Lead, WFP</p></div><div class="cm-i"><p class="cm-l">Type</p><p class="cm-v">Internal tool — WFP field officers globally</p></div><div class="cm-i"><p class="cm-l">Users</p><p class="cm-v">3 user types: Admin, Manager, Regular User</p></div><div class="cm-i"><p class="cm-l">Timeline</p><p class="cm-v">Feb 2024 → Apr 2024 (concept to prototype)</p></div></div>
+    </div>
+    <div class="cov-nums"><div class="cn"><p class="cn-big">2</p><p class="cn-lbl">core modules<br>knowledge + PM</p></div><div class="cn"><p class="cn-big">3</p><p class="cn-lbl">user types<br>designed for</p></div><div class="cn"><p class="cn-big">offline</p><p class="cn-lbl">works without<br>connectivity</p></div><div class="cn"><p class="cn-big">audit</p><p class="cn-lbl">built-in compliance<br>trail</p></div></div>
+  </div>
+
+  <section class="sec alt">
+    <span class="ey">The problem</span>
+    <h2 class="st">Field officers managing cash distributions had no single, reliable tool.</h2>
+    <p style="font-size:15px;color:var(--slate);line-height:1.7;max-width:620px;margin-bottom:26px;">WFP cash operations require managing complex knowledge (processes, guidelines, responsibilities) and collaborative project tracking simultaneously. Officers worked across scattered documents, emails, and SharePoint folders — often in low-connectivity environments. The CashBook concept was designed to bring everything into one place.</p>
+    <div class="fgrid3">
+      <div class="fcard"><div class="fcard-icon" style="background:#E1F5EE"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="3" y="2" width="12" height="14" rx="2" stroke="#0F6E56" stroke-width="1.3"/><path d="M6 6h6M6 9h6M6 12h4" stroke="#0F6E56" stroke-width="1.3" stroke-linecap="round"/></svg></div><p class="fcard-title">Knowledge management</p><p class="fcard-text">All process steps, responsibilities, and guidelines in one searchable place. Works offline for field use.</p></div>
+      <div class="fcard"><div class="fcard-icon" style="background:#E6F1FB"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="2" y="2" width="14" height="14" rx="2" stroke="#185FA5" stroke-width="1.3"/><path d="M6 7l1.5 1.5 3-3" stroke="#185FA5" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 11h6" stroke="#185FA5" stroke-width="1.3" stroke-linecap="round"/></svg></div><p class="fcard-title">Project management</p><p class="fcard-text">Create collaborative programmes, assign team members, track outputs step by step with checklist workspaces.</p></div>
+      <div class="fcard"><div class="fcard-icon" style="background:#FAEEDA"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 3L11 7H15L12 9.5l1 3.5L9 11l-4 2 1-3.5L3 7h4L9 3z" stroke="#BA7517" stroke-width="1.3" stroke-linejoin="round"/></svg></div><p class="fcard-title">Built-in audit trail</p><p class="fcard-text">Mandatory outputs for programme audit automatically collected and stored in a private SharePoint folder per programme.</p></div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <span class="ey">Key design decisions</span>
+    <h2 class="st">Three decisions that defined the product.</h2>
+    <div class="tl">
+      <div class="tli"><div class="tldot" style="background:#E1F5EE;color:#085041">1</div><div><p class="tltitle">Offline-first architecture</p><p class="tltext">Field officers work in low or no connectivity. The knowledge management flow works fully offline on mobile. When reconnected, it syncs with the online workspace. This was the core technical constraint that shaped the entire IA.</p><div class="tlchips"><span class="tlchip">Offline mobile</span><span class="tlchip">Online desktop</span><span class="tlchip">Sync on reconnect</span></div></div></div>
+      <div class="tli"><div class="tldot" style="background:#E6F1FB;color:#0C447C">2</div><div><p class="tltitle">Two flows, one app</p><p class="tltext">Knowledge management (read-only, offline-capable) and project management (collaborative, online) required separate interaction models but needed to feel like one coherent tool. The desktop mapping documents both flows clearly with 3 distinct user types and permissions.</p><div class="tlchips"><span class="tlchip">2 flows</span><span class="tlchip">3 user types</span><span class="tlchip">Permission model</span></div></div></div>
+      <div class="tli" style="padding-bottom:0"><div class="tldot" style="background:#FAEEDA;color:#633806">3</div><div><p class="tltitle">Audit compliance as UX</p><p class="tltext">Every programme has mandatory audit outputs. Instead of making compliance a burden, the app integrates it into the normal workflow — officers check off outputs as they complete them, and a private SharePoint folder is auto-generated with all required documents.</p><div class="tlchips"><span class="tlchip">Audit integration</span><span class="tlchip">SharePoint auto-folder</span><span class="tlchip">Mandatory outputs</span></div></div></div>
+    </div>
+  </section>
+
+  <section class="sec alt">
+    <span class="ey">User types — three levels of access</span>
+    <h2 class="st">One app, three very different users.</h2>
+    <div class="ugrid">
+      <div class="ucard"><div class="uicon" style="background:#E1F5EE"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="7" r="3.5" stroke="#0F6E56" stroke-width="1.3"/><path d="M3 16c0-3.314 2.686-5 6-5s6 1.686 6 5" stroke="#0F6E56" stroke-width="1.3" stroke-linecap="round"/></svg></div><p class="utype">All users</p><p class="uname">Any WFP staff member</p><div class="uneeds"><div class="un"><div class="undot"></div>Browse knowledge base — all CBT steps and responsibilities</div><div class="un"><div class="undot"></div>Search across guidelines and technical notes</div><div class="un"><div class="undot"></div>Save favourites and share pages via email PDF</div><div class="un"><div class="undot"></div>Works offline on mobile</div></div></div>
+      <div class="ucard"><div class="uicon" style="background:#E6F1FB"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="3" y="3" width="12" height="12" rx="2" stroke="#185FA5" stroke-width="1.3"/><path d="M6 9h6M9 6v6" stroke="#185FA5" stroke-width="1.3" stroke-linecap="round"/></svg></div><p class="utype">Manager</p><p class="uname">Programme Lead / Country Officer</p><div class="uneeds"><div class="un"><div class="undot"></div>Create and manage collaborative programmes</div><div class="un"><div class="undot"></div>Invite team members and assign roles</div><div class="un"><div class="undot"></div>Mark sections complete and archive programmes</div><div class="un"><div class="undot"></div>Full audit trail visibility</div></div></div>
+    </div>
+  </section>
+
+  <div class="istrip"><span class="ey-l">The concept in one sentence</span><p class="st-l" style="max-width:600px;margin-bottom:0">"A practical tool for your daily work activities that can support you on a laptop or on your mobile phone while working live with your team."</p></div>
+  <div class="next-cs"><div><span class="next-lbl">View legacy work</span><p class="next-title">Prada, Edenred, TIM, and more.</p></div><button class="next-btn" onclick="showPage('legacy')">View all →</button></div>
+</div>
+
+<!-- ══════════════════════ LEGACY ══════════════════════ -->
+<div id="page-legacy" class="page">
+  <div class="back-bar" onclick="showPage('home')"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 2L4 7l5 5" stroke="#5B8FA8" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>All work</div>
+  <div class="legacy-hero">
+    <span class="lh-tag">2016–2023 · Reply / Freelance</span>
+    <h1 class="lh-title">15 years, 20+ brands,<br>across 6 sectors.</h1>
+    <p class="lh-sub">Before WFP, I led UX and UI design at Reply for clients including Prada, TIM, Ferrero, Luxottica, and more — building digital products across luxury, finance, healthcare, and telecoms.</p>
+  </div>
+  <div class="lg-grid">
+    <div class="lg-card"><div class="lg-thumb" style="background:#F0EDE8"><span class="lg-tbg">Prada</span><span class="lg-pill">Art Direction · UX Design</span></div><div class="lg-body"><p class="lg-client">Prada Group</p><p class="lg-name">Prada.com &amp; Miumiu.com e-commerce</p><p class="lg-desc">Art Direction and UX/UI design for the new prada.com and miumiu.com e-commerce platforms. From wireframes to functional documents, navigation flows, and purchase flow redesign. Development based on IBM WebSphere Commerce Platform and AEM.</p><div class="lg-nums"><div><p class="lgn-v">34</p><p class="lgn-l">countries</p></div><div><p class="lgn-v">8</p><p class="lgn-l">languages</p></div><div><p class="lgn-v">3</p><p class="lgn-l">brands (Prada, MiuMiu, Dipendenti)</p></div></div></div></div>
+    <div class="lg-card"><div class="lg-thumb" style="background:#ECEEF0"><span class="lg-tbg">Edenred</span><span class="lg-pill">App Design · Development</span></div><div class="lg-body"><p class="lg-client">Edenred</p><p class="lg-name">Ticket Restaurant Mobile App</p><p class="lg-desc">UX/UI design and development of the Ticket Restaurant app — a platform for managing, monitoring, and recharging electronic meal vouchers with smartphone payment at affiliated premises. Store locator and balance management.</p><div class="lg-nums"><div><p class="lgn-v">2M+</p><p class="lgn-l">iOS installations</p></div><div><p class="lgn-v">4.6</p><p class="lgn-l">average rating</p></div><div><p class="lgn-v">650K</p><p class="lgn-l">monthly users</p></div></div></div></div>
+    <div class="lg-card"><div class="lg-thumb" style="background:#E8EBF0"><span class="lg-tbg">TIM</span><span class="lg-pill">UX/UI · Omnichannel</span></div><div class="lg-body"><p class="lg-client">TIM</p><p class="lg-name">TIM Music — omnichannel platform</p><p class="lg-desc">Design and development support for the TIM Music platform — an immersive omnichannel music experience across 7 device types including Android Auto, Apple CarPlay, Amazon Alexa, and TV.</p><div class="lg-nums"><div><p class="lgn-v">30M+</p><p class="lgn-l">songs</p></div><div><p class="lgn-v">7</p><p class="lgn-l">device types</p></div></div></div></div>
+    <div class="lg-card"><div class="lg-thumb" style="background:#EEF2F0"><span class="lg-tbg">Alleanza</span><span class="lg-pill">App Design · Service Design</span></div><div class="lg-body"><p class="lg-client">Alleanza Assicurazioni</p><p class="lg-name">Profilo&amp;Dialogo — B2B sales app</p><p class="lg-desc">UX/UI design for the Profilo&Dialogo section of the Digit@all Care app — used by financial promoters in co-presence with clients to collect data for CRM profiling and financial simulations. Transformed a 90-minute process into 15 minutes.</p><div class="lg-nums"><div><p class="lgn-v">15 min</p><p class="lgn-l">data collection (avg)</p></div><div><p class="lgn-v">6000</p><p class="lgn-l">sales network users</p></div></div></div></div>
+    <div class="lg-card"><div class="lg-thumb" style="background:#F5ECF3"><span class="lg-tbg">CMV</span><span class="lg-pill">Healthcare · UI Design</span></div><div class="lg-body"><p class="lg-client">CIRM</p><p class="lg-name">Citomegalovirus Information App</p><p class="lg-desc">UX/UI design of the Citomegalovirus information web app for pregnant women. Features include a shared medical appointment agenda, a weekly pregnancy calculator, and a map of nearby medical centres.</p><div class="lg-nums"><div><p class="lgn-v">40</p><p class="lgn-l">custom illustrations</p></div><div><p class="lgn-v">2</p><p class="lgn-l">information sections</p></div></div></div></div>
+    <div class="lg-card"><div class="lg-thumb" style="background:#EDF2F0"><span class="lg-tbg">Unipol</span><span class="lg-pill">App Design · IoT</span></div><div class="lg-body"><p class="lg-client">UnipolSai</p><p class="lg-name">SmartHome — insurance app section</p><p class="lg-desc">UX/UI design and development of the SmartHome section of the UnipolSai App. Iconographic identification of home and car devices, smart home management, weather notifications, and in-app document requests.</p><div class="lg-nums"><div><p class="lgn-v">4.7</p><p class="lgn-l">rating</p></div><div><p class="lgn-v">1800</p><p class="lgn-l">reviews</p></div></div></div></div>
+  </div>
+  <section class="cotsec" style="margin-top:0"><div><h2 class="cot-title">Let's work together.</h2><p class="cot-sub">Available for senior design roles, consulting, and advisory.</p></div><div class="cot-links"><a class="cot-link" href="mailto:france.derosa@gmail.com"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="1" y="3" width="12" height="8" rx="1.5" stroke="#2D7D9A" stroke-width="1.2"/><path d="M1 4.5l6 4 6-4" stroke="#2D7D9A" stroke-width="1.2" stroke-linecap="round"/></svg>france.derosa@gmail.com</a></div></section>
+  <footer><span class="ft-name">Francesco de Rosa</span><span class="ft-copy">© 2025 — Digital &amp; Service Designer</span></footer>
+</div>
+
+<script>
+function showPage(id){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById('page-'+id).classList.add('active');
+  closeMenu();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function scrollToSection(id){
+  showPage('home');
+  setTimeout(()=>{
+    const el=document.getElementById(id);
+    if(el)el.scrollIntoView({behavior:'smooth'});
+  },120);
+}
+function toggleMenu(){
+  document.getElementById('nav-links').classList.toggle('open');
+}
+function closeMenu(){
+  document.getElementById('nav-links').classList.remove('open');
+}
+</script>
+</body>
+</html>
