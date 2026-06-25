@@ -755,7 +755,8 @@ html.lenis,html.lenis body{height:auto;}
 
 <script src="https://unpkg.com/lenis@1/dist/lenis.min.js"></script>
 <script>
-var lenis=null, _io=null;
+var lenis=null;
+var revealEls=[];
 
 function showPage(id){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
@@ -777,9 +778,20 @@ function scrollToSection(id){
 function toggleMenu(){document.getElementById('nav-links').classList.toggle('open');}
 function closeMenu(){document.getElementById('nav-links').classList.remove('open');}
 
+// Reveal via manual viewport check — fires wherever scroll does, no IntersectionObserver needed
+function vpH(){return window.innerHeight||document.documentElement.clientHeight||800;}
+function checkReveals(){
+  if(!revealEls.length)return;
+  var trigger=vpH()*0.94;
+  revealEls=revealEls.filter(function(el){
+    var r=el.getBoundingClientRect();
+    if(r.height>0 && r.top<trigger && r.bottom>0){el.classList.add('in');return false;}
+    return true;
+  });
+}
 function armReveals(){
-  if(!_io)return;
-  document.querySelectorAll('.reveal:not(.in)').forEach(function(el){_io.observe(el);});
+  revealEls=Array.prototype.slice.call(document.querySelectorAll('.reveal:not(.in)'));
+  checkReveals();
 }
 
 (function(){
@@ -792,7 +804,7 @@ function armReveals(){
     (function raf(t){lenis.raf(t);requestAnimationFrame(raf);})();
   }
 
-  // 2 — Reveal on scroll (fade + slide up), with stagger inside groups
+  // 2 — Tag elements to reveal (fade + slide up) and stagger inside groups
   var sel=['.st','.st-l','.ey','.ey-l','.wsec-t','.cov-title','.cov-sub','.cov-chips','.ccard',
     '.lcard','.lg-card','.gcard','.rcard','.ucard','.pcard','.fcard','.jcard','.tli','.kcard',
     '.ctcard','.pstep','.aitem','.aquote','.atext','.cot-title','.cot-sub','.pb-wrap','.pv-card',
@@ -803,15 +815,11 @@ function armReveals(){
       if(child.classList.contains('reveal'))child.style.transitionDelay=(Math.min(i,6)*0.06)+'s';
     });
   });
-  _io=new IntersectionObserver(function(entries){
-    entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');_io.unobserve(e.target);}});
-  },{threshold:0.1,rootMargin:'0px 0px -6% 0px'});
-  armReveals();
 
-  // 3 — Subtle parallax on the decorative serif words in case-study thumbnails
+  // 3 — Subtle parallax on the decorative serif words in thumbnails
   var plx=Array.prototype.slice.call(document.querySelectorAll('.tbg,.lg-tbg'));
   function parallax(){
-    var vh=window.innerHeight;
+    var vh=vpH();
     plx.forEach(function(el){
       var r=el.parentElement.getBoundingClientRect();
       if(r.bottom<0||r.top>vh)return;
@@ -819,8 +827,18 @@ function armReveals(){
       el.style.transform='translateY('+(off*-26).toFixed(1)+'px)';
     });
   }
-  if(lenis)lenis.on('scroll',parallax); else window.addEventListener('scroll',parallax,{passive:true});
+
+  function onScroll(){checkReveals();parallax();}
+  if(lenis)lenis.on('scroll',onScroll);
+  window.addEventListener('scroll',onScroll,{passive:true});
+  window.addEventListener('resize',onScroll,{passive:true});
+
+  armReveals();
   parallax();
+  // safety passes while web fonts / layout settle
+  window.addEventListener('load',onScroll);
+  setTimeout(onScroll,300);
+  setTimeout(onScroll,1200);
 })();
 </script>
 </body>
