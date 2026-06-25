@@ -493,6 +493,59 @@ nav{background:var(--navy);border-bottom:1px solid var(--line);}
 @keyframes drift3{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(6vw,-7vw) scale(1.18)}}
 @media (prefers-reduced-motion:reduce){.aurora .blob{animation:none;}.aurora{transition:none;}}
 
+/* ═════════════ V5 — BREATHING ROOM IN CASE-STUDY PAGES (more whitespace) ═════════════ */
+/* Section rhythm */
+.sec{padding:clamp(64px,8vw,108px) clamp(24px,5vw,64px);}
+.istrip{padding:clamp(56px,7vw,92px) clamp(24px,5vw,64px);}
+.next-cs{padding:clamp(48px,6vw,84px) clamp(24px,5vw,64px);}
+.ey,.ey-l{margin-bottom:18px;}
+.st,.st-l{margin-bottom:38px;}
+
+/* Cover */
+.cov{padding:clamp(60px,8vw,96px) clamp(24px,5vw,64px) 0;}
+.cov-top{gap:clamp(36px,5vw,64px);padding-bottom:clamp(40px,5vw,72px);}
+.cov-meta{gap:20px;}
+.cov-chips{gap:10px;}
+.cn{padding:clamp(24px,3vw,34px) 24px;}
+
+/* Space between a section heading and its content grid */
+.ggrid,.rgrid,.ugrid,.pgrid5,.fgrid3,.kgrid,.tl{margin-top:40px;}
+.jgrid{margin-top:40px;}
+.ctgrid{margin-top:30px;}
+.path-steps{margin-top:34px;}
+.pv-2{margin-top:34px;}
+.igrid{margin-top:40px;}
+
+/* Wider gaps between cards */
+.jgrid{gap:26px;}
+.ggrid{gap:18px;}
+.rgrid{gap:22px;}
+.ugrid{gap:22px;}
+.fgrid3{gap:20px;}
+.pgrid5{gap:16px;}
+.kgrid{gap:16px;}
+.ctgrid{gap:18px;}
+.arow{gap:16px;}
+
+/* More generous padding inside cards + roomier text */
+.gbody{padding:14px 22px 24px;}
+.gtext{line-height:1.65;}
+.rcard{padding:30px;}
+.rtext{line-height:1.7;}
+.ucard{padding:28px;}
+.pcard{padding:22px;}
+.fcard{padding:28px;}
+.pv-card{padding:28px;}
+.jhead{padding:22px 24px 18px;}
+.jstages{padding:18px 24px 4px;}
+.jmoms{padding:4px 24px 20px;gap:9px;}
+.jquote{margin:0 24px 22px;padding:14px 18px;}
+.tli{padding-bottom:40px;gap:22px;}
+.ctbody{padding:18px 20px;}
+.kcard{padding:26px 16px;}
+.pstep{padding:24px 18px;}
+.iitem{padding:clamp(24px,3vw,34px) 22px;}
+
 /* ───────────────── RESPONSIVE ───────────────── */
 @media (max-width:900px){
   nav{padding:16px 24px;}
