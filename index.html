@@ -311,6 +311,31 @@ footer{padding:18px 48px;border-top:var(--b);display:flex;justify-content:space-
 /* MOBILE NAV TOGGLE (hidden on desktop) */
 .n-toggle{display:none;background:none;border:none;cursor:pointer;padding:6px;}
 
+/* ───────────────── MOTION / INTERACTIVITY ───────────────── */
+/* Lenis smooth-scroll base styles (recommended by the library) */
+html.lenis,html.lenis body{height:auto;}
+.lenis.lenis-smooth{scroll-behavior:auto !important;}
+.lenis.lenis-smooth [data-lenis-prevent]{overscroll-behavior:contain;}
+.lenis.lenis-stopped{overflow:hidden;}
+/* Reveal on scroll */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.22,.61,.36,1),transform .7s cubic-bezier(.22,.61,.36,1);will-change:opacity,transform;}
+.reveal.in{opacity:1;transform:none;}
+/* Richer hovers (override the lighter defaults) */
+.ccard{transition:border-color .25s ease,transform .4s cubic-bezier(.22,.61,.36,1),box-shadow .4s ease;}
+.ccard:hover{transform:translateY(-6px);box-shadow:0 22px 48px -28px rgba(27,58,75,.5);}
+.cthumb .tbg{transition:opacity .4s ease;}
+.ccard:hover .tbg{opacity:.13;}
+.lcard{transition:border-color .25s ease,transform .35s cubic-bezier(.22,.61,.36,1),box-shadow .35s ease;}
+.lcard:hover{transform:translateY(-4px);box-shadow:0 16px 34px -24px rgba(27,58,75,.42);}
+.lg-card{transition:border-color .25s ease,transform .4s cubic-bezier(.22,.61,.36,1),box-shadow .4s ease;}
+.lg-card:hover{transform:translateY(-6px);box-shadow:0 22px 48px -30px rgba(27,58,75,.45);border-color:var(--teal);}
+.btn-p,.next-btn,.n-cta{transition:all .25s ease;}
+.btn-p:hover,.next-btn:hover{transform:translateY(-2px);}
+@media (prefers-reduced-motion:reduce){
+  .reveal{opacity:1 !important;transform:none !important;transition:none !important;}
+  html{scroll-behavior:auto;}
+}
+
 /* ───────────────── RESPONSIVE ───────────────── */
 @media (max-width:900px){
   nav{padding:16px 24px;}
@@ -728,26 +753,75 @@ footer{padding:18px 48px;border-top:var(--b);display:flex;justify-content:space-
   <footer><span class="ft-name">Francesco de Rosa</span><span class="ft-copy">© 2025 — Digital &amp; Service Designer</span></footer>
 </div>
 
+<script src="https://unpkg.com/lenis@1/dist/lenis.min.js"></script>
 <script>
+var lenis=null, _io=null;
+
 function showPage(id){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.getElementById('page-'+id).classList.add('active');
   closeMenu();
-  window.scrollTo({top:0,behavior:'smooth'});
+  if(lenis){lenis.scrollTo(0,{immediate:true});lenis.resize();}
+  else window.scrollTo({top:0,behavior:'auto'});
+  armReveals();
 }
 function scrollToSection(id){
   showPage('home');
-  setTimeout(()=>{
-    const el=document.getElementById(id);
-    if(el)el.scrollIntoView({behavior:'smooth'});
-  },120);
+  setTimeout(function(){
+    var el=document.getElementById(id);
+    if(!el)return;
+    if(lenis)lenis.scrollTo(el,{offset:-70});
+    else el.scrollIntoView({behavior:'smooth'});
+  },140);
 }
-function toggleMenu(){
-  document.getElementById('nav-links').classList.toggle('open');
+function toggleMenu(){document.getElementById('nav-links').classList.toggle('open');}
+function closeMenu(){document.getElementById('nav-links').classList.remove('open');}
+
+function armReveals(){
+  if(!_io)return;
+  document.querySelectorAll('.reveal:not(.in)').forEach(function(el){_io.observe(el);});
 }
-function closeMenu(){
-  document.getElementById('nav-links').classList.remove('open');
-}
+
+(function(){
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduce)return;
+
+  // 1 — Smooth scroll with inertia (Lenis)
+  if(window.Lenis){
+    lenis=new Lenis({lerp:0.1,smoothWheel:true});
+    (function raf(t){lenis.raf(t);requestAnimationFrame(raf);})();
+  }
+
+  // 2 — Reveal on scroll (fade + slide up), with stagger inside groups
+  var sel=['.st','.st-l','.ey','.ey-l','.wsec-t','.cov-title','.cov-sub','.cov-chips','.ccard',
+    '.lcard','.lg-card','.gcard','.rcard','.ucard','.pcard','.fcard','.jcard','.tli','.kcard',
+    '.ctcard','.pstep','.aitem','.aquote','.atext','.cot-title','.cot-sub','.pb-wrap','.pv-card',
+    '.cm-i','.cn','.iitem','.next-title'];
+  document.querySelectorAll(sel.join(',')).forEach(function(el){el.classList.add('reveal');});
+  document.querySelectorAll('.fgrid,.lgrid,.lg-grid,.ggrid,.rgrid,.ugrid,.pgrid5,.fgrid3,.jgrid,.tl,.kgrid,.ctgrid,.cov-nums,.igrid,.cov-meta,.path-steps,.alist').forEach(function(group){
+    Array.prototype.slice.call(group.children).forEach(function(child,i){
+      if(child.classList.contains('reveal'))child.style.transitionDelay=(Math.min(i,6)*0.06)+'s';
+    });
+  });
+  _io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');_io.unobserve(e.target);}});
+  },{threshold:0.1,rootMargin:'0px 0px -6% 0px'});
+  armReveals();
+
+  // 3 — Subtle parallax on the decorative serif words in case-study thumbnails
+  var plx=Array.prototype.slice.call(document.querySelectorAll('.tbg,.lg-tbg'));
+  function parallax(){
+    var vh=window.innerHeight;
+    plx.forEach(function(el){
+      var r=el.parentElement.getBoundingClientRect();
+      if(r.bottom<0||r.top>vh)return;
+      var off=((r.top+r.height/2)-vh/2)/vh;
+      el.style.transform='translateY('+(off*-26).toFixed(1)+'px)';
+    });
+  }
+  if(lenis)lenis.on('scroll',parallax); else window.addEventListener('scroll',parallax,{passive:true});
+  parallax();
+})();
 </script>
 </body>
 </html>
