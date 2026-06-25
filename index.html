@@ -23,7 +23,7 @@
 <style>
 :root{--navy:#1B3A4B;--teal:#2D7D9A;--slate:#5B8FA8;--ice:#A8D8EA;--warm:#F2F0EB;--serif:'DM Serif Display',Georgia,serif;--sans:'DM Sans',system-ui,sans-serif;--r:12px;--b:0.5px solid rgba(27,58,75,0.12);}
 *{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;}
-body{font-family:var(--sans);background:var(--warm);color:var(--navy);-webkit-font-smoothing:antialiased;}
+body{font-family:var(--sans);background:var(--navy);color:#EAF4F8;-webkit-font-smoothing:antialiased;}
 @keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
 .f1{animation:fadeUp .55s .08s both}.f2{animation:fadeUp .55s .18s both}.f3{animation:fadeUp .55s .3s both}.f4{animation:fadeUp .55s .44s both}
 .page{display:none}.page.active{display:block}
@@ -446,6 +446,53 @@ nav{background:var(--navy);border-bottom:1px solid var(--line);}
 }
 @media (max-width:520px){.vstats{grid-template-columns:1fr;}}
 
+/* ═════════════ V3 — DARK CASE-STUDY PAGES (propagate editorial dark theme) ═════════════ */
+/* Remap two shared tokens that were tuned for a light canvas (now used only by case studies) */
+:root{--slate:#8FB8CC;--b:0.5px solid rgba(168,216,234,.14);}
+
+#page-grenada,#page-hungermap,#page-cbt,#page-cashbook,#page-legacy{background:var(--navy);color:#EAF4F8;}
+
+/* Section canvases */
+.sec.alt{background:rgba(168,216,234,.04);}
+.sec.dk{background:#102532;}
+.back-bar{color:var(--slate);}
+.back-bar:hover{color:#fff;}
+.next-cs{background:rgba(168,216,234,.04);}
+.next-title{color:#fff;}
+
+/* Headings / strong text that were navy → light */
+.st,.next-title,.cot-title,.lh-title,.jname,.pname,.uname,.cname,.gtitle,.rtitle,.tltitle,
+.fcard-title,.aititle,.pv-head,.pv-val,.lg-name,.lgn-v,.aex,.ba-title{color:#fff;}
+.gbig{color:#A8D8EA;opacity:.14;}
+
+/* Cards / surfaces that were white → dark */
+.jcard,.gcard,.rcard,.ucard,.pcard,.fcard,.pv-card,.lg-card{background:var(--navy-d);}
+.abody{background:rgba(168,216,234,.04);}
+.jhead{border-bottom-color:rgba(168,216,234,.1);}
+.jstages{border-color:rgba(168,216,234,.08);}
+
+/* Process bars / tracks */
+.pb-wrap{background:rgba(168,216,234,.07);}
+.pv-bg{background:rgba(168,216,234,.1);}
+.tl::before{background:rgba(168,216,234,.16);}
+
+/* Legacy thumbnails stay as light swatches but cards go dark */
+.lcard{background:var(--navy-d);}
+
+/* ═════════════ V4 — AURORA ANIMATED BACKGROUND (hero + covers) ═════════════ */
+.has-aurora{position:relative;overflow:hidden;}
+.has-aurora>*:not(.aurora){position:relative;z-index:1;}
+.aurora{position:absolute;inset:0;z-index:0;pointer-events:none;transition:transform .6s cubic-bezier(.22,.61,.36,1);}
+.aurora .blob{position:absolute;border-radius:50%;filter:blur(74px);mix-blend-mode:screen;}
+.aurora .b1{width:46vw;height:46vw;min-width:360px;min-height:360px;background:#2D7D9A;left:-8vw;top:-16vw;opacity:.55;animation:drift1 19s ease-in-out infinite;}
+.aurora .b2{width:38vw;height:38vw;min-width:300px;min-height:300px;background:#A8D8EA;right:-8vw;top:-10vw;opacity:.30;animation:drift2 23s ease-in-out infinite;}
+.aurora .b3{width:34vw;height:34vw;min-width:280px;min-height:280px;background:#3AA0C4;left:34vw;bottom:-24vw;opacity:.38;animation:drift3 27s ease-in-out infinite;}
+.aurora::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(27,58,75,.32),rgba(27,58,75,.74));}
+@keyframes drift1{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(7vw,5vw) scale(1.16)}}
+@keyframes drift2{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-6vw,7vw) scale(1.12)}}
+@keyframes drift3{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(6vw,-7vw) scale(1.18)}}
+@media (prefers-reduced-motion:reduce){.aurora .blob{animation:none;}.aurora{transition:none;}}
+
 /* ───────────────── RESPONSIVE ───────────────── */
 @media (max-width:900px){
   nav{padding:16px 24px;}
@@ -705,7 +752,7 @@ nav{background:var(--navy);border-bottom:1px solid var(--line);}
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;">
       <div style="padding:22px;border-radius:12px;border:var(--b);background:rgba(0,159,218,.06);">
         <p style="font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#007BA8;font-weight:500;margin-bottom:10px;">External audience</p>
-        <p style="font-size:15px;font-weight:500;color:var(--navy);margin-bottom:10px;">Donors · Country governments · Media · NGOs</p>
+        <p style="font-size:15px;font-weight:500;color:#fff;margin-bottom:10px;">Donors · Country governments · Media · NGOs</p>
         <div style="display:flex;flex-direction:column;gap:6px;">
           <div class="un"><div class="undot"></div>Understand the scale and geography of hunger</div>
           <div class="un"><div class="undot"></div>Connect with human context and stories from the field</div>
@@ -713,9 +760,9 @@ nav{background:var(--navy);border-bottom:1px solid var(--line);}
           <div class="un"><div class="undot"></div>Language: accessible, visual-first, story-driven</div>
         </div>
       </div>
-      <div style="padding:22px;border-radius:12px;border:var(--b);background:rgba(27,58,75,.05);">
+      <div style="padding:22px;border-radius:12px;border:var(--b);background:rgba(168,216,234,.05);">
         <p style="font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);font-weight:500;margin-bottom:10px;">Internal audience</p>
-        <p style="font-size:15px;font-weight:500;color:var(--navy);margin-bottom:10px;">VAM Officers · Country Office colleagues</p>
+        <p style="font-size:15px;font-weight:500;color:#fff;margin-bottom:10px;">VAM Officers · Country Office colleagues</p>
         <div style="display:flex;flex-direction:column;gap:6px;">
           <div class="un"><div class="undot"></div>Anticipate crises 30 days ahead with AI forecasting</div>
           <div class="un"><div class="undot"></div>Drill to district level to plan interventions precisely</div>
@@ -982,6 +1029,16 @@ function armReveals(){
     lenis=new Lenis({lerp:0.1,smoothWheel:true});
     (function raf(t){lenis.raf(t);requestAnimationFrame(raf);})();
   }
+
+  // 1b — Aurora animated background (hero + case-study covers) with soft pointer parallax
+  document.querySelectorAll('.vhero,.cov').forEach(function(host){
+    host.classList.add('has-aurora');
+    var au=document.createElement('div');au.className='aurora';au.setAttribute('aria-hidden','true');
+    au.innerHTML='<span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span>';
+    host.insertBefore(au,host.firstChild);
+    host.addEventListener('mousemove',function(e){var r=host.getBoundingClientRect();var x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;au.style.transform='translate('+(x*26).toFixed(1)+'px,'+(y*26).toFixed(1)+'px)';});
+    host.addEventListener('mouseleave',function(){au.style.transform='';});
+  });
 
   // 2 — Tag elements to reveal (fade + slide up) and stagger inside groups
   var sel=['.st','.st-l','.ey','.ey-l','.wsec-t','.cov-title','.cov-sub','.cov-chips','.ccard',
