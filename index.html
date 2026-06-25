@@ -19,7 +19,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Crect width='18' height='18' rx='4' fill='%231B3A4B'/%3E%3Crect x='2' y='4' width='8' height='1.5' rx='.75' fill='%23A8D8EA'/%3E%3Crect x='2' y='7.5' width='11' height='1.5' rx='.75' fill='%236DC4E0'/%3E%3Crect x='2' y='11' width='6' height='1.5' rx='.75' fill='%232D7D9A'/%3E%3Ccircle cx='13.5' cy='11.5' r='3' fill='%232D7D9A'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{--navy:#1B3A4B;--teal:#2D7D9A;--slate:#5B8FA8;--ice:#A8D8EA;--warm:#F2F0EB;--serif:'DM Serif Display',Georgia,serif;--sans:'DM Sans',system-ui,sans-serif;--r:12px;--b:0.5px solid rgba(27,58,75,0.12);}
 *{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;}
@@ -336,6 +336,116 @@ html.lenis,html.lenis body{height:auto;}
   html{scroll-behavior:auto;}
 }
 
+/* ═════════════ V2 — DARK EDITORIAL HOME (dsgnpixl-inspired, own palette) ═════════════ */
+:root{--navy-d:#15303f;--line:rgba(168,216,234,.14);--mono:'DM Mono',ui-monospace,SFMono-Regular,Menlo,monospace;}
+
+/* Nav goes dark (shared; flows into the navy case-study covers) */
+nav{background:var(--navy);border-bottom:1px solid var(--line);}
+.n-name{color:#fff;}
+.n-link{color:rgba(168,216,234,.6);font-family:var(--mono);text-transform:uppercase;}
+.n-link:hover{color:#fff;}
+.n-cta{font-family:var(--mono);border-color:var(--teal);color:var(--ice);}
+.n-cta:hover{background:var(--teal);color:#fff;}
+.n-toggle svg path{stroke:#A8D8EA;}
+@media (max-width:600px){.n-links{background:var(--navy);}}
+
+#page-home{background:var(--navy);color:#EAF4F8;}
+#page-home ::selection{background:var(--teal);color:#fff;}
+
+.vlabel{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:rgba(168,216,234,.55);display:inline-flex;align-items:center;}
+.vlabel b{color:var(--teal);font-weight:400;}
+
+.vsec{padding:clamp(54px,8vw,116px) clamp(20px,6vw,72px);border-top:1px solid var(--line);}
+.vsec-head{display:flex;justify-content:space-between;align-items:baseline;gap:24px;margin-bottom:clamp(30px,4vw,52px);flex-wrap:wrap;}
+.vsec-title{font-family:var(--serif);font-weight:400;font-size:clamp(26px,3.4vw,40px);line-height:1.05;color:#fff;}
+
+/* Hero */
+.vhero{padding:clamp(40px,6vw,86px) clamp(20px,6vw,72px) clamp(36px,5vw,64px);}
+.vhero-row{display:flex;justify-content:space-between;gap:16px;margin-bottom:clamp(26px,4vw,52px);}
+.vhero-title{font-family:var(--serif);font-weight:400;color:#fff;letter-spacing:-.02em;line-height:.99;font-size:clamp(42px,8.6vw,124px);}
+.vhero-title em{font-style:italic;color:var(--ice);}
+.vhero-foot{display:grid;grid-template-columns:1.4fr 1fr;gap:40px;margin-top:clamp(26px,4vw,52px);align-items:end;}
+.vhero-intro{font-size:clamp(15px,1.4vw,19px);line-height:1.65;color:rgba(234,244,248,.78);max-width:560px;}
+.vhero-cta{display:flex;gap:14px;flex-wrap:wrap;justify-content:flex-end;}
+
+.vbtn{font-family:var(--mono);font-size:12px;letter-spacing:.04em;text-transform:uppercase;padding:14px 24px;border-radius:40px;border:1px solid var(--teal);background:var(--teal);color:#fff;text-decoration:none;cursor:pointer;display:inline-flex;align-items:center;gap:8px;transition:all .25s;white-space:nowrap;}
+.vbtn:hover{transform:translateY(-2px);background:var(--ice);border-color:var(--ice);color:var(--navy);}
+.vbtn.ghost{background:transparent;color:var(--ice);border-color:rgba(168,216,234,.3);}
+.vbtn.ghost:hover{background:rgba(168,216,234,.1);color:#fff;border-color:var(--ice);}
+
+/* Marquee */
+.vmarq{border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;white-space:nowrap;padding:16px 0;}
+.vmarq-track{display:inline-flex;will-change:transform;animation:marq 32s linear infinite;}
+.vmarq:hover .vmarq-track{animation-play-state:paused;}
+.vmarq-track span{font-family:var(--serif);font-size:clamp(20px,3vw,38px);color:rgba(168,216,234,.45);display:inline-flex;align-items:center;}
+.vmarq-track span::after{content:'•';color:var(--teal);padding:0 clamp(20px,3vw,40px);font-size:.6em;}
+@keyframes marq{to{transform:translateX(-50%)}}
+
+/* Stats */
+.vstats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden;}
+.vstat{background:var(--navy);padding:clamp(24px,3vw,40px) clamp(18px,2vw,26px);}
+.vstat-n{font-family:var(--serif);font-size:clamp(38px,5vw,62px);color:var(--ice);line-height:1;}
+.vstat-l{font-size:13px;color:rgba(234,244,248,.6);margin-top:12px;line-height:1.45;}
+
+/* Selected work — big rows */
+.vwork{display:grid;grid-template-columns:60px 1fr 300px;gap:28px;align-items:center;padding:clamp(24px,3.4vw,42px) 0;border-top:1px solid var(--line);text-decoration:none;cursor:pointer;transition:padding .3s ease,background .3s ease;}
+.vworks .vwork:last-child{border-bottom:1px solid var(--line);}
+.vwork:hover{background:linear-gradient(90deg,rgba(45,125,154,.1),rgba(45,125,154,0));padding-left:18px;padding-right:18px;}
+.vwork-idx{font-family:var(--mono);font-size:13px;color:var(--teal);}
+.vwork-title{font-family:var(--serif);font-weight:400;font-size:clamp(22px,2.5vw,33px);color:#fff;line-height:1.12;margin-bottom:10px;transition:color .25s;}
+.vwork:hover .vwork-title{color:var(--ice);}
+.vwork-desc{font-size:14px;color:rgba(234,244,248,.62);line-height:1.6;max-width:540px;margin-bottom:12px;}
+.vwork-tags{font-family:var(--mono);font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:rgba(168,216,234,.5);}
+.vwork-thumb{height:148px;border-radius:12px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;}
+.vword{font-family:var(--serif);font-size:58px;color:rgba(255,255,255,.16);white-space:nowrap;}
+.vwork-go{position:absolute;right:14px;bottom:12px;font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--ice);opacity:0;transform:translateX(-6px);transition:all .3s;}
+.vwork:hover .vwork-go{opacity:1;transform:none;}
+
+/* Other work */
+.vother{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.voth{border:1px solid var(--line);border-radius:12px;padding:24px;cursor:pointer;background:var(--navy-d);transition:transform .3s ease,border-color .25s ease;}
+.voth:hover{border-color:var(--teal);transform:translateY(-4px);}
+.voth-c{font-family:var(--serif);font-size:21px;color:#fff;margin-bottom:8px;}
+.voth-t{font-size:12px;color:rgba(234,244,248,.55);line-height:1.55;}
+
+/* Approach */
+.vapp{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,72px);}
+.vapp-statement{font-family:var(--serif);font-style:italic;font-size:clamp(24px,3vw,38px);color:#fff;line-height:1.3;}
+.vapp-text{font-size:15px;color:rgba(234,244,248,.7);line-height:1.7;margin-top:20px;}
+.vapp-list{display:flex;flex-direction:column;}
+.vapp-item{padding:22px 0;border-top:1px solid var(--line);}
+.vapp-list .vapp-item:last-child{border-bottom:1px solid var(--line);}
+.vapp-h{font-size:16px;color:#fff;font-weight:500;margin-bottom:6px;}
+.vapp-d{font-size:13px;color:rgba(234,244,248,.6);line-height:1.6;}
+.vpills{display:flex;flex-wrap:wrap;gap:8px;margin-top:30px;}
+.vpill{font-family:var(--mono);font-size:11px;letter-spacing:.04em;text-transform:uppercase;padding:8px 16px;border-radius:30px;border:1px solid rgba(168,216,234,.25);color:var(--ice);}
+
+/* Experience */
+.vxp{display:flex;flex-direction:column;}
+.vxp-row{display:grid;grid-template-columns:150px 1fr auto;gap:24px;padding:24px 0;border-top:1px solid var(--line);align-items:baseline;}
+.vxp .vxp-row:last-child{border-bottom:1px solid var(--line);}
+.vxp-when{font-family:var(--mono);font-size:12px;color:var(--teal);}
+.vxp-what{font-size:18px;color:#fff;}
+.vxp-where{font-size:13px;color:rgba(234,244,248,.6);}
+
+/* Contact + footer */
+.vcontact-title{font-family:var(--serif);font-weight:400;font-size:clamp(40px,7vw,92px);color:#fff;line-height:1;letter-spacing:-.02em;margin:14px 0 26px;}
+.vcontact-links{display:flex;gap:14px;flex-wrap:wrap;}
+.vfoot{padding:26px clamp(20px,6vw,72px);border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;}
+.vfoot span{font-family:var(--mono);font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:rgba(168,216,234,.5);}
+
+@media (max-width:860px){
+  .vhero-foot{grid-template-columns:1fr;gap:24px;}
+  .vhero-cta{justify-content:flex-start;}
+  .vstats{grid-template-columns:1fr 1fr;}
+  .vwork{grid-template-columns:1fr;gap:14px;}
+  .vwork-thumb{height:120px;}
+  .vother{grid-template-columns:1fr;}
+  .vapp{grid-template-columns:1fr;gap:30px;}
+  .vxp-row{grid-template-columns:1fr;gap:6px;}
+}
+@media (max-width:520px){.vstats{grid-template-columns:1fr;}}
+
 /* ───────────────── RESPONSIVE ───────────────── */
 @media (max-width:900px){
   nav{padding:16px 24px;}
@@ -396,7 +506,7 @@ html.lenis,html.lenis body{height:auto;}
   </a>
   <button class="n-toggle" aria-label="Menu" onclick="toggleMenu()"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M3 6h16M3 11h16M3 16h16" stroke="#1B3A4B" stroke-width="1.5" stroke-linecap="round"/></svg></button>
   <div class="n-links" id="nav-links">
-    <span class="n-link" onclick="scrollToSection('work-section')">Work</span>
+    <span class="n-link" onclick="scrollToSection('v-work')">Work</span>
     <span class="n-link" onclick="scrollToSection('about-section')">About</span>
     <a class="n-cta" href="mailto:france.derosa@gmail.com">Get in touch</a>
   </div>
@@ -404,65 +514,134 @@ html.lenis,html.lenis body{height:auto;}
 
 <!-- ══════════════════════ HOME ══════════════════════ -->
 <div id="page-home" class="page active">
-  <section class="hero">
-    <div>
-      <span class="htag f1">Digital &amp; Service Designer — Rome, IT</span>
-      <h1 class="hname f2">Designing<br>for <em>people,</em><br>systems for life.</h1>
-      <p class="hintro f3">15 years of experience turning complex problems into clear, usable experiences. From luxury e-commerce to humanitarian programmes in active crisis zones.</p>
-      <div class="hpills f3"><span class="pill">Service Design</span><span class="pill">UX Research</span><span class="pill">Design Strategy</span><span class="pill">Digital Transformation</span></div>
-      <div class="hacts f4">
-        <button class="btn-p" onclick="scrollToSection('work-section')">View work</button>
-        <a class="hghost" href="mailto:france.derosa@gmail.com"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="1" y="3" width="12" height="8" rx="1.5" stroke="#2D7D9A" stroke-width="1.2"/><path d="M1 4.5l6 4 6-4" stroke="#2D7D9A" stroke-width="1.2" stroke-linecap="round"/></svg>Contact me</a>
+  <!-- HERO -->
+  <header class="vhero">
+    <div class="vhero-row">
+      <span class="vlabel"><b>(01)</b>&nbsp; Portfolio — Edition '25</span>
+      <span class="vlabel">Rome, Italy</span>
+    </div>
+    <h1 class="vhero-title reveal">Designing for <em>people</em>,<br>systems for <em>life</em>.</h1>
+    <div class="vhero-foot">
+      <p class="vhero-intro reveal">Francesco de Rosa — Digital &amp; Service Design Lead. 15 years turning complex problems into clear, usable experiences, from luxury e-commerce to humanitarian programmes in active crisis zones.</p>
+      <div class="vhero-cta reveal">
+        <button class="vbtn" onclick="scrollToSection('v-work')">Selected work ↓</button>
+        <a class="vbtn ghost" href="mailto:france.derosa@gmail.com">Get in touch</a>
       </div>
     </div>
-    <div class="scard f2">
-      <div class="sr"><span class="sr-big">15</span><span class="sr-desc">years of experience across<br>luxury, tech, humanitarian</span></div>
-      <div class="sr"><span class="sr-big">7</span><span class="sr-desc">countries — field research<br>in active crisis contexts</span></div>
-      <div class="sr"><span class="sr-big">3</span><span class="sr-desc">national governments<br>supported through WFP</span></div>
-      <div class="sr"><span class="sr-big">20+</span><span class="sr-desc">iconic brands — Prada,<br>TIM, Ferrero, Luxottica</span></div>
+  </header>
+
+  <!-- MARQUEE -->
+  <div class="vmarq" aria-hidden="true">
+    <div class="vmarq-track">
+      <span>Service Design</span><span>UX Research</span><span>Design Strategy</span><span>Digital Transformation</span><span>Prada</span><span>TIM</span><span>WFP</span><span>Edenred</span><span>Luxottica</span><span>Ferrero</span>
+      <span>Service Design</span><span>UX Research</span><span>Design Strategy</span><span>Digital Transformation</span><span>Prada</span><span>TIM</span><span>WFP</span><span>Edenred</span><span>Luxottica</span><span>Ferrero</span>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <section class="vsec">
+    <div class="vsec-head"><span class="vlabel"><b>(02)</b>&nbsp; By the numbers</span></div>
+    <div class="vstats">
+      <div class="vstat reveal"><p class="vstat-n">15</p><p class="vstat-l">years across luxury, tech &amp; humanitarian</p></div>
+      <div class="vstat reveal"><p class="vstat-n">7</p><p class="vstat-l">countries — field research in crisis contexts</p></div>
+      <div class="vstat reveal"><p class="vstat-n">3</p><p class="vstat-l">national governments supported via WFP</p></div>
+      <div class="vstat reveal"><p class="vstat-n">20+</p><p class="vstat-l">iconic brands — Prada, TIM, Ferrero, Luxottica</p></div>
     </div>
   </section>
 
-  <section class="wsec" id="work-section">
-    <div class="wsec-h"><h2 class="wsec-t">Featured work — WFP</h2></div>
-    <div class="fgrid">
-      <div class="ccard" onclick="showPage('grenada')">
-        <div class="cthumb" style="background:#E4F0EC;"><span class="tbg">Grenada</span><span class="tpill">Service Design · 2025</span></div>
-        <div class="cbody"><span class="ctag">Government · Service Design · Gap Analysis</span><p class="cname">Grenada — social protection system redesign</p><p class="cdesc">End-to-end service design with the Government of Grenada. Process mapping, gap analysis, and digital transformation blueprint for SEED + BRISP.</p><div class="cchips"><span class="cchip">Process mapping</span><span class="cchip">Gap analysis</span><span class="cchip">User journeys</span><span class="cchip">Gov. advisory</span></div></div>
-      </div>
-      <div class="ccard" onclick="showPage('hungermap')">
-        <div class="cthumb" style="background:#E0EBF3;"><span class="tbg">Hunger</span><span class="tpill">UX Research · 2024–25</span></div>
-        <div class="cbody"><span class="ctag">WFP · Data Visualization · Product Design</span><p class="cname">HungerMap — from static map to prediction engine</p><p class="cdesc">Full UX research cycle — workshops, Figma prototype, field testing in Nigeria, Yemen, and Cameroon for WFP's food security tool.</p><div class="cchips"><span class="cchip">UX Research</span><span class="cchip">Data viz</span><span class="cchip">Figma prototype</span><span class="cchip">Usability testing</span></div></div>
-      </div>
-      <div class="ccard" onclick="showPage('cbt')">
-        <div class="cthumb" style="background:#E8EDF3;"><span class="tbg">Dignity</span><span class="tpill">Humanitarian · Multi-country</span></div>
-        <div class="cbody"><span class="ctag">WFP · Service Research · 5 Countries</span><p class="cname">Designing for dignity in crisis</p><p class="cdesc">User journey maps for Cash-Based Transfer programmes. Field research across Gaza, Lebanon, Somalia, Ukraine, Jordan — designing for people in active conflict zones.</p><div class="cchips"><span class="cchip">Field research</span><span class="cchip">Journey maps</span><span class="cchip">Inclusive design</span></div></div>
-      </div>
-      <div class="ccard" onclick="showPage('cashbook')">
-        <div class="cthumb" style="background:#EAEfF2;"><span class="tbg">CashBook</span><span class="tpill">Product Design · WFP</span></div>
-        <div class="cbody"><span class="ctag">WFP · Product Design · Internal Tool</span><p class="cname">CashBook App — offline-first field operations tool</p><p class="cdesc">Concept and UX design of a WebApp for WFP field officers managing cash distributions — works offline, supports 3 user types, integrates with SharePoint.</p><div class="cchips"><span class="cchip">Product Design</span><span class="cchip">Offline-first</span><span class="cchip">Web App</span></div></div>
-      </div>
-    </div>
-
-    <div class="wsec-h" style="margin-top:48px;"><h2 class="wsec-t">Other work</h2><span class="wsec-l" style="cursor:pointer;" onclick="showPage('legacy')">View all →</span></div>
-    <div class="lgrid">
-      <div class="lcard" onclick="showPage('legacy')"><div class="lthumb" style="background:#F0EDE8;"><span style="font-family:var(--serif);font-size:28px;color:var(--navy);opacity:.12;">Prada</span></div><div class="lbody"><p class="lclient">Prada / Miu Miu</p><p class="ltype">Art Direction · E-commerce · 34 countries · 8 languages</p></div></div>
-      <div class="lcard" onclick="showPage('legacy')"><div class="lthumb" style="background:#ECEEF0;"><span style="font-family:var(--serif);font-size:28px;color:var(--navy);opacity:.12;">Edenred</span></div><div class="lbody"><p class="lclient">Edenred — Ticket Restaurant</p><p class="ltype">App Design · 2M+ iOS · 4.6 rating · 650K monthly users</p></div></div>
-      <div class="lcard" onclick="showPage('legacy')"><div class="lthumb" style="background:#E8EBF0;"><span style="font-family:var(--serif);font-size:28px;color:var(--navy);opacity:.12;">TIM</span></div><div class="lbody"><p class="lclient">TIM Music</p><p class="ltype">UX/UI · Omnichannel · 7 device types · 30M+ songs</p></div></div>
+  <!-- SELECTED WORK -->
+  <section class="vsec" id="v-work">
+    <div class="vsec-head"><h2 class="vsec-title">Selected work — WFP</h2><span class="vlabel"><b>(03)</b>&nbsp; 2023 — 2025</span></div>
+    <div class="vworks">
+      <a class="vwork reveal" onclick="showPage('grenada')">
+        <span class="vwork-idx">(01)</span>
+        <div class="vwork-main">
+          <h3 class="vwork-title">Grenada — social protection system redesign</h3>
+          <p class="vwork-desc">End-to-end service design with the Government of Grenada: process mapping, gap analysis and a digital transformation blueprint for SEED + BRISP.</p>
+          <p class="vwork-tags">Service Design · Gap analysis · Gov. advisory · 2025</p>
+        </div>
+        <div class="vwork-thumb" style="background:#1c4a3f;"><span class="vword">Grenada</span><span class="vwork-go">View case →</span></div>
+      </a>
+      <a class="vwork reveal" onclick="showPage('hungermap')">
+        <span class="vwork-idx">(02)</span>
+        <div class="vwork-main">
+          <h3 class="vwork-title">HungerMap — from static map to prediction engine</h3>
+          <p class="vwork-desc">Full UX research and UI design lead for WFP's food-security platform — workshops, Figma prototype and field testing in Nigeria, Yemen and Cameroon.</p>
+          <p class="vwork-tags">UX Research · Data viz · UI Lead · 2024–25</p>
+        </div>
+        <div class="vwork-thumb" style="background:#1a3a52;"><span class="vword">Hunger</span><span class="vwork-go">View case →</span></div>
+      </a>
+      <a class="vwork reveal" onclick="showPage('cbt')">
+        <span class="vwork-idx">(03)</span>
+        <div class="vwork-main">
+          <h3 class="vwork-title">Designing for dignity in crisis</h3>
+          <p class="vwork-desc">User journey maps for Cash-Based Transfer programmes — field research across Gaza, Lebanon, Somalia, Ukraine and Jordan, designing for people in active conflict zones.</p>
+          <p class="vwork-tags">Field research · Journey maps · Inclusive design</p>
+        </div>
+        <div class="vwork-thumb" style="background:#2a3550;"><span class="vword">Dignity</span><span class="vwork-go">View case →</span></div>
+      </a>
+      <a class="vwork reveal" onclick="showPage('cashbook')">
+        <span class="vwork-idx">(04)</span>
+        <div class="vwork-main">
+          <h3 class="vwork-title">CashBook App — offline-first field operations tool</h3>
+          <p class="vwork-desc">Concept and UX design of a WebApp for WFP field officers managing cash distributions — works offline, supports 3 user types and integrates with SharePoint.</p>
+          <p class="vwork-tags">Product Design · Offline-first · Web App</p>
+        </div>
+        <div class="vwork-thumb" style="background:#23414e;"><span class="vword">CashBook</span><span class="vwork-go">View case →</span></div>
+      </a>
     </div>
   </section>
 
-  <section class="asec" id="about-section">
-    <div><p class="aquote">"I design the invisible thread between users and services."</p><p class="atext">I'm a Digital and Service Design Lead with 15 years of experience working across public sector, luxury, finance, healthcare, and humanitarian contexts. I work from research to strategy to execution — always starting with people.</p></div>
-    <div class="alist">
-      <div class="aitem"><div class="aicon"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="5.5" r="3" stroke="#A8D8EA" stroke-width="1.2"/><path d="M2 14c0-3.314 2.462-5 5.5-5s5.5 1.686 5.5 5" stroke="#A8D8EA" stroke-width="1.2" stroke-linecap="round"/></svg></div><div><p class="aititle">Human-centered, always</p><p class="aidesc">Every project starts with understanding the people affected — not the system.</p></div></div>
-      <div class="aitem"><div class="aicon"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><rect x="2" y="2" width="11" height="11" rx="2" stroke="#A8D8EA" stroke-width="1.2"/><path d="M5 7.5h5M5 10h3" stroke="#A8D8EA" stroke-width="1.2" stroke-linecap="round"/></svg></div><div><p class="aititle">From research to delivery</p><p class="aidesc">Research, strategy, process mapping, UX, UI, and implementation advisory.</p></div></div>
-      <div class="aitem"><div class="aicon"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M7.5 1.5L9 5h3.5L9.8 7.2l.8 3.3-3.1-1.9-3.1 1.9.8-3.3L2.5 5H6L7.5 1.5z" stroke="#A8D8EA" stroke-width="1.2" stroke-linejoin="round"/></svg></div><div><p class="aititle">High-stakes contexts</p><p class="aidesc">Luxury brands and conflict zones. Both demand the same rigour.</p></div></div>
+  <!-- OTHER WORK -->
+  <section class="vsec">
+    <div class="vsec-head"><h2 class="vsec-title">Other work</h2><span class="vlabel" style="cursor:pointer" onclick="showPage('legacy')">View all →</span></div>
+    <div class="vother">
+      <div class="voth reveal" onclick="showPage('legacy')"><p class="voth-c">Prada / Miu Miu</p><p class="voth-t">Art Direction · E-commerce · 34 countries · 8 languages</p></div>
+      <div class="voth reveal" onclick="showPage('legacy')"><p class="voth-c">Edenred</p><p class="voth-t">Ticket Restaurant app · 2M+ iOS · 4.6 rating · 650K monthly users</p></div>
+      <div class="voth reveal" onclick="showPage('legacy')"><p class="voth-c">TIM Music</p><p class="voth-t">UX/UI · Omnichannel · 7 device types · 30M+ songs</p></div>
     </div>
   </section>
 
-  <section class="cotsec"><div><h2 class="cot-title">Let's work together.</h2><p class="cot-sub">Available for senior design roles, consulting, and advisory.</p></div><div class="cot-links"><a class="cot-link" href="mailto:france.derosa@gmail.com"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="1" y="3" width="12" height="8" rx="1.5" stroke="#2D7D9A" stroke-width="1.2"/><path d="M1 4.5l6 4 6-4" stroke="#2D7D9A" stroke-width="1.2" stroke-linecap="round"/></svg>france.derosa@gmail.com</a><a class="cot-link" href="https://www.linkedin.com/in/cescoderosa/" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="1" y="1" width="12" height="12" rx="3" stroke="#2D7D9A" stroke-width="1.2"/><path d="M5 10V6M5 4.5V4M9 10V7.5c0-1-.5-1.5-1.5-1.5S6 6.5 6 7.5V10" stroke="#2D7D9A" stroke-width="1.2" stroke-linecap="round"/></svg>LinkedIn</a></div></section>
-  <footer><span class="ft-name">Francesco de Rosa</span><span class="ft-copy">© 2025 — Digital &amp; Service Designer</span></footer>
+  <!-- APPROACH -->
+  <section class="vsec" id="about-section">
+    <div class="vsec-head"><span class="vlabel"><b>(04)</b>&nbsp; Approach</span></div>
+    <div class="vapp">
+      <div>
+        <p class="vapp-statement reveal">"I design the invisible thread between users and services."</p>
+        <p class="vapp-text reveal">I'm a Digital &amp; Service Design Lead with 15 years across public sector, luxury, finance, healthcare and humanitarian contexts — working from research to strategy to execution, always starting with people.</p>
+        <div class="vpills reveal">
+          <span class="vpill">Service Design</span><span class="vpill">UX Research</span><span class="vpill">Design Strategy</span><span class="vpill">Digital Transformation</span>
+        </div>
+      </div>
+      <div class="vapp-list">
+        <div class="vapp-item reveal"><p class="vapp-h">Human-centered, always</p><p class="vapp-d">Every project starts with understanding the people affected — not the system.</p></div>
+        <div class="vapp-item reveal"><p class="vapp-h">From research to delivery</p><p class="vapp-d">Research, strategy, process mapping, UX, UI and implementation advisory.</p></div>
+        <div class="vapp-item reveal"><p class="vapp-h">High-stakes contexts</p><p class="vapp-d">Luxury brands and conflict zones. Both demand the same rigour.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section class="vsec">
+    <div class="vsec-head"><h2 class="vsec-title">Experience</h2><span class="vlabel"><b>(05)</b>&nbsp; 2016 — now</span></div>
+    <div class="vxp">
+      <div class="vxp-row reveal"><span class="vxp-when">2023 — now</span><span class="vxp-what">Digital &amp; Service Design Lead</span><span class="vxp-where">World Food Programme (WFP)</span></div>
+      <div class="vxp-row reveal"><span class="vxp-when">2016 — 2023</span><span class="vxp-what">UX / UI &amp; Service Design Lead</span><span class="vxp-where">Reply / Freelance — 20+ brands</span></div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="vsec vcontact">
+    <span class="vlabel"><b>(06)</b>&nbsp; Contact</span>
+    <h2 class="vcontact-title reveal">Let's work<br>together.</h2>
+    <p class="vhero-intro reveal" style="margin-bottom:30px">Available for senior design roles, consulting and advisory.</p>
+    <div class="vcontact-links reveal">
+      <a class="vbtn" href="mailto:france.derosa@gmail.com">france.derosa@gmail.com</a>
+      <a class="vbtn ghost" href="https://www.linkedin.com/in/cescoderosa/" target="_blank" rel="noopener">LinkedIn ↗</a>
+    </div>
+  </section>
+
+  <footer class="vfoot"><span>Francesco de Rosa</span><span>© 2025 — Digital &amp; Service Designer</span></footer>
 </div>
 
 <!-- ══════════════════════ GRENADA ══════════════════════ -->
@@ -808,16 +987,16 @@ function armReveals(){
   var sel=['.st','.st-l','.ey','.ey-l','.wsec-t','.cov-title','.cov-sub','.cov-chips','.ccard',
     '.lcard','.lg-card','.gcard','.rcard','.ucard','.pcard','.fcard','.jcard','.tli','.kcard',
     '.ctcard','.pstep','.aitem','.aquote','.atext','.cot-title','.cot-sub','.pb-wrap','.pv-card',
-    '.cm-i','.cn','.iitem','.next-title'];
+    '.cm-i','.cn','.iitem','.next-title','.vsec-title'];
   document.querySelectorAll(sel.join(',')).forEach(function(el){el.classList.add('reveal');});
-  document.querySelectorAll('.fgrid,.lgrid,.lg-grid,.ggrid,.rgrid,.ugrid,.pgrid5,.fgrid3,.jgrid,.tl,.kgrid,.ctgrid,.cov-nums,.igrid,.cov-meta,.path-steps,.alist').forEach(function(group){
+  document.querySelectorAll('.fgrid,.lgrid,.lg-grid,.ggrid,.rgrid,.ugrid,.pgrid5,.fgrid3,.jgrid,.tl,.kgrid,.ctgrid,.cov-nums,.igrid,.cov-meta,.path-steps,.alist,.vstats,.vworks,.vother,.vapp-list,.vxp,.vpills').forEach(function(group){
     Array.prototype.slice.call(group.children).forEach(function(child,i){
       if(child.classList.contains('reveal'))child.style.transitionDelay=(Math.min(i,6)*0.06)+'s';
     });
   });
 
   // 3 — Subtle parallax on the decorative serif words in thumbnails
-  var plx=Array.prototype.slice.call(document.querySelectorAll('.tbg,.lg-tbg'));
+  var plx=Array.prototype.slice.call(document.querySelectorAll('.tbg,.lg-tbg,.vword'));
   function parallax(){
     var vh=vpH();
     plx.forEach(function(el){
