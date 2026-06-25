@@ -37,8 +37,8 @@ python -m http.server 8000
 Hai detto di volere un dominio tuo (es. `francescoderosa.com`):
 
 1. **Compra il dominio** da un registrar (Namecheap, Cloudflare, GoDaddy… ~10€/anno).
-2. **Modifica il file `CNAME`** in questa cartella mettendo il tuo dominio reale
-   (una sola riga, senza `https://`). Ora contiene un segnaposto: `francescoderosa.com`.
+2. **Crea un file `CNAME`** in questa cartella con dentro il tuo dominio reale
+   (una sola riga, senza `https://`, es. `francescoderosa.com`), poi commit e push.
 3. Nel pannello DNS del registrar aggiungi:
    - 4 record **A** verso gli IP di GitHub Pages:
      `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
@@ -46,8 +46,8 @@ Hai detto di volere un dominio tuo (es. `francescoderosa.com`):
 4. Su GitHub → **Settings → Pages → Custom domain**: inserisci il dominio, salva,
    poi spunta **Enforce HTTPS** (compare dopo che il certificato è pronto).
 
-> Se NON vuoi un dominio custom, elimina semplicemente il file `CNAME`: il sito
-> resterà raggiungibile sull'indirizzo `*.github.io` gratuito.
+> Finché non aggiungi il file `CNAME`, il sito resta raggiungibile sull'indirizzo
+> `*.github.io` gratuito.
 
 ## Cose da aggiornare prima di andare live
 
