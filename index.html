@@ -422,11 +422,12 @@ nav{background:var(--navy);border-bottom:1px solid var(--line);}
 
 /* Experience */
 .vxp{display:flex;flex-direction:column;}
-.vxp-row{display:grid;grid-template-columns:150px 1fr auto;gap:24px;padding:24px 0;border-top:1px solid var(--line);align-items:baseline;}
+.vxp-row{display:grid;grid-template-columns:170px 1fr;gap:28px;padding:28px 0;border-top:1px solid var(--line);align-items:start;}
 .vxp .vxp-row:last-child{border-bottom:1px solid var(--line);}
-.vxp-when{font-family:var(--mono);font-size:12px;color:var(--teal);}
-.vxp-what{font-size:18px;color:#fff;}
-.vxp-where{font-size:13px;color:rgba(234,244,248,.6);}
+.vxp-when{font-family:var(--mono);font-size:12px;color:var(--teal);padding-top:4px;}
+.vxp-what{font-size:19px;color:#fff;margin-bottom:4px;}
+.vxp-where{font-family:var(--mono);font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:var(--ice);opacity:.7;margin-bottom:10px;}
+.vxp-note{font-size:14px;line-height:1.6;color:rgba(234,244,248,.6);max-width:620px;}
 
 /* Contact + footer */
 .vcontact-title{font-family:var(--serif);font-weight:400;font-size:clamp(40px,7vw,92px);color:#fff;line-height:1;letter-spacing:-.02em;margin:14px 0 26px;}
@@ -785,8 +786,22 @@ body.has-cursor, body.has-cursor *{cursor:none;}
   <section class="vsec">
     <div class="vsec-head"><h2 class="vsec-title">Experience</h2><span class="vlabel"><b>(05)</b>&nbsp; 2016 — now</span></div>
     <div class="vxp">
-      <div class="vxp-row reveal"><span class="vxp-when">2023 — now</span><span class="vxp-what">Digital &amp; Service Design Lead</span><span class="vxp-where">World Food Programme (WFP)</span></div>
-      <div class="vxp-row reveal"><span class="vxp-when">2016 — 2023</span><span class="vxp-what">UX / UI &amp; Service Design Lead</span><span class="vxp-where">Reply / Freelance — 20+ brands</span></div>
+      <div class="vxp-row reveal">
+        <span class="vxp-when">2023 — Jan 2026</span>
+        <div class="vxp-main">
+          <p class="vxp-what">Digital &amp; Service Design Lead</p>
+          <p class="vxp-where">World Food Programme (WFP) · Rome</p>
+          <p class="vxp-note">Service design and UX research for humanitarian cash-assistance and food-security programmes across 7+ countries — Grenada, HungerMap, Cash-Based Transfers and CashBook.</p>
+        </div>
+      </div>
+      <div class="vxp-row reveal">
+        <span class="vxp-when">2016 — 2023</span>
+        <div class="vxp-main">
+          <p class="vxp-what">UX / UI &amp; Service Design Lead</p>
+          <p class="vxp-where">Reply / Freelance</p>
+          <p class="vxp-note">Digital products for 20+ brands across luxury, telecoms, finance and healthcare — Prada, TIM, Edenred, Luxottica, Ferrero, Alleanza and UnipolSai.</p>
+        </div>
+      </div>
     </div>
   </section>
 
