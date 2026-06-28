@@ -572,6 +572,13 @@ body.has-cursor, body.has-cursor *{cursor:none;}
 
 @media (max-width:860px){.vquotes{grid-template-columns:1fr;}}
 
+/* ═════════════ V7 — WHITE RAISED BOXES (By the numbers) ═════════════ */
+.vstats{gap:16px;background:none;border:none;border-radius:0;overflow:visible;}
+.vstat{background:#fff;border-radius:18px;box-shadow:0 16px 34px -18px rgba(0,0,0,.55);transition:transform .35s cubic-bezier(.22,.61,.36,1),box-shadow .35s ease;}
+.vstat:hover{transform:translateY(-5px);box-shadow:0 24px 46px -18px rgba(0,0,0,.6);}
+.vstat-n{color:var(--navy);}
+.vstat-l{color:rgba(27,58,75,.6);}
+
 /* ───────────────── RESPONSIVE ───────────────── */
 @media (max-width:900px){
   nav{padding:16px 24px;}
