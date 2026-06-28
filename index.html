@@ -546,6 +546,32 @@ nav{background:var(--navy);border-bottom:1px solid var(--line);}
 .pstep{padding:24px 18px;}
 .iitem{padding:clamp(24px,3vw,34px) 22px;}
 
+/* ═════════════ V6 — TESTIMONIALS · CUSTOM CURSOR · PAGE TRANSITIONS · HERO LAYOUT ═════════════ */
+/* Hero intro — roomier, comfortable measure */
+.vhero-foot{gap:48px;align-items:end;}
+.vhero-intro{line-height:1.7;max-width:600px;}
+
+/* Testimonials */
+.vquotes{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.vquote{border:1px solid var(--line);border-radius:14px;padding:28px;background:var(--navy-d);display:flex;flex-direction:column;gap:20px;margin:0;}
+.vquote blockquote{font-family:var(--serif);font-size:19px;line-height:1.45;color:#fff;margin:0;}
+.vquote figcaption{margin-top:auto;}
+.vq-name{display:block;font-size:14px;color:var(--ice);font-weight:500;}
+.vq-role{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:rgba(168,216,234,.55);margin-top:5px;}
+
+/* Custom cursor (fine-pointer devices only; toggled via body.has-cursor) */
+body.has-cursor, body.has-cursor *{cursor:none;}
+.cursor-dot,.cursor-ring{position:fixed;top:0;left:0;border-radius:50%;pointer-events:none;z-index:9999;}
+.cursor-dot{width:7px;height:7px;background:#fff;mix-blend-mode:difference;}
+.cursor-ring{width:34px;height:34px;border:1px solid rgba(168,216,234,.6);transition:width .25s ease,height .25s ease,background .25s ease,border-color .25s ease;}
+.cursor-ring.hot{width:56px;height:56px;background:rgba(168,216,234,.12);border-color:rgba(168,216,234,.25);}
+
+/* Page-transition overlay (cross-fade through navy) */
+.page-wipe{position:fixed;inset:0;background:var(--navy);z-index:400;opacity:0;pointer-events:none;transition:opacity .34s ease;}
+.page-wipe.in{opacity:1;}
+
+@media (max-width:860px){.vquotes{grid-template-columns:1fr;}}
+
 /* ───────────────── RESPONSIVE ───────────────── */
 @media (max-width:900px){
   nav{padding:16px 24px;}
@@ -618,11 +644,11 @@ nav{background:var(--navy);border-bottom:1px solid var(--line);}
   <header class="vhero">
     <div class="vhero-row">
       <span class="vlabel"><b>(01)</b>&nbsp; Portfolio — Edition '25</span>
-      <span class="vlabel">Rome, Italy</span>
+      <span class="vlabel">Digital &amp; Service Design Lead — Rome, IT</span>
     </div>
-    <h1 class="vhero-title reveal">Designing for <em>people</em>,<br>systems for <em>life</em>.</h1>
+    <h1 class="vhero-title reveal">Designing services<br>people <em>rely on</em>.</h1>
     <div class="vhero-foot">
-      <p class="vhero-intro reveal">Francesco de Rosa — Digital &amp; Service Design Lead. 15 years turning complex problems into clear, usable experiences, from luxury e-commerce to humanitarian programmes in active crisis zones.</p>
+      <p class="vhero-intro reveal">15 years turning complex problems into clear, usable experiences — from luxury e-commerce to humanitarian programmes in active crisis zones.</p>
       <div class="vhero-cta reveal">
         <button class="vbtn" onclick="scrollToSection('v-work')">Selected work ↓</button>
         <a class="vbtn ghost" href="mailto:france.derosa@gmail.com">Get in touch</a>
@@ -730,9 +756,28 @@ nav{background:var(--navy);border-bottom:1px solid var(--line);}
     </div>
   </section>
 
+  <!-- TESTIMONIALS -->
+  <section class="vsec">
+    <div class="vsec-head"><h2 class="vsec-title">Kind words</h2><span class="vlabel"><b>(06)</b>&nbsp; References</span></div>
+    <div class="vquotes">
+      <figure class="vquote reveal">
+        <blockquote>[Add a real quote from a colleague, manager or client here — 1–2 sentences.]</blockquote>
+        <figcaption><span class="vq-name">Name Surname</span><span class="vq-role">Role · Organisation</span></figcaption>
+      </figure>
+      <figure class="vquote reveal">
+        <blockquote>[Add a real quote from a colleague, manager or client here — 1–2 sentences.]</blockquote>
+        <figcaption><span class="vq-name">Name Surname</span><span class="vq-role">Role · Organisation</span></figcaption>
+      </figure>
+      <figure class="vquote reveal">
+        <blockquote>[Add a real quote from a colleague, manager or client here — 1–2 sentences.]</blockquote>
+        <figcaption><span class="vq-name">Name Surname</span><span class="vq-role">Role · Organisation</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
   <!-- CONTACT -->
   <section class="vsec vcontact">
-    <span class="vlabel"><b>(06)</b>&nbsp; Contact</span>
+    <span class="vlabel"><b>(07)</b>&nbsp; Contact</span>
     <h2 class="vcontact-title reveal">Let's work<br>together.</h2>
     <p class="vhero-intro reveal" style="margin-bottom:30px">Available for senior design roles, consulting and advisory.</p>
     <div class="vcontact-links reveal">
@@ -1034,10 +1079,10 @@ nav{background:var(--navy);border-bottom:1px solid var(--line);}
 
 <script src="https://unpkg.com/lenis@1/dist/lenis.min.js"></script>
 <script>
-var lenis=null;
+var lenis=null, _wipe=null, _reduce=false;
 var revealEls=[];
 
-function showPage(id){
+function _applyPage(id){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.getElementById('page-'+id).classList.add('active');
   closeMenu();
@@ -1045,14 +1090,22 @@ function showPage(id){
   else window.scrollTo({top:0,behavior:'auto'});
   armReveals();
 }
+function showPage(id){
+  if(_reduce||!_wipe){_applyPage(id);return;}
+  _wipe.classList.add('in');
+  setTimeout(function(){_applyPage(id);},340);
+  setTimeout(function(){_wipe.classList.remove('in');},400);
+}
 function scrollToSection(id){
+  var onHome=document.getElementById('page-home').classList.contains('active');
+  if(onHome){var el=document.getElementById(id);if(el){if(lenis)lenis.scrollTo(el,{offset:-70});else el.scrollIntoView({behavior:'smooth'});}return;}
   showPage('home');
   setTimeout(function(){
     var el=document.getElementById(id);
     if(!el)return;
     if(lenis)lenis.scrollTo(el,{offset:-70});
     else el.scrollIntoView({behavior:'smooth'});
-  },140);
+  },(_wipe&&!_reduce)?460:160);
 }
 function toggleMenu(){document.getElementById('nav-links').classList.toggle('open');}
 function closeMenu(){document.getElementById('nav-links').classList.remove('open');}
@@ -1075,7 +1128,24 @@ function armReveals(){
 
 (function(){
   var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  _reduce=reduce;
   if(reduce)return;
+
+  // 0 — Page-transition overlay + custom cursor
+  _wipe=document.createElement('div');_wipe.className='page-wipe';_wipe.setAttribute('aria-hidden','true');
+  document.body.appendChild(_wipe);
+  if(window.matchMedia('(hover:hover) and (pointer:fine)').matches){
+    document.body.classList.add('has-cursor');
+    var cdot=document.createElement('div');cdot.className='cursor-dot';
+    var cring=document.createElement('div');cring.className='cursor-ring';
+    document.body.appendChild(cdot);document.body.appendChild(cring);
+    var mx=window.innerWidth/2,my=window.innerHeight/2,rx=mx,ry=my;
+    window.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;cdot.style.transform='translate('+mx+'px,'+my+'px) translate(-50%,-50%)';},{passive:true});
+    (function cloop(){rx+=(mx-rx)*.18;ry+=(my-ry)*.18;cring.style.transform='translate('+rx.toFixed(1)+'px,'+ry.toFixed(1)+'px) translate(-50%,-50%)';requestAnimationFrame(cloop);})();
+    var hotSel='a,button,.vwork,.voth,.lg-card,.next-btn,.n-link,.n-logo,[onclick]';
+    document.addEventListener('mouseover',function(e){if(e.target.closest&&e.target.closest(hotSel))cring.classList.add('hot');});
+    document.addEventListener('mouseout',function(e){if(e.target.closest&&e.target.closest(hotSel))cring.classList.remove('hot');});
+  }
 
   // 1 — Smooth scroll with inertia (Lenis)
   if(window.Lenis){
@@ -1099,7 +1169,7 @@ function armReveals(){
     '.ctcard','.pstep','.aitem','.aquote','.atext','.cot-title','.cot-sub','.pb-wrap','.pv-card',
     '.cm-i','.cn','.iitem','.next-title','.vsec-title'];
   document.querySelectorAll(sel.join(',')).forEach(function(el){el.classList.add('reveal');});
-  document.querySelectorAll('.fgrid,.lgrid,.lg-grid,.ggrid,.rgrid,.ugrid,.pgrid5,.fgrid3,.jgrid,.tl,.kgrid,.ctgrid,.cov-nums,.igrid,.cov-meta,.path-steps,.alist,.vstats,.vworks,.vother,.vapp-list,.vxp,.vpills').forEach(function(group){
+  document.querySelectorAll('.fgrid,.lgrid,.lg-grid,.ggrid,.rgrid,.ugrid,.pgrid5,.fgrid3,.jgrid,.tl,.kgrid,.ctgrid,.cov-nums,.igrid,.cov-meta,.path-steps,.alist,.vstats,.vworks,.vother,.vapp-list,.vxp,.vpills,.vquotes').forEach(function(group){
     Array.prototype.slice.call(group.children).forEach(function(child,i){
       if(child.classList.contains('reveal'))child.style.transitionDelay=(Math.min(i,6)*0.06)+'s';
     });
