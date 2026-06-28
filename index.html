@@ -584,6 +584,28 @@ body.has-cursor, body.has-cursor *{cursor:none;}
 .voth-c{color:var(--navy);}
 .voth-t{color:rgba(27,58,75,.6);}
 
+/* ═════════════ V8 — EXTEND WHITE BOXES (cover numbers · recommendations · KPIs · impact) ═════════════ */
+/* Case-study cover numbers */
+.cov-nums{background:none;border-top:none;gap:16px;padding-bottom:clamp(36px,5vw,60px);}
+.cn{background:#fff;border-right:none;border-radius:18px;box-shadow:0 16px 34px -18px rgba(0,0,0,.5);padding:clamp(22px,2.5vw,32px) 18px;}
+.cn-big{color:var(--navy);}
+.cn-lbl{color:rgba(27,58,75,.6);}
+/* Recommendation / takeaway cards */
+.rcard{background:#fff;border:none;border-radius:18px;box-shadow:0 16px 34px -18px rgba(0,0,0,.55);transition:transform .35s cubic-bezier(.22,.61,.36,1),box-shadow .35s ease;}
+.rcard:hover{transform:translateY(-5px);box-shadow:0 24px 46px -18px rgba(0,0,0,.6);}
+.rtitle{color:var(--navy);}
+.rtext{color:rgba(27,58,75,.66);}
+/* KPI target cards */
+.kcard{background:#fff;border:none;border-radius:18px;box-shadow:0 14px 30px -16px rgba(0,0,0,.5);}
+.knum{color:var(--navy);}
+.ktgt{color:var(--teal);}
+.klbl{color:rgba(27,58,75,.6);}
+/* Impact numbers */
+.igrid{border-top:none;gap:16px;}
+.iitem{background:#fff;border-right:none;border-radius:18px;box-shadow:0 16px 34px -18px rgba(0,0,0,.55);}
+.ibig{color:var(--navy);}
+.ilbl{color:rgba(27,58,75,.6);}
+
 /* ───────────────── RESPONSIVE ───────────────── */
 @media (max-width:900px){
   nav{padding:16px 24px;}
