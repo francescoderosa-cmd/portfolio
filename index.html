@@ -572,12 +572,17 @@ body.has-cursor, body.has-cursor *{cursor:none;}
 
 @media (max-width:860px){.vquotes{grid-template-columns:1fr;}}
 
-/* ═════════════ V7 — WHITE RAISED BOXES (By the numbers) ═════════════ */
+/* ═════════════ V7 — WHITE RAISED BOXES (reusable highlight modules) ═════════════ */
+/* Shared raised-white look */
+.vstat,.voth{background:#fff;border:none;border-radius:18px;box-shadow:0 16px 34px -18px rgba(0,0,0,.55);transition:transform .35s cubic-bezier(.22,.61,.36,1),box-shadow .35s ease;}
+.vstat:hover,.voth:hover{transform:translateY(-5px);box-shadow:0 24px 46px -18px rgba(0,0,0,.6);}
+/* By the numbers */
 .vstats{gap:16px;background:none;border:none;border-radius:0;overflow:visible;}
-.vstat{background:#fff;border-radius:18px;box-shadow:0 16px 34px -18px rgba(0,0,0,.55);transition:transform .35s cubic-bezier(.22,.61,.36,1),box-shadow .35s ease;}
-.vstat:hover{transform:translateY(-5px);box-shadow:0 24px 46px -18px rgba(0,0,0,.6);}
 .vstat-n{color:var(--navy);}
 .vstat-l{color:rgba(27,58,75,.6);}
+/* Other work */
+.voth-c{color:var(--navy);}
+.voth-t{color:rgba(27,58,75,.6);}
 
 /* ───────────────── RESPONSIVE ───────────────── */
 @media (max-width:900px){
@@ -666,8 +671,8 @@ body.has-cursor, body.has-cursor *{cursor:none;}
   <!-- MARQUEE -->
   <div class="vmarq" aria-hidden="true">
     <div class="vmarq-track">
-      <span>Service Design</span><span>UX Research</span><span>Design Strategy</span><span>Digital Transformation</span><span>Prada</span><span>TIM</span><span>WFP</span><span>Edenred</span><span>Luxottica</span><span>Ferrero</span>
-      <span>Service Design</span><span>UX Research</span><span>Design Strategy</span><span>Digital Transformation</span><span>Prada</span><span>TIM</span><span>WFP</span><span>Edenred</span><span>Luxottica</span><span>Ferrero</span>
+      <span>Service Design</span><span>UX Research</span><span>Design Strategy</span><span>Digital Transformation</span><span>Data Visualization</span><span>User Journey Mapping</span><span>Usability Testing</span><span>Inclusive Design</span><span>Product Design</span><span>Process Mapping</span>
+      <span>Service Design</span><span>UX Research</span><span>Design Strategy</span><span>Digital Transformation</span><span>Data Visualization</span><span>User Journey Mapping</span><span>Usability Testing</span><span>Inclusive Design</span><span>Product Design</span><span>Process Mapping</span>
     </div>
   </div>
 
