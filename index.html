@@ -622,6 +622,36 @@ body.has-cursor, body.has-cursor *{cursor:none;}
 .knum{font-size:30px;}
 .ibig{font-size:48px;}
 
+/* ═════════════ V11 — LIGHT BAND (About · Approach · Experience) ═════════════ */
+.lightzone{background:var(--warm);color:var(--navy);}
+.lightzone .vsec{border-top-color:rgba(27,58,75,.10);}
+.lightzone .vsec:first-child{border-top-color:rgba(27,58,75,.05);}
+.lightzone .vlabel{color:rgba(27,58,75,.55);}
+.lightzone .vlabel b{color:var(--teal);}
+.lightzone .vsec-title{color:var(--navy);}
+/* Approach on light */
+.lightzone .vapp-statement{color:var(--navy);}
+.lightzone .vapp-text{color:rgba(27,58,75,.7);}
+.lightzone .vapp-item{border-top-color:rgba(27,58,75,.12);}
+.lightzone .vapp-list .vapp-item:last-child{border-bottom-color:rgba(27,58,75,.12);}
+.lightzone .vapp-h{color:var(--navy);}
+.lightzone .vapp-d{color:rgba(27,58,75,.62);}
+.lightzone .vpill{border-color:rgba(27,58,75,.22);color:var(--navy);}
+/* Experience on light */
+.lightzone .vxp-row{border-top-color:rgba(27,58,75,.12);}
+.lightzone .vxp .vxp-row:last-child{border-bottom-color:rgba(27,58,75,.12);}
+.lightzone .vxp-when{color:var(--teal);}
+.lightzone .vxp-what{color:var(--navy);}
+.lightzone .vxp-where{color:var(--teal);opacity:1;}
+.lightzone .vxp-note{color:rgba(27,58,75,.62);}
+/* About */
+.vabout{display:grid;grid-template-columns:220px 1fr;gap:clamp(28px,5vw,64px);align-items:center;}
+.vabout-photo{width:220px;height:220px;border-radius:50%;background:var(--navy);color:var(--ice);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:62px;box-shadow:0 18px 40px -18px rgba(0,0,0,.45);overflow:hidden;flex-shrink:0;}
+.vabout-photo img{width:100%;height:100%;object-fit:cover;border-radius:50%;}
+.vabout-lead{font-family:var(--serif);font-size:clamp(24px,3vw,34px);line-height:1.3;color:var(--navy);margin-bottom:18px;}
+.vabout-body{font-size:15px;line-height:1.75;color:rgba(27,58,75,.7);max-width:620px;margin-bottom:14px;}
+@media (max-width:760px){.vabout{grid-template-columns:1fr;justify-items:start;gap:24px;}.vabout-photo{width:150px;height:150px;font-size:46px;}}
+
 /* ───────────────── RESPONSIVE ───────────────── */
 @media (max-width:900px){
   nav{padding:16px 24px;}
@@ -778,9 +808,24 @@ body.has-cursor, body.has-cursor *{cursor:none;}
     </div>
   </section>
 
-  <!-- APPROACH -->
+  <div class="lightzone">
+
+  <!-- ABOUT -->
   <section class="vsec" id="about-section">
-    <div class="vsec-head"><span class="vlabel"><b>(04)</b>&nbsp; Approach</span></div>
+    <div class="vsec-head"><span class="vlabel"><b>(04)</b>&nbsp; About</span></div>
+    <div class="vabout">
+      <div class="vabout-photo reveal" role="img" aria-label="Francesco de Rosa">FdR</div>
+      <div class="vabout-text">
+        <p class="vabout-lead reveal">Hi, I'm Francesco — a Digital &amp; Service Design Lead based in Rome.</p>
+        <p class="vabout-body reveal">For 15 years I've turned complex problems into clear, usable experiences — from luxury e-commerce and telecoms to humanitarian programmes with the World Food Programme. I work end-to-end, from research and strategy to UX, UI and delivery, always starting with the people a service is meant to help.</p>
+        <p class="vabout-body reveal">I move comfortably between very different worlds — luxury brands and conflict zones — because both demand the same things: rigour, clarity, and respect for the person on the other side of the screen.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- APPROACH -->
+  <section class="vsec">
+    <div class="vsec-head"><span class="vlabel"><b>(05)</b>&nbsp; Approach</span></div>
     <div class="vapp">
       <div>
         <p class="vapp-statement reveal">"I design the invisible thread between users and services."</p>
@@ -799,7 +844,7 @@ body.has-cursor, body.has-cursor *{cursor:none;}
 
   <!-- EXPERIENCE -->
   <section class="vsec">
-    <div class="vsec-head"><h2 class="vsec-title">Experience</h2><span class="vlabel"><b>(05)</b>&nbsp; 2016 — now</span></div>
+    <div class="vsec-head"><h2 class="vsec-title">Experience</h2><span class="vlabel"><b>(06)</b>&nbsp; 2016 — now</span></div>
     <div class="vxp">
       <div class="vxp-row reveal">
         <span class="vxp-when">2023 — 2026</span>
@@ -836,9 +881,11 @@ body.has-cursor, body.has-cursor *{cursor:none;}
     </div>
   </section>
 
+  </div>
+
   <!-- CONTACT -->
   <section class="vsec vcontact">
-    <span class="vlabel"><b>(06)</b>&nbsp; Contact</span>
+    <span class="vlabel"><b>(07)</b>&nbsp; Contact</span>
     <h2 class="vcontact-title reveal">Let's work<br>together.</h2>
     <p class="vhero-intro reveal" style="margin-bottom:30px">Available for senior design roles, consulting and advisory.</p>
     <div class="vcontact-links reveal">
