@@ -666,6 +666,14 @@ body.has-cursor, body.has-cursor *{cursor:none;}
 :focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:4px;}
 .lightzone :focus-visible{outline-color:#1C5E74;}
 
+/* ═════════════ V12 — POLISH: line-mask titles · reading progress ═════════════ */
+.mline{display:block;overflow:hidden;}
+.mline-in{display:block;transform:translateY(112%);transition:transform .8s cubic-bezier(.22,.61,.36,1);}
+.masked.reveal{opacity:1;transform:none;transition:none;}
+.masked.in .mline-in{transform:none;}
+.readbar{position:fixed;top:0;left:0;height:3px;width:0;background:var(--gold);z-index:500;pointer-events:none;opacity:0;transition:opacity .3s ease;}
+body.on-case .readbar{opacity:1;}
+
 /* ───────────────── RESPONSIVE ───────────────── */
 @media (max-width:900px){
   nav{padding:16px 24px;}
@@ -1322,6 +1330,16 @@ function armReveals(){
     });
   });
 
+  // 2b, Line-mask reveal for display titles (split on <br>, lines slide up from a mask)
+  document.querySelectorAll('.vhero-title,.vcontact-title,.cov-title,.vsec-title,.st,.st-l').forEach(function(el){
+    var parts=el.innerHTML.split(/<br\s*\/?>/i);
+    el.innerHTML=parts.map(function(p){return '<span class="mline"><span class="mline-in">'+p+'</span></span>';}).join('');
+    el.classList.add('masked');
+    var lines=el.querySelectorAll('.mline-in');
+    for(var i=0;i<lines.length;i++){lines[i].style.transitionDelay=(i*0.09)+'s';}
+    void el.offsetWidth; // commit initial style so the first .in transition animates
+  });
+
   // 3, Subtle parallax on the decorative serif words in thumbnails
   var plx=Array.prototype.slice.call(document.querySelectorAll('.tbg,.lg-tbg,.vword'));
   function parallax(){
@@ -1334,7 +1352,46 @@ function armReveals(){
     });
   }
 
-  function onScroll(){checkReveals();parallax();}
+  // 3b, Animated counters on stat numbers in white boxes
+  var counters=Array.prototype.slice.call(document.querySelectorAll('.vstat-n,.cn-big,.ibig,.knum'));
+  counters.forEach(function(el){
+    var m=el.textContent.trim().match(/^(\d+)(.*)$/);
+    if(m){el.dataset.target=m[1];el.dataset.suffix=m[2]||'';el.dataset.counted='0';}
+  });
+  function animateCount(el){
+    var target=+el.dataset.target, suffix=el.dataset.suffix, dur=1100, t0=null;
+    function step(ts){
+      if(t0===null)t0=ts;
+      var p=Math.min((ts-t0)/dur,1), e=1-Math.pow(1-p,3);
+      el.textContent=Math.round(target*e)+suffix;
+      if(p<1)requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  function runCounters(){
+    counters.forEach(function(el){
+      if(el.dataset.counted!=='0')return;
+      var r=el.getBoundingClientRect();
+      if(r.height>0&&r.top<vpH()*0.94&&r.bottom>0){el.dataset.counted='1';animateCount(el);}
+    });
+  }
+
+  // 3c, Reading progress bar on case-study pages
+  var rbar=document.createElement('div');rbar.className='readbar';rbar.setAttribute('aria-hidden','true');
+  document.body.appendChild(rbar);
+  function readbar(){
+    var h=document.documentElement.scrollHeight-vpH();
+    rbar.style.width=(h>0?Math.min(window.scrollY/h,1)*100:0)+'%';
+  }
+  var _origApply=_applyPage;
+  _applyPage=function(id){
+    _origApply(id);
+    document.body.classList.toggle('on-case', id!=='home');
+    setTimeout(function(){runCounters();readbar();},80);
+  };
+  document.body.classList.toggle('on-case', _currentPage!=='home');
+
+  function onScroll(){checkReveals();parallax();runCounters();readbar();}
   if(lenis)lenis.on('scroll',onScroll);
   window.addEventListener('scroll',onScroll,{passive:true});
   window.addEventListener('resize',onScroll,{passive:true});
