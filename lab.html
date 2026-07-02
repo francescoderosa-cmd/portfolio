@@ -89,8 +89,8 @@ body.canvas .stage{height:min(76vh,720px);overflow:hidden;cursor:grab;border-top
 body.canvas .stage:active{cursor:grabbing;}
 body.canvas .plane{position:absolute;width:190%;height:175%;display:block;padding:0;will-change:transform;}
 body.canvas .card{position:absolute;width:var(--w,280px);will-change:transform;}
-body.canvas .card-cap{opacity:0;transform:translateY(6px);transition:opacity .35s var(--ease),transform .35s var(--ease);}
-body.canvas .card:hover .card-cap,body.canvas .card:focus-within .card-cap{opacity:1;transform:none;}
+body.canvas .card-cap{opacity:0;visibility:hidden;transform:translateY(6px);transition:opacity .35s var(--ease),transform .35s var(--ease),visibility 0s .35s;}
+body.canvas .card:hover .card-cap,body.canvas .card:focus-within .card-cap{opacity:1;visibility:visible;transform:none;transition-delay:0s;}
 
 /* green-lab lens */
 .lens{position:absolute;width:120px;height:120px;border-radius:50%;border:1px solid rgba(168,216,234,.6);box-shadow:0 10px 30px -10px rgba(0,0,0,.6),inset 0 0 22px rgba(168,216,234,.18);pointer-events:none;opacity:0;transform:translate(-50%,-50%) scale(.7);transition:opacity .25s var(--ease),transform .25s var(--ease);background-repeat:no-repeat;z-index:2;}
@@ -486,8 +486,23 @@ function openWork(id,fromCard){
     var target=dFig.querySelector('img,.ba');
     if(fromCard&&target){
       var srcImg=fromCard.querySelector('.frame img');
-      var fit=Flip.fit(target,srcImg,{getVars:true,scale:true});
-      gsap.from(target,{x:fit.x,y:fit.y,scaleX:fit.scaleX,scaleY:fit.scaleY,duration:D.mid,ease:D.ease});
+      /* only morph once the detail image has real dimensions; a fit measured on an
+         unloaded (0-size) image produces a broken transform that can leave the image
+         stranded below the thumbnails on slow networks */
+      var doFit=function(){
+        if(!target.isConnected)return;
+        var fit=Flip.fit(target,srcImg,{getVars:true,scale:true});
+        gsap.fromTo(target,
+          {x:fit.x,y:fit.y,scaleX:fit.scaleX,scaleY:fit.scaleY},
+          {x:0,y:0,scaleX:1,scaleY:1,duration:D.mid,ease:D.ease,clearProps:'transform'});
+      };
+      var probe=target.tagName==='IMG'?target:target.querySelector('img');
+      if(probe&&!(probe.complete&&probe.naturalWidth>0)){
+        gsap.set(target,{opacity:0});
+        var reveal=function(){gsap.set(target,{opacity:1});doFit();};
+        probe.addEventListener('load',reveal,{once:true});
+        probe.addEventListener('error',function(){gsap.set(target,{opacity:1});},{once:true});
+      }else{doFit();}
     }
     gsap.from('.d-meta > *',{y:18,opacity:0,duration:D.fast,stagger:.05,delay:.15,ease:D.ease,clearProps:'all'});
   }
