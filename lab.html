@@ -97,7 +97,7 @@ body.canvas .card:hover .card-cap,body.canvas .card:focus-within .card-cap{opaci
 .card:hover .lens.on{opacity:1;transform:translate(-50%,-50%) scale(1);}
 
 /* detail view */
-.detail{position:fixed;inset:0;z-index:300;background:rgba(13,27,36,.96);display:none;}
+.detail{position:fixed;inset:0;z-index:1500;background:rgba(13,27,36,.96);display:none;}
 .detail.open{display:grid;grid-template-columns:1.35fr .85fr;}
 .d-media{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:clamp(18px,4vw,48px);min-width:0;}
 .d-figure{position:relative;max-height:70vh;display:flex;align-items:center;justify-content:center;}
@@ -351,7 +351,7 @@ function enableCanvas(){
   });
   gsap.set(plane,{x:bounds().minX*.35,y:bounds().minY*.3});parallax();
   drag=Draggable.create(plane,{type:'x,y',bounds:bounds(),inertia:!!window.InertiaPlugin,edgeResistance:.72,
-    onDrag:parallax,onThrowUpdate:parallax})[0];
+    zIndexBoost:false,onDrag:parallax,onThrowUpdate:parallax})[0];
   stage.addEventListener('wheel',function(e){
     e.preventDefault();
     var b=bounds();
