@@ -49,9 +49,16 @@ Hai detto di volere un dominio tuo (es. `francescoderosa.com`):
 > Finché non aggiungi il file `CNAME`, il sito resta raggiungibile sull'indirizzo
 > `*.github.io` gratuito.
 
-## Cose da aggiornare prima di andare live
+## The Lab: aggiungere un'opera
 
-- **Link LinkedIn**: in `index.html` è impostato su
-  `https://www.linkedin.com/in/francescoderosa` — sostituiscilo con l'URL reale del tuo profilo.
-- **Foto / immagini**: il sito usa solo grafica vettoriale e colori, nessuna foto.
-  Se vuoi aggiungere immagini reali dei progetti, mettile in una cartella `assets/`.
+La galleria di `lab.html` è guidata da `assets/lab/works.js`. Per aggiungere un progetto:
+
+1. Metti le immagini ottimizzate (`.webp`, max ~1400px) in `assets/lab/`.
+2. Aggiungi una entry all'array `WORKS` in `assets/lab/works.js`
+   (lo schema è documentato in testa al file: id, type, title, cover, images,
+   meta opzionale, `ba` opzionale per lo slider prima/dopo).
+3. Copia un blocco `<article class="card">` in `lab.html` e aggiorna
+   `data-id`, `data-type`, immagine e didascalia.
+
+I filtri, la vista dettaglio, lo slider prima/dopo e i deep link (`#/w/<id>`)
+funzionano da soli in base ai dati.
