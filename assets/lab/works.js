@@ -97,5 +97,115 @@ var WORKS = [
     images: ["assets/lab/dome-01.webp", "assets/lab/dome-02.webp", "assets/lab/dome-03.webp"],
     meta: { jar: "Glass dome", contents: "Ivy, bark, moss" },
     note: "A small sealed dome, built around a piece of bark."
+  },
+
+  /* ── early design work (university years and just after, via Behance) ── */
+  {
+    id: "qr-note",
+    type: "design",
+    title: "Qr-Note Agenda",
+    cover: "assets/lab/qrnote-01.webp",
+    images: ["assets/lab/qrnote-01.webp","assets/lab/qrnote-02.webp","assets/lab/qrnote-03.webp","assets/lab/qrnote-05.webp","assets/lab/qrnote-04.webp"],
+    meta: { kind: "IED thesis project", year: "2011" },
+    note: "Graduation thesis at IED: a paper agenda that bridges analog and digital through embroidered and printed QR codes."
+  },
+  {
+    id: "mug-agency",
+    type: "design",
+    title: "MUG Agency",
+    cover: "assets/lab/mug-03.webp",
+    images: ["assets/lab/mug-03.webp","assets/lab/mug-01.webp","assets/lab/mug-02.webp"],
+    meta: { kind: "Logo and identity" },
+    note: "Logo and visual identity for a creative agency, a mug as the meeting point."
+  },
+  {
+    id: "shut-up-munch",
+    type: "design",
+    title: "Shut Up Munch",
+    cover: "assets/lab/munch-01.webp",
+    images: ["assets/lab/munch-01.webp","assets/lab/munch-02.webp","assets/lab/munch-03.webp","assets/lab/munch-04.webp"],
+    meta: { kind: "Naming and logo studies" },
+    note: "Naming, logotype and mark studies for an entertainment project, three directions explored."
+  },
+  {
+    id: "filas-report",
+    type: "design",
+    title: "Filas Annual Report",
+    cover: "assets/lab/filas-01.webp",
+    images: ["assets/lab/filas-01.webp","assets/lab/filas-02.webp","assets/lab/filas-03.webp","assets/lab/filas-04.webp"],
+    meta: { kind: "Editorial design", year: "2013" },
+    note: "Layout and art direction for the Filas 2013 annual report, geometric shapes as a navigation system."
+  },
+  {
+    id: "casa-lavica",
+    type: "design",
+    title: "Casa Lavica",
+    cover: "assets/lab/casalavica-02.webp",
+    images: ["assets/lab/casalavica-02.webp","assets/lab/casalavica-01.webp"],
+    meta: { kind: "Logo design" },
+    note: "Logo for a living and recording studio, a lava stone drawn as a single line."
+  },
+  {
+    id: "casa-oca",
+    type: "design",
+    title: "La Casa dell'Oca",
+    cover: "assets/lab/bbrome-01.webp",
+    images: ["assets/lab/bbrome-01.webp","assets/lab/bbrome-02.webp"],
+    meta: { kind: "Brand identity" },
+    note: "Identity and stationery for a bed and breakfast in Rome."
+  },
+  {
+    id: "cuollo",
+    type: "design",
+    title: "Claudia Cuollo, psicologa",
+    cover: "assets/lab/cuollo-01.webp",
+    images: ["assets/lab/cuollo-01.webp"],
+    meta: { kind: "Personal identity" },
+    note: "A quiet personal mark for a psychologist's practice."
+  },
+  {
+    id: "lubec",
+    type: "design",
+    title: "LuBeC, Lucca Beni Culturali",
+    cover: "assets/lab/lubec-01.webp",
+    images: ["assets/lab/lubec-01.webp"],
+    meta: { kind: "Event graphic" },
+    note: "Key visual for a cultural heritage event, Greek vases dissolving into QR mosaics."
+  },
+  {
+    id: "type-posters",
+    type: "design",
+    title: "Type posters",
+    cover: "assets/lab/poster-01.webp",
+    images: ["assets/lab/poster-01.webp","assets/lab/poster-02.webp"],
+    meta: { kind: "Typography studies" },
+    note: "Poster studies celebrating classic typefaces, Gotham and Eurostile."
+  },
+  {
+    id: "urban-strangers",
+    type: "design",
+    title: "Urban Strangers, Empty Bed",
+    cover: "assets/lab/urban-01.webp",
+    images: ["assets/lab/urban-01.webp"],
+    meta: { kind: "Release banner", year: "2015" },
+    note: "Launch banner for a single release on Casa Lavica Records."
+  },
+  {
+    id: "pangea-app",
+    type: "design",
+    title: "Pangea e-commerce app",
+    cover: "assets/lab/pangea-01.webp",
+    images: ["assets/lab/pangea-01.webp"],
+    meta: { kind: "App concept" },
+    note: "Concept UI for a marketplace of world food and crafts."
+  },
+  {
+    id: "esposito-app",
+    type: "design",
+    title: "Portfolio app, A. Esposito",
+    cover: "assets/lab/espositoapp-01.webp",
+    images: ["assets/lab/espositoapp-01.webp"],
+    meta: { kind: "App concept" },
+    note: "Portfolio app concept for photographer Alessandro Esposito."
   }
 ];

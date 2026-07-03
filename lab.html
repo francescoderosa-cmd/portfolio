@@ -87,7 +87,7 @@ body:not(.js) .filters{display:none;}
 /* canvas mode */
 body.canvas .stage{height:min(76vh,720px);overflow:hidden;cursor:grab;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
 body.canvas .stage:active{cursor:grabbing;}
-body.canvas .plane{position:absolute;width:190%;height:175%;display:block;padding:0;will-change:transform;}
+body.canvas .plane{position:absolute;width:280%;height:250%;display:block;padding:0;will-change:transform;}
 body.canvas .card{position:absolute;width:var(--w,280px);will-change:transform;}
 body.canvas .card-cap{opacity:0;visibility:hidden;transform:translateY(6px);transition:opacity .35s var(--ease),transform .35s var(--ease),visibility 0s .35s;}
 body.canvas .card:hover .card-cap,body.canvas .card:focus-within .card-cap{opacity:1;visibility:visible;transform:none;transition-delay:0s;}
@@ -174,14 +174,15 @@ body.has-cursor,body.has-cursor *{cursor:none;}
   <div class="aurora" aria-hidden="true"><span class="b1"></span><span class="b2"></span></div>
   <span class="vlabel"><b>(00)</b>&nbsp; Personal projects, off the clock</span>
   <h1 id="lab-title">The <em>Lab</em>.</h1>
-  <p class="intro" id="lab-intro">A quiet cabinet of specimens: acrylic paintings, sealed green worlds and hands-on experiments. Things made to be observed up close, away from client work.</p>
+  <p class="intro" id="lab-intro">A quiet cabinet of specimens: acrylic paintings, sealed green worlds, hands-on experiments and early design work from the university years. Things made to be observed up close.</p>
   <span class="hint" aria-hidden="true">Drag to explore the table</span>
 </header>
 
 <div class="filters" role="group" aria-label="Filter works">
-  <button class="chip" data-f="all" aria-pressed="true">All<i>9</i></button>
+  <button class="chip" data-f="all" aria-pressed="true">All<i>21</i></button>
   <button class="chip" data-f="painting" aria-pressed="false">Paintings<i>4</i></button>
   <button class="chip" data-f="green-lab" aria-pressed="false">Green lab<i>4</i></button>
+  <button class="chip" data-f="design" aria-pressed="false">Design<i>12</i></button>
   <button class="chip" data-f="experiment" aria-pressed="false">Experiments<i>1</i></button>
 </div>
 
@@ -239,6 +240,78 @@ body.has-cursor,body.has-cursor *{cursor:none;}
       <a class="card-link" href="assets/lab/dome-01.webp" aria-label="Open project: Under the dome">
         <span class="frame"><img src="assets/lab/dome-01.webp" alt="Small sealed glass dome terrarium held in a hand, built around a piece of bark" loading="lazy" decoding="async"><span class="lens" aria-hidden="true"></span></span>
         <span class="card-cap"><b>Under the dome</b><i>Green lab · 3 photos</i></span>
+      </a>
+    </article>
+    <article class="card" data-id="qr-note" data-type="design">
+      <a class="card-link" href="assets/lab/qrnote-01.webp" aria-label="Open project: Qr-Note Agenda">
+        <span class="frame"><img src="assets/lab/qrnote-01.webp" alt="Black presentation board of the Qr-Note agenda thesis with a notebook and QR codes" loading="lazy" decoding="async"><span class="lens" aria-hidden="true"></span></span>
+        <span class="card-cap"><b>Qr-Note Agenda</b><i>Design · IED thesis 2011 · 5 photos</i></span>
+      </a>
+    </article>
+    <article class="card" data-id="mug-agency" data-type="design">
+      <a class="card-link" href="assets/lab/mug-03.webp" aria-label="Open project: MUG Agency">
+        <span class="frame"><img src="assets/lab/mug-03.webp" alt="Hand holding a teal coffee cup with the yellow MUG Agency logo" loading="lazy" decoding="async"><span class="lens" aria-hidden="true"></span></span>
+        <span class="card-cap"><b>MUG Agency</b><i>Design · 3 photos</i></span>
+      </a>
+    </article>
+    <article class="card" data-id="shut-up-munch" data-type="design">
+      <a class="card-link" href="assets/lab/munch-01.webp" aria-label="Open project: Shut Up Munch">
+        <span class="frame"><img src="assets/lab/munch-01.webp" alt="Shut Up Munch logotype in white ragged letters on a teal background" loading="lazy" decoding="async"><span class="lens" aria-hidden="true"></span></span>
+        <span class="card-cap"><b>Shut Up Munch</b><i>Design · 4 photos</i></span>
+      </a>
+    </article>
+    <article class="card" data-id="filas-report" data-type="design">
+      <a class="card-link" href="assets/lab/filas-01.webp" aria-label="Open project: Filas Annual Report">
+        <span class="frame"><img src="assets/lab/filas-01.webp" alt="Cover spread of the Filas 2013 annual report with colourful geometric circles" loading="lazy" decoding="async"><span class="lens" aria-hidden="true"></span></span>
+        <span class="card-cap"><b>Filas Annual Report</b><i>Design · 2013 · 4 photos</i></span>
+      </a>
+    </article>
+    <article class="card" data-id="casa-lavica" data-type="design">
+      <a class="card-link" href="assets/lab/casalavica-02.webp" aria-label="Open project: Casa Lavica">
+        <span class="frame"><img src="assets/lab/casalavica-02.webp" alt="Casa Lavica logo, a lava stone drawn as a single line, white on black" loading="lazy" decoding="async"><span class="lens" aria-hidden="true"></span></span>
+        <span class="card-cap"><b>Casa Lavica</b><i>Design · 2 photos</i></span>
+      </a>
+    </article>
+    <article class="card" data-id="casa-oca" data-type="design">
+      <a class="card-link" href="assets/lab/bbrome-01.webp" aria-label="Open project: La Casa dell'Oca">
+        <span class="frame"><img src="assets/lab/bbrome-01.webp" alt="La Casa dell'Oca bed and breakfast logo on a blue stone pattern" loading="lazy" decoding="async"><span class="lens" aria-hidden="true"></span></span>
+        <span class="card-cap"><b>La Casa dell'Oca</b><i>Design · 2 photos</i></span>
+      </a>
+    </article>
+    <article class="card" data-id="cuollo" data-type="design">
+      <a class="card-link" href="assets/lab/cuollo-01.webp" aria-label="Open project: Claudia Cuollo identity">
+        <span class="frame"><img src="assets/lab/cuollo-01.webp" alt="Striped letter C mark for psychologist Claudia Cuollo" loading="lazy" decoding="async"><span class="lens" aria-hidden="true"></span></span>
+        <span class="card-cap"><b>Claudia Cuollo</b><i>Design · identity</i></span>
+      </a>
+    </article>
+    <article class="card" data-id="lubec" data-type="design">
+      <a class="card-link" href="assets/lab/lubec-01.webp" aria-label="Open project: LuBeC event graphic">
+        <span class="frame"><img src="assets/lab/lubec-01.webp" alt="LuBeC key visual with Greek vases dissolving into QR code mosaics" loading="lazy" decoding="async"><span class="lens" aria-hidden="true"></span></span>
+        <span class="card-cap"><b>LuBeC</b><i>Design · event graphic</i></span>
+      </a>
+    </article>
+    <article class="card" data-id="type-posters" data-type="design">
+      <a class="card-link" href="assets/lab/poster-01.webp" aria-label="Open project: Type posters">
+        <span class="frame"><img src="assets/lab/poster-01.webp" alt="Blue typographic poster celebrating the Gotham typeface" loading="lazy" decoding="async"><span class="lens" aria-hidden="true"></span></span>
+        <span class="card-cap"><b>Type posters</b><i>Design · 2 photos</i></span>
+      </a>
+    </article>
+    <article class="card" data-id="urban-strangers" data-type="design">
+      <a class="card-link" href="assets/lab/urban-01.webp" aria-label="Open project: Urban Strangers banner">
+        <span class="frame"><img src="assets/lab/urban-01.webp" alt="Urban Strangers Empty Bed release banner, duotone night photo on a bench" loading="lazy" decoding="async"><span class="lens" aria-hidden="true"></span></span>
+        <span class="card-cap"><b>Urban Strangers</b><i>Design · 2015</i></span>
+      </a>
+    </article>
+    <article class="card" data-id="pangea-app" data-type="design">
+      <a class="card-link" href="assets/lab/pangea-01.webp" aria-label="Open project: Pangea e-commerce app">
+        <span class="frame"><img src="assets/lab/pangea-01.webp" alt="Pangea e-commerce app concept presentation board" loading="lazy" decoding="async"><span class="lens" aria-hidden="true"></span></span>
+        <span class="card-cap"><b>Pangea app</b><i>Design · concept</i></span>
+      </a>
+    </article>
+    <article class="card" data-id="esposito-app" data-type="design">
+      <a class="card-link" href="assets/lab/espositoapp-01.webp" aria-label="Open project: Esposito portfolio app">
+        <span class="frame"><img src="assets/lab/espositoapp-01.webp" alt="Portfolio app concept board for photographer Alessandro Esposito" loading="lazy" decoding="async"><span class="lens" aria-hidden="true"></span></span>
+        <span class="card-cap"><b>Esposito portfolio app</b><i>Design · concept</i></span>
       </a>
     </article>
   </div>
@@ -313,11 +386,18 @@ if(!reduce&&window.Lenis){lenis=new Lenis({lerp:.1});(function raf(t){lenis.raf(
 /* ── canvas mode: scattered draggable plane ── */
 var canvasOn=false,drag=null,parSet=[];
 var SLOTS=[
-  {x:4, y:6, w:310,r:-2.5,d:1.06},{x:27,y:20,w:250,r:1.8, d:.94},
-  {x:45,y:4, w:280,r:-1.2,d:1.1 },{x:66,y:16,w:290,r:2.4, d:.9 },
-  {x:85,y:6, w:250,r:-2,  d:1.02},{x:9, y:54,w:290,r:2,   d:1.08},
-  {x:32,y:60,w:260,r:-1.6,d:.92 },{x:54,y:50,w:285,r:1.4, d:1.05},
-  {x:78,y:58,w:260,r:-2.2,d:.95 }
+  {x:3, y:4, w:300,r:-2.5,d:1.06},{x:17,y:14,w:250,r:1.8, d:.94},
+  {x:31,y:3, w:280,r:-1.2,d:1.1 },{x:46,y:12,w:285,r:2.4, d:.9 },
+  {x:61,y:4, w:250,r:-2,  d:1.02},{x:74,y:13,w:280,r:1.5, d:1.07},
+  {x:88,y:5, w:245,r:-1.8,d:.96 },
+  {x:5, y:38,w:280,r:2,   d:1.08},{x:19,y:46,w:255,r:-1.6,d:.92 },
+  {x:34,y:37,w:290,r:1.4, d:1.05},{x:49,y:45,w:255,r:-2.2,d:.95 },
+  {x:63,y:36,w:285,r:1.2, d:1.04},{x:77,y:46,w:250,r:-1.4,d:.93 },
+  {x:90,y:38,w:245,r:2.2, d:1.06},
+  {x:3, y:70,w:285,r:-2,  d:1.03},{x:18,y:78,w:250,r:1.6, d:.95 },
+  {x:33,y:69,w:280,r:-1.3,d:1.08},{x:48,y:77,w:255,r:2.1, d:.91 },
+  {x:62,y:70,w:290,r:-1.7,d:1.05},{x:77,y:78,w:250,r:1.3, d:.94 },
+  {x:90,y:71,w:245,r:-2.3,d:1.02}
 ];
 function vpH(){return window.innerHeight||document.documentElement.clientHeight||800;}
 function layoutCanvas(animate){
@@ -433,7 +513,7 @@ var detail=document.getElementById('detail'),dFig=document.getElementById('d-fig
     dKind=document.getElementById('d-kind'),dNote=document.getElementById('d-note'),
     dRows=document.getElementById('d-rows');
 var openId=null,imgIdx=0,lastTrigger=null;
-var KIND={painting:'Painting',['green-lab']:'Green lab','experiment':'Experiment'};
+var KIND={painting:'Painting',['green-lab']:'Green lab','experiment':'Experiment','design':'Design work'};
 
 function visibleWorks(){
   return cards.filter(function(c){return !c.classList.contains('filtered-out');}).map(function(c){return c.dataset.id;});
