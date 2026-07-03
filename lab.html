@@ -87,9 +87,10 @@ body:not(.js) .filters{display:none;}
 /* canvas mode */
 body.canvas .stage{height:min(76vh,720px);overflow:hidden;cursor:grab;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
 body.canvas .stage:active{cursor:grabbing;}
-body.canvas .plane{position:absolute;width:280%;height:250%;display:block;padding:0;will-change:transform;}
+body.canvas .plane{position:absolute;width:205%;height:195%;display:block;padding:0;will-change:transform;}
 body.canvas .card{position:absolute;width:var(--w,280px);will-change:transform;}
-body.canvas .card-cap{opacity:0;visibility:hidden;transform:translateY(6px);transition:opacity .35s var(--ease),transform .35s var(--ease),visibility 0s .35s;}
+body.canvas .frame{max-height:390px;}
+body.canvas .card-cap{position:absolute;top:100%;left:0;right:0;opacity:0;visibility:hidden;transform:translateY(6px);transition:opacity .35s var(--ease),transform .35s var(--ease),visibility 0s .35s;}
 body.canvas .card:hover .card-cap,body.canvas .card:focus-within .card-cap{opacity:1;visibility:visible;transform:none;transition-delay:0s;}
 
 /* green-lab lens */
@@ -147,6 +148,7 @@ body.has-cursor,body.has-cursor *{cursor:none;}
   .detail.open{grid-template-columns:1fr;grid-template-rows:1fr auto;}
   .d-meta{border-left:none;border-top:1px solid var(--line);max-height:44vh;}
   .d-img,.ba img{max-height:44vh;}
+  body.canvas .plane{width:380%;height:230%;}
   body.canvas .card{width:var(--wm,200px);}
 }
 @media (prefers-reduced-motion:reduce){
@@ -386,18 +388,18 @@ if(!reduce&&window.Lenis){lenis=new Lenis({lerp:.1});(function raf(t){lenis.raf(
 /* ── canvas mode: scattered draggable plane ── */
 var canvasOn=false,drag=null,parSet=[];
 var SLOTS=[
-  {x:3, y:4, w:300,r:-2.5,d:1.06},{x:17,y:14,w:250,r:1.8, d:.94},
-  {x:31,y:3, w:280,r:-1.2,d:1.1 },{x:46,y:12,w:285,r:2.4, d:.9 },
-  {x:61,y:4, w:250,r:-2,  d:1.02},{x:74,y:13,w:280,r:1.5, d:1.07},
-  {x:88,y:5, w:245,r:-1.8,d:.96 },
-  {x:5, y:38,w:280,r:2,   d:1.08},{x:19,y:46,w:255,r:-1.6,d:.92 },
-  {x:34,y:37,w:290,r:1.4, d:1.05},{x:49,y:45,w:255,r:-2.2,d:.95 },
-  {x:63,y:36,w:285,r:1.2, d:1.04},{x:77,y:46,w:250,r:-1.4,d:.93 },
-  {x:90,y:38,w:245,r:2.2, d:1.06},
-  {x:3, y:70,w:285,r:-2,  d:1.03},{x:18,y:78,w:250,r:1.6, d:.95 },
-  {x:33,y:69,w:280,r:-1.3,d:1.08},{x:48,y:77,w:255,r:2.1, d:.91 },
-  {x:62,y:70,w:290,r:-1.7,d:1.05},{x:77,y:78,w:250,r:1.3, d:.94 },
-  {x:90,y:71,w:245,r:-2.3,d:1.02}
+  {x:1, y:3, w:290,r:-2.5,d:1.06},{x:15,y:9, w:250,r:1.8, d:.94},
+  {x:29,y:2, w:275,r:-1.2,d:1.1 },{x:43,y:8, w:280,r:2.4, d:.9 },
+  {x:57,y:3, w:250,r:-2,  d:1.02},{x:71,y:9, w:275,r:1.5, d:1.07},
+  {x:85,y:4, w:250,r:-1.8,d:.96 },
+  {x:2, y:36,w:275,r:2,   d:1.08},{x:16,y:42,w:255,r:-1.6,d:.92 },
+  {x:30,y:35,w:285,r:1.4, d:1.05},{x:44,y:41,w:255,r:-2.2,d:.95 },
+  {x:58,y:35,w:280,r:1.2, d:1.04},{x:72,y:42,w:250,r:-1.4,d:.93 },
+  {x:86,y:36,w:250,r:2.2, d:1.06},
+  {x:1, y:65,w:280,r:-2,  d:1.03},{x:15,y:70,w:250,r:1.6, d:.95 },
+  {x:29,y:64,w:275,r:-1.3,d:1.08},{x:43,y:69,w:255,r:2.1, d:.91 },
+  {x:57,y:65,w:285,r:-1.7,d:1.05},{x:71,y:70,w:250,r:1.3, d:.94 },
+  {x:85,y:66,w:250,r:-2.3,d:1.02}
 ];
 function vpH(){return window.innerHeight||document.documentElement.clientHeight||800;}
 function layoutCanvas(animate){
