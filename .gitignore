@@ -6,3 +6,7 @@ Thumbs.db
 # Git installer left in this folder — do not commit it
 Git/
 Git-*.exe
+
+# source files for images already converted to webp (keep locally, don't commit)
+assets/*.pdf
+assets/*.png
