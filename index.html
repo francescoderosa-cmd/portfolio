@@ -471,6 +471,7 @@ nav{background:var(--navy);border-bottom:1px solid var(--line);}
 .st,.next-title,.cot-title,.lh-title,.jname,.pname,.uname,.cname,.gtitle,.rtitle,.tltitle,
 .fcard-title,.aititle,.pv-head,.pv-val,.lg-name,.lgn-v,.aex,.ba-title{color:#fff;}
 .gbig{color:#A8D8EA;opacity:.14;}
+.jquote{color:#EAF4F8;background:rgba(45,125,154,.14);}
 
 /* Cards / surfaces that were white → dark */
 .jcard,.gcard,.rcard,.ucard,.pcard,.fcard,.pv-card,.lg-card{background:var(--navy-d);}
@@ -669,8 +670,8 @@ body.has-cursor, body.has-cursor *{cursor:none;}
 .jmap figcaption b{font-family:var(--serif);font-weight:400;font-size:18px;color:#fff;}
 .jmap figcaption span{font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:rgba(168,216,234,.55);}
 .jmap-scroll{overflow-x:auto;overflow-y:hidden;}
-.jmap-scroll img{height:440px;width:auto;max-width:none;display:block;cursor:zoom-in;}
-@media (max-width:700px){.jmap-scroll img{height:300px;}}
+.jmap-scroll img{width:max(100%,1660px);height:auto;max-width:none;display:block;cursor:zoom-in;}
+@media (max-width:700px){.jmap-scroll img{width:max(100%,1160px);}}
 .jview{position:fixed;inset:0;z-index:1500;background:rgba(13,27,36,.97);display:none;}
 .jview.open{display:block;}
 .jview-pane{position:absolute;inset:0;overflow:auto;cursor:grab;touch-action:pan-x pan-y;}
@@ -681,7 +682,7 @@ body.has-cursor, body.has-cursor *{cursor:none;}
 .jview-close{top:18px;right:18px;}
 .jview-out{bottom:18px;right:74px;}
 .jview-in{bottom:18px;right:18px;}
-.jview-cap{position:fixed;top:0;left:0;right:80px;padding:20px 24px;font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:rgba(168,216,234,.8);background:linear-gradient(180deg,rgba(13,27,36,.92),transparent);pointer-events:none;z-index:4;}
+.jview-cap{position:fixed;top:24px;left:24px;max-width:min(60vw,520px);padding:9px 16px;font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ice);background:rgba(27,58,75,.88);border:1px solid rgba(168,216,234,.25);border-radius:30px;pointer-events:none;z-index:4;}
 
 /* Visible keyboard focus */
 :focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:4px;}
