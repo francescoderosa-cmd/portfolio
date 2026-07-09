@@ -10,3 +10,6 @@ Git-*.exe
 # source files for images already converted to webp (keep locally, don't commit)
 assets/*.pdf
 assets/*.png
+
+# working material dropped into assets, never publish archives
+assets/*.zip
