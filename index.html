@@ -672,6 +672,12 @@ body.has-cursor, body.has-cursor *{cursor:none;}
 .jmap-scroll{overflow-x:auto;overflow-y:hidden;}
 .jmap-scroll img{width:max(100%,1660px);height:auto;max-width:none;display:block;cursor:zoom-in;}
 @media (max-width:700px){.jmap-scroll img{width:max(100%,1160px);}}
+.jmap--m .jmap-scroll img{width:max(100%,1100px);}
+@media (max-width:700px){.jmap--m .jmap-scroll img{width:max(100%,760px);}}
+.deckgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+.deckgrid img{width:100%;border-radius:12px;cursor:zoom-in;display:block;box-shadow:0 16px 34px -20px rgba(0,0,0,.55);transition:transform .35s var(--ease);}
+.deckgrid img:hover{transform:translateY(-3px);}
+@media (max-width:700px){.deckgrid{grid-template-columns:1fr;}}
 .jview{position:fixed;inset:0;z-index:1500;background:rgba(13,27,36,.97);display:none;}
 .jview.open{display:block;}
 .jview-pane{position:absolute;inset:0;overflow:auto;cursor:grab;touch-action:pan-x pan-y;}
@@ -1146,20 +1152,33 @@ body.on-case .readbar{opacity:1;}
       <div class="jcard"><div class="jhead"><div class="jav" style="background:#FAECE7;color:#993C1D">S</div><div><p class="jname">Saima, 37, Gaza</p><p class="jrole">IDM steps · Emergency CBT programme</p></div></div><div class="jstages"><span class="jstage">Sign up</span><span class="jstage">Notification</span><span class="jstage">Cash out</span><span class="jstage">Update</span><span class="jstage">Support</span></div><div class="jcurve"><svg viewBox="0 0 300 55" width="100%" style="display:block"><path d="M0,48 C30,48 45,20 80,22 C115,24 130,40 160,42 C190,44 210,18 240,20 C270,22 285,30 300,35" fill="none" stroke="#2D7D9A" stroke-width="2"/><circle cx="0" cy="48" r="3" fill="#2D7D9A"/><circle cx="80" cy="22" r="3" fill="#1D9E75"/><circle cx="160" cy="42" r="3" fill="#1D9E75"/><circle cx="240" cy="20" r="3" fill="#1D9E75"/><circle cx="300" cy="35" r="3" fill="#2D7D9A"/></svg></div><div class="jmoms"><div class="jmom"><div class="jdot" style="background:#1D9E75"></div>Found WFP via social media, registered with just a link</div><div class="jmom"><div class="jdot" style="background:#1D9E75"></div>Received SMS confirmation + unique cash-out code</div><div class="jmom"><div class="jdot" style="background:#1D9E75"></div>Cashed out at local vendor using ID and SMS code</div><div class="jmom"><div class="jdot" style="background:#1D9E75"></div>Can update her location via link each time she moves</div></div><p class="jquote">"I found out through social media that WFP is giving assistance and I can sign up with just a link."</p></div>
       <div class="jcard"><div class="jhead"><div class="jav" style="background:#EDF0F8;color:#1B3A4B">D</div><div><p class="jname">Drina, Ukraine</p><p class="jrole">Emergency · Roma community · No documents</p></div></div><div class="jstages"><span class="jstage">Flee</span><span class="jstage">Register</span><span class="jstage">Denied</span><span class="jstage">WFP</span><span class="jstage">Voucher</span></div><div class="jcurve"><svg viewBox="0 0 300 55" width="100%" style="display:block"><path d="M0,45 C30,45 45,30 80,32 C115,34 130,52 160,54 C190,56 210,52 230,20 C250,-10 270,12 300,15" fill="none" stroke="#E24B4A" stroke-width="1.5" stroke-dasharray="4 3"/><path d="M0,48 C30,48 45,32 80,34 C115,36 130,54 160,55 C190,55 210,52 230,22 C250,-8 270,14 300,18" fill="none" stroke="#2D7D9A" stroke-width="2"/><circle cx="0" cy="48" r="3" fill="#2D7D9A"/><circle cx="80" cy="34" r="3" fill="#BA7517"/><circle cx="160" cy="55" r="3" fill="#E24B4A"/><circle cx="230" cy="22" r="3" fill="#1D9E75"/><circle cx="300" cy="18" r="3" fill="#2D7D9A"/></svg></div><div class="jmoms"><div class="jmom"><div class="jdot" style="background:#E24B4A"></div>Denied help 3 times, all NGOs required official ID</div><div class="jmom"><div class="jdot" style="background:#1D9E75"></div>WFP desk: can register online without ID</div><div class="jmom"><div class="jdot" style="background:#E24B4A"></div>Banks won't pay without ID, only option: supermarket voucher</div><div class="jmom"><div class="jdot" style="background:#2D7D9A"></div>Used voucher to buy food and medicine for her sick child</div></div><p class="jquote">"Will no one help us? Finally, I reach a desk with a blue flag."</p></div>
     </div>
+    <div class="jmaps">
+      <p class="ey" style="margin-top:44px">The full journey maps</p>
+      <figure class="jmap jmap--m reveal">
+        <figcaption><b>Drina's journey</b><span>Ukraine · Roma community, no documents · scroll, click to zoom</span></figcaption>
+        <div class="jmap-scroll" data-lenis-prevent>
+          <img src="assets/cbt/drina-journey-preview.webp" alt="Drina's illustrated journey map through emergency cash assistance in Ukraine, from fleeing without documents to receiving a supermarket voucher" loading="lazy" decoding="async" onclick="jvOpen('assets/cbt/drina-journey.webp','Drina\'s journey, Ukraine')">
+        </div>
+      </figure>
+      <figure class="jmap jmap--m reveal">
+        <figcaption><b>Aamiina's journey</b><span>Somalia · mobile money on a shared phone · scroll, click to zoom</span></figcaption>
+        <div class="jmap-scroll" data-lenis-prevent>
+          <img src="assets/cbt/aamiina-journey-preview.webp" alt="Aamiina's illustrated journey map, receiving mobile money assistance in Somalia through her husband's phone" loading="lazy" decoding="async" onclick="jvOpen('assets/cbt/aamiina-journey.webp','Aamiina\'s journey, Somalia')">
+        </div>
+      </figure>
+    </div>
   </section>
 
   <section class="sec alt">
     <span class="ey">Strategic output, pathway to digital financial inclusion</span>
     <h2 class="st">From identity to economic empowerment.</h2>
     <p style="font-size:14px;color:var(--slate);line-height:1.7;max-width:580px;margin-bottom:26px;">The research across 5 countries led to a strategic visual framework for WFP, mapping the full journey from the most basic requirement (having an ID) to women's economic empowerment by 2030.</p>
-    <div class="path-steps">
-      <div class="pstep"><p class="pstep-num">1</p><p class="pstep-title">Identity</p><p class="pstep-desc">Have an ID and open an account in own name</p></div>
-      <div class="pstep"><p class="pstep-num">2</p><p class="pstep-title">Cash inflow</p><p class="pstep-desc">Rely on regular cash from assistance or work</p></div>
-      <div class="pstep"><p class="pstep-num">3</p><p class="pstep-title">Capabilities</p><p class="pstep-desc">Trained and confident using digital financial services</p></div>
-      <div class="pstep"><p class="pstep-num">4</p><p class="pstep-title">Customer protection</p><p class="pstep-desc">Know rights and how to voice grievances</p></div>
-      <div class="pstep"><p class="pstep-num">5</p><p class="pstep-title">Digital financial services</p><p class="pstep-desc">Access to affordable digital products tailored to needs</p></div>
-      <div class="pstep" style="background:#2D7D9A"><p class="pstep-num" style="color:#fff;opacity:.4">6</p><p class="pstep-title">Digital economy</p><p class="pstep-desc" style="color:rgba(255,255,255,.7)">Perform digital transactions, buy and sell</p></div>
-    </div>
+    <figure class="jmap jmap--m reveal">
+      <figcaption><b>Pathway to Digital Financial Inclusion</b><span>the framework artifact · click to zoom</span></figcaption>
+      <div class="jmap-scroll" data-lenis-prevent>
+        <img src="assets/cbt/pathway-dfi-preview.webp" alt="Illustrated Pathway to Digital Financial Inclusion framework, a climb from having an ID and a first account up to the digital economy and women's economic empowerment by 2030" loading="lazy" decoding="async" onclick="jvOpen('assets/cbt/pathway-dfi.webp','Pathway to Digital Financial Inclusion')">
+      </div>
+    </figure>
   </section>
 
   <section class="sec">
@@ -1218,6 +1237,23 @@ body.on-case .readbar{opacity:1;}
       <div class="ucard"><div class="uicon" style="background:#E1F5EE"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="7" r="3.5" stroke="#0F6E56" stroke-width="1.3"/><path d="M3 16c0-3.314 2.686-5 6-5s6 1.686 6 5" stroke="#0F6E56" stroke-width="1.3" stroke-linecap="round"/></svg></div><p class="utype">All users</p><p class="uname">Any WFP staff member</p><div class="uneeds"><div class="un"><div class="undot"></div>Browse knowledge base, all CBT steps and responsibilities</div><div class="un"><div class="undot"></div>Search across guidelines and technical notes</div><div class="un"><div class="undot"></div>Save favourites and share pages via email PDF</div><div class="un"><div class="undot"></div>Works offline on mobile</div></div></div>
       <div class="ucard"><div class="uicon" style="background:#E6F1FB"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="3" y="3" width="12" height="12" rx="2" stroke="#185FA5" stroke-width="1.3"/><path d="M6 9h6M9 6v6" stroke="#185FA5" stroke-width="1.3" stroke-linecap="round"/></svg></div><p class="utype">Manager</p><p class="uname">Programme Lead / Country Officer</p><div class="uneeds"><div class="un"><div class="undot"></div>Create and manage collaborative programmes</div><div class="un"><div class="undot"></div>Invite team members and assign roles</div><div class="un"><div class="undot"></div>Mark sections complete and archive programmes</div><div class="un"><div class="undot"></div>Full audit trail visibility</div></div></div>
     </div>
+  </section>
+
+  <section class="sec">
+    <span class="ey">From the concept deck</span>
+    <h2 class="st">How the idea was pitched.</h2>
+    <div class="deckgrid reveal">
+      <img src="assets/cashbook/deck-1.webp" alt="CashBook concept deck slide: the CashBook App is coming, explore the idea of a tool to distribute cash better and faster" loading="lazy" decoding="async" tabindex="0" onclick="jvOpen('assets/cashbook/deck-1.webp','CashBook concept deck, 1 of 4')">
+      <img src="assets/cashbook/deck-2.webp" alt="CashBook concept deck slide: a practical WebApp for daily work on laptop and mobile, everywhere with you" loading="lazy" decoding="async" tabindex="0" onclick="jvOpen('assets/cashbook/deck-2.webp','CashBook concept deck, 2 of 4')">
+      <img src="assets/cashbook/deck-3.webp" alt="CashBook concept deck slide: does it work offline, access to technical notes even with low connectivity" loading="lazy" decoding="async" tabindex="0" onclick="jvOpen('assets/cashbook/deck-3.webp','CashBook concept deck, 3 of 4')">
+      <img src="assets/cashbook/deck-4.webp" alt="CashBook concept deck slide: one-stop-shop for your cash operations, search-driven information flow with phone mockup" loading="lazy" decoding="async" tabindex="0" onclick="jvOpen('assets/cashbook/deck-4.webp','CashBook concept deck, 4 of 4')">
+    </div>
+    <figure class="jmap jmap--m reveal" style="margin-top:26px">
+      <figcaption><b>Desktop mapping</b><span>knowledge + project flows, 3 user types · scroll, click to zoom</span></figcaption>
+      <div class="jmap-scroll" data-lenis-prevent>
+        <img src="assets/cashbook/flows-map-preview.webp" alt="CashBook desktop mapping: full wireframe flows for the knowledge management and collaborative project management modules across three user types" loading="lazy" decoding="async" onclick="jvOpen('assets/cashbook/flows-map.webp','CashBook desktop mapping, both flows')">
+      </div>
+    </figure>
   </section>
 
   <div class="istrip"><span class="ey-l">The concept in one sentence</span><p class="st-l" style="max-width:600px;margin-bottom:0">"A practical tool for your daily work activities that can support you on a laptop or on your mobile phone while working live with your team."</p></div>
@@ -1309,7 +1345,16 @@ function _jvApply(){document.getElementById('jview-img').style.width=_jvSteps[_j
 function jvOpen(src,label){
   _jvTrigger=document.activeElement;
   var v=document.getElementById('jview'),img=document.getElementById('jview-img');
+  /* zoom steps adapt to the image shape: panoramic strips need wider steps than slides */
+  var tune=function(){
+    var a=img.naturalWidth/Math.max(img.naturalHeight,1);
+    _jvSteps = a>2.8 ? [130,190,260,340] : a>1.2 ? [90,130,180,240] : [60,90,120,160];
+    if(_jvIdx>=_jvSteps.length)_jvIdx=1;
+    _jvApply();
+  };
+  img.onload=tune;
   img.src=src;img.alt=label;
+  if(img.complete&&img.naturalWidth>0)tune();
   document.getElementById('jview-cap').textContent=label;
   _jvIdx=1;_jvApply();
   v.classList.add('open');
