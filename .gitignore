@@ -8,8 +8,9 @@ Git/
 Git-*.exe
 
 # source files for images already converted to webp (keep locally, don't commit)
-assets/*.pdf
-assets/*.png
+assets/**/*.pdf
+assets/**/*.png
+assets/*.zip
 
 # working material dropped into assets, never publish archives
 assets/*.zip

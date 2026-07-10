@@ -678,6 +678,8 @@ body.has-cursor, body.has-cursor *{cursor:none;}
 .deckgrid img{width:100%;border-radius:12px;cursor:zoom-in;display:block;box-shadow:0 16px 34px -20px rgba(0,0,0,.55);transition:transform .35s var(--ease);}
 .deckgrid img:hover{transform:translateY(-3px);}
 @media (max-width:700px){.deckgrid{grid-template-columns:1fr;}}
+.hm-hero img{width:min(100%,960px);margin:0 auto;display:block;cursor:zoom-in;transition:transform .4s var(--ease);}
+.hm-hero img:hover{transform:translateY(-4px) scale(1.01);}
 .jview{position:fixed;inset:0;z-index:1500;background:rgba(13,27,36,.97);display:none;}
 .jview.open{display:block;}
 .jview-pane{position:absolute;inset:0;overflow:auto;cursor:grab;touch-action:pan-x pan-y;}
@@ -1005,6 +1007,14 @@ body.on-case .readbar{opacity:1;}
     </div>
     <div class="cov-nums"><div class="cn"><p class="cn-big">2</p><p class="cn-lbl">audiences<br>one platform</p></div><div class="cn"><p class="cn-big">2</p><p class="cn-lbl">brand identities<br>balanced</p></div><div class="cn"><p class="cn-big">9mo</p><p class="cn-lbl">research to<br>UI delivery</p></div><div class="cn"><p class="cn-big">3</p><p class="cn-lbl">countries<br>tested</p></div></div>
   </div>
+
+  <section class="sec">
+    <span class="ey">The redesigned platform</span>
+    <h2 class="st">One map, rebuilt for two audiences.</h2>
+    <div class="hm-hero reveal">
+      <img src="assets/hungermap/hm-mockup.webp" alt="Laptop mockup of the redesigned HungerMap: Global Acute Food Insecurity view with 319M headline figure, key drivers of insecurity, top 10 countries and an IPC choropleth world map" loading="lazy" decoding="async" tabindex="0" onclick="jvOpen('assets/hungermap/hm-mockup.webp','HungerMap 2.0, redesigned UI')">
+    </div>
+  </section>
 
   <section class="sec alt">
     <span class="ey">My role, design leadership</span>
