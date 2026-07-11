@@ -680,6 +680,25 @@ body.has-cursor, body.has-cursor *{cursor:none;}
 @media (max-width:700px){.deckgrid{grid-template-columns:1fr;}}
 .hm-hero img{width:min(100%,960px);margin:0 auto;display:block;cursor:zoom-in;transition:transform .4s var(--ease);}
 .hm-hero img:hover{transform:translateY(-4px) scale(1.01);}
+
+/* ═════════════ V14 — CBT: highlighted findings · Ukraine pager module ═════════════ */
+.jfind{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:18px 0 44px;}
+.jfind div{background:var(--navy-d);border-left:2px solid var(--gold);padding:16px 18px;font-size:13px;line-height:1.65;color:rgba(234,244,248,.75);}
+.jfind b{display:block;color:#fff;font-weight:500;margin-bottom:5px;}
+.jfind--col{grid-template-columns:1fr;margin:0;}
+@media (max-width:860px){.jfind{grid-template-columns:1fr;}}
+.ukr{display:grid;grid-template-columns:1.45fr .9fr;gap:26px;align-items:start;}
+@media (max-width:900px){.ukr{grid-template-columns:1fr;}}
+.pager{border:var(--b);border-radius:14px;overflow:hidden;background:var(--navy-d);}
+.pager-frame img{width:100%;display:block;cursor:zoom-in;}
+.pager-nav{display:flex;align-items:center;gap:14px;padding:12px 16px;border-top:var(--b);}
+.pager-btn{width:38px;height:38px;border-radius:50%;border:1px solid rgba(168,216,234,.3);background:transparent;color:var(--ice);cursor:pointer;font-size:15px;transition:all .25s;}
+.pager-btn:hover{background:var(--teal);border-color:var(--teal);color:#fff;}
+.pager-dots{display:flex;gap:7px;flex:1;}
+.pager-dots span{width:8px;height:8px;border-radius:50%;background:rgba(168,216,234,.25);transition:background .25s;}
+.pager-dots span.on{background:var(--gold);}
+.pager-count{font-family:var(--mono);font-size:11px;color:rgba(168,216,234,.6);}
+.ukr-sum-t{font-family:var(--serif);font-size:22px;color:#fff;margin-bottom:16px;}
 .jview{position:fixed;inset:0;z-index:1500;background:rgba(13,27,36,.97);display:none;}
 .jview.open{display:block;}
 .jview-pane{position:absolute;inset:0;overflow:auto;cursor:grab;touch-action:pan-x pan-y;}
@@ -1158,37 +1177,64 @@ body.on-case .readbar{opacity:1;}
   <section class="sec">
     <span class="ey">Field research, journey maps</span>
     <h2 class="st">Their experience, told in their words.</h2>
-    <div class="jgrid">
+    <div class="jgrid" style="grid-template-columns:1fr;max-width:700px">
       <div class="jcard"><div class="jhead"><div class="jav" style="background:#FAECE7;color:#993C1D">S</div><div><p class="jname">Saima, 37, Gaza</p><p class="jrole">IDM steps · Emergency CBT programme</p></div></div><div class="jstages"><span class="jstage">Sign up</span><span class="jstage">Notification</span><span class="jstage">Cash out</span><span class="jstage">Update</span><span class="jstage">Support</span></div><div class="jcurve"><svg viewBox="0 0 300 55" width="100%" style="display:block"><path d="M0,48 C30,48 45,20 80,22 C115,24 130,40 160,42 C190,44 210,18 240,20 C270,22 285,30 300,35" fill="none" stroke="#2D7D9A" stroke-width="2"/><circle cx="0" cy="48" r="3" fill="#2D7D9A"/><circle cx="80" cy="22" r="3" fill="#1D9E75"/><circle cx="160" cy="42" r="3" fill="#1D9E75"/><circle cx="240" cy="20" r="3" fill="#1D9E75"/><circle cx="300" cy="35" r="3" fill="#2D7D9A"/></svg></div><div class="jmoms"><div class="jmom"><div class="jdot" style="background:#1D9E75"></div>Found WFP via social media, registered with just a link</div><div class="jmom"><div class="jdot" style="background:#1D9E75"></div>Received SMS confirmation + unique cash-out code</div><div class="jmom"><div class="jdot" style="background:#1D9E75"></div>Cashed out at local vendor using ID and SMS code</div><div class="jmom"><div class="jdot" style="background:#1D9E75"></div>Can update her location via link each time she moves</div></div><p class="jquote">"I found out through social media that WFP is giving assistance and I can sign up with just a link."</p></div>
-      <div class="jcard"><div class="jhead"><div class="jav" style="background:#EDF0F8;color:#1B3A4B">D</div><div><p class="jname">Drina, Ukraine</p><p class="jrole">Emergency · Roma community · No documents</p></div></div><div class="jstages"><span class="jstage">Flee</span><span class="jstage">Register</span><span class="jstage">Denied</span><span class="jstage">WFP</span><span class="jstage">Voucher</span></div><div class="jcurve"><svg viewBox="0 0 300 55" width="100%" style="display:block"><path d="M0,45 C30,45 45,30 80,32 C115,34 130,52 160,54 C190,56 210,52 230,20 C250,-10 270,12 300,15" fill="none" stroke="#E24B4A" stroke-width="1.5" stroke-dasharray="4 3"/><path d="M0,48 C30,48 45,32 80,34 C115,36 130,54 160,55 C190,55 210,52 230,22 C250,-8 270,14 300,18" fill="none" stroke="#2D7D9A" stroke-width="2"/><circle cx="0" cy="48" r="3" fill="#2D7D9A"/><circle cx="80" cy="34" r="3" fill="#BA7517"/><circle cx="160" cy="55" r="3" fill="#E24B4A"/><circle cx="230" cy="22" r="3" fill="#1D9E75"/><circle cx="300" cy="18" r="3" fill="#2D7D9A"/></svg></div><div class="jmoms"><div class="jmom"><div class="jdot" style="background:#E24B4A"></div>Denied help 3 times, all NGOs required official ID</div><div class="jmom"><div class="jdot" style="background:#1D9E75"></div>WFP desk: can register online without ID</div><div class="jmom"><div class="jdot" style="background:#E24B4A"></div>Banks won't pay without ID, only option: supermarket voucher</div><div class="jmom"><div class="jdot" style="background:#2D7D9A"></div>Used voucher to buy food and medicine for her sick child</div></div><p class="jquote">"Will no one help us? Finally, I reach a desk with a blue flag."</p></div>
-    </div>
-    <div class="jmaps">
-      <p class="ey" style="margin-top:44px">The full journey maps</p>
-      <figure class="jmap jmap--m reveal">
-        <figcaption><b>Drina's journey</b><span>Ukraine · Roma community, no documents · scroll, click to zoom</span></figcaption>
-        <div class="jmap-scroll" data-lenis-prevent>
-          <img src="assets/cbt/drina-journey-preview.webp" alt="Drina's illustrated journey map through emergency cash assistance in Ukraine, from fleeing without documents to receiving a supermarket voucher" loading="lazy" decoding="async" onclick="jvOpen('assets/cbt/drina-journey.webp','Drina\'s journey, Ukraine')">
-        </div>
-      </figure>
-      <figure class="jmap jmap--m reveal">
-        <figcaption><b>Aamiina's journey</b><span>Somalia · mobile money on a shared phone · scroll, click to zoom</span></figcaption>
-        <div class="jmap-scroll" data-lenis-prevent>
-          <img src="assets/cbt/aamiina-journey-preview.webp" alt="Aamiina's illustrated journey map, receiving mobile money assistance in Somalia through her husband's phone" loading="lazy" decoding="async" onclick="jvOpen('assets/cbt/aamiina-journey.webp','Aamiina\'s journey, Somalia')">
-        </div>
-      </figure>
     </div>
   </section>
 
   <section class="sec alt">
-    <span class="ey">Strategic output, pathway to digital financial inclusion</span>
-    <h2 class="st">From identity to economic empowerment.</h2>
-    <p style="font-size:14px;color:var(--slate);line-height:1.7;max-width:580px;margin-bottom:26px;">The research across 5 countries led to a strategic visual framework for WFP, mapping the full journey from the most basic requirement (having an ID) to women's economic empowerment by 2030.</p>
+    <span class="ey">Digital financial inclusion, two journeys</span>
+    <h2 class="st">From a shared phone in Somalia<br>to a wallet of her own in Jordan.</h2>
+    <p style="font-size:14px;color:var(--slate);line-height:1.7;max-width:580px;margin-bottom:26px;">The same research method, applied in two very different mobile money contexts. Each journey surfaced findings that shaped how WFP designs digital payments for women.</p>
     <figure class="jmap jmap--m reveal">
-      <figcaption><b>Pathway to Digital Financial Inclusion</b><span>the framework artifact · click to zoom</span></figcaption>
+      <figcaption><b>Aamiina's journey</b><span>Somalia · government support on a mobile wallet · scroll, click to zoom</span></figcaption>
       <div class="jmap-scroll" data-lenis-prevent>
-        <img src="assets/cbt/pathway-dfi-preview.webp" alt="Illustrated Pathway to Digital Financial Inclusion framework, a climb from having an ID and a first account up to the digital economy and women's economic empowerment by 2030" loading="lazy" decoding="async" onclick="jvOpen('assets/cbt/pathway-dfi.webp','Pathway to Digital Financial Inclusion')">
+        <img src="assets/cbt/aamiina-journey-preview.webp" alt="Aamiina's illustrated journey in Somalia: informed and selected at a community consultation, registered with her husband's number, gets a SIM card in her own name, receives her first mobile money payment and spends it through a local shopkeeper" loading="lazy" decoding="async" onclick="jvOpen('assets/cbt/aamiina-journey.webp','Aamiina\'s journey, Somalia')">
       </div>
     </figure>
+    <div class="jfind reveal">
+      <div><b>The list on the mosque wall.</b> Selection was announced where the community already looks, and illustrated sessions worked for people who cannot read.</div>
+      <div><b>Payments cannot go to a husband's SIM.</b> Aamiina needed a card in her own name, so getting women their own SIM became part of the service.</div>
+      <div><b>The shopkeeper is the interface.</b> Checking messages, cashing out and paying all pass through trusted humans, not through the app alone.</div>
+    </div>
+    <figure class="jmap jmap--m reveal">
+      <figcaption><b>Hana's journey</b><span>Jordan · a community project salary on a mobile wallet · scroll, click to zoom</span></figcaption>
+      <div class="jmap-scroll" data-lenis-prevent>
+        <img src="assets/cbt/hana-journey-preview.webp" alt="Hana's illustrated journey in Jordan: enrols in a community project, attends an info session, provides her wallet number to WFP, receives her first payment by SMS and cashes out at a nearby agent" loading="lazy" decoding="async" onclick="jvOpen('assets/cbt/hana-journey.webp','Hana\'s journey, Jordan')">
+      </div>
+    </figure>
+    <div class="jfind reveal">
+      <div><b>Info sessions turn worry into confidence.</b> After one session Hana could compare providers, fees and limits, and chose her own wallet.</div>
+      <div><b>Dormant wallets are a real failure path.</b> Her brother's payment bounced because his unused wallet had been deactivated, reactivation had to be designed for.</div>
+      <div><b>Agents work, shops do not yet.</b> Cash-out is easy nearby, but local shops still refuse mobile money, the last mile of acceptance is the next problem.</div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <span class="ey">Emergency response, Ukraine</span>
+    <h2 class="st">Drina's story, from Kramatorsk<br>to a voucher that worked.</h2>
+    <div class="ukr">
+      <div class="pager reveal" id="dpager" aria-label="Drina's emergency artifact, 3 boards">
+        <div class="pager-frame">
+          <img id="dpager-img" src="assets/cbt/drina-cover-preview.webp" alt="Emergency's experiences and tips, cover: Drina from Kramatorsk, Ukraine, part of the Roma community with four children, needed to leave as the conflict got closer" onclick="dpOpen()" tabindex="0">
+        </div>
+        <div class="pager-nav">
+          <button class="pager-btn" onclick="dpStep(-1)" aria-label="Previous board">←</button>
+          <div class="pager-dots" id="dpager-dots" aria-hidden="true"></div>
+          <span class="pager-count" id="dpager-count">1 / 3</span>
+          <button class="pager-btn" onclick="dpStep(1)" aria-label="Next board">→</button>
+        </div>
+      </div>
+      <aside class="ukr-sum reveal">
+        <p class="ukr-sum-t">What the Ukraine response established</p>
+        <div class="jfind jfind--col">
+          <div><b>Registration without an ID.</b> Online self-registration accepted Drina when every help desk had turned her away.</div>
+          <div><b>An SMS as proof.</b> A text message became her identity token for assistance, even where banks still refused it.</div>
+          <div><b>A voucher fallback.</b> When no ID meant no cash transfer, supermarket vouchers kept the family fed and bought medicine.</div>
+          <div><b>An emergency playbook.</b> The case fed WFP's CBT emergency tips: backup transfer plans, minimal data in the first 90 days, ready answers for people without documents.</div>
+        </div>
+      </aside>
+    </div>
   </section>
 
   <section class="sec">
@@ -1407,6 +1453,26 @@ document.addEventListener('keydown',function(e){
   p.addEventListener('pointermove',function(e){if(!down)return;p.scrollLeft=sl-(e.clientX-sx);p.scrollTop=st-(e.clientY-sy);});
   p.addEventListener('pointerup',function(){down=false;});
 })();
+
+/* Drina emergency pager (cover, journey, end cover) */
+var DP=[
+  {p:'assets/cbt/drina-cover-preview.webp', f:'assets/cbt/drina-cover.webp', l:'Emergency experiences and tips, cover',
+   a:'Cover board: Drina from Kramatorsk, Ukraine, part of the Roma community with four children, needed to leave as the conflict got closer'},
+  {p:'assets/cbt/drina-journey-preview.webp', f:'assets/cbt/drina-journey.webp', l:"Drina's journey",
+   a:"Drina's illustrated journey: the train to Vinnytsia, denied at registration desks without a Ukrainian ID, registered online at the WFP desk, receives text vouchers spendable at supermarkets on the road to the Polish border"},
+  {p:'assets/cbt/drina-endcover-preview.webp', f:'assets/cbt/drina-endcover.webp', l:'CBT emergency tips',
+   a:'CBT emergency tips board: transferring money to people without official documents, backup assistance plans before the crisis, minimal data requirements and alternative identification during the crisis'}
+];
+var dpI=0;
+function dpRender(){
+  var img=document.getElementById('dpager-img');if(!img)return;
+  img.src=DP[dpI].p;img.alt=DP[dpI].a;
+  document.getElementById('dpager-count').textContent=(dpI+1)+' / '+DP.length;
+  document.getElementById('dpager-dots').innerHTML=DP.map(function(_,i){return '<span'+(i===dpI?' class="on"':'')+'></span>';}).join('');
+}
+function dpStep(d){dpI=(dpI+d+DP.length)%DP.length;dpRender();}
+function dpOpen(){jvOpen(DP[dpI].f,DP[dpI].l);}
+dpRender();
 
 function toggleMenu(){document.getElementById('nav-links').classList.toggle('open');}
 function closeMenu(){document.getElementById('nav-links').classList.remove('open');}
