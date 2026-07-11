@@ -674,6 +674,21 @@ body.has-cursor, body.has-cursor *{cursor:none;}
 @media (max-width:700px){.jmap-scroll img{width:max(100%,1160px);}}
 .jmap--m .jmap-scroll img{width:max(100%,1100px);}
 @media (max-width:700px){.jmap--m .jmap-scroll img{width:max(100%,760px);}}
+/* compact, fully-visible journey (no crop, no inner scroll) */
+.jmap--fit .jmap-scroll{overflow:visible;display:flex;justify-content:center;padding:clamp(12px,2vw,22px);}
+.jmap--fit .jmap-scroll img{width:auto;height:auto;max-width:100%;max-height:clamp(380px,55vh,620px);object-fit:contain;}
+/* quiet journey-reference metadata on principle cards */
+.jref{font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:rgba(168,216,234,.5);margin-top:10px;}
+/* lightbox gallery controls */
+.jview-prev{left:18px;top:50%;transform:translateY(-50%);}
+.jview-next{right:18px;top:50%;transform:translateY(-50%);}
+.jview-bar{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:12px;padding:8px 16px;background:rgba(27,58,75,.88);border:1px solid rgba(168,216,234,.25);border-radius:30px;z-index:5;}
+.jview-bar .jv-dots{display:flex;gap:6px;}
+.jview-bar .jv-dots span{width:7px;height:7px;border-radius:50%;background:rgba(168,216,234,.3);transition:background .25s;}
+.jview-bar .jv-dots span.on{background:var(--gold);}
+.jview-count{font-family:var(--mono);font-size:11px;color:rgba(168,216,234,.75);}
+.jview.single .jview-prev,.jview.single .jview-next,.jview.single .jview-bar{display:none;}
+@media (max-width:700px){.jview-prev{left:8px;}.jview-next{right:8px;}.jview-bar{bottom:12px;}}
 .deckgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
 .deckgrid img{width:100%;border-radius:12px;cursor:zoom-in;display:block;box-shadow:0 16px 34px -20px rgba(0,0,0,.55);transition:transform .35s var(--ease);}
 .deckgrid img:hover{transform:translateY(-3px);}
@@ -991,13 +1006,13 @@ body.on-case .readbar{opacity:1;}
     <div class="jmaps">
       <figure class="jmap reveal">
         <figcaption><b>Joseph's journey</b><span>68 · cocoa farmer · Saint Andrew · BRISP · scroll sideways, click to zoom</span></figcaption>
-        <div class="jmap-scroll" data-lenis-prevent>
+        <div class="jmap-scroll">
           <img src="assets/grenada/joseph-journey-preview.webp" alt="Joseph's illustrated BRISP experience map: hearing about the programme, application and selection, payment disbursement, monitoring and feedback" loading="lazy" decoding="async" onclick="jvOpen('assets/grenada/joseph-journey.webp','Joseph\'s journey, BRISP experience map')">
         </div>
       </figure>
       <figure class="jmap reveal">
         <figcaption><b>Abigail's journey</b><span>early 20s · student · Saint John · BRISP · scroll sideways, click to zoom</span></figcaption>
-        <div class="jmap-scroll" data-lenis-prevent>
+        <div class="jmap-scroll">
           <img src="assets/grenada/abigail-journey-preview.webp" alt="Abigail's illustrated BRISP experience map: hearing about the programme, application and selection, payment disbursement, monitoring and feedback" loading="lazy" decoding="async" onclick="jvOpen('assets/grenada/abigail-journey.webp','Abigail\'s journey, BRISP experience map')">
         </div>
       </figure>
@@ -1155,7 +1170,7 @@ body.on-case .readbar{opacity:1;}
   <div class="cov">
     <div class="cov-top">
       <div><span class="cov-tag">WFP · Multi-country Research · 2023–2024</span><h1 class="cov-title">Designing for<br><em>dignity</em><br>in crisis.</h1><p class="cov-sub">User journey maps for WFP's Cash-Based Transfer programmes, field research across 5 countries in active crisis, designing for people who are illiterate, elderly, undocumented, or fleeing conflict.</p><div class="cov-chips"><span class="cov-chip">Service Design Research</span><span class="cov-chip">User Journey Mapping</span><span class="cov-chip">Humanitarian</span><span class="cov-chip">Inclusive Design</span></div></div>
-      <div class="cov-meta"><div class="cm-i"><p class="cm-l">Role</p><p class="cm-v">Digital &amp; Service Design Lead, WFP</p></div><div class="cm-i"><p class="cm-l">Countries</p><p class="cm-v">Gaza · Lebanon · Somalia · Ukraine · Jordan</p></div><div class="cm-i"><p class="cm-l">Users researched</p><p class="cm-v">Displaced families, elderly, illiterate, undocumented, minorities</p></div><div class="cm-i"><p class="cm-l">Output</p><p class="cm-v">User journey maps · Pathway to Digital Financial Inclusion framework</p></div></div>
+      <div class="cov-meta"><div class="cm-i"><p class="cm-l">Role</p><p class="cm-v">Digital &amp; Service Design Lead, WFP</p></div><div class="cm-i"><p class="cm-l">Journeys published</p><p class="cm-v" data-countries>Somalia · Ukraine · Jordan</p></div><div class="cm-i"><p class="cm-l">Users researched</p><p class="cm-v">Displaced families, elderly, illiterate, undocumented, minorities</p></div><div class="cm-i"><p class="cm-l">Output</p><p class="cm-v">User journey maps · Pathway to Digital Financial Inclusion framework</p></div></div>
     </div>
     <div class="cov-nums"><div class="cn"><p class="cn-big">5</p><p class="cn-lbl">countries in<br>active crisis</p></div><div class="cn"><p class="cn-big">6</p><p class="cn-lbl">lived experiences<br>mapped</p></div><div class="cn"><p class="cn-big">1</p><p class="cn-lbl">strategic<br>framework</p></div><div class="cn"><p class="cn-big">Millions</p><p class="cn-lbl">of beneficiaries served<br>by the programmes</p></div></div>
   </div>
@@ -1165,16 +1180,17 @@ body.on-case .readbar{opacity:1;}
     <h2 class="st">Designing when access, trust and safety<br>cannot be taken for granted.</h2>
     <p style="font-size:15px;color:var(--slate);line-height:1.7;max-width:620px;margin-bottom:28px;">WFP's Cash-Based Transfer programmes reach millions of people, but the experience of receiving that assistance was invisible. I mapped it, in five countries, through the eyes of the people living it. The constraint: every design decision had to work for users who may be illiterate, without a smartphone, without documents, or in an active conflict zone.</p>
     <div class="pgrid5">
-      <div class="pcard"><div class="pav" style="background:#FAECE7;color:#993C1D">S</div><p class="pname">Saima, 37</p><p class="pcountry">Gaza</p><p class="pchallenge">3rd displacement. Has a phone and passport. Navigating cash assistance during active conflict.</p></div>
-      <div class="pcard"><div class="pav" style="background:#E1F5EE;color:#085041">F</div><p class="pname">Fawziye, 76</p><p class="pcountry">Lebanon</p><p class="pchallenge">Cannot read or write. Depends on family. Mobility issues. $65/month is her only income.</p></div>
-      <div class="pcard"><div class="pav" style="background:#E6F1FB;color:#0C447C">R</div><p class="pname">Rasha, 35</p><p class="pcountry">Lebanon</p><p class="pchallenge">Literate, helps neighbours register. Anxious about SMS timing. Helps others navigate the system.</p></div>
-      <div class="pcard"><div class="pav" style="background:#FAEEDA;color:#633806">A</div><p class="pname">Aamiina</p><p class="pcountry">Somalia</p><p class="pchallenge">No smartphone of her own. Uses husband's phone. Registered in husband's name by mistake.</p></div>
-      <div class="pcard"><div class="pav" style="background:#EDF0F8;color:#1B3A4B">D</div><p class="pname">Drina</p><p class="pcountry">Ukraine</p><p class="pchallenge">Roma community. No official ID. Denied help 3 times before WFP found a solution without ID.</p></div>
+      <div class="pcard" data-journey="saima"><div class="pav" style="background:#FAECE7;color:#993C1D">S</div><p class="pname">Saima, 37</p><p class="pcountry">Gaza</p><p class="pchallenge">3rd displacement. Has a phone and passport. Navigating cash assistance during active conflict.</p></div>
+      <div class="pcard" data-journey="fawziye"><div class="pav" style="background:#E1F5EE;color:#085041">F</div><p class="pname">Fawziye, 76</p><p class="pcountry">Lebanon</p><p class="pchallenge">Cannot read or write. Depends on family. Mobility issues. $65/month is her only income.</p></div>
+      <div class="pcard" data-journey="rasha"><div class="pav" style="background:#E6F1FB;color:#0C447C">R</div><p class="pname">Rasha, 35</p><p class="pcountry">Lebanon</p><p class="pchallenge">Literate, helps neighbours register. Anxious about SMS timing. Helps others navigate the system.</p></div>
+      <div class="pcard" data-journey="hana"><div class="pav" style="background:#FBEAF0;color:#72243E">H</div><p class="pname">Hana</p><p class="pcountry">Jordan</p><p class="pchallenge">Mother of 4 in a community project. New to mobile money, worried about fees and using a wallet.</p></div>
+      <div class="pcard" data-journey="aamiina"><div class="pav" style="background:#FAEEDA;color:#633806">A</div><p class="pname">Aamiina</p><p class="pcountry">Somalia</p><p class="pchallenge">No smartphone of her own. Uses husband's phone. Registered in husband's name by mistake.</p></div>
+      <div class="pcard" data-journey="drina"><div class="pav" style="background:#EDF0F8;color:#1B3A4B">D</div><p class="pname">Drina</p><p class="pcountry">Ukraine</p><p class="pchallenge">Roma community. No official ID. Denied help 3 times before WFP found a solution without ID.</p></div>
     </div>
     <p class="persona-note">Note: these are composite research personas. Names and personal details are illustrative, synthesised from field interviews across five countries to represent real beneficiary groups rather than identifiable individuals.</p>
   </section>
 
-  <section class="sec">
+  <section class="sec" data-journey="saima">
     <span class="ey">Field research, journey maps</span>
     <h2 class="st">Their experience, told in their words.</h2>
     <div class="jgrid" style="grid-template-columns:1fr;max-width:700px">
@@ -1186,10 +1202,10 @@ body.on-case .readbar{opacity:1;}
     <span class="ey">Digital financial inclusion, two journeys</span>
     <h2 class="st">From a shared phone in Somalia<br>to a wallet of her own in Jordan.</h2>
     <p style="font-size:14px;color:var(--slate);line-height:1.7;max-width:580px;margin-bottom:26px;">The same research method, applied in two very different mobile money contexts. Each journey surfaced findings that shaped how WFP designs digital payments for women.</p>
-    <figure class="jmap jmap--m reveal">
-      <figcaption><b>Aamiina's journey</b><span>Somalia · government support on a mobile wallet · scroll, click to zoom</span></figcaption>
-      <div class="jmap-scroll" data-lenis-prevent>
-        <img src="assets/cbt/aamiina-journey-preview.webp" alt="Aamiina's illustrated journey in Somalia: informed and selected at a community consultation, registered with her husband's number, gets a SIM card in her own name, receives her first mobile money payment and spends it through a local shopkeeper" loading="lazy" decoding="async" onclick="jvOpen('assets/cbt/aamiina-journey.webp','Aamiina\'s journey, Somalia')">
+    <figure class="jmap jmap--fit reveal">
+      <figcaption><b>Aamiina's journey</b><span>Somalia · government support on a mobile wallet · click to zoom</span></figcaption>
+      <div class="jmap-scroll">
+        <img src="assets/cbt/aamiina-journey-preview.webp" width="2000" height="1143" alt="Aamiina's illustrated journey in Somalia: informed and selected at a community consultation, registered with her husband's number, gets a SIM card in her own name, receives her first mobile money payment and spends it through a local shopkeeper" loading="lazy" decoding="async" onclick="jvOpen('assets/cbt/aamiina-journey.webp','Aamiina\'s journey, Somalia')">
       </div>
     </figure>
     <div class="jfind reveal">
@@ -1197,10 +1213,10 @@ body.on-case .readbar{opacity:1;}
       <div><b>Payments cannot go to a husband's SIM.</b> Aamiina needed a card in her own name, so getting women their own SIM became part of the service.</div>
       <div><b>The shopkeeper is the interface.</b> Checking messages, cashing out and paying all pass through trusted humans, not through the app alone.</div>
     </div>
-    <figure class="jmap jmap--m reveal">
-      <figcaption><b>Hana's journey</b><span>Jordan · a community project salary on a mobile wallet · scroll, click to zoom</span></figcaption>
-      <div class="jmap-scroll" data-lenis-prevent>
-        <img src="assets/cbt/hana-journey-preview.webp" alt="Hana's illustrated journey in Jordan: enrols in a community project, attends an info session, provides her wallet number to WFP, receives her first payment by SMS and cashes out at a nearby agent" loading="lazy" decoding="async" onclick="jvOpen('assets/cbt/hana-journey.webp','Hana\'s journey, Jordan')">
+    <figure class="jmap jmap--fit reveal">
+      <figcaption><b>Hana's journey</b><span>Jordan · a community project salary on a mobile wallet · click to zoom</span></figcaption>
+      <div class="jmap-scroll">
+        <img src="assets/cbt/hana-journey-preview.webp" width="2000" height="1143" alt="Hana's illustrated journey in Jordan: enrols in a community project, attends an info session, provides her wallet number to WFP, receives her first payment by SMS and cashes out at a nearby agent" loading="lazy" decoding="async" onclick="jvOpen('assets/cbt/hana-journey.webp','Hana\'s journey, Jordan')">
       </div>
     </figure>
     <div class="jfind reveal">
@@ -1241,12 +1257,12 @@ body.on-case .readbar{opacity:1;}
     <span class="ey">Design principles, what this research taught us</span>
     <h2 class="st">Six rules for designing<br>in extreme contexts.</h2>
     <div class="ggrid">
-      <div class="gcard"><div class="gtop"><p class="gbig">1</p><div class="gicon" style="background:#E1F5EE"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="7" r="3.5" stroke="#0F6E56" stroke-width="1.3"/><path d="M3 16c0-3.314 2.686-5 6-5s6 1.686 6 5" stroke="#0F6E56" stroke-width="1.3" stroke-linecap="round"/></svg></div></div><div class="gbody"><p class="gtitle">Design for the margin</p><p class="gtext">If it works for Fawziye (76, illiterate, mobility issues), it works for everyone. Design for the hardest case first.</p></div></div>
-      <div class="gcard"><div class="gtop"><p class="gbig">2</p><div class="gicon" style="background:#E6F1FB"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="3" y="5" width="12" height="8" rx="1.5" stroke="#185FA5" stroke-width="1.3"/><path d="M3 7l6 4 6-4" stroke="#185FA5" stroke-width="1.3" stroke-linecap="round"/></svg></div></div><div class="gbody"><p class="gtitle">Communicate proactively</p><p class="gtext">Rasha checks her phone every day waiting for the SMS. Uncertainty kills trust. Confirm every step.</p></div></div>
-      <div class="gcard"><div class="gtop"><p class="gbig">3</p><div class="gicon" style="background:#FEF3E2"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 3v6l3.5 2.5" stroke="#BA7517" stroke-width="1.3" stroke-linecap="round"/><circle cx="9" cy="9" r="7" stroke="#BA7517" stroke-width="1.3"/></svg></div></div><div class="gbody"><p class="gtitle">No ID ≠ No cash</p><p class="gtext">Drina was denied 3 times. WFP found a solution. Always have a backup pathway for undocumented users.</p></div></div>
-      <div class="gcard"><div class="gtop"><p class="gbig">4</p><div class="gicon" style="background:#FAECE7"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="7" stroke="#993C1D" stroke-width="1.3"/><path d="M6 9h6M9 6v6" stroke="#993C1D" stroke-width="1.3" stroke-linecap="round"/></svg></div></div><div class="gbody"><p class="gtitle">Proxy access matters</p><p class="gtext">Fawziye can't walk to the MTO. Aamiina doesn't have her own phone. Design for family and proxy use.</p></div></div>
-      <div class="gcard"><div class="gtop"><p class="gbig">5</p><div class="gicon" style="background:#E1F5EE"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 3L11 7H15L12 9.5l1 3.5L9 11l-4 2 1-3.5L3 7h4L9 3z" stroke="#0F6E56" stroke-width="1.3" stroke-linejoin="round"/></svg></div></div><div class="gbody"><p class="gtitle">Dignity in disbursement</p><p class="gtext">Abigail and Rasha both felt exposed at the cash point. Privacy in payment is not a luxury.</p></div></div>
-      <div class="gcard"><div class="gtop"><p class="gbig">6</p><div class="gicon" style="background:#E6F1FB"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="3" y="3" width="12" height="12" rx="2" stroke="#185FA5" stroke-width="1.3"/><path d="M6 9h6M6 6h6M6 12h4" stroke="#185FA5" stroke-width="1.3" stroke-linecap="round"/></svg></div></div><div class="gbody"><p class="gtitle">Offline-first always</p><p class="gtext">Aamiina's husband was in Mogadishu with the only phone. A shopkeeper helped. Design doesn't stop at connectivity.</p></div></div>
+      <div class="gcard"><div class="gtop"><p class="gbig">1</p><div class="gicon" style="background:#E1F5EE"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="7" r="3.5" stroke="#0F6E56" stroke-width="1.3"/><path d="M3 16c0-3.314 2.686-5 6-5s6 1.686 6 5" stroke="#0F6E56" stroke-width="1.3" stroke-linecap="round"/></svg></div></div><div class="gbody"><p class="gtitle">Design for the margin</p><p class="gtext">If it works for someone who cannot read, walk far or own a phone, it works for everyone. Design for the hardest case first.</p></div></div>
+      <div class="gcard"><div class="gtop"><p class="gbig">2</p><div class="gicon" style="background:#E6F1FB"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="3" y="5" width="12" height="8" rx="1.5" stroke="#185FA5" stroke-width="1.3"/><path d="M3 7l6 4 6-4" stroke="#185FA5" stroke-width="1.3" stroke-linecap="round"/></svg></div></div><div class="gbody"><p class="gtitle">Communicate proactively</p><p class="gtext">Waiting without news erodes trust faster than bad news. Confirm every step, even when nothing has changed.</p></div></div>
+      <div class="gcard" data-ref="drina"><div class="gtop"><p class="gbig">3</p><div class="gicon" style="background:#FEF3E2"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 3v6l3.5 2.5" stroke="#BA7517" stroke-width="1.3" stroke-linecap="round"/><circle cx="9" cy="9" r="7" stroke="#BA7517" stroke-width="1.3"/></svg></div></div><div class="gbody"><p class="gtitle">No ID ≠ No cash</p><p class="gtext">People fleeing rarely carry documents. Every service needs a pathway that works without official identification.</p></div></div>
+      <div class="gcard" data-ref="aamiina"><div class="gtop"><p class="gbig">4</p><div class="gicon" style="background:#FAECE7"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="7" stroke="#993C1D" stroke-width="1.3"/><path d="M6 9h6M9 6v6" stroke="#993C1D" stroke-width="1.3" stroke-linecap="round"/></svg></div></div><div class="gbody"><p class="gtitle">Proxy access matters</p><p class="gtext">Phones, literacy and mobility are often shared family resources. Design for use through someone the person trusts.</p></div></div>
+      <div class="gcard" data-ref="abigail"><div class="gtop"><p class="gbig">5</p><div class="gicon" style="background:#E1F5EE"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 3L11 7H15L12 9.5l1 3.5L9 11l-4 2 1-3.5L3 7h4L9 3z" stroke="#0F6E56" stroke-width="1.3" stroke-linejoin="round"/></svg></div></div><div class="gbody"><p class="gtitle">Dignity in disbursement</p><p class="gtext">How money is handed over matters as much as how much. Privacy at the cash point is not a luxury.</p></div></div>
+      <div class="gcard" data-ref="aamiina"><div class="gtop"><p class="gbig">6</p><div class="gicon" style="background:#E6F1FB"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="3" y="3" width="12" height="12" rx="2" stroke="#185FA5" stroke-width="1.3"/><path d="M6 9h6M6 6h6M6 12h4" stroke="#185FA5" stroke-width="1.3" stroke-linecap="round"/></svg></div></div><div class="gbody"><p class="gtitle">Offline-first always</p><p class="gtext">Connectivity, devices and electricity come and go. The service must keep its promise when the network does not.</p></div></div>
     </div>
   </section>
 
@@ -1306,7 +1322,7 @@ body.on-case .readbar{opacity:1;}
     </div>
     <figure class="jmap jmap--m reveal" style="margin-top:26px">
       <figcaption><b>Desktop mapping</b><span>knowledge + project flows, 3 user types · scroll, click to zoom</span></figcaption>
-      <div class="jmap-scroll" data-lenis-prevent>
+      <div class="jmap-scroll">
         <img src="assets/cashbook/flows-map-preview.webp" alt="CashBook desktop mapping: full wireframe flows for the knowledge management and collaborative project management modules across three user types" loading="lazy" decoding="async" onclick="jvOpen('assets/cashbook/flows-map.webp','CashBook desktop mapping, both flows')">
       </div>
     </figure>
@@ -1341,6 +1357,12 @@ body.on-case .readbar{opacity:1;}
   <p class="jview-cap" id="jview-cap"></p>
   <div class="jview-pane" id="jview-pane" data-lenis-prevent><img id="jview-img" src="" alt=""></div>
   <button class="jview-btn jview-close" onclick="jvClose()" aria-label="Close viewer">✕</button>
+  <button class="jview-btn jview-prev" onclick="jvNav(-1)" aria-label="Previous image">←</button>
+  <button class="jview-btn jview-next" onclick="jvNav(1)" aria-label="Next image">→</button>
+  <div class="jview-bar" aria-hidden="true">
+    <div class="jv-dots" id="jv-dots"></div>
+    <span class="jview-count" id="jv-count"></span>
+  </div>
   <button class="jview-btn jview-out" onclick="jvZoom(-1)" aria-label="Zoom out">−</button>
   <button class="jview-btn jview-in" onclick="jvZoom(1)" aria-label="Zoom in">+</button>
 </div>
@@ -1395,13 +1417,13 @@ function scrollToSection(id){
     else el.scrollIntoView({behavior:'smooth'});
   },(_wipe&&!_reduce)?460:160);
 }
-/* Journey map fullscreen viewer (zoom steps in vw, native scroll + mouse drag to pan) */
+/* ── Reusable gallery lightbox (single images and multi-image sets share one component) ── */
 var _jvSteps=[130,190,260,340], _jvIdx=1, _jvTrigger=null;
+var _jvItems=null, _jvI=0, _jvChange=null;
 function _jvApply(){document.getElementById('jview-img').style.width=_jvSteps[_jvIdx]+'vw';}
-function jvOpen(src,label){
-  _jvTrigger=document.activeElement;
-  var v=document.getElementById('jview'),img=document.getElementById('jview-img');
-  /* zoom steps adapt to the image shape: panoramic strips need wider steps than slides */
+function _jvShow(){
+  var it=_jvItems[_jvI];
+  var img=document.getElementById('jview-img');
   var tune=function(){
     var a=img.naturalWidth/Math.max(img.naturalHeight,1);
     _jvSteps = a>2.8 ? [130,190,260,340] : a>1.2 ? [90,130,180,240] : [60,90,120,160];
@@ -1409,15 +1431,31 @@ function jvOpen(src,label){
     _jvApply();
   };
   img.onload=tune;
-  img.src=src;img.alt=label;
+  img.src=it.src;img.alt=it.alt||it.label||'';
   if(img.complete&&img.naturalWidth>0)tune();
-  document.getElementById('jview-cap').textContent=label;
+  document.getElementById('jview-cap').textContent=it.label||'';
   _jvIdx=1;_jvApply();
+  var p=document.getElementById('jview-pane');p.scrollLeft=0;p.scrollTop=0;
+  document.getElementById('jv-count').textContent=(_jvI+1)+' / '+_jvItems.length;
+  document.getElementById('jv-dots').innerHTML=_jvItems.map(function(_,i){return '<span'+(i===_jvI?' class="on"':'')+'></span>';}).join('');
+}
+function jvGallery(items,i,onChange){
+  _jvItems=items;_jvI=i||0;_jvChange=onChange||null;
+  _jvTrigger=document.activeElement;
+  var v=document.getElementById('jview');
+  v.classList.toggle('single',items.length<2);
+  _jvShow();
   v.classList.add('open');
   document.body.style.overflow='hidden';
   if(lenis)lenis.stop();
-  var p=document.getElementById('jview-pane');p.scrollLeft=0;p.scrollTop=0;
   document.querySelector('.jview-close').focus();
+}
+function jvOpen(src,label){jvGallery([{src:src,label:label,alt:label}],0);}
+function jvNav(d){
+  if(!_jvItems||_jvItems.length<2)return;
+  _jvI=(_jvI+d+_jvItems.length)%_jvItems.length;
+  _jvShow();
+  if(_jvChange)_jvChange(_jvI);
 }
 function jvClose(){
   document.getElementById('jview').classList.remove('open');
@@ -1440,18 +1478,87 @@ document.addEventListener('keydown',function(e){
   var v=document.getElementById('jview');
   if(!v||!v.classList.contains('open'))return;
   if(e.key==='Escape')jvClose();
+  if(e.key==='ArrowLeft')jvNav(-1);
+  if(e.key==='ArrowRight')jvNav(1);
   if(e.key==='+'||e.key==='=')jvZoom(1);
   if(e.key==='-')jvZoom(-1);
+  if(e.key==='Tab'){
+    var f=Array.prototype.filter.call(v.querySelectorAll('button'),function(b){return getComputedStyle(b).display!=='none';});
+    if(!f.length)return;
+    var first=f[0],last=f[f.length-1];
+    if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}
+    else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}
+  }
 });
 (function(){
   var p=document.getElementById('jview-pane');if(!p)return;
   var down=false,sx=0,sy=0,sl=0,st=0;
   p.addEventListener('pointerdown',function(e){
-    if(e.pointerType!=='mouse')return;
-    down=true;sx=e.clientX;sy=e.clientY;sl=p.scrollLeft;st=p.scrollTop;p.setPointerCapture(e.pointerId);
+    if(e.pointerType==='mouse'){
+      down=true;sx=e.clientX;sy=e.clientY;sl=p.scrollLeft;st=p.scrollTop;p.setPointerCapture(e.pointerId);
+    }else{sx=e.clientX;sy=e.clientY;}
   });
   p.addEventListener('pointermove',function(e){if(!down)return;p.scrollLeft=sl-(e.clientX-sx);p.scrollTop=st-(e.clientY-sy);});
-  p.addEventListener('pointerup',function(){down=false;});
+  p.addEventListener('pointerup',function(e){
+    if(down){down=false;return;}
+    /* touch swipe: navigate when clearly horizontal and the image is not panning, or the pan is already at its edge */
+    var dx=e.clientX-sx,dy=e.clientY-sy;
+    if(e.pointerType!=='mouse'&&Math.abs(dx)>60&&Math.abs(dx)>Math.abs(dy)){
+      var noPan=p.scrollWidth<=p.clientWidth+4;
+      var atRight=p.scrollLeft>=p.scrollWidth-p.clientWidth-4;
+      var atLeft=p.scrollLeft<=4;
+      if(noPan||(dx<0&&atRight)||(dx>0&&atLeft))jvNav(dx<0?1:-1);
+    }
+  });
+  /* backdrop click closes, clicks on the image or controls do not */
+  p.addEventListener('click',function(e){if(e.target===p)jvClose();});
+})();
+
+/* Horizontal-only wheel on scroll strips: vertical wheel always keeps scrolling the page */
+document.querySelectorAll('.jmap-scroll').forEach(function(el){
+  el.addEventListener('wheel',function(e){
+    if(Math.abs(e.deltaX)>Math.abs(e.deltaY)&&el.scrollWidth>el.clientWidth){
+      el.scrollLeft+=e.deltaX;e.preventDefault();
+    }
+  },{passive:false});
+});
+
+/* ── Journey publication state: single source of truth ── */
+var JOURNEYS={
+  aamiina:{published:true, label:'Aamiina', country:'Somalia'},
+  hana:   {published:true, label:'Hana',    country:'Jordan'},
+  drina:  {published:true, label:'Drina',   country:'Ukraine'},
+  saima:  {published:false,label:'Saima',   country:'Gaza'},
+  fawziye:{published:false,label:'Fawziye', country:'Lebanon'},
+  rasha:  {published:false,label:'Rasha',   country:'Lebanon'},
+  abigail:{published:true, label:'Abigail (Grenada case)'},
+  joseph: {published:true, label:'Joseph (Grenada case)'}
+};
+function jPub(id){return !!(JOURNEYS[id]&&JOURNEYS[id].published);}
+(function(){
+  document.querySelectorAll('[data-journey]').forEach(function(el){
+    if(!jPub(el.getAttribute('data-journey')))el.style.display='none';
+  });
+  var strip=document.querySelector('#page-cbt .pgrid5');
+  if(strip)strip.style.gridTemplateColumns='repeat(auto-fit,minmax(200px,260px))';
+  var c=document.querySelector('#page-cbt [data-countries]');
+  if(c){
+    var seen=[];
+    Object.keys(JOURNEYS).forEach(function(k){
+      var j=JOURNEYS[k];
+      if(j.published&&j.country&&seen.indexOf(j.country)<0)seen.push(j.country);
+    });
+    c.textContent=seen.join(' · ');
+  }
+  document.querySelectorAll('#page-cbt .gcard[data-ref]').forEach(function(card){
+    var id=card.getAttribute('data-ref');
+    if(jPub(id)){
+      var p=document.createElement('p');
+      p.className='jref';
+      p.textContent='Related journey: '+JOURNEYS[id].label;
+      card.querySelector('.gbody').appendChild(p);
+    }
+  });
 })();
 
 /* Drina emergency pager (cover, journey, end cover) */
@@ -1471,7 +1578,9 @@ function dpRender(){
   document.getElementById('dpager-dots').innerHTML=DP.map(function(_,i){return '<span'+(i===dpI?' class="on"':'')+'></span>';}).join('');
 }
 function dpStep(d){dpI=(dpI+d+DP.length)%DP.length;dpRender();}
-function dpOpen(){jvOpen(DP[dpI].f,DP[dpI].l);}
+function dpOpen(){
+  jvGallery(DP.map(function(d){return {src:d.f,label:d.l,alt:d.a};}), dpI, function(i){dpI=i;dpRender();});
+}
 dpRender();
 
 function toggleMenu(){document.getElementById('nav-links').classList.toggle('open');}
