@@ -133,7 +133,7 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:20px 4
 .rgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:26px;}
 .rcard{padding:22px;border-radius:var(--r);border:var(--b);background:rgba(255,255,255,.7);}
 .rnum{font-family:var(--serif);font-size:46px;color:var(--teal);opacity:.15;line-height:1;}
-.rhead{display:flex;align-items:center;gap:10px;margin-top:-16px;}
+.rhead{display:flex;align-items:center;gap:10px;margin-top:10px;}
 .ricon{width:30px;height:30px;border-radius:8px;background:var(--navy);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
 .rtitle{font-size:14px;font-weight:500;color:var(--navy);}
 .rtext{font-size:13px;color:var(--slate);line-height:1.6;margin-top:9px;}
@@ -693,6 +693,17 @@ body.has-cursor, body.has-cursor *{cursor:none;}
 .chal-row .pgrid5{grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin:0;}
 @media (max-width:900px){.chal-row{grid-template-columns:1fr;gap:30px;}.chal-row .pgrid5{grid-template-columns:repeat(auto-fit,minmax(160px,1fr));}}
 @media (max-width:520px){.chal-row .pgrid5{grid-template-columns:1fr;}}
+/* process timeline: block width = real duration in days, step counts tell the burden */
+.ptl-lead{font-size:15px;color:var(--slate);line-height:1.6;max-width:640px;margin:6px 0 22px;}
+.ptl-lead b{color:var(--gold);font-weight:500;}
+.ptl-track{display:flex;gap:6px;align-items:stretch;}
+.ptl-ph{border-radius:10px;padding:14px 15px 13px;color:#fff;min-width:0;display:flex;flex-direction:column;min-height:110px;}
+.ptl-name{font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;opacity:.9;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.ptl-steps{font-family:var(--serif);font-size:clamp(24px,2.6vw,32px);line-height:1;color:#fff;margin-top:auto;}
+.ptl-steps span{font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-left:6px;}
+.ptl-days{font-family:var(--mono);font-size:10px;letter-spacing:.03em;color:rgba(255,255,255,.6);margin-top:7px;white-space:nowrap;}
+.ptl-axis{display:flex;justify-content:space-between;gap:12px;margin-top:9px;font-family:var(--mono);font-size:10px;letter-spacing:.05em;text-transform:uppercase;color:var(--slate);}
+@media (max-width:640px){.ptl-track{flex-direction:column;}.ptl-ph{flex:none!important;min-height:0;flex-direction:row;align-items:center;justify-content:space-between;gap:14px;padding:14px 16px;}.ptl-steps{margin-top:0;}.ptl-days{margin-top:0;}.ptl-axis{flex-direction:column;gap:2px;}}
 /* quiet journey-reference metadata on principle cards */
 .jref{font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:rgba(168,216,234,.5);margin-top:10px;}
 /* lightbox gallery controls */
@@ -1014,7 +1025,30 @@ body.on-case .readbar{opacity:1;}
   </div>
   <section class="sec alt">
     <span class="ey">The challenge, process complexity</span><h2 class="st">A 69-day chain to reach one family.</h2>
-    <div style="margin-top:26px;"><div style="display:flex;justify-content:space-between;margin-bottom:8px;"><span style="font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--slate)">Application</span><span style="font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--slate)">Data &amp; Eligibility</span><span style="font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--slate)">Payment list</span><span style="font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--slate)">Distribution</span></div><div class="pb-wrap"><div class="pb-seg" style="width:12%;background:#2D7D9A"><span class="pb-lbl">4</span></div><div class="pb-seg" style="width:.5%;background:var(--warm)"></div><div class="pb-seg" style="width:23%;background:#1B3A4B"><span class="pb-lbl">9 steps</span></div><div class="pb-seg" style="width:.5%;background:var(--warm)"></div><div class="pb-seg" style="width:29%;background:#5B8FA8"><span class="pb-lbl">15 steps</span></div><div class="pb-seg" style="width:.5%;background:var(--warm)"></div><div class="pb-seg" style="flex:1;background:#0C3040"><span class="pb-lbl">10+ steps</span></div></div><div style="display:flex;justify-content:space-between;margin-top:8px;"><span style="font-size:10px;color:var(--slate)">Day 0</span><span style="font-size:10px;color:var(--slate)">Day 9</span><span style="font-size:10px;color:var(--slate)">Day 26</span><span style="font-size:10px;color:var(--slate)">Day 40</span><span style="font-size:10px;color:var(--slate)">Day 69</span></div></div>
+    <p class="ptl-lead"><b>69 days</b> and <b>38+ steps</b> across four phases stand between one family and their first payment. The width of each phase is its real duration.</p>
+    <div class="ptl-track">
+      <div class="ptl-ph" style="flex:9;background:#256981">
+        <span class="ptl-name">Application</span>
+        <p class="ptl-steps">4<span>steps</span></p>
+        <span class="ptl-days">Day 0–9 · 9 days</span>
+      </div>
+      <div class="ptl-ph" style="flex:17;background:#1F5A70">
+        <span class="ptl-name">Data &amp; eligibility</span>
+        <p class="ptl-steps">9<span>steps</span></p>
+        <span class="ptl-days">Day 9–26 · 17 days</span>
+      </div>
+      <div class="ptl-ph" style="flex:14;background:#1A4B5E">
+        <span class="ptl-name">Payment list</span>
+        <p class="ptl-steps">15<span>steps</span></p>
+        <span class="ptl-days">Day 26–40 · 14 days</span>
+      </div>
+      <div class="ptl-ph" style="flex:29;background:#143B4A">
+        <span class="ptl-name">Distribution</span>
+        <p class="ptl-steps">10+<span>steps</span></p>
+        <span class="ptl-days">Day 40–69 · 29 days</span>
+      </div>
+    </div>
+    <div class="ptl-axis"><span>Day 0 · application submitted</span><span>Day 69 · cash in hand</span></div>
     <div class="pv-2"><div class="pv-card"><p class="pv-head">Today, SEED process</p><div class="pv-row"><span class="pv-name">Manual / paper</span><div class="pv-bg"><div class="pv-fill" style="width:82%;background:var(--gold)"></div></div><span class="pv-val">82%</span></div><div class="pv-row"><span class="pv-name">Digital</span><div class="pv-bg"><div class="pv-fill" style="width:18%;background:#2D7D9A"></div></div><span class="pv-val">18%</span></div></div><div class="pv-card"><p class="pv-head">Target, after redesign</p><div class="pv-row"><span class="pv-name">Manual / paper</span><div class="pv-bg"><div class="pv-fill" style="width:20%;background:var(--gold)"></div></div><span class="pv-val">20%</span></div><div class="pv-row"><span class="pv-name">Digital</span><div class="pv-bg"><div class="pv-fill" style="width:80%;background:#2D7D9A"></div></div><span class="pv-val">80%</span></div></div></div>
   </section>
   <section class="sec">
