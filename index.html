@@ -677,6 +677,13 @@ body.has-cursor, body.has-cursor *{cursor:none;}
 /* compact, fully-visible journey (no crop, no inner scroll) */
 .jmap--fit .jmap-scroll{overflow:visible;display:flex;justify-content:center;padding:clamp(12px,2vw,22px);}
 .jmap--fit .jmap-scroll img{width:auto;height:auto;max-width:100%;max-height:clamp(380px,55vh,620px);object-fit:contain;}
+/* two DFI journeys side by side, each with its own findings below */
+.dfi-duo{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:start;}
+.dfi-col{display:flex;flex-direction:column;}
+.dfi-duo .jmap--fit .jmap-scroll{padding:clamp(10px,1.4vw,16px);}
+.dfi-duo .jmap--fit .jmap-scroll img{width:100%;max-height:none;}
+.dfi-duo .jfind{grid-template-columns:1fr;margin:14px 0 0;gap:10px;}
+@media (max-width:860px){.dfi-duo{grid-template-columns:1fr;gap:30px;}}
 /* quiet journey-reference metadata on principle cards */
 .jref{font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:rgba(168,216,234,.5);margin-top:10px;}
 /* lightbox gallery controls */
@@ -1202,27 +1209,33 @@ body.on-case .readbar{opacity:1;}
     <span class="ey">Digital financial inclusion, two journeys</span>
     <h2 class="st">From a shared phone in Somalia<br>to a wallet of her own in Jordan.</h2>
     <p style="font-size:14px;color:var(--slate);line-height:1.7;max-width:580px;margin-bottom:26px;">The same research method, applied in two very different mobile money contexts. Each journey surfaced findings that shaped how WFP designs digital payments for women.</p>
-    <figure class="jmap jmap--fit reveal">
-      <figcaption><b>Aamiina's journey</b><span>Somalia · government support on a mobile wallet · click to zoom</span></figcaption>
-      <div class="jmap-scroll">
-        <img src="assets/cbt/aamiina-journey-preview.webp" width="2000" height="1143" alt="Aamiina's illustrated journey in Somalia: informed and selected at a community consultation, registered with her husband's number, gets a SIM card in her own name, receives her first mobile money payment and spends it through a local shopkeeper" loading="lazy" decoding="async" onclick="jvOpen('assets/cbt/aamiina-journey.webp','Aamiina\'s journey, Somalia')">
+    <div class="dfi-duo">
+      <div class="dfi-col">
+        <figure class="jmap jmap--fit reveal">
+          <figcaption><b>Aamiina's journey</b><span>Somalia · government support on a mobile wallet · click to zoom</span></figcaption>
+          <div class="jmap-scroll">
+            <img src="assets/cbt/aamiina-journey-preview.webp" width="2000" height="1143" alt="Aamiina's illustrated journey in Somalia: informed and selected at a community consultation, registered with her husband's number, gets a SIM card in her own name, receives her first mobile money payment and spends it through a local shopkeeper" loading="lazy" decoding="async" onclick="jvOpen('assets/cbt/aamiina-journey.webp','Aamiina\'s journey, Somalia')">
+          </div>
+        </figure>
+        <div class="jfind reveal">
+          <div><b>The list on the mosque wall.</b> Selection was announced where the community already looks, and illustrated sessions worked for people who cannot read.</div>
+          <div><b>Payments cannot go to a husband's SIM.</b> Aamiina needed a card in her own name, so getting women their own SIM became part of the service.</div>
+          <div><b>The shopkeeper is the interface.</b> Checking messages, cashing out and paying all pass through trusted humans, not through the app alone.</div>
+        </div>
       </div>
-    </figure>
-    <div class="jfind reveal">
-      <div><b>The list on the mosque wall.</b> Selection was announced where the community already looks, and illustrated sessions worked for people who cannot read.</div>
-      <div><b>Payments cannot go to a husband's SIM.</b> Aamiina needed a card in her own name, so getting women their own SIM became part of the service.</div>
-      <div><b>The shopkeeper is the interface.</b> Checking messages, cashing out and paying all pass through trusted humans, not through the app alone.</div>
-    </div>
-    <figure class="jmap jmap--fit reveal">
-      <figcaption><b>Hana's journey</b><span>Jordan · a community project salary on a mobile wallet · click to zoom</span></figcaption>
-      <div class="jmap-scroll">
-        <img src="assets/cbt/hana-journey-preview.webp" width="2000" height="1143" alt="Hana's illustrated journey in Jordan: enrols in a community project, attends an info session, provides her wallet number to WFP, receives her first payment by SMS and cashes out at a nearby agent" loading="lazy" decoding="async" onclick="jvOpen('assets/cbt/hana-journey.webp','Hana\'s journey, Jordan')">
+      <div class="dfi-col">
+        <figure class="jmap jmap--fit reveal">
+          <figcaption><b>Hana's journey</b><span>Jordan · a community project salary on a mobile wallet · click to zoom</span></figcaption>
+          <div class="jmap-scroll">
+            <img src="assets/cbt/hana-journey-preview.webp" width="2000" height="1143" alt="Hana's illustrated journey in Jordan: enrols in a community project, attends an info session, provides her wallet number to WFP, receives her first payment by SMS and cashes out at a nearby agent" loading="lazy" decoding="async" onclick="jvOpen('assets/cbt/hana-journey.webp','Hana\'s journey, Jordan')">
+          </div>
+        </figure>
+        <div class="jfind reveal">
+          <div><b>Info sessions turn worry into confidence.</b> After one session Hana could compare providers, fees and limits, and chose her own wallet.</div>
+          <div><b>Dormant wallets are a real failure path.</b> Her brother's payment bounced because his unused wallet had been deactivated, reactivation had to be designed for.</div>
+          <div><b>Agents work, shops do not yet.</b> Cash-out is easy nearby, but local shops still refuse mobile money, the last mile of acceptance is the next problem.</div>
+        </div>
       </div>
-    </figure>
-    <div class="jfind reveal">
-      <div><b>Info sessions turn worry into confidence.</b> After one session Hana could compare providers, fees and limits, and chose her own wallet.</div>
-      <div><b>Dormant wallets are a real failure path.</b> Her brother's payment bounced because his unused wallet had been deactivated, reactivation had to be designed for.</div>
-      <div><b>Agents work, shops do not yet.</b> Cash-out is easy nearby, but local shops still refuse mobile money, the last mile of acceptance is the next problem.</div>
     </div>
   </section>
 
