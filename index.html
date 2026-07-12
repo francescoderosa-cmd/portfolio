@@ -30,6 +30,9 @@
 :root{--navy:#1B3A4B;--teal:#2D7D9A;--slate:#5B8FA8;--ice:#A8D8EA;--warm:#F2F0EB;--serif:'DM Serif Display',Georgia,serif;--sans:'DM Sans',system-ui,sans-serif;--r:12px;--b:0.5px solid rgba(27,58,75,0.12);}
 *{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;}
 body{font-family:var(--sans);background:var(--navy);color:#EAF4F8;-webkit-font-smoothing:antialiased;}
+/* Typography: avoid last-line widows in body copy, balance short headings */
+p,li,figcaption,blockquote,.pchallenge,.gtext,.jfind div,.cm-v,.cov-sub{text-wrap:pretty;}
+h1,h2,h3,h4,.st,.cov-title,.gtitle,.rtitle,.jname,.pv-head,.next-title{text-wrap:balance;}
 @keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
 .f1{animation:fadeUp .55s .08s both}.f2{animation:fadeUp .55s .18s both}.f3{animation:fadeUp .55s .3s both}.f4{animation:fadeUp .55s .44s both}
 .page{display:none}.page.active{display:block}
@@ -470,7 +473,8 @@ nav{background:var(--navy);border-bottom:1px solid var(--line);}
 /* Headings / strong text that were navy → light */
 .st,.next-title,.cot-title,.lh-title,.jname,.pname,.uname,.cname,.gtitle,.rtitle,.tltitle,
 .fcard-title,.aititle,.pv-head,.pv-val,.lg-name,.lgn-v,.aex,.ba-title{color:#fff;}
-.gbig{color:#A8D8EA;opacity:.14;}
+.gbig{color:var(--gold);opacity:1;}
+.rnum{color:var(--gold);opacity:.92;}
 .jquote{color:#EAF4F8;background:rgba(45,125,154,.14);}
 
 /* Cards / surfaces that were white → dark */

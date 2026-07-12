@@ -21,6 +21,9 @@
 *{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
 body{font-family:var(--sans);background:var(--navy);color:#EAF4F8;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+/* Typography: avoid last-line widows in body copy, balance short headings */
+p,li,figcaption,blockquote{text-wrap:pretty;}
+h1,h2,h3,h4{text-wrap:balance;}
 ::selection{background:var(--teal);color:#fff;}
 :focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:4px;}
 img{max-width:100%;display:block;}
