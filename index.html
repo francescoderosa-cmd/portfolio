@@ -684,6 +684,11 @@ body.has-cursor, body.has-cursor *{cursor:none;}
 .dfi-duo .jmap--fit .jmap-scroll img{width:100%;max-height:none;}
 .dfi-duo .jfind{grid-template-columns:1fr;margin:14px 0 0;gap:10px;}
 @media (max-width:860px){.dfi-duo{grid-template-columns:1fr;gap:30px;}}
+/* challenge intro: text left, persona cards right (fills horizontal space) */
+.chal-row{display:grid;grid-template-columns:minmax(0,0.82fr) minmax(0,1.18fr);gap:clamp(30px,5vw,64px);align-items:center;}
+.chal-row .pgrid5{grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin:0;}
+@media (max-width:900px){.chal-row{grid-template-columns:1fr;gap:30px;}.chal-row .pgrid5{grid-template-columns:repeat(auto-fit,minmax(160px,1fr));}}
+@media (max-width:520px){.chal-row .pgrid5{grid-template-columns:1fr;}}
 /* quiet journey-reference metadata on principle cards */
 .jref{font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:rgba(168,216,234,.5);margin-top:10px;}
 /* lightbox gallery controls */
@@ -1183,16 +1188,20 @@ body.on-case .readbar{opacity:1;}
   </div>
 
   <section class="sec alt">
-    <span class="ey">The challenge, designing at the extremes</span>
-    <h2 class="st">Designing when access, trust and safety<br>cannot be taken for granted.</h2>
-    <p style="font-size:15px;color:var(--slate);line-height:1.7;max-width:620px;margin-bottom:28px;">WFP's Cash-Based Transfer programmes reach millions of people, but the experience of receiving that assistance was invisible. I mapped it, in five countries, through the eyes of the people living it. The constraint: every design decision had to work for users who may be illiterate, without a smartphone, without documents, or in an active conflict zone.</p>
-    <div class="pgrid5">
+    <div class="chal-row">
+      <div class="chal-intro">
+        <span class="ey">The challenge, designing at the extremes</span>
+        <h2 class="st">Designing when access, trust and safety cannot be taken for granted.</h2>
+        <p style="font-size:15px;color:var(--slate);line-height:1.7;max-width:none;margin-bottom:0;">WFP's Cash-Based Transfer programmes reach millions of people, but the experience of receiving that assistance was invisible. I mapped it, in five countries, through the eyes of the people living it. The constraint: every design decision had to work for users who may be illiterate, without a smartphone, without documents, or in an active conflict zone.</p>
+      </div>
+      <div class="pgrid5">
       <div class="pcard" data-journey="saima"><div class="pav" style="background:#FAECE7;color:#993C1D">S</div><p class="pname">Saima, 37</p><p class="pcountry">Gaza</p><p class="pchallenge">3rd displacement. Has a phone and passport. Navigating cash assistance during active conflict.</p></div>
       <div class="pcard" data-journey="fawziye"><div class="pav" style="background:#E1F5EE;color:#085041">F</div><p class="pname">Fawziye, 76</p><p class="pcountry">Lebanon</p><p class="pchallenge">Cannot read or write. Depends on family. Mobility issues. $65/month is her only income.</p></div>
       <div class="pcard" data-journey="rasha"><div class="pav" style="background:#E6F1FB;color:#0C447C">R</div><p class="pname">Rasha, 35</p><p class="pcountry">Lebanon</p><p class="pchallenge">Literate, helps neighbours register. Anxious about SMS timing. Helps others navigate the system.</p></div>
       <div class="pcard" data-journey="hana"><div class="pav" style="background:#FBEAF0;color:#72243E">H</div><p class="pname">Hana</p><p class="pcountry">Jordan</p><p class="pchallenge">Mother of 4 in a community project. New to mobile money, worried about fees and using a wallet.</p></div>
       <div class="pcard" data-journey="aamiina"><div class="pav" style="background:#FAEEDA;color:#633806">A</div><p class="pname">Aamiina</p><p class="pcountry">Somalia</p><p class="pchallenge">No smartphone of her own. Uses husband's phone. Registered in husband's name by mistake.</p></div>
       <div class="pcard" data-journey="drina"><div class="pav" style="background:#EDF0F8;color:#1B3A4B">D</div><p class="pname">Drina</p><p class="pcountry">Ukraine</p><p class="pchallenge">Roma community. No official ID. Denied help 3 times before WFP found a solution without ID.</p></div>
+      </div>
     </div>
     <p class="persona-note">Note: these are composite research personas. Names and personal details are illustrative, synthesised from field interviews across five countries to represent real beneficiary groups rather than identifiable individuals.</p>
   </section>
@@ -1552,8 +1561,6 @@ function jPub(id){return !!(JOURNEYS[id]&&JOURNEYS[id].published);}
   document.querySelectorAll('[data-journey]').forEach(function(el){
     if(!jPub(el.getAttribute('data-journey')))el.style.display='none';
   });
-  var strip=document.querySelector('#page-cbt .pgrid5');
-  if(strip)strip.style.gridTemplateColumns='repeat(auto-fit,minmax(200px,260px))';
   var c=document.querySelector('#page-cbt [data-countries]');
   if(c){
     var seen=[];
