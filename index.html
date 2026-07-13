@@ -330,6 +330,15 @@ footer{padding:18px 48px;border-top:var(--b);display:flex;justify-content:space-
 .jview.page .jview-pane{cursor:default;}
 .jview.page #jview-img{padding:22px 0 48px;}
 .jview.page .jview-out,.jview.page .jview-in{display:none;}
+/* project gallery: persistent description panel while browsing screens */
+.jview-info{display:none;}
+.jview.proj .jview-info{display:block;position:fixed;z-index:6;background:rgba(21,48,63,.92);border:1px solid rgba(168,216,234,.2);border-radius:14px;padding:16px 18px;backdrop-filter:blur(8px);}
+.jvi-title{font-family:var(--serif);font-size:19px;color:#fff;margin-bottom:9px;line-height:1.2;}
+.jvi-desc{font-size:12.5px;line-height:1.62;color:rgba(234,244,248,.72);}
+.jvi-cap{font-family:var(--mono);font-size:10px;letter-spacing:.05em;text-transform:uppercase;color:var(--gold);margin-top:12px;}
+.jview.proj .jview-cap{display:none;}
+@media (min-width:880px){.jview.proj .jview-info{top:24px;left:24px;width:320px;}.jview.proj .jview-pane{padding-left:372px;}}
+@media (max-width:879px){.jview.proj .jview-info{left:12px;right:12px;top:12px;}.jview.proj .jview-pane{padding-top:168px;}}
 .lg-body{padding:20px 22px 22px;}
 .lg-client{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);margin-bottom:5px;}
 .lg-name{font-size:16px;font-weight:500;color:var(--navy);margin-bottom:9px;line-height:1.3;}
@@ -1422,11 +1431,11 @@ body.on-case .readbar{opacity:1;}
     <p class="lh-sub">Before moving into humanitarian design, I worked across luxury, finance, healthcare and telecoms, leading UX and UI design at Reply and earlier agencies for clients including Prada, TIM, Ferrero, Luxottica and more.</p>
   </div>
   <div class="lg-grid">
-    <div class="lg-card"><div class="lg-thumb lg-thumb--web" onclick="jvSite('assets/legacy/prada.webp','Prada Group e-commerce',1120)" tabindex="0" role="button" aria-label="View the full Prada Group e-commerce page"><div class="lg-webbar"><i></i><i></i><i></i><span class="lg-url">prada.com</span></div><div class="lg-webscreen"><img src="assets/legacy/prada-thumb.webp" alt="Prada Group e-commerce homepage: multi-brand navigation across Prada, Miu Miu, Church's and Car Shoe" loading="lazy" decoding="async"></div></div><div class="lg-body"><p class="lg-client">Prada Group</p><p class="lg-name">Prada.com &amp; Group e-commerce</p><p class="lg-desc">Art Direction and UX/UI design for the prada.com platform and the Prada Group multi-brand store (Prada, Miu Miu, Church's, Car Shoe). From wireframes to functional documents, navigation flows, and purchase flow redesign. Built on IBM WebSphere Commerce and AEM.</p><div class="lg-nums"><div><p class="lgn-v">34</p><p class="lgn-l">countries</p></div><div><p class="lgn-v">8</p><p class="lgn-l">languages</p></div><div><p class="lgn-v">4</p><p class="lgn-l">brands on one platform</p></div></div></div></div>
-    <div class="lg-card"><div class="lg-thumb lg-thumb--web" onclick="jvSite('assets/legacy/miumiu.webp','Miu Miu, miumiu.com',1120)" tabindex="0" role="button" aria-label="View the full Miu Miu miumiu.com page"><div class="lg-webbar"><i></i><i></i><i></i><span class="lg-url">miumiu.com</span></div><div class="lg-webscreen"><img src="assets/legacy/miumiu-thumb.webp" alt="Miu Miu miumiu.com homepage: editorial fashion e-commerce with campaign imagery" loading="lazy" decoding="async"></div></div><div class="lg-body"><p class="lg-client">Prada Group</p><p class="lg-name">Miumiu.com e-commerce &amp; showcase</p><p class="lg-desc">Art Direction and UX/UI for the miumiu.com e-commerce and showcase experience. Functional design, wireframes across three release drops, an image-search feature, and localized versions including the Japanese market.</p><div class="lg-nums"><div><p class="lgn-v">3</p><p class="lgn-l">release drops</p></div><div><p class="lgn-v">8</p><p class="lgn-l">languages</p></div><div><p class="lgn-v">JP</p><p class="lgn-l">dedicated market</p></div></div></div></div>
-    <div class="lg-card"><div class="lg-thumb lg-thumb--app" style="background:radial-gradient(120% 90% at 50% 0%,#4a1330,#0d1b24)" onclick="jvSite('assets/legacy/tim.webp','TIM Music, app home',420)" tabindex="0" role="button" aria-label="View the full TIM Music app screen"><div class="lg-phone"><img src="assets/legacy/tim-thumb.webp" alt="TIM Music mobile app home screen with featured album hero and Instamix" loading="lazy" decoding="async"></div></div><div class="lg-body"><p class="lg-client">TIM</p><p class="lg-name">TIM Music, omnichannel platform</p><p class="lg-desc">Design and development support for the TIM Music platform, an immersive omnichannel music experience across 7 device types including Android Auto, Apple CarPlay, Amazon Alexa, and TV.</p><div class="lg-nums"><div><p class="lgn-v">30M+</p><p class="lgn-l">songs</p></div><div><p class="lgn-v">7</p><p class="lgn-l">device types</p></div></div></div></div>
+    <div class="lg-card"><div class="lg-thumb lg-thumb--web" onclick="jvProject('prada')" tabindex="0" role="button" aria-label="View the full Prada Group e-commerce page"><div class="lg-webbar"><i></i><i></i><i></i><span class="lg-url">prada.com</span></div><div class="lg-webscreen"><img src="assets/legacy/prada-thumb.webp" alt="Prada Group e-commerce homepage: multi-brand navigation across Prada, Miu Miu, Church's and Car Shoe" loading="lazy" decoding="async"></div></div><div class="lg-body"><p class="lg-client">Prada Group</p><p class="lg-name">Prada.com &amp; Group e-commerce</p><p class="lg-desc">Art Direction and UX/UI design for the prada.com platform and the Prada Group multi-brand store (Prada, Miu Miu, Church's, Car Shoe). From wireframes to functional documents, navigation flows, and purchase flow redesign. Built on IBM WebSphere Commerce and AEM.</p><div class="lg-nums"><div><p class="lgn-v">34</p><p class="lgn-l">countries</p></div><div><p class="lgn-v">8</p><p class="lgn-l">languages</p></div><div><p class="lgn-v">4</p><p class="lgn-l">brands on one platform</p></div></div></div></div>
+    <div class="lg-card"><div class="lg-thumb lg-thumb--web" onclick="jvProject('miumiu')" tabindex="0" role="button" aria-label="View the full Miu Miu miumiu.com page"><div class="lg-webbar"><i></i><i></i><i></i><span class="lg-url">miumiu.com</span></div><div class="lg-webscreen"><img src="assets/legacy/miumiu-thumb.webp" alt="Miu Miu miumiu.com homepage: editorial fashion e-commerce with campaign imagery" loading="lazy" decoding="async"></div></div><div class="lg-body"><p class="lg-client">Prada Group</p><p class="lg-name">Miumiu.com e-commerce &amp; showcase</p><p class="lg-desc">Art Direction and UX/UI for the miumiu.com e-commerce and showcase experience. Functional design, wireframes across three release drops, an image-search feature, and localized versions including the Japanese market.</p><div class="lg-nums"><div><p class="lgn-v">3</p><p class="lgn-l">release drops</p></div><div><p class="lgn-v">8</p><p class="lgn-l">languages</p></div><div><p class="lgn-v">JP</p><p class="lgn-l">dedicated market</p></div></div></div></div>
+    <div class="lg-card"><div class="lg-thumb lg-thumb--app" style="background:radial-gradient(120% 90% at 50% 0%,#4a1330,#0d1b24)" onclick="jvProject('tim')" tabindex="0" role="button" aria-label="View the full TIM Music app screen"><div class="lg-phone"><img src="assets/legacy/tim-thumb.webp" alt="TIM Music mobile app home screen with featured album hero and Instamix" loading="lazy" decoding="async"></div></div><div class="lg-body"><p class="lg-client">TIM</p><p class="lg-name">TIM Music, omnichannel platform</p><p class="lg-desc">Design and development support for the TIM Music platform, an immersive omnichannel music experience across 7 device types including Android Auto, Apple CarPlay, Amazon Alexa, and TV.</p><div class="lg-nums"><div><p class="lgn-v">30M+</p><p class="lgn-l">songs</p></div><div><p class="lgn-v">7</p><p class="lgn-l">device types</p></div></div></div></div>
     <div class="lg-card"><div class="lg-thumb" style="background:#EEF2F0"><span class="lg-tbg">Alleanza</span><span class="lg-pill">App Design · Service Design</span></div><div class="lg-body"><p class="lg-client">Alleanza Assicurazioni</p><p class="lg-name">Profilo&amp;Dialogo, B2B sales app</p><p class="lg-desc">UX/UI design for the Profilo&Dialogo section of the Digit@all Care app, used by financial promoters in co-presence with clients to collect data for CRM profiling and financial simulations. Transformed a 90-minute process into 15 minutes.</p><div class="lg-nums"><div><p class="lgn-v">15 min</p><p class="lgn-l">data collection (avg)</p></div><div><p class="lgn-v">6000</p><p class="lgn-l">sales network users</p></div></div></div></div>
-    <div class="lg-card"><div class="lg-thumb lg-thumb--img" onclick="jvSite('assets/legacy/cmv.webp','Citomegalovirus information app',720)" tabindex="0" role="button" aria-label="View the full Citomegalovirus app presentation"><img class="lg-shot" src="assets/legacy/cmv-thumb.webp" alt="Citomegalovirus information app splash screen, keeping CMV away, in a soft pink identity" loading="lazy" decoding="async"></div><div class="lg-body"><p class="lg-client">CIRM</p><p class="lg-name">Citomegalovirus Information App</p><p class="lg-desc">UX/UI design of the Citomegalovirus information web app for pregnant women. Features include a shared medical appointment agenda, a weekly pregnancy calculator, and a map of nearby medical centres.</p><div class="lg-nums"><div><p class="lgn-v">40</p><p class="lgn-l">custom illustrations</p></div><div><p class="lgn-v">2</p><p class="lgn-l">information sections</p></div></div></div></div>
+    <div class="lg-card"><div class="lg-thumb lg-thumb--img" onclick="jvProject('cmv')" tabindex="0" role="button" aria-label="View the full Citomegalovirus app presentation"><img class="lg-shot" src="assets/legacy/cmv-thumb.webp" alt="Citomegalovirus information app splash screen, keeping CMV away, in a soft pink identity" loading="lazy" decoding="async"></div><div class="lg-body"><p class="lg-client">CIRM</p><p class="lg-name">Citomegalovirus Information App</p><p class="lg-desc">UX/UI design of the Citomegalovirus information web app for pregnant women. Features include a shared medical appointment agenda, a weekly pregnancy calculator, and a map of nearby medical centres.</p><div class="lg-nums"><div><p class="lgn-v">40</p><p class="lgn-l">custom illustrations</p></div><div><p class="lgn-v">2</p><p class="lgn-l">information sections</p></div></div></div></div>
     <div class="lg-card"><div class="lg-thumb" style="background:#EDF2F0"><span class="lg-tbg">Unipol</span><span class="lg-pill">App Design · IoT</span></div><div class="lg-body"><p class="lg-client">UnipolSai</p><p class="lg-name">SmartHome, insurance app section</p><p class="lg-desc">UX/UI design and development of the SmartHome section of the UnipolSai App. Iconographic identification of home and car devices, smart home management, weather notifications, and in-app document requests.</p><div class="lg-nums"><div><p class="lgn-v">4.7</p><p class="lgn-l">rating</p></div><div><p class="lgn-v">1800</p><p class="lgn-l">reviews</p></div></div></div></div>
   </div>
   <section class="cotsec" style="margin-top:0"><div><h2 class="cot-title">Let's work together.</h2><p class="cot-sub">Available for senior design roles, consulting, and advisory.</p></div><div class="cot-links"><a class="cot-link" href="mailto:info@francescoderosa.design"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="1" y="3" width="12" height="8" rx="1.5" stroke="#2D7D9A" stroke-width="1.2"/><path d="M1 4.5l6 4 6-4" stroke="#2D7D9A" stroke-width="1.2" stroke-linecap="round"/></svg>info@francescoderosa.design</a></div></section>
@@ -1436,6 +1445,7 @@ body.on-case .readbar{opacity:1;}
 
 <div class="jview" id="jview" role="dialog" aria-modal="true" aria-label="Image viewer">
   <p class="jview-cap" id="jview-cap"></p>
+  <div class="jview-info" id="jvinfo"><p class="jvi-title" id="jvi-title"></p><p class="jvi-desc" id="jvi-desc"></p><p class="jvi-cap" id="jvi-cap"></p></div>
   <div class="jview-pane" id="jview-pane" data-lenis-prevent><img id="jview-img" src="" alt=""></div>
   <button class="jview-btn jview-close" onclick="jvClose()" aria-label="Close viewer">✕</button>
   <button class="jview-btn jview-prev" onclick="jvNav(-1)" aria-label="Previous image">←</button>
@@ -1547,14 +1557,54 @@ function jvSite(src,label,maxw){
   var p=document.getElementById('jview-pane');p.scrollLeft=0;p.scrollTop=0;
   document.querySelector('.jview-close').focus();
 }
+/* ── Project gallery: multiple screens + a persistent project description ── */
+var PROJECTS={
+  prada:{title:'Prada Group e-commerce',maxw:1120,
+    desc:"Art Direction and UX/UI for the prada.com platform and the Group multi-brand store (Prada, Miu Miu, Church's, Car Shoe). Wireframes, functional documents, navigation and purchase-flow redesign on IBM WebSphere Commerce and AEM.",
+    shots:[{s:'prada.webp',c:'Homepage, multi-brand hero'},{s:'prada-2.webp',c:'Category page'},{s:'prada-3.webp',c:'Category, filtered view'}]},
+  miumiu:{title:'Miu Miu, miumiu.com',maxw:1120,
+    desc:"Art Direction and UX/UI for the miumiu.com e-commerce and showcase experience. Functional design, wireframes across three release drops, an image-search feature, and localized versions including the Japanese market.",
+    shots:[{s:'miumiu.webp',c:'Homepage, editorial hero'},{s:'miumiu-2.webp',c:'Category page'},{s:'miumiu-3.webp',c:'Product page'},{s:'miumiu-4.webp',c:'Editorial article'}]},
+  tim:{title:'TIM Music',maxw:960,
+    desc:"UX/UI and development support for TIM Music, an omnichannel music experience across phone, tablet, web and connected devices including Android Auto, CarPlay, Alexa and TV.",
+    shots:[{s:'tim.webp',c:'Mobile home'},{s:'tim-2.webp',c:'Tablet home'},{s:'tim-3.webp',c:'Top charts'},{s:'tim-4.webp',c:'Web radio player'}]},
+  cmv:{title:'Citomegalovirus app',maxw:760,
+    desc:"UX/UI design of the Citomegalovirus information app for pregnant women. A shared medical calendar, a weekly pregnancy calculator, and a map of nearby medical centres, in a soft, reassuring identity.",
+    shots:[{s:'cmv.webp',c:'Concept presentation'},{s:'cmv-9.webp',c:'App mockups'},{s:'cmv-8.webp',c:'Weekly calculator'},{s:'cmv-7.webp',c:'Information screen'}]}
+};
+var _pjKey=null,_pjI=0;
+function jvProject(key){
+  var p=PROJECTS[key];if(!p)return;
+  _pjKey=key;_pjI=0;_jvItems=null;_jvTrigger=document.activeElement;
+  var v=document.getElementById('jview');
+  v.classList.add('open','page','proj');v.classList.remove('single');
+  document.getElementById('jvi-title').textContent=p.title;
+  document.getElementById('jvi-desc').textContent=p.desc;
+  document.body.style.overflow='hidden';if(lenis)lenis.stop();
+  _pjShow();
+  document.querySelector('.jview-close').focus();
+}
+function _pjShow(){
+  var p=PROJECTS[_pjKey],sh=p.shots[_pjI],img=document.getElementById('jview-img');
+  img.onload=null;
+  img.style.width='100%';img.style.maxWidth=(p.maxw||1000)+'px';img.style.height='auto';img.style.margin='0 auto';
+  img.src='assets/legacy/'+sh.s;img.alt=p.title+', '+sh.c;
+  document.getElementById('jvi-cap').textContent=(_pjI+1)+' / '+p.shots.length+' · '+sh.c;
+  document.getElementById('jv-count').textContent=(_pjI+1)+' / '+p.shots.length;
+  document.getElementById('jv-dots').innerHTML=p.shots.map(function(_,i){return '<span'+(i===_pjI?' class="on"':'')+'></span>';}).join('');
+  var pane=document.getElementById('jview-pane');pane.scrollTop=0;pane.scrollLeft=0;
+}
+function jvProjNav(d){if(!_pjKey)return;var n=PROJECTS[_pjKey].shots.length;_pjI=(_pjI+d+n)%n;_pjShow();}
 function jvNav(d){
+  if(_pjKey){jvProjNav(d);return;}
   if(!_jvItems||_jvItems.length<2)return;
   _jvI=(_jvI+d+_jvItems.length)%_jvItems.length;
   _jvShow();
   if(_jvChange)_jvChange(_jvI);
 }
 function jvClose(){
-  var v=document.getElementById('jview');v.classList.remove('open','page');
+  var v=document.getElementById('jview');v.classList.remove('open','page','proj');
+  _pjKey=null;
   var img=document.getElementById('jview-img');img.style.width='';img.style.maxWidth='';img.style.height='';img.style.margin='';
   document.body.style.overflow='';
   if(lenis)lenis.start();
