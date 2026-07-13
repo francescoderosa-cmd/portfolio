@@ -14,3 +14,11 @@ assets/*.zip
 
 # working material dropped into assets, never publish archives
 assets/*.zip
+
+# private-sector project source folders (multi-GB design sources, confidential
+# client docs, .sketch/.psd/.ai/.key/.docx/.jpg) — keep local, NEVER commit.
+# Only the optimised webp visuals in assets/legacy/ are published.
+assets/Prada/
+assets/Miu Miu/
+assets/Tim/
+assets/CMV - Citomegalovirus/
