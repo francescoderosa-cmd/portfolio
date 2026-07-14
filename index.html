@@ -329,6 +329,14 @@ footer{padding:18px 48px;border-top:var(--b);display:flex;justify-content:space-
 .la-tile:hover .la-tile-mark{opacity:0;}
 .la-tile:hover .la-tile-bg{transform:scale(1.06);}
 @media (max-width:700px){.lg-arch .la-tile{flex:0 0 82vw;}.lg-arch .la-tile:nth-child(2n),.lg-arch .la-tile:nth-child(4n){margin-top:0;}}
+/* compact archive variant for the home "Other work" preview */
+.lg-arch--sm{padding:6px 0 22px;gap:clamp(16px,2vw,26px);}
+.lg-arch--sm .la-tile{flex:0 0 clamp(230px,26vw,320px);}
+.lg-arch--sm .la-tile:nth-child(2n),.lg-arch--sm .la-tile:nth-child(4n){margin-top:0;}
+.lg-arch--sm .la-tile-title{font-size:clamp(18px,1.8vw,22px);}
+.vsec-head .lg-archnav{display:flex;gap:8px;}
+.vsec-head .lg-archbtn{width:38px;height:38px;}
+@media (max-width:700px){.lg-arch--sm .la-tile{flex:0 0 74vw;}}
 .lg-arch::-webkit-scrollbar{height:6px;}
 .lg-arch::-webkit-scrollbar-track{background:transparent;}
 .lg-arch::-webkit-scrollbar-thumb{background:rgba(168,216,234,.22);border-radius:3px;}
@@ -972,11 +980,14 @@ body.on-case .readbar{opacity:1;}
 
   <!-- OTHER WORK -->
   <section class="vsec">
-    <div class="vsec-head"><h2 class="vsec-title">Other work</h2><span class="vlabel" style="cursor:pointer" onclick="showPage('legacy')">View all →</span></div>
-    <div class="vother">
-      <div class="voth reveal" onclick="showPage('legacy')"><p class="voth-c">Prada / Miu Miu</p><p class="voth-t">Art Direction · E-commerce · 34 countries · at Reply</p></div>
-      <div class="voth reveal" onclick="showPage('legacy')"><p class="voth-c">Citomegalovirus</p><p class="voth-t">Health information app · CIRM · UX/UI &amp; custom illustrations · at Reply</p></div>
-      <div class="voth reveal" onclick="showPage('legacy')"><p class="voth-c">TIM Music</p><p class="voth-t">UX/UI · Omnichannel · 7 device types · at Reply</p></div>
+    <div class="vsec-head"><h2 class="vsec-title">Other work</h2><div style="display:flex;align-items:center;gap:18px"><div class="lg-archnav"><button class="lg-archbtn" onclick="lgScroll(-1,'lgArchHome')" aria-label="Previous">&larr;</button><button class="lg-archbtn" onclick="lgScroll(1,'lgArchHome')" aria-label="Next">&rarr;</button></div><span class="vlabel" style="cursor:pointer" onclick="showPage('legacy')">View all →</span></div></div>
+    <div class="lg-arch lg-arch--sm" id="lgArchHome" tabindex="0" role="region" aria-label="Other private-sector work, scroll horizontally to browse">
+      <div class="la-tile" tabindex="0"><div class="la-tile-bg" style="background:radial-gradient(120% 120% at 30% 22%,rgba(45,125,154,.42),var(--navy-d) 68%)"><span class="la-tile-mark">Prada</span></div><div class="la-tile-info"><span class="la-tile-idx">01 / 06</span><h3 class="la-tile-title">Prada.com e-commerce</h3><p class="la-tile-tags">Art Direction · UX/UI Design</p></div></div>
+      <div class="la-tile" tabindex="0"><div class="la-tile-bg" style="background:radial-gradient(120% 120% at 72% 26%,rgba(143,184,204,.34),var(--navy-d) 66%)"><span class="la-tile-mark">Miu Miu</span></div><div class="la-tile-info"><span class="la-tile-idx">02 / 06</span><h3 class="la-tile-title">Miumiu.com e-commerce</h3><p class="la-tile-tags">Art Direction · UX Design</p></div></div>
+      <div class="la-tile" tabindex="0"><div class="la-tile-bg" style="background:radial-gradient(120% 120% at 28% 74%,rgba(227,162,74,.34),var(--navy-d) 66%)"><span class="la-tile-mark">TIM</span></div><div class="la-tile-info"><span class="la-tile-idx">03 / 06</span><h3 class="la-tile-title">TIM Music</h3><p class="la-tile-tags">UI/UX Design · Omnichannel</p></div></div>
+      <div class="la-tile" tabindex="0"><div class="la-tile-bg" style="background:radial-gradient(120% 120% at 68% 72%,rgba(45,125,154,.38),var(--navy-d) 66%)"><span class="la-tile-mark">Alleanza</span></div><div class="la-tile-info"><span class="la-tile-idx">04 / 06</span><h3 class="la-tile-title">Profilo&amp;Dialogo</h3><p class="la-tile-tags">App Design · Service Design</p></div></div>
+      <div class="la-tile" tabindex="0"><div class="la-tile-bg" style="background:radial-gradient(120% 120% at 30% 30%,rgba(168,216,234,.30),var(--navy-d) 66%)"><span class="la-tile-mark">CMV</span></div><div class="la-tile-info"><span class="la-tile-idx">05 / 06</span><h3 class="la-tile-title">Citomegalovirus app</h3><p class="la-tile-tags">UI/UX Design</p></div></div>
+      <div class="la-tile" tabindex="0"><div class="la-tile-bg" style="background:radial-gradient(120% 120% at 70% 68%,rgba(143,184,204,.32),var(--navy-d) 66%)"><span class="la-tile-mark">UnipolSai</span></div><div class="la-tile-info"><span class="la-tile-idx">06 / 06</span><h3 class="la-tile-title">SmartHome</h3><p class="la-tile-tags">UI/UX Design · IoT</p></div></div>
     </div>
   </section>
 
@@ -1460,7 +1471,7 @@ body.on-case .readbar{opacity:1;}
   </div>
   <div class="lg-archbar">
     <span class="lg-archhint">Scroll, drag or use the arrows to explore &rarr;</span>
-    <div class="lg-archnav"><button class="lg-archbtn" onclick="lgScroll(-1)" aria-label="Previous projects">&larr;</button><button class="lg-archbtn" onclick="lgScroll(1)" aria-label="More projects">&rarr;</button></div>
+    <div class="lg-archnav"><button class="lg-archbtn" onclick="lgScroll(-1,'lgArch')" aria-label="Previous projects">&larr;</button><button class="lg-archbtn" onclick="lgScroll(1,'lgArch')" aria-label="More projects">&rarr;</button></div>
   </div>
   <div class="lg-grid lg-arch" id="lgArch" tabindex="0" role="region" aria-label="Private-sector projects, scroll horizontally to browse">
     <div class="la-tile" tabindex="0"><div class="la-tile-bg" style="background:radial-gradient(120% 120% at 30% 22%,rgba(45,125,154,.42),var(--navy-d) 68%)"><span class="la-tile-mark">Prada</span></div><div class="la-tile-info"><span class="la-tile-idx">01 / 06</span><h3 class="la-tile-title">Prada.com e-commerce</h3><p class="la-tile-tags">Art Direction · UX/UI Design</p></div></div>
@@ -1767,22 +1778,27 @@ function dpOpen(){
 }
 dpRender();
 
-/* Legacy horizontal archive: arrows, mouse drag, horizontal-only wheel (never traps page scroll) */
+/* Horizontal archives (legacy + home preview): arrows, mouse drag, horizontal-only wheel (never traps page scroll) */
+window.lgScroll=function(d,id){
+  var el=id?document.getElementById(id):document.querySelector('.lg-arch');if(!el)return;
+  var c=el.querySelector('.la-tile,.lg-card');var g=parseFloat(getComputedStyle(el).columnGap)||24;
+  var w=c?c.getBoundingClientRect().width+g:360;el.scrollBy({left:d*w,behavior:'smooth'});
+};
 (function(){
-  var el=document.getElementById('lgArch');if(!el)return;
-  window.lgScroll=function(d){var c=el.querySelector('.la-tile,.lg-card');var w=c?c.getBoundingClientRect().width+20:360;el.scrollBy({left:d*w,behavior:'smooth'});};
-  el.addEventListener('wheel',function(e){
-    if(el.scrollWidth<=el.clientWidth)return;
-    var d=Math.abs(e.deltaY)>=Math.abs(e.deltaX)?e.deltaY:e.deltaX;
-    var max=el.scrollWidth-el.clientWidth, next=Math.max(0,Math.min(max,el.scrollLeft+d));
-    if(next!==el.scrollLeft){el.scrollLeft=next;e.preventDefault();e.stopPropagation();}
-  },{passive:false});
-  var down=false,sx=0,sl=0,moved=false;
-  el.addEventListener('pointerdown',function(e){if(e.pointerType!=='mouse')return;down=true;moved=false;sx=e.clientX;sl=el.scrollLeft;el.setPointerCapture(e.pointerId);});
-  el.addEventListener('pointermove',function(e){if(!down)return;var dx=e.clientX-sx;if(Math.abs(dx)>4)moved=true;el.scrollLeft=sl-dx;});
-  el.addEventListener('pointerup',function(){down=false;});
-  el.addEventListener('click',function(e){if(moved){e.preventDefault();e.stopPropagation();}},true);
-  el.addEventListener('keydown',function(e){if(e.key==='ArrowRight'){window.lgScroll(1);e.preventDefault();}else if(e.key==='ArrowLeft'){window.lgScroll(-1);e.preventDefault();}});
+  document.querySelectorAll('.lg-arch').forEach(function(el){
+    el.addEventListener('wheel',function(e){
+      if(el.scrollWidth<=el.clientWidth)return;
+      var d=Math.abs(e.deltaY)>=Math.abs(e.deltaX)?e.deltaY:e.deltaX;
+      var max=el.scrollWidth-el.clientWidth, next=Math.max(0,Math.min(max,el.scrollLeft+d));
+      if(next!==el.scrollLeft){el.scrollLeft=next;e.preventDefault();e.stopPropagation();}
+    },{passive:false});
+    var down=false,sx=0,sl=0,moved=false;
+    el.addEventListener('pointerdown',function(e){if(e.pointerType!=='mouse')return;down=true;moved=false;sx=e.clientX;sl=el.scrollLeft;el.setPointerCapture(e.pointerId);});
+    el.addEventListener('pointermove',function(e){if(!down)return;var dx=e.clientX-sx;if(Math.abs(dx)>4)moved=true;el.scrollLeft=sl-dx;});
+    el.addEventListener('pointerup',function(){down=false;});
+    el.addEventListener('click',function(e){if(moved){e.preventDefault();e.stopPropagation();}},true);
+    el.addEventListener('keydown',function(e){if(e.key==='ArrowRight'){window.lgScroll(1,el.id);e.preventDefault();}else if(e.key==='ArrowLeft'){window.lgScroll(-1,el.id);e.preventDefault();}});
+  });
 })();
 function toggleMenu(){document.getElementById('nav-links').classList.toggle('open');}
 function closeMenu(){document.getElementById('nav-links').classList.remove('open');}
