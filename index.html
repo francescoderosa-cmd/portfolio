@@ -64,7 +64,7 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:20px 4
 .cov{background:var(--navy);padding:70px 48px 0;}
 .cov-top{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;padding-bottom:52px;}
 .cov-tag{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--ice);opacity:.6;margin-bottom:14px;display:block;}
-.cov-title{font-family:var(--serif);font-size:50px;color:#fff;font-weight:400;line-height:1.06;letter-spacing:-.022em;margin-bottom:18px;}
+.cov-title{font-family:var(--serif);font-size:clamp(42px,5.4vw,66px);color:#fff;font-weight:400;line-height:1.12;letter-spacing:-.02em;margin-bottom:22px;padding-bottom:.06em;}
 .cov-title em{color:var(--ice);font-style:italic;}
 .cov-sub{font-size:15px;color:rgba(168,216,234,.75);line-height:1.65;margin-bottom:22px;}
 .cov-chips{display:flex;flex-wrap:wrap;gap:7px;}
@@ -455,6 +455,32 @@ nav{background:var(--navy);border-bottom:1px solid var(--line);}
 .vmarq:hover .vmarq-track{animation-play-state:paused;}
 .vmarq-track span{font-family:var(--serif);font-size:clamp(20px,3vw,38px);color:rgba(168,216,234,.45);display:inline-flex;align-items:center;}
 .vmarq-track span::after{content:'•';color:var(--teal);padding:0 clamp(20px,3vw,40px);font-size:.6em;}
+/* ═══ Expertise spotlight (replaces the marquee) ═══ */
+.xp{position:relative;overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:clamp(26px,4vw,46px) clamp(20px,6vw,72px);}
+.xp::before{content:"";position:absolute;inset:0;pointer-events:none;z-index:0;opacity:0;transition:opacity .45s var(--ease);
+  background:radial-gradient(340px circle at var(--mx,50%) var(--my,-40%),rgba(227,162,74,.16),rgba(45,125,154,.07) 42%,transparent 70%);}
+.xp.is-lit::before{opacity:1;}
+.xp-head{position:relative;z-index:1;display:flex;align-items:baseline;justify-content:space-between;gap:14px;margin-bottom:clamp(16px,2.4vw,26px);}
+.xp-eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--slate);}
+.xp-eyebrow b{color:var(--gold);font-weight:400;}
+.xp-hint{font-family:var(--mono);font-size:11px;letter-spacing:.03em;color:rgba(168,216,234,.45);}
+.xp-wall{position:relative;z-index:1;display:flex;flex-wrap:wrap;align-items:baseline;gap:clamp(6px,.7vw,12px) clamp(18px,2.2vw,40px);}
+.xp-word{font-family:var(--serif);font-weight:400;line-height:1.12;letter-spacing:.005em;color:rgba(168,216,234,.2);text-decoration:none;cursor:pointer;white-space:nowrap;will-change:transform,color;transition:color .3s var(--ease),transform .4s var(--ease),text-shadow .3s var(--ease);}
+.xp-word:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:4px;}
+.xp-1{font-size:clamp(23px,3.3vw,42px);} .xp-2{font-size:clamp(19px,2.5vw,32px);} .xp-3{font-size:clamp(17px,2vw,26px);}
+.xp-detail{position:relative;z-index:1;display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 18px;margin-top:clamp(16px,2.4vw,24px);min-height:44px;}
+.xp-dhint{font-family:var(--mono);font-size:12px;letter-spacing:.03em;color:rgba(168,216,234,.5);}
+.xp-live{display:none;flex-wrap:wrap;align-items:baseline;gap:6px 16px;width:100%;}
+.xp.is-active .xp-dhint{display:none;}
+.xp.is-active .xp-live{display:flex;}
+.xp-ddisc{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);}
+.xp-ddesc{font-size:14.5px;line-height:1.5;color:rgba(234,244,248,.78);flex:1 1 320px;min-width:0;}
+.xp-dlink{font-family:var(--mono);font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--ice);cursor:pointer;text-decoration:none;border:1px solid var(--line);border-radius:30px;padding:7px 13px;white-space:nowrap;transition:background .25s,border-color .25s,color .25s;}
+.xp-dlink:hover{background:var(--teal);border-color:var(--teal);color:#fff;}
+.xp-fade{animation:xpf .4s var(--ease);}
+@keyframes xpf{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
+@media (hover:none){.xp-word{color:rgba(168,216,234,.6);}.xp-word.on{color:var(--gold);}}
+@media (prefers-reduced-motion:reduce){.xp-word{transition:color .3s;}.xp::before{display:none;}.xp-fade{animation:none;}}
 @keyframes marq{to{transform:translateX(-50%)}}
 
 /* Stats */
@@ -842,7 +868,7 @@ body.on-case .readbar{opacity:1;}
   .hname{font-size:48px;}
   .hintro{font-size:16px;}
   .cov-top{grid-template-columns:1fr;gap:28px;padding-bottom:36px;}
-  .cov-title{font-size:38px;}
+  .cov-title{font-size:clamp(38px,6vw,54px);}
   .asec{grid-template-columns:1fr;gap:32px;padding:48px 24px;}
   .lg-grid{grid-template-columns:1fr;gap:16px;padding:32px 24px;}
   .jgrid,.rgrid,.ugrid,.pv-2,.screens{grid-template-columns:1fr;}
@@ -863,7 +889,7 @@ body.on-case .readbar{opacity:1;}
   nav{position:relative;flex-wrap:wrap;}
 
   .hname{font-size:38px;}
-  .cov-title{font-size:30px;}
+  .cov-title{font-size:clamp(32px,8vw,44px);}
   .hintro{font-size:15px;}
   .cov-nums,.igrid{grid-template-columns:1fr 1fr;}
   .cn{border-bottom:0.5px solid rgba(168,216,234,.1);}
@@ -917,13 +943,26 @@ body.on-case .readbar{opacity:1;}
     </div>
   </header>
 
-  <!-- MARQUEE -->
-  <div class="vmarq" aria-hidden="true">
-    <div class="vmarq-track">
-      <span>Service Design</span><span>UX Research</span><span>Design Strategy</span><span>Digital Transformation</span><span>Data Visualization</span><span>User Journey Mapping</span><span>Usability Testing</span><span>Inclusive Design</span><span>Product Design</span><span>Process Mapping</span>
-      <span>Service Design</span><span>UX Research</span><span>Design Strategy</span><span>Digital Transformation</span><span>Data Visualization</span><span>User Journey Mapping</span><span>Usability Testing</span><span>Inclusive Design</span><span>Product Design</span><span>Process Mapping</span>
+  <!-- EXPERTISE (spotlight) -->
+  <section class="xp" id="xp">
+    <div class="xp-head"><span class="xp-eyebrow"><b>(01)</b>&nbsp; Areas of expertise</span><span class="xp-hint">move the light &middot; click to open a project</span></div>
+    <div class="xp-wall" id="xpWall">
+      <a class="xp-word xp-1" href="#/grenada" data-page="grenada" data-disc="Design &amp; Systems" data-proj="Grenada" data-desc="The whole experience across people, touchpoints and the back-stage operations that make it work.">Service Design</a>
+      <a class="xp-word xp-2" href="#/hungermap" data-page="hungermap" data-disc="Research &amp; Insight" data-proj="HungerMap" data-desc="Interviews, testing and synthesis that ground decisions in real behaviour, not assumptions.">UX Research</a>
+      <a class="xp-word xp-3" href="#/grenada" data-page="grenada" data-disc="Strategy &amp; Transformation" data-proj="Grenada" data-desc="Aligning design to business goals, roadmaps and outcomes that can actually be measured.">Design Strategy</a>
+      <a class="xp-word xp-1" href="#/grenada" data-page="grenada" data-disc="Strategy &amp; Transformation" data-proj="Grenada" data-desc="Moving manual, paper-heavy processes to clear, resilient digital services people trust.">Digital Transformation</a>
+      <a class="xp-word xp-2" href="#/hungermap" data-page="hungermap" data-disc="Research &amp; Insight" data-proj="HungerMap" data-desc="Complex, messy datasets turned into interfaces people can read and act on at a glance.">Data Visualization</a>
+      <a class="xp-word xp-2" href="#/cbt" data-page="cbt" data-disc="Research &amp; Insight" data-proj="Dignity" data-desc="The real path people take end-to-end, with the moments of friction that matter surfaced.">User Journey Mapping</a>
+      <a class="xp-word xp-3" href="#/hungermap" data-page="hungermap" data-disc="Research &amp; Insight" data-proj="HungerMap" data-desc="Structured testing with real users to validate flows and catch problems before they ship.">Usability Testing</a>
+      <a class="xp-word xp-1" href="#/cbt" data-page="cbt" data-disc="Design &amp; Systems" data-proj="Dignity" data-desc="Designing for the hardest case first &mdash; low literacy, low connectivity, high stakes.">Inclusive Design</a>
+      <a class="xp-word xp-2" href="#/cashbook" data-page="cashbook" data-disc="Design &amp; Systems" data-proj="CashBook" data-desc="End-to-end UX and UI for products that hold up in the field, not just in the deck.">Product Design</a>
+      <a class="xp-word xp-3" href="#/grenada" data-page="grenada" data-disc="Design &amp; Systems" data-proj="Grenada" data-desc="Tangled operations made visible, so they can be questioned, simplified and measured.">Process Mapping</a>
     </div>
-  </div>
+    <div class="xp-detail">
+      <span class="xp-dhint">Ten areas across research, design and strategy &mdash; hover to read each one, click to open the project.</span>
+      <div class="xp-live"><span class="xp-ddisc" id="xpDisc"></span><span class="xp-ddesc" id="xpDesc"></span><a class="xp-dlink" id="xpLink">Explore <span id="xpProj"></span> &rarr;</a></div>
+    </div>
+  </section>
 
   <!-- STATS -->
   <section class="vsec">
@@ -1087,8 +1126,10 @@ body.on-case .readbar{opacity:1;}
 <div id="page-grenada" class="page">
   <div class="back-bar" onclick="showPage('home')"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 2L4 7l5 5" stroke="#5B8FA8" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>All work</div>
   <div class="cov">
+    <span class="cov-tag">WFP · Government of Grenada · 2025</span>
+    <h1 class="cov-title">Redesigning social protection<br>in <em>Grenada.</em></h1>
     <div class="cov-top">
-      <div><span class="cov-tag">WFP · Government of Grenada · 2025</span><h1 class="cov-title">Redesigning<br>social protection<br>in <em>Grenada.</em></h1><p class="cov-sub">End-to-end service design engagement with the Government of Grenada, mapping, analysing, and reimagining how cash assistance reaches the most vulnerable.</p><div class="cov-chips"><span class="cov-chip">Service Design</span><span class="cov-chip">Process Mapping</span><span class="cov-chip">Gap Analysis</span><span class="cov-chip">Gov. Advisory</span><span class="cov-chip">Digital Strategy</span></div></div>
+      <div><p class="cov-sub">End-to-end service design engagement with the Government of Grenada, mapping, analysing, and reimagining how cash assistance reaches the most vulnerable.</p><div class="cov-chips"><span class="cov-chip">Service Design</span><span class="cov-chip">Process Mapping</span><span class="cov-chip">Gap Analysis</span><span class="cov-chip">Gov. Advisory</span><span class="cov-chip">Digital Strategy</span></div></div>
       <div class="cov-meta"><div class="cm-i"><p class="cm-l">Role</p><p class="cm-v">Digital &amp; Service Design Lead, WFP</p></div><div class="cm-i"><p class="cm-l">Client</p><p class="cm-v">Ministry of Social Development, Grenada</p></div><div class="cm-i"><p class="cm-l">Programmes</p><p class="cm-v">SEED (social protection) + BRISP (Hurricane Beryl emergency)</p></div><div class="cm-i"><p class="cm-l">Deliverables</p><p class="cm-v">Process maps · Gap analysis · User journeys · Digital blueprint</p></div></div>
     </div>
     <div class="cov-nums"><div class="cn"><p class="cn-big">2</p><p class="cn-lbl">programmes<br>fully mapped</p></div><div class="cn"><p class="cn-big">69</p><p class="cn-lbl">days, max<br>process time</p></div><div class="cn"><p class="cn-big">38+</p><p class="cn-lbl">process steps<br>documented</p></div><div class="cn"><p class="cn-big">6</p><p class="cn-lbl">systemic gaps<br>identified</p></div></div>
@@ -1155,8 +1196,10 @@ body.on-case .readbar{opacity:1;}
 <div id="page-hungermap" class="page">
   <div class="back-bar" onclick="showPage('home')"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 2L4 7l5 5" stroke="#5B8FA8" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>All work</div>
   <div class="cov">
+    <span class="cov-tag">WFP · Google.org · UI Design Lead + UX Research · 2024–2025</span>
+    <h1 class="cov-title">HungerMap<br>one platform, <em>two worlds.</em></h1>
     <div class="cov-top">
-      <div><span class="cov-tag">WFP · Google.org · UI Design Lead + UX Research · 2024–2025</span><h1 class="cov-title">HungerMap<br>one platform,<br><em>two worlds.</em></h1><p class="cov-sub">Led the UX research, UI design, and design leadership of the new HungerMap, a dual-audience platform for the general public (donors, governments, media) and for WFP experts (VAM Officers, Country Office colleagues). Balancing WFP brand identity with Google.org donor requirements.</p><div class="cov-chips"><span class="cov-chip">UI Design Lead</span><span class="cov-chip">UX Research</span><span class="cov-chip">Data Visualization</span><span class="cov-chip">Dual Audience</span><span class="cov-chip">WFP Brand</span><span class="cov-chip">Google.org</span></div></div>
+      <div><p class="cov-sub">Led the UX research, UI design, and design leadership of the new HungerMap, a dual-audience platform for the general public (donors, governments, media) and for WFP experts (VAM Officers, Country Office colleagues). Balancing WFP brand identity with Google.org donor requirements.</p><div class="cov-chips"><span class="cov-chip">UI Design Lead</span><span class="cov-chip">UX Research</span><span class="cov-chip">Data Visualization</span><span class="cov-chip">Dual Audience</span><span class="cov-chip">WFP Brand</span><span class="cov-chip">Google.org</span></div></div>
       <div class="cov-meta"><div class="cm-i"><p class="cm-l">Role</p><p class="cm-v">UI Design Lead + UX Research Lead, WFP</p></div><div class="cm-i"><p class="cm-l">Stakeholders</p><p class="cm-v">WFP internal + Google.org (principal donor)</p></div><div class="cm-i"><p class="cm-l">Audiences</p><p class="cm-v">External: donors, governments, media · Internal: VAM Officers, CO colleagues</p></div><div class="cm-i"><p class="cm-l">Timeline</p><p class="cm-v">Jul 2024 → Mar 2025 (9 months)</p></div></div>
     </div>
     <div class="cov-nums"><div class="cn"><p class="cn-big">2</p><p class="cn-lbl">audiences<br>one platform</p></div><div class="cn"><p class="cn-big">2</p><p class="cn-lbl">brand identities<br>balanced</p></div><div class="cn"><p class="cn-big">9mo</p><p class="cn-lbl">research to<br>UI delivery</p></div><div class="cn"><p class="cn-big">3</p><p class="cn-lbl">countries<br>tested</p></div></div>
@@ -1288,8 +1331,10 @@ body.on-case .readbar{opacity:1;}
 <div id="page-cbt" class="page">
   <div class="back-bar" onclick="showPage('home')"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 2L4 7l5 5" stroke="#5B8FA8" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>All work</div>
   <div class="cov">
+    <span class="cov-tag">WFP · Multi-country Research · 2023–2024</span>
+    <h1 class="cov-title">Designing for <em>dignity</em><br>in crisis.</h1>
     <div class="cov-top">
-      <div><span class="cov-tag">WFP · Multi-country Research · 2023–2024</span><h1 class="cov-title">Designing for<br><em>dignity</em><br>in crisis.</h1><p class="cov-sub">User journey maps for WFP's Cash-Based Transfer programmes, field research across 5 countries in active crisis, designing for people who are illiterate, elderly, undocumented, or fleeing conflict.</p><div class="cov-chips"><span class="cov-chip">Service Design Research</span><span class="cov-chip">User Journey Mapping</span><span class="cov-chip">Humanitarian</span><span class="cov-chip">Inclusive Design</span></div></div>
+      <div><p class="cov-sub">User journey maps for WFP's Cash-Based Transfer programmes, field research across 5 countries in active crisis, designing for people who are illiterate, elderly, undocumented, or fleeing conflict.</p><div class="cov-chips"><span class="cov-chip">Service Design Research</span><span class="cov-chip">User Journey Mapping</span><span class="cov-chip">Humanitarian</span><span class="cov-chip">Inclusive Design</span></div></div>
       <div class="cov-meta"><div class="cm-i"><p class="cm-l">Role</p><p class="cm-v">Digital &amp; Service Design Lead, WFP</p></div><div class="cm-i"><p class="cm-l">Journeys published</p><p class="cm-v" data-countries>Somalia · Ukraine · Jordan</p></div><div class="cm-i"><p class="cm-l">Users researched</p><p class="cm-v">Displaced families, elderly, illiterate, undocumented, minorities</p></div><div class="cm-i"><p class="cm-l">Output</p><p class="cm-v">User journey maps · Pathway to Digital Financial Inclusion framework</p></div></div>
     </div>
     <div class="cov-nums"><div class="cn"><p class="cn-big">5</p><p class="cn-lbl">countries in<br>active crisis</p></div><div class="cn"><p class="cn-big">6</p><p class="cn-lbl">lived experiences<br>mapped</p></div><div class="cn"><p class="cn-big">1</p><p class="cn-lbl">strategic<br>framework</p></div><div class="cn"><p class="cn-big">Millions</p><p class="cn-lbl">of beneficiaries served<br>by the programmes</p></div></div>
@@ -1404,8 +1449,10 @@ body.on-case .readbar{opacity:1;}
 <div id="page-cashbook" class="page">
   <div class="back-bar" onclick="showPage('home')"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 2L4 7l5 5" stroke="#5B8FA8" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>All work</div>
   <div class="cov">
+    <span class="cov-tag">WFP · Internal Product Design · 2024</span>
+    <h1 class="cov-title">CashBook App, one-stop-shop<br>for <em>cash operations.</em></h1>
     <div class="cov-top">
-      <div><span class="cov-tag">WFP · Internal Product Design · 2024</span><h1 class="cov-title">CashBook App<br>one-stop-shop<br>for <em>cash operations.</em></h1><p class="cov-sub">Concept and UX design of a WebApp for WFP field officers. Designed for online and offline use. Combines knowledge management with collaborative project management, built for the realities of field work.</p><div class="cov-chips"><span class="cov-chip">Product Design</span><span class="cov-chip">UX/UI</span><span class="cov-chip">Offline-first</span><span class="cov-chip">Web App</span><span class="cov-chip">Internal Tool</span></div></div>
+      <div><p class="cov-sub">Concept and UX design of a WebApp for WFP field officers. Designed for online and offline use. Combines knowledge management with collaborative project management, built for the realities of field work.</p><div class="cov-chips"><span class="cov-chip">Product Design</span><span class="cov-chip">UX/UI</span><span class="cov-chip">Offline-first</span><span class="cov-chip">Web App</span><span class="cov-chip">Internal Tool</span></div></div>
       <div class="cov-meta"><div class="cm-i"><p class="cm-l">Role</p><p class="cm-v">Digital &amp; Service Design Lead, WFP</p></div><div class="cm-i"><p class="cm-l">Type</p><p class="cm-v">Internal tool, WFP field officers globally</p></div><div class="cm-i"><p class="cm-l">Users</p><p class="cm-v">3 user types: Admin, Manager, Regular User</p></div><div class="cm-i"><p class="cm-l">Timeline</p><p class="cm-v">Feb 2024 → Apr 2024 (concept to prototype)</p></div></div>
     </div>
     <div class="cov-nums"><div class="cn"><p class="cn-big">2</p><p class="cn-lbl">core modules<br>knowledge + PM</p></div><div class="cn"><p class="cn-big">3</p><p class="cn-lbl">user types<br>designed for</p></div><div class="cn"><p class="cn-big">offline</p><p class="cn-lbl">designed for low<br>connectivity</p></div><div class="cn"><p class="cn-big">audit</p><p class="cn-lbl">built-in compliance<br>trail</p></div></div>
@@ -1800,6 +1847,50 @@ window.lgScroll=function(d,id){
     el.addEventListener('click',function(e){if(moved){e.preventDefault();e.stopPropagation();}},true);
     el.addEventListener('keydown',function(e){if(e.key==='ArrowRight'){window.lgScroll(1,el.id);e.preventDefault();}else if(e.key==='ArrowLeft'){window.lgScroll(-1,el.id);e.preventDefault();}});
   });
+})();
+/* Expertise spotlight: cursor light (anchored to the section), live word positions, click opens the project */
+(function(){
+  var xp=document.getElementById('xp');if(!xp)return;
+  var words=[].slice.call(xp.querySelectorAll('.xp-word'));
+  var dDisc=document.getElementById('xpDisc'), dDesc=document.getElementById('xpDesc'), dLink=document.getElementById('xpLink'), dProj=document.getElementById('xpProj');
+  var touch=window.matchMedia('(hover:none)').matches, reduce=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  var R=280, last=-1, activePage=null;
+  function setDetail(w){
+    xp.classList.add('is-active');
+    dDisc.innerHTML=w.getAttribute('data-disc');dDesc.innerHTML=w.getAttribute('data-desc');
+    dProj.textContent=w.getAttribute('data-proj');activePage=w.getAttribute('data-page');
+    dDesc.classList.remove('xp-fade');void dDesc.offsetWidth;dDesc.classList.add('xp-fade');
+  }
+  function paint(mx,my){
+    var nearest=-1, nd=1e9;
+    for(var i=0;i<words.length;i++){
+      var r=words[i].getBoundingClientRect(), cx=r.left+r.width/2, cy=r.top+r.height/2, dx=cx-mx, dy=cy-my, d=Math.sqrt(dx*dx+dy*dy);
+      var t=Math.max(0,1-d/R), e=t*t*(3-2*t), op=0.2+e*0.8, warm=Math.max(0,(t-0.55)/0.45);
+      words[i].style.color=e>0.02?(warm>0?'color-mix(in srgb,#fff '+(100-warm*70)+'%,var(--gold))':'rgba(168,216,234,'+op.toFixed(3)+')'):'';
+      words[i].style.transform=reduce?'':'translateY('+(-e*4).toFixed(1)+'px) scale('+(1+e*0.05).toFixed(3)+')';
+      words[i].style.textShadow=e>0.4?'0 0 '+(e*22).toFixed(0)+'px rgba(227,162,74,'+(e*0.32).toFixed(2)+')':'none';
+      if(d<nd){nd=d;nearest=i;}
+    }
+    if(nearest>-1&&nd<R&&nearest!==last){last=nearest;setDetail(words[nearest]);}
+  }
+  function dim(){words.forEach(function(w){w.style.color='';w.style.transform='';w.style.textShadow='';});}
+  if(!touch){
+    xp.addEventListener('pointermove',function(e){
+      var rect=xp.getBoundingClientRect();
+      xp.style.setProperty('--mx',(e.clientX-rect.left)+'px');
+      xp.style.setProperty('--my',(e.clientY-rect.top)+'px');
+      xp.classList.add('is-lit');paint(e.clientX,e.clientY);
+    });
+    xp.addEventListener('pointerleave',function(){xp.classList.remove('is-lit');dim();last=-1;});
+  }
+  words.forEach(function(w){
+    w.addEventListener('click',function(e){
+      e.preventDefault();
+      if(touch && !w.classList.contains('on')){words.forEach(function(x){x.classList.remove('on');});w.classList.add('on');setDetail(w);return;}
+      if(typeof showPage==='function')showPage(w.getAttribute('data-page'));
+    });
+  });
+  dLink.addEventListener('click',function(){if(activePage&&typeof showPage==='function')showPage(activePage);});
 })();
 function toggleMenu(){document.getElementById('nav-links').classList.toggle('open');}
 function closeMenu(){document.getElementById('nav-links').classList.remove('open');}
