@@ -817,6 +817,22 @@ body.has-cursor, body.has-cursor *{cursor:none;}
 @media (max-width:700px){.deckgrid{grid-template-columns:1fr;}}
 .hm-hero img{width:min(100%,960px);margin:0 auto;display:block;cursor:zoom-in;transition:transform .4s var(--ease);}
 .hm-hero img:hover{transform:translateY(-4px) scale(1.01);}
+/* HungerMap real before/after gallery */
+.hmba{display:flex;flex-direction:column;gap:18px;margin-top:26px;}
+.hmshot{border-radius:12px;overflow:hidden;border:var(--b);background:rgba(168,216,234,.03);}
+.hmshot-bar{padding:10px 14px;display:flex;align-items:center;justify-content:space-between;gap:10px;background:#f5f0eb;}
+.hmshot-bar .hmshot-t{font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--slate);}
+.hmshot-pill{font-size:10px;padding:3px 10px;border-radius:20px;background:rgba(27,58,75,.08);color:var(--slate);white-space:nowrap;}
+.hmshot.new .hmshot-bar{background:#E3F5FC;}
+.hmshot.new .hmshot-t,.hmshot.new .hmshot-pill{color:#007BA8;}
+.hmshot.new .hmshot-pill{background:rgba(0,159,218,.1);}
+.hmshot img{width:100%;display:block;cursor:zoom-in;transition:transform .35s var(--ease);}
+.hmshot img:hover{transform:scale(1.012);}
+.hmshot-notes{padding:12px 14px;display:flex;flex-wrap:wrap;gap:6px 16px;border-top:var(--b);}
+.hmgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.hmgrid .wide{grid-column:1/-1;}
+.ugrid.u3{grid-template-columns:repeat(3,1fr);}
+@media (max-width:880px){.hmgrid{grid-template-columns:1fr;}.ugrid.u3{grid-template-columns:1fr;}}
 
 /* ═════════════ V14 — CBT: highlighted findings · Ukraine pager module ═════════════ */
 .jfind{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:18px 0 44px;}
@@ -1198,13 +1214,13 @@ body.on-case .readbar{opacity:1;}
 <div id="page-hungermap" class="page">
   <div class="back-bar" onclick="showPage('home')"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 2L4 7l5 5" stroke="#5B8FA8" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>All work</div>
   <div class="cov">
-    <span class="cov-tag">WFP · Google.org · UI Design Lead + UX Research · 2024–2025</span>
+    <span class="cov-tag">WFP · Google.org · Product Manager + UX/UI Design Lead · 2024–2025</span>
     <h1 class="cov-title">HungerMap<br>one platform, <em>two worlds.</em></h1>
     <div class="cov-top">
-      <div><p class="cov-sub">Led the UX research, UI design, and design leadership of the new HungerMap, a dual-audience platform for the general public (donors, governments, media) and for WFP experts (VAM Officers, Country Office colleagues). Balancing WFP brand identity with Google.org donor requirements.</p><div class="cov-chips"><span class="cov-chip">UI Design Lead</span><span class="cov-chip">UX Research</span><span class="cov-chip">Data Visualization</span><span class="cov-chip">Dual Audience</span><span class="cov-chip">WFP Brand</span><span class="cov-chip">Google.org</span></div></div>
-      <div class="cov-meta"><div class="cm-i"><p class="cm-l">Role</p><p class="cm-v">UI Design Lead + UX Research Lead, WFP</p></div><div class="cm-i"><p class="cm-l">Stakeholders</p><p class="cm-v">WFP internal + Google.org (principal donor)</p></div><div class="cm-i"><p class="cm-l">Audiences</p><p class="cm-v">External: donors, governments, media · Internal: VAM Officers, CO colleagues</p></div><div class="cm-i"><p class="cm-l">Timeline</p><p class="cm-v">Jul 2024 → Mar 2025 (9 months)</p></div></div>
+      <div><p class="cov-sub">Led the recreation of HungerMap end to end, as Product Manager (roadmap, features, stakeholder alignment with Google) and as UX/UI design lead: a dual-audience platform for the general public (donors, governments, media) and for WFP experts (VAM Officers, Country Office colleagues). Balancing WFP brand identity with Google.org donor requirements.</p><div class="cov-chips"><span class="cov-chip">Product Management</span><span class="cov-chip">UX Research</span><span class="cov-chip">UI Design Lead</span><span class="cov-chip">Data Visualization</span><span class="cov-chip">Dual Audience</span><span class="cov-chip">Google.org</span></div></div>
+      <div class="cov-meta"><div class="cm-i"><p class="cm-l">Role</p><p class="cm-v">Product Manager &amp; UX/UI Design Lead, WFP</p></div><div class="cm-i"><p class="cm-l">Stakeholders</p><p class="cm-v">WFP internal + Google.org (principal donor)</p></div><div class="cm-i"><p class="cm-l">Audiences</p><p class="cm-v">External: donors, governments, media · Internal: VAM Officers, CO colleagues</p></div><div class="cm-i"><p class="cm-l">Timeline</p><p class="cm-v">Jul 2024 → Oct 2025</p></div></div>
     </div>
-    <div class="cov-nums"><div class="cn"><p class="cn-big">2</p><p class="cn-lbl">audiences<br>one platform</p></div><div class="cn"><p class="cn-big">2</p><p class="cn-lbl">brand identities<br>balanced</p></div><div class="cn"><p class="cn-big">9mo</p><p class="cn-lbl">research to<br>UI delivery</p></div><div class="cn"><p class="cn-big">3</p><p class="cn-lbl">countries<br>tested</p></div></div>
+    <div class="cov-nums"><div class="cn"><p class="cn-big">2</p><p class="cn-lbl">audiences<br>one platform</p></div><div class="cn"><p class="cn-big">2</p><p class="cn-lbl">brand identities<br>balanced</p></div><div class="cn"><p class="cn-big">5</p><p class="cn-lbl">thematic<br>data areas</p></div><div class="cn"><p class="cn-big">3</p><p class="cn-lbl">countries<br>tested</p></div></div>
   </div>
 
   <section class="sec">
@@ -1216,11 +1232,12 @@ body.on-case .readbar{opacity:1;}
   </section>
 
   <section class="sec alt">
-    <span class="ey">My role, design leadership</span>
-    <h2 class="st">Not just research. End-to-end design ownership.</h2>
-    <div class="ugrid">
+    <span class="ey">My role, product + design</span>
+    <h2 class="st">From product strategy to design direction.</h2>
+    <div class="ugrid u3">
+      <div class="ucard"><div class="uicon" style="background:#FAEEDA"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 15V9M9 15V3M15 15v-4" stroke="#8A5A10" stroke-width="1.3" stroke-linecap="round"/><path d="M2 16h14" stroke="#8A5A10" stroke-width="1.3" stroke-linecap="round"/></svg></div><p class="utype">Product</p><p class="uname">Product Manager</p><div class="uneeds"><div class="un"><div class="undot"></div>Product roadmap, feature prioritisation, KPIs and success metrics</div><div class="un"><div class="undot"></div>Cross-functional alignment between WFP, Google and development teams</div><div class="un"><div class="undot"></div>Risk management, testing strategy and hand-over to development</div></div></div>
       <div class="ucard"><div class="uicon" style="background:#E1F5EE"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="7" r="3.5" stroke="#0F6E56" stroke-width="1.3"/><path d="M3 16c0-3.314 2.686-5 6-5s6 1.686 6 5" stroke="#0F6E56" stroke-width="1.3" stroke-linecap="round"/></svg></div><p class="utype">Research</p><p class="uname">UX Research Lead</p><div class="uneeds"><div class="un"><div class="undot"></div>Workshops with country officers in Nigeria, Yemen, Cameroon</div><div class="un"><div class="undot"></div>Critical user journeys for two distinct audiences</div><div class="un"><div class="undot"></div>UX highlights report and workshop summary</div></div></div>
-      <div class="ucard"><div class="uicon" style="background:#E6F1FB"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="2" y="2" width="14" height="14" rx="3" stroke="#185FA5" stroke-width="1.3"/><path d="M6 7h6M6 10h4" stroke="#185FA5" stroke-width="1.3" stroke-linecap="round"/></svg></div><p class="utype">Design</p><p class="uname">UI Design Lead</p><div class="uneeds"><div class="un"><div class="undot"></div>Led full UI production of both platform versions in Figma</div><div class="un"><div class="undot"></div>Visual system balancing WFP brand + Google.org requirements</div><div class="un"><div class="undot"></div>Component library, data viz system, admin level interactions</div></div></div>
+      <div class="ucard"><div class="uicon" style="background:#E6F1FB"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="2" y="2" width="14" height="14" rx="3" stroke="#185FA5" stroke-width="1.3"/><path d="M6 7h6M6 10h4" stroke="#185FA5" stroke-width="1.3" stroke-linecap="round"/></svg></div><p class="utype">Design</p><p class="uname">UX/UI Design Lead</p><div class="uneeds"><div class="un"><div class="undot"></div>Led UI production of both platform versions in Figma</div><div class="un"><div class="undot"></div>Visual system balancing WFP brand + Google.org requirements</div><div class="un"><div class="undot"></div>Directed the final UI &amp; DataViz phase with a dedicated UI designer and Google design partners</div></div></div>
     </div>
   </section>
 
@@ -1253,45 +1270,49 @@ body.on-case .readbar{opacity:1;}
   </section>
 
   <section class="sec alt">
-    <span class="ey">Before / After, the visual transformation</span>
-    <h2 class="st">From a map tool to a dual-audience platform.</h2>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:24px;">
-      <div style="border-radius:12px;overflow:hidden;border:var(--b);">
-        <div style="padding:10px 14px;background:#f5f0eb;display:flex;align-items:center;justify-content:space-between;"><span style="font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--slate);">Old HungerMap</span><span style="font-size:10px;padding:3px 10px;border-radius:20px;background:rgba(27,58,75,.08);color:var(--slate);">Single version</span></div>
-        <div style="background:#1a2a3a;padding:0;">
-          <div style="height:32px;background:#003C5F;display:flex;align-items:center;padding:0 12px;"><span style="font-size:9px;font-weight:700;color:#fff;letter-spacing:.08em;">WFP HUNGERMAP</span></div>
-          <div style="height:160px;background:#1a2a3a;position:relative;overflow:hidden;">
-            <svg viewBox="0 0 380 160" width="100%" style="display:block"><rect width="380" height="160" fill="#1a2a3a"/><ellipse cx="90" cy="90" rx="50" ry="35" fill="#CC3333" opacity=".35"/><ellipse cx="190" cy="72" rx="70" ry="42" fill="#996600" opacity=".3"/><ellipse cx="280" cy="100" rx="52" ry="33" fill="#CC3333" opacity=".28"/><ellipse cx="115" cy="60" rx="38" ry="26" fill="#CC3333" opacity=".4"/></svg>
-            <div style="position:absolute;right:0;top:0;bottom:0;width:120px;background:rgba(0,20,35,.85);padding:10px;"><p style="font-size:8px;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px;">Legend</p><div style="display:flex;align-items:center;gap:5px;margin-bottom:4px;"><div style="width:7px;height:7px;border-radius:2px;background:#CC3333"></div><span style="font-size:8px;color:rgba(255,255,255,.5)">Crisis</span></div><div style="display:flex;align-items:center;gap:5px;margin-bottom:4px;"><div style="width:7px;height:7px;border-radius:2px;background:#FF8C00"></div><span style="font-size:8px;color:rgba(255,255,255,.5)">Emergency</span></div><div style="display:flex;align-items:center;gap:5px;margin-bottom:4px;"><div style="width:7px;height:7px;border-radius:2px;background:#FFD700"></div><span style="font-size:8px;color:rgba(255,255,255,.5)">Stressed</span></div></div>
-          </div>
-          <div style="height:50px;background:#0d1b2a;padding:8px 12px;display:flex;gap:14px;align-items:center;"><div style="text-align:center;"><p style="font-size:15px;color:rgba(255,255,255,.5);font-weight:500;">847M</p><p style="font-size:8px;color:rgba(255,255,255,.3)">food insecure</p></div><div style="width:0.5px;height:24px;background:rgba(255,255,255,.1)"></div><div style="text-align:center;"><p style="font-size:15px;color:rgba(255,255,255,.5);font-weight:500;">56</p><p style="font-size:8px;color:rgba(255,255,255,.3)">countries</p></div></div>
-          <div style="padding:8px 12px;background:#0d1b2a;border-top:0.5px solid rgba(255,255,255,.06);display:flex;flex-direction:column;gap:4px;"><div style="font-size:9px;color:rgba(255,255,255,.3);display:flex;align-items:center;gap:5px;"><span style="width:5px;height:5px;border-radius:50%;background:#E24B4A;flex-shrink:0"></span>No forecasting, current state only</div><div style="font-size:9px;color:rgba(255,255,255,.3);display:flex;align-items:center;gap:5px;"><span style="width:5px;height:5px;border-radius:50%;background:#E24B4A;flex-shrink:0"></span>No storytelling layer, data only</div><div style="font-size:9px;color:rgba(255,255,255,.3);display:flex;align-items:center;gap:5px;"><span style="width:5px;height:5px;border-radius:50%;background:#E24B4A;flex-shrink:0"></span>Single audience, no drill-down</div></div>
-        </div>
-      </div>
-      <div style="border-radius:12px;overflow:hidden;border:0.5px solid rgba(0,159,218,.3);">
-        <div style="padding:10px 14px;background:#E3F5FC;display:flex;align-items:center;justify-content:space-between;"><span style="font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:#007BA8;">New, Public version</span><span style="font-size:10px;padding:3px 10px;border-radius:20px;background:rgba(0,159,218,.1);color:#007BA8;">Donors · Governments · Media</span></div>
-        <div style="background:#0A1520;">
-          <div style="height:38px;background:#009FDA;display:flex;align-items:center;padding:0 12px;gap:8px;"><span style="font-size:11px;font-weight:700;color:#fff;">WFP</span><div style="width:1px;height:14px;background:rgba(255,255,255,.3)"></div><span style="font-size:9px;color:rgba(255,255,255,.8)">HungerMap</span><div style="display:flex;gap:10px;margin-left:auto;"><span style="font-size:8px;color:#fff;font-weight:500;border-bottom:1.5px solid #fff;padding-bottom:2px">Explore</span><span style="font-size:8px;color:rgba(255,255,255,.65)">Stories</span><span style="font-size:8px;color:rgba(255,255,255,.65)">Data</span></div></div>
-          <div style="background:linear-gradient(135deg,#003C5F 0%,#005F8E 100%);padding:14px 12px;">
-            <p style="font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:5px;">Global food security · 2025</p>
-            <p style="font-family:var(--serif);font-size:15px;color:#fff;line-height:1.25;margin-bottom:7px;">282 million people facing<br><em style="color:#A8D8EA;">acute food insecurity.</em></p>
-            <div style="display:flex;gap:12px;"><div style="text-align:center;"><p style="font-family:var(--serif);font-size:16px;color:#fff;">282M</p><p style="font-size:8px;color:rgba(255,255,255,.5);margin-top:2px">food insecure</p></div><div style="text-align:center;"><p style="font-family:var(--serif);font-size:16px;color:#fff;">58</p><p style="font-size:8px;color:rgba(255,255,255,.5);margin-top:2px">countries</p></div><div style="text-align:center;"><p style="font-family:var(--serif);font-size:16px;color:#fff;">+12%</p><p style="font-size:8px;color:rgba(255,255,255,.5);margin-top:2px">vs last year</p></div></div>
-          </div>
-          <div style="height:110px;background:#091828;position:relative;overflow:hidden;"><svg viewBox="0 0 380 110" width="100%" style="display:block"><rect width="380" height="110" fill="#091828"/><ellipse cx="80" cy="70" rx="50" ry="34" fill="#E24B4A" opacity=".28"/><ellipse cx="170" cy="55" rx="65" ry="38" fill="#BA7517" opacity=".22"/><ellipse cx="270" cy="75" rx="48" ry="30" fill="#E24B4A" opacity=".22"/><ellipse cx="100" cy="45" rx="35" ry="24" fill="#E24B4A" opacity=".38"/><circle cx="100" cy="45" r="4" fill="#fff" opacity=".7"/><rect x="108" y="37" width="78" height="20" rx="3" fill="rgba(0,0,0,.65)"/><text x="112" y="47" font-size="6.5" fill="#A8D8EA" font-family="sans-serif">Nigeria</text><text x="112" y="54" font-size="6" fill="#FFA0A0" font-family="sans-serif">25.3M in crisis</text></svg></div>
-          <div style="padding:8px 12px;background:#0A1520;border-top:0.5px solid rgba(168,216,234,.08);"><p style="font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:rgba(0,159,218,.8);margin-bottom:6px;">Stories from the field</p><div style="background:rgba(255,255,255,.05);border-radius:6px;padding:7px 9px;display:flex;gap:7px;align-items:center;margin-bottom:5px;border:0.5px solid rgba(255,255,255,.07);"><div style="width:22px;height:22px;border-radius:50%;background:#FAECE7;color:#993C1D;display:flex;align-items:center;justify-content:center;font-size:10px;flex-shrink:0;">N</div><div><p style="font-size:9px;font-weight:500;color:#fff;">Niger Delta</p><p style="font-size:8px;color:rgba(255,255,255,.4);">2.1M people · Conflict-driven</p></div></div><div style="background:rgba(255,255,255,.05);border-radius:6px;padding:7px 9px;display:flex;gap:7px;align-items:center;border:0.5px solid rgba(255,255,255,.07);"><div style="width:22px;height:22px;border-radius:50%;background:#E8F2EC;color:#1B5E3B;display:flex;align-items:center;justify-content:center;font-size:10px;flex-shrink:0;">Y</div><div><p style="font-size:9px;font-weight:500;color:#fff;">Southern Yemen</p><p style="font-size:8px;color:rgba(255,255,255,.4);">1.8M people · Climate + conflict</p></div></div></div>
-        </div>
-      </div>
-    </div>
-    <div style="margin-top:16px;border-radius:12px;overflow:hidden;border:0.5px solid rgba(27,58,75,.15);">
-      <div style="padding:10px 14px;background:#E3EEF5;display:flex;align-items:center;justify-content:space-between;"><span style="font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--navy);">New, Internal version</span><span style="font-size:10px;padding:3px 10px;border-radius:20px;background:rgba(27,58,75,.08);color:var(--navy);">VAM Officers · Country Office colleagues</span></div>
-      <div style="background:#040E16;">
-        <div style="height:38px;background:#1B3A4B;display:flex;align-items:center;padding:0 12px;gap:8px;"><span style="font-size:11px;font-weight:500;color:#fff;">HungerMap Internal</span><div style="display:flex;gap:6px;margin-left:auto;"><span style="font-size:9px;padding:3px 9px;border-radius:20px;background:rgba(45,125,154,.2);color:var(--ice);border:0.5px solid rgba(45,125,154,.3);">Live data</span><span style="font-size:9px;padding:3px 9px;border-radius:20px;background:rgba(0,159,218,.15);color:#7DD4F5;">30-day forecast</span></div></div>
-        <div style="height:8px;background:#0d1e2c;display:flex;align-items:center;padding:0 12px;gap:6px;border-bottom:0.5px solid rgba(168,216,234,.06);"><div style="display:flex;gap:5px;"><span style="font-size:8px;padding:3px 8px;border-radius:3px;background:var(--teal);color:#fff;">Admin L2</span><span style="font-size:8px;padding:3px 8px;border-radius:3px;background:rgba(168,216,234,.06);color:rgba(168,216,234,.5);border:0.5px solid rgba(168,216,234,.1);">Admin L1</span><span style="font-size:8px;padding:3px 8px;border-radius:3px;background:rgba(168,216,234,.06);color:rgba(168,216,234,.5);border:0.5px solid rgba(168,216,234,.1);">Admin L0</span><span style="font-size:8px;padding:3px 8px;border-radius:3px;background:rgba(45,125,154,.2);color:var(--ice);">FCS</span><span style="font-size:8px;padding:3px 8px;border-radius:3px;background:rgba(45,125,154,.2);color:var(--ice);">Conflict</span></div></div>
-        <div style="display:grid;grid-template-columns:1fr 100px;height:160px;">
-          <div style="background:#040E16;position:relative;overflow:hidden;"><svg viewBox="0 0 280 160" width="100%" style="display:block;height:100%"><rect width="280" height="160" fill="#040E16"/><ellipse cx="60" cy="90" rx="42" ry="30" fill="#E24B4A" opacity=".3"/><ellipse cx="140" cy="72" rx="58" ry="36" fill="#BA7517" opacity=".25"/><ellipse cx="210" cy="100" rx="40" ry="28" fill="#E24B4A" opacity=".22"/><ellipse cx="80" cy="62" rx="30" ry="22" fill="#E24B4A" opacity=".42"/><circle cx="80" cy="62" r="4" fill="#fff" opacity=".85"/><rect x="88" y="51" width="90" height="24" rx="3" fill="rgba(0,0,0,.75)"/><text x="92" y="63" font-size="7" fill="#A8D8EA" font-family="sans-serif">Borno State, Nigeria</text><text x="92" y="70" font-size="6" fill="#FFA0A0" font-family="sans-serif">FCS: 21.3 (Poor) ▼ Worsening</text></svg></div>
-          <div style="background:#0a1a26;border-left:0.5px solid rgba(168,216,234,.08);padding:10px;display:flex;flex-direction:column;gap:7px;"><div style="font-size:7px;letter-spacing:.1em;text-transform:uppercase;color:rgba(168,216,234,.4);margin-bottom:2px;">Area data</div><div style="background:rgba(168,216,234,.04);border-radius:4px;padding:6px 7px;border:0.5px solid rgba(168,216,234,.08);"><p style="font-size:7px;color:rgba(168,216,234,.45);text-transform:uppercase;letter-spacing:.06em;margin-bottom:2px;">FCS Score</p><p style="font-size:13px;font-weight:500;color:var(--ice);">21.3</p></div><div style="background:rgba(168,216,234,.04);border-radius:4px;padding:6px 7px;border:0.5px solid rgba(168,216,234,.08);"><p style="font-size:7px;color:rgba(168,216,234,.45);text-transform:uppercase;letter-spacing:.06em;margin-bottom:2px;">Pop.</p><p style="font-size:13px;font-weight:500;color:var(--ice);">2.4M</p></div><div style="background:rgba(168,216,234,.04);border-radius:4px;padding:6px 7px;border:0.5px solid rgba(168,216,234,.08);"><p style="font-size:7px;color:rgba(168,216,234,.45);text-transform:uppercase;letter-spacing:.06em;margin-bottom:2px;">Action</p><p style="font-size:11px;font-weight:500;color:var(--ice);">CBT</p></div></div>
-        </div>
-        <div style="background:#040E16;border-top:0.5px solid rgba(168,216,234,.06);padding:8px 12px;display:flex;align-items:center;gap:12px;"><div><p style="font-size:8px;letter-spacing:.08em;text-transform:uppercase;color:rgba(168,216,234,.45);">AI Forecast 30d</p><p style="font-size:14px;font-weight:500;color:var(--ice);">FCS → 18.7</p></div><svg viewBox="0 0 80 24" width="80" style="display:block"><polyline points="0,18 20,16 40,20 60,12 80,7" fill="none" stroke="#E24B4A" stroke-width="1.5"/><circle cx="80" cy="7" r="2" fill="#E24B4A"/></svg><div><p style="font-size:8px;color:rgba(168,216,234,.4);">Trend</p><p style="font-size:10px;color:#E24B4A;">▼ Critical threshold</p></div></div>
+    <span class="ey">Before / after, the real screens</span>
+    <h2 class="st">From one dense dashboard to a guided, thematic platform.</h2>
+    <p style="font-size:14px;color:var(--slate);line-height:1.7;max-width:620px;margin-bottom:8px;">The old HungerMap packed alerts, layers and legends into a single dark screen built for analysts. The redesign opens with one clear headline metric, organises the data into five thematic areas (food security, nutrition, climate, conflict, economy) and lets every audience drill from global to region level. These are the actual screens, click any of them to zoom.</p>
+    <div class="hmba">
+      <figure class="hmshot">
+        <div class="hmshot-bar"><span class="hmshot-t">Before, HungerMap LIVE</span><span class="hmshot-pill">One screen, everything at once</span></div>
+        <img src="assets/hungermap/hm1-old-global.webp" alt="The previous HungerMap LIVE: dark world map with conflict and climate alert dots, choropleth layer, legends and layer icons all shown at once" loading="lazy" decoding="async" tabindex="0" onclick="hmZoom(0)">
+        <figcaption class="hmshot-notes"><div class="un"><div class="undot"></div>Alert dots, choropleth and legends compete on one view</div><div class="un"><div class="undot"></div>Expert language, no hierarchy or guidance</div><div class="un"><div class="undot"></div>One version for every audience</div></figcaption>
+      </figure>
+      <div class="hmgrid">
+        <figure class="hmshot new wide">
+          <div class="hmshot-bar"><span class="hmshot-t">After · Food security, global</span><span class="hmshot-pill">One headline metric, drivers and hotspots at a glance</span></div>
+          <img src="assets/hungermap/hm2-food-global.webp" alt="HungerMap 2.0 global food security view: 319M headline, projected hunger hotspots, key drivers of insecurity donut, famine-risk panel and a clean light choropleth map" loading="lazy" decoding="async" tabindex="0" onclick="hmZoom(1)">
+        </figure>
+        <figure class="hmshot new">
+          <div class="hmshot-bar"><span class="hmshot-t">After · Country drill-down</span><span class="hmshot-pill">Region-level data + forecast</span></div>
+          <img src="assets/hungermap/hm2-food-country.webp" alt="HungerMap 2.0 country view of Cameroon: terrain map with region markers, Adamawa region selected with trend chart, forecast food insecurity areas and top areas ranking" loading="lazy" decoding="async" tabindex="0" onclick="hmZoom(2)">
+        </figure>
+        <figure class="hmshot new">
+          <div class="hmshot-bar"><span class="hmshot-t">After · Climate &amp; hazards</span><span class="hmshot-pill">Live alerts, hazard exposure</span></div>
+          <img src="assets/hungermap/hm2-climate.webp" alt="HungerMap 2.0 climate and hazards view: 21M people exposed to climate stress, hazard exposure summary, live earthquake alert and hazard icons on the world map" loading="lazy" decoding="async" tabindex="0" onclick="hmZoom(3)">
+        </figure>
+        <figure class="hmshot new">
+          <div class="hmshot-bar"><span class="hmshot-t">After · Conflicts &amp; displacements</span><span class="hmshot-pill">Projected conflict hotspots</span></div>
+          <img src="assets/hungermap/hm2-conflict.webp" alt="HungerMap 2.0 conflicts and displacements view: 319M people exposed to conflicts, projected conflict hotspots, type of conflict events breakdown and choropleth map" loading="lazy" decoding="async" tabindex="0" onclick="hmZoom(4)">
+        </figure>
+        <figure class="hmshot new">
+          <div class="hmshot-bar"><span class="hmshot-t">After · Economic drivers</span><span class="hmshot-pill">Food inflation, ranked and mapped</span></div>
+          <img src="assets/hungermap/hm2-economic.webp" alt="HungerMap 2.0 economic drivers view: 219M people living in countries with high food inflation, top 10 countries ranking and inflation choropleth map" loading="lazy" decoding="async" tabindex="0" onclick="hmZoom(5)">
+        </figure>
+        <figure class="hmshot new">
+          <div class="hmshot-bar"><span class="hmshot-t">After · Nutrition, global</span><span class="hmshot-pill">Micronutrient inadequacy by country</span></div>
+          <img src="assets/hungermap/hm2-nutrition-global.webp" alt="HungerMap 2.0 dietary micronutrient inadequacy view: percentage range of people at risk, country ranking, nutrient filters for folate, iron, zinc and vitamins" loading="lazy" decoding="async" tabindex="0" onclick="hmZoom(6)">
+        </figure>
+        <figure class="hmshot new">
+          <div class="hmshot-bar"><span class="hmshot-t">After · Nutrition, country</span><span class="hmshot-pill">Region-level nutrient breakdown</span></div>
+          <img src="assets/hungermap/hm2-nutrition-country.webp" alt="HungerMap 2.0 nutrition country view of Cameroon: risk of inadequate micronutrient intake by region on a terrain map with per-nutrient percentages" loading="lazy" decoding="async" tabindex="0" onclick="hmZoom(7)">
+        </figure>
+        <figure class="hmshot new wide">
+          <div class="hmshot-bar"><span class="hmshot-t">After · Internal dashboard, work in progress</span><span class="hmshot-pill">Forecasts, alerts and reports for WFP analysts</span></div>
+          <img src="assets/hungermap/hm2-internal-dashboard.webp" alt="HungerMap 2.0 internal dashboard, work in progress: analysis and statistics navigation with forecast summary, 30 days outlook, statistical explainability, reports, alerts and an external view switch" loading="lazy" decoding="async" tabindex="0" onclick="hmZoom(8)">
+          <figcaption class="hmshot-notes"><div class="un"><div class="undot"></div>Same data backbone, expert tooling: forecast summary, 30-day outlook, statistical explainability</div><div class="un"><div class="undot"></div>Alerts and reports in one place</div><div class="un"><div class="undot"></div>One click to the external view</div></figcaption>
+        </figure>
       </div>
     </div>
   </section>
@@ -1310,13 +1331,14 @@ body.on-case .readbar{opacity:1;}
   </section>
 
   <section class="sec alt">
-    <span class="ey">Research process, 9 months</span>
-    <h2 class="st">From workshops to UI delivery.</h2>
+    <span class="ey">Process, 2024 → 2025</span>
+    <h2 class="st">From workshops to development hand-off.</h2>
     <div class="tl">
       <div class="tli"><div class="tldot" style="background:#E1F5EE;color:#085041">1</div><div><p class="tldate">Jul – Dec 2024</p><p class="tltitle">Workshops &amp; dual-audience architecture</p><p class="tltext">Facilitated workshops with country officers in Yemen, Nigeria, and Cameroon. Defined the dual-audience architecture, the strategic decision to serve two completely different user mental models in one platform. Confirmed MVP features and Google.org requirements.</p><div class="tlchips"><span class="tlchip">Workshops</span><span class="tlchip">Requirements</span><span class="tlchip">Audience mapping</span><span class="tlchip">Roadmap V1→V3</span></div></div></div>
       <div class="tli"><div class="tldot" style="background:#E6F1FB;color:#0C447C">2</div><div><p class="tldate">Dec 2024 – Jan 2025</p><p class="tltitle">UX Research, critical user journeys for both audiences</p><p class="tltext">Mapped the distinct needs and mental models of both audiences. For the external audience: how do donors and governments go from awareness to action? For VAM Officers: how do they move from data to a resource allocation decision in under 2 minutes?</p><div class="tlchips"><span class="tlchip">UX research</span><span class="tlchip">Critical user journeys</span><span class="tlchip">UX highlights report</span></div></div></div>
       <div class="tli"><div class="tldot" style="background:#FAEEDA;color:#633806">3</div><div><p class="tldate">Jan – Feb 2025</p><p class="tltitle">UI design leadership, Figma production</p><p class="tltext">Led the full UI production of both platform versions. Designed the visual system respecting WFP brand while incorporating Google.org requirements, typography, data visualisation colour system, component library, and admin level drill-down interactions.</p><div class="tlchips"><span class="tlchip">Figma prototype</span><span class="tlchip">WFP brand compliance</span><span class="tlchip">Google.org integration</span><span class="tlchip">Component library</span></div></div></div>
-      <div class="tli" style="padding-bottom:0"><div class="tldot" style="background:#1B3A4B;color:#A8D8EA">4</div><div><p class="tldate">Mar 2025</p><p class="tltitle">Usability testing, 3 country offices</p><p class="tltext">Structured testing of both platform versions in Nigeria, Yemen, and Cameroon with WFP Heads of Programme, VAM Officers, and Activity Managers.</p><div class="tlchips"><span class="tlchip">Nigeria · Yemen · Cameroon</span><span class="tlchip">15+ participants</span><span class="tlchip">Both audiences tested</span></div></div></div>
+      <div class="tli"><div class="tldot" style="background:#1B3A4B;color:#A8D8EA">4</div><div><p class="tldate">Mar 2025</p><p class="tltitle">Usability testing, 3 country offices</p><p class="tltext">Structured testing of both platform versions in Nigeria, Yemen, and Cameroon with WFP Heads of Programme, VAM Officers, and Activity Managers.</p><div class="tlchips"><span class="tlchip">Nigeria · Yemen · Cameroon</span><span class="tlchip">15+ participants</span><span class="tlchip">Both audiences tested</span></div></div></div>
+      <div class="tli" style="padding-bottom:0"><div class="tldot" style="background:#E3F5FC;color:#0C447C">5</div><div><p class="tldate">Aug – Oct 2025</p><p class="tltitle">UI &amp; DataViz finalisation, bridge to development</p><p class="tltext">As Product Manager, directed the finalisation of the interface: strategic decisions on interactive behaviour and data presentation logic, oversight of the final UI screens and data visualisation components created with a dedicated UI &amp; DataViz designer and Google design partners, and design hand-off to front-end development.</p><div class="tlchips"><span class="tlchip">Design direction</span><span class="tlchip">DataViz components</span><span class="tlchip">Google design partners</span><span class="tlchip">Dev hand-off</span></div></div></div>
     </div>
   </section>
 
@@ -1635,6 +1657,19 @@ function jvGallery(items,i,onChange){
   document.querySelector('.jview-close').focus();
 }
 function jvOpen(src,label){jvGallery([{src:src,label:label,alt:label}],0);}
+/* HungerMap before/after gallery */
+var HM_SHOTS=[
+  {src:'assets/hungermap/hm1-old-global.webp',label:'Before, HungerMap LIVE, single dense view'},
+  {src:'assets/hungermap/hm2-food-global.webp',label:'After, Food security, global view'},
+  {src:'assets/hungermap/hm2-food-country.webp',label:'After, Food security, country drill-down (Cameroon)'},
+  {src:'assets/hungermap/hm2-climate.webp',label:'After, Climate and hazards'},
+  {src:'assets/hungermap/hm2-conflict.webp',label:'After, Conflicts and displacements'},
+  {src:'assets/hungermap/hm2-economic.webp',label:'After, Economic drivers'},
+  {src:'assets/hungermap/hm2-nutrition-global.webp',label:'After, Nutrition, global view'},
+  {src:'assets/hungermap/hm2-nutrition-country.webp',label:'After, Nutrition, country drill-down (Cameroon)'},
+  {src:'assets/hungermap/hm2-internal-dashboard.webp',label:'After, Internal dashboard, work in progress'}
+];
+function hmZoom(i){jvGallery(HM_SHOTS.map(function(s){return{src:s.src,label:s.label,alt:s.label};}),i);}
 /* full-page mode: fit image to width, scroll vertically through the whole screen */
 function jvSite(src,label,maxw){
   _jvItems=null;_jvTrigger=document.activeElement;
