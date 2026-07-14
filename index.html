@@ -305,6 +305,19 @@ footer{padding:18px 48px;border-top:var(--b);display:flex;justify-content:space-
 .lh-title{font-family:var(--serif);font-size:44px;color:var(--navy);font-weight:400;line-height:1.1;margin-bottom:16px;}
 .lh-sub{font-size:16px;color:var(--slate);line-height:1.65;max-width:600px;}
 .lg-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;padding:48px;}
+/* horizontal archive (Christie Tang-style): scroll/drag/arrows to browse projects */
+.lg-archbar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:0 48px;margin-top:6px;}
+.lg-archhint{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:rgba(168,216,234,.5);}
+.lg-archnav{display:flex;gap:9px;}
+.lg-archbtn{width:42px;height:42px;border-radius:50%;border:1px solid rgba(168,216,234,.3);background:transparent;color:var(--ice);font-size:15px;cursor:pointer;transition:background .25s,border-color .25s,color .25s;}
+.lg-archbtn:hover{background:var(--teal);border-color:var(--teal);color:#fff;}
+.lg-arch{display:flex;grid-template-columns:none;overflow-x:auto;overflow-y:hidden;gap:20px;padding:18px 48px 30px;cursor:grab;overscroll-behavior-x:contain;}
+.lg-arch:active{cursor:grabbing;}
+.lg-arch .lg-card{flex:0 0 clamp(270px,34vw,380px);}
+.lg-arch::-webkit-scrollbar{height:6px;}
+.lg-arch::-webkit-scrollbar-track{background:transparent;}
+.lg-arch::-webkit-scrollbar-thumb{background:rgba(168,216,234,.22);border-radius:3px;}
+@media (max-width:700px){.lg-archbar{padding:0 24px;}.lg-arch{padding:14px 24px 24px;gap:14px;}.lg-arch .lg-card{flex:0 0 80vw;}}
 .lg-card{border-radius:var(--r);overflow:hidden;border:var(--b);background:rgba(255,255,255,.7);}
 .lg-thumb{height:140px;display:flex;align-items:flex-end;padding:14px;position:relative;overflow:hidden;}
 .lg-tbg{position:absolute;font-family:var(--serif);font-size:64px;color:var(--navy);opacity:.07;bottom:-8px;right:-2px;letter-spacing:-.04em;}
@@ -1430,7 +1443,11 @@ body.on-case .readbar{opacity:1;}
     <h1 class="lh-title">15 years, 20+ brands,<br>across 6 sectors.</h1>
     <p class="lh-sub">Before moving into humanitarian design, I worked across luxury, finance, healthcare and telecoms, leading UX and UI design at Reply and earlier agencies for clients including Prada, TIM, Ferrero, Luxottica and more.</p>
   </div>
-  <div class="lg-grid">
+  <div class="lg-archbar">
+    <span class="lg-archhint">Scroll, drag or use the arrows to explore &rarr;</span>
+    <div class="lg-archnav"><button class="lg-archbtn" onclick="lgScroll(-1)" aria-label="Previous projects">&larr;</button><button class="lg-archbtn" onclick="lgScroll(1)" aria-label="More projects">&rarr;</button></div>
+  </div>
+  <div class="lg-grid lg-arch" id="lgArch" tabindex="0" role="region" aria-label="Private-sector projects, scroll horizontally to browse">
     <div class="lg-card"><div class="lg-thumb" style="background:#F0EDE8"><span class="lg-tbg">Prada</span><span class="lg-pill">Art Direction · UX/UI</span></div><div class="lg-body"><p class="lg-client">Prada</p><p class="lg-name">Prada.com e-commerce</p><p class="lg-desc">Art Direction and UX/UI Design for the e-commerce site of the iconic Italian luxury house, developed on IBM WebSphere Commerce. From wireframes to launch, through the meticulous design of navigation and purchase flows.</p><div class="lg-nums"><div><p class="lgn-v">34</p><p class="lgn-l">countries</p></div><div><p class="lgn-v">8</p><p class="lgn-l">languages</p></div></div></div></div>
     <div class="lg-card"><div class="lg-thumb" style="background:#ECE9F1"><span class="lg-tbg">Miu Miu</span><span class="lg-pill">Art Direction · UX</span></div><div class="lg-body"><p class="lg-client">Prada Group</p><p class="lg-name">Miumiu.com e-commerce</p><p class="lg-desc">Art Direction and UX Design for the new miumiu.com e-commerce, developed on AEM. Wireframe design, navigation flows and the functional document to optimize the purchase flow for customers all over the world.</p><div class="lg-nums"><div><p class="lgn-v">30</p><p class="lgn-l">countries</p></div><div><p class="lgn-v">8</p><p class="lgn-l">languages</p></div></div></div></div>
     <div class="lg-card"><div class="lg-thumb" style="background:#F1E7E7"><span class="lg-tbg">TIM</span><span class="lg-pill">UI/UX Design</span></div><div class="lg-body"><p class="lg-client">TIM</p><p class="lg-name">TIM Music, omnichannel platform</p><p class="lg-desc">Design and development support for the new TIM Music platform, an immersive omnichannel music experience across any smart device, including Android Auto, Apple CarPlay, Amazon Alexa and TV.</p><div class="lg-nums"><div><p class="lgn-v">30M+</p><p class="lgn-l">songs</p></div><div><p class="lgn-v">7</p><p class="lgn-l">device types</p></div></div></div></div>
@@ -1735,6 +1752,20 @@ function dpOpen(){
 }
 dpRender();
 
+/* Legacy horizontal archive: arrows, mouse drag, horizontal-only wheel (never traps page scroll) */
+(function(){
+  var el=document.getElementById('lgArch');if(!el)return;
+  window.lgScroll=function(d){var c=el.querySelector('.lg-card');var w=c?c.getBoundingClientRect().width+20:360;el.scrollBy({left:d*w,behavior:'smooth'});};
+  el.addEventListener('wheel',function(e){
+    if(Math.abs(e.deltaX)>Math.abs(e.deltaY)&&el.scrollWidth>el.clientWidth){el.scrollLeft+=e.deltaX;e.preventDefault();}
+  },{passive:false});
+  var down=false,sx=0,sl=0,moved=false;
+  el.addEventListener('pointerdown',function(e){if(e.pointerType!=='mouse')return;down=true;moved=false;sx=e.clientX;sl=el.scrollLeft;el.setPointerCapture(e.pointerId);});
+  el.addEventListener('pointermove',function(e){if(!down)return;var dx=e.clientX-sx;if(Math.abs(dx)>4)moved=true;el.scrollLeft=sl-dx;});
+  el.addEventListener('pointerup',function(){down=false;});
+  el.addEventListener('click',function(e){if(moved){e.preventDefault();e.stopPropagation();}},true);
+  el.addEventListener('keydown',function(e){if(e.key==='ArrowRight'){window.lgScroll(1);e.preventDefault();}else if(e.key==='ArrowLeft'){window.lgScroll(-1);e.preventDefault();}});
+})();
 function toggleMenu(){document.getElementById('nav-links').classList.toggle('open');}
 function closeMenu(){document.getElementById('nav-links').classList.remove('open');}
 
