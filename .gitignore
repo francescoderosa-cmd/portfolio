@@ -12,6 +12,13 @@ assets/**/*.pdf
 assets/**/*.png
 assets/*.zip
 
+# raw video and source photos dropped into people-portal — keep local, NEVER publish
+# (only the optimised pp-*.webp are served)
+assets/**/*.mp4
+assets/**/*.mov
+assets/people-portal/*.jpg
+assets/people-portal/*.jpeg
+
 # working material dropped into assets, never publish archives
 assets/*.zip
 
