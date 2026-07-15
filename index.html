@@ -841,17 +841,18 @@ body.has-cursor, body.has-cursor *{cursor:none;}
 .hmshot img:hover{transform:scale(1.012);}
 .hmshot-notes{padding:12px 14px;display:flex;flex-wrap:wrap;gap:6px 16px;border-top:var(--b);}
 .hmshot.hminternal{width:72%;max-width:2400px;margin-inline:auto;}
-/* External screens carousel */
-.hmcar-wrap{position:relative;}
-.hmcar{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x proximity;padding-bottom:6px;cursor:grab;scrollbar-width:none;}
-.hmcar::-webkit-scrollbar{display:none;}
-.hmcar.dragging{cursor:grabbing;scroll-snap-type:none;}
-.hmcar .hmshot{flex:0 0 min(82%,860px);scroll-snap-align:start;}
-.hmcar-nav{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:14px;}
-.hmcar-count{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:rgba(168,216,234,.5);}
-.hmcar-btns{display:flex;gap:8px;}
-.hmcar-btn{width:38px;height:38px;border-radius:50%;border:var(--b);background:rgba(168,216,234,.05);color:var(--ice);font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .25s,border-color .25s,color .25s;}
-.hmcar-btn:hover{background:var(--teal);border-color:var(--teal);color:#fff;}
+/* External screens, staggered horizontal archive (reuses .lg-arch wheel/drag/arrow behaviour) */
+.hmscreens-wrap{position:relative;margin-inline:calc(-1*clamp(24px,5vw,64px));}
+.hmscreens{gap:clamp(28px,4vw,60px);padding:clamp(20px,3.5vh,44px) clamp(24px,5vw,64px) clamp(30px,4.5vh,56px);align-items:flex-start;}
+.hmscreens .hmscreen{flex:0 0 clamp(420px,60vw,860px);}
+.hmscreens .hmscreen:nth-child(even){margin-top:clamp(40px,7vh,110px);}
+.hmscreens .hmscreen img{cursor:zoom-in;aspect-ratio:9/5;object-fit:cover;}
+.hmscreens-bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:0 clamp(24px,5vw,64px);margin-top:6px;}
+.hmscreens-hint{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:rgba(168,216,234,.5);}
+.hmscreens-nav{display:flex;gap:9px;}
+.hmscreens-btn{width:42px;height:42px;border-radius:50%;border:1px solid rgba(168,216,234,.3);background:transparent;color:var(--ice);font-size:15px;cursor:pointer;transition:background .25s,border-color .25s,color .25s;}
+.hmscreens-btn:hover{background:var(--teal);border-color:var(--teal);color:#fff;}
+@media (max-width:880px){.hmscreens .hmscreen{flex-basis:84vw;}.hmscreens .hmscreen:nth-child(even){margin-top:0;}}
 /* Dummy-data disclaimer */
 .hm-disc{display:flex;align-items:flex-start;gap:8px;margin-top:14px;font-family:var(--mono);font-size:11px;letter-spacing:.02em;line-height:1.6;color:rgba(168,216,234,.5);}
 .hm-disc svg{flex-shrink:0;margin-top:1px;}
@@ -908,6 +909,10 @@ body.has-cursor, body.has-cursor *{cursor:none;}
 .jview-pane{position:absolute;inset:0;overflow:auto;cursor:grab;touch-action:pan-x pan-y;}
 .jview-pane:active{cursor:grabbing;}
 .jview-pane img{display:block;max-width:none;padding:72px 24px 40px;}
+/* Fit-to-screen gallery mode: whole image visible with margins, click/＋ to zoom up to native res */
+.jview.fit .jview-pane{display:flex;cursor:default;}
+.jview.fit .jview-pane img{margin:auto;padding:0;cursor:zoom-in;}
+.jview.fit.zoomed .jview-pane img{cursor:zoom-out;}
 .jview-btn{position:fixed;width:46px;height:46px;border-radius:50%;border:1px solid rgba(168,216,234,.35);background:rgba(27,58,75,.85);color:var(--ice);font-size:18px;cursor:pointer;z-index:5;transition:background .2s;}
 .jview-btn:hover{background:var(--teal);color:#fff;}
 .jview-close{top:18px;right:18px;}
@@ -1329,40 +1334,40 @@ body.on-case .readbar{opacity:1;}
   <section class="sec alt">
     <span class="ey">The new platform, real screens</span>
     <h2 class="st">From one dense dashboard to a guided, thematic platform.</h2>
-    <p style="font-size:14px;color:var(--slate);line-height:1.7;max-width:900px;margin-bottom:8px;">The old HungerMap packed alerts, layers and legends into a single dark screen built for analysts. The redesign opens with one clear headline metric, organises the data into five thematic areas (food security, nutrition, climate, conflict, economy) and lets every audience drill from global to region level. These are the actual screens: browse the carousel, click any screen to zoom.</p>
+    <p style="font-size:14px;color:var(--slate);line-height:1.7;max-width:900px;margin-bottom:8px;">The old HungerMap packed alerts, layers and legends into a single dark screen built for analysts. The redesign opens with one clear headline metric, organises the data into five thematic areas (food security, nutrition, climate, conflict, economy) and lets every audience drill from global to region level. These are the actual screens: scroll the strip sideways, click any screen to zoom.</p>
     <div class="hmba">
-      <div class="hmcar-wrap">
-        <div class="hmcar" id="hmCar">
-        <figure class="hmshot new">
+      <div class="hmscreens-wrap">
+        <div class="lg-arch hmscreens" id="hmScreens" tabindex="0" role="region" aria-label="HungerMap 2.0 external screens, scroll horizontally to browse">
+        <figure class="hmshot new hmscreen">
           <div class="hmshot-bar"><span class="hmshot-t">After · Food security, global</span><span class="hmshot-pill">One headline metric, drivers and hotspots at a glance</span></div>
           <img src="assets/hungermap/hm2-food-global.webp" alt="HungerMap 2.0 global food security view: 319M headline, projected hunger hotspots, key drivers of insecurity donut, famine-risk panel and a clean light choropleth map" loading="lazy" decoding="async" tabindex="0" onclick="hmZoom(1)">
         </figure>
-        <figure class="hmshot new">
+        <figure class="hmshot new hmscreen">
           <div class="hmshot-bar"><span class="hmshot-t">After · Country drill-down</span><span class="hmshot-pill">Region-level data + forecast</span></div>
           <img src="assets/hungermap/hm2-food-country.webp" alt="HungerMap 2.0 country view of Cameroon: terrain map with region markers, Adamawa region selected with trend chart, forecast food insecurity areas and top areas ranking" loading="lazy" decoding="async" tabindex="0" onclick="hmZoom(2)">
         </figure>
-        <figure class="hmshot new">
+        <figure class="hmshot new hmscreen">
           <div class="hmshot-bar"><span class="hmshot-t">After · Climate &amp; hazards</span><span class="hmshot-pill">Live alerts, hazard exposure</span></div>
           <img src="assets/hungermap/hm2-climate.webp" alt="HungerMap 2.0 climate and hazards view: 21M people exposed to climate stress, hazard exposure summary, live earthquake alert and hazard icons on the world map" loading="lazy" decoding="async" tabindex="0" onclick="hmZoom(3)">
         </figure>
-        <figure class="hmshot new">
+        <figure class="hmshot new hmscreen">
           <div class="hmshot-bar"><span class="hmshot-t">After · Conflicts &amp; displacements</span><span class="hmshot-pill">Projected conflict hotspots</span></div>
           <img src="assets/hungermap/hm2-conflict.webp" alt="HungerMap 2.0 conflicts and displacements view: 319M people exposed to conflicts, projected conflict hotspots, type of conflict events breakdown and choropleth map" loading="lazy" decoding="async" tabindex="0" onclick="hmZoom(4)">
         </figure>
-        <figure class="hmshot new">
+        <figure class="hmshot new hmscreen">
           <div class="hmshot-bar"><span class="hmshot-t">After · Economic drivers</span><span class="hmshot-pill">Food inflation, ranked and mapped</span></div>
           <img src="assets/hungermap/hm2-economic.webp" alt="HungerMap 2.0 economic drivers view: 219M people living in countries with high food inflation, top 10 countries ranking and inflation choropleth map" loading="lazy" decoding="async" tabindex="0" onclick="hmZoom(5)">
         </figure>
-        <figure class="hmshot new">
+        <figure class="hmshot new hmscreen">
           <div class="hmshot-bar"><span class="hmshot-t">After · Nutrition, global</span><span class="hmshot-pill">Micronutrient inadequacy by country</span></div>
           <img src="assets/hungermap/hm2-nutrition-global.webp" alt="HungerMap 2.0 dietary micronutrient inadequacy view: percentage range of people at risk, country ranking, nutrient filters for folate, iron, zinc and vitamins" loading="lazy" decoding="async" tabindex="0" onclick="hmZoom(6)">
         </figure>
-        <figure class="hmshot new">
+        <figure class="hmshot new hmscreen">
           <div class="hmshot-bar"><span class="hmshot-t">After · Nutrition, country</span><span class="hmshot-pill">Region-level nutrient breakdown</span></div>
           <img src="assets/hungermap/hm2-nutrition-country.webp" alt="HungerMap 2.0 nutrition country view of Cameroon: risk of inadequate micronutrient intake by region on a terrain map with per-nutrient percentages" loading="lazy" decoding="async" tabindex="0" onclick="hmZoom(7)">
         </figure>
         </div>
-        <div class="hmcar-nav"><span class="hmcar-count" id="hmCarCount">1 / 7</span><div class="hmcar-btns"><button class="hmcar-btn" type="button" aria-label="Previous screen" onclick="hmCarNav(-1)">←</button><button class="hmcar-btn" type="button" aria-label="Next screen" onclick="hmCarNav(1)">→</button></div></div>
+        <div class="hmscreens-bar"><span class="hmscreens-hint">Scroll, drag or use the arrows to explore &rarr;</span><div class="hmscreens-nav"><button class="hmscreens-btn" type="button" aria-label="Previous screen" onclick="lgScroll(-1,'hmScreens')">&larr;</button><button class="hmscreens-btn" type="button" aria-label="Next screen" onclick="lgScroll(1,'hmScreens')">&rarr;</button></div></div>
         <p class="hm-disc"><svg width="13" height="13" viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="6.5" r="5.6" stroke="currentColor" stroke-width="1.1"/><path d="M6.5 5.6v3.2M6.5 4.1v.05" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg><span><b>Design demonstration.</b> All figures, countries and rankings shown are placeholder data used to illustrate the interface, not real WFP operational data.</span></p>
       </div>
       <figure class="hmshot new wide hminternal">
@@ -1732,24 +1737,33 @@ function scrollToSection(id){
     else el.scrollIntoView({behavior:'smooth'});
   },(_wipe&&!_reduce)?460:160);
 }
-/* ── Reusable gallery lightbox (single images and multi-image sets share one component) ── */
-var _jvSteps=[130,190,260,340], _jvIdx=1, _jvTrigger=null;
+/* ── Reusable gallery lightbox: opens fit-to-screen (whole image + margins), zooms up to native resolution only ── */
+var _jvScales=[1], _jvIdx=0, _jvNatW=0, _jvNatH=0, _jvTrigger=null;
 var _jvItems=null, _jvI=0, _jvChange=null;
-function _jvApply(){document.getElementById('jview-img').style.width=_jvSteps[_jvIdx]+'vw';}
+function _jvBuild(){
+  if(!_jvNatW||!_jvNatH){_jvScales=[1];return;}
+  var fit=Math.min(window.innerWidth*0.92/_jvNatW, window.innerHeight*0.86/_jvNatH, 1);
+  var arr=[fit], s=fit;
+  while(s<0.999 && arr.length<7){ s=Math.min(1, s*1.7); arr.push(s); }
+  _jvScales=arr;
+}
+function _jvApply(){
+  var img=document.getElementById('jview-img');
+  if(!_jvNatW)return;
+  if(_jvIdx>=_jvScales.length)_jvIdx=_jvScales.length-1;
+  img.style.width=Math.round(_jvNatW*(_jvScales[_jvIdx]||_jvScales[0]))+'px';
+  img.style.height='auto';
+  document.getElementById('jview').classList.toggle('zoomed', _jvIdx>0);
+}
 function _jvShow(){
   var it=_jvItems[_jvI];
   var img=document.getElementById('jview-img');
-  var tune=function(){
-    var a=img.naturalWidth/Math.max(img.naturalHeight,1);
-    _jvSteps = a>2.8 ? [130,190,260,340] : a>1.2 ? [90,130,180,240] : [60,90,120,160];
-    if(_jvIdx>=_jvSteps.length)_jvIdx=1;
-    _jvApply();
-  };
+  var tune=function(){ _jvNatW=img.naturalWidth||1; _jvNatH=img.naturalHeight||1; _jvBuild(); _jvIdx=0; _jvApply(); };
   img.onload=tune;
-  img.src=it.src;img.alt=it.alt||it.label||'';
+  img.onclick=function(){ var v=document.getElementById('jview'); if(!v.classList.contains('fit'))return; if(_jvIdx>=_jvScales.length-1){_jvIdx=0;_jvApply();} else jvZoom(1); };
+  _jvNatW=0; img.style.width=''; img.src=it.src; img.alt=it.alt||it.label||'';
   if(img.complete&&img.naturalWidth>0)tune();
   document.getElementById('jview-cap').textContent=it.label||'';
-  _jvIdx=1;_jvApply();
   var p=document.getElementById('jview-pane');p.scrollLeft=0;p.scrollTop=0;
   document.getElementById('jv-count').textContent=(_jvI+1)+' / '+_jvItems.length;
   document.getElementById('jv-dots').innerHTML=_jvItems.map(function(_,i){return '<span'+(i===_jvI?' class="on"':'')+'></span>';}).join('');
@@ -1759,6 +1773,7 @@ function jvGallery(items,i,onChange){
   _jvTrigger=document.activeElement;
   var v=document.getElementById('jview');
   v.classList.toggle('single',items.length<2);
+  v.classList.add('fit');
   _jvShow();
   v.classList.add('open');
   document.body.style.overflow='hidden';
@@ -1779,27 +1794,6 @@ var HM_SHOTS=[
   {src:'assets/hungermap/hm2-internal-dashboard.webp',label:'After, Internal dashboard, work in progress'}
 ];
 function hmZoom(i){jvGallery(HM_SHOTS.map(function(s){return{src:s.src,label:s.label,alt:s.label};}),i);}
-/* External screens carousel: arrows, drag (with click suppression), position counter */
-function hmCarNav(dir){
-  var el=document.getElementById('hmCar');if(!el)return;
-  var w=el.querySelector('.hmshot');var step=(w?w.getBoundingClientRect().width:600)+16;
-  el.scrollBy({left:dir*step,behavior:'smooth'});
-}
-(function(){
-  var el=document.getElementById('hmCar');if(!el)return;
-  var count=document.getElementById('hmCarCount');
-  var n=el.querySelectorAll('.hmshot').length;
-  el.addEventListener('scroll',function(){
-    var w=el.querySelector('.hmshot');var step=(w?w.getBoundingClientRect().width:600)+16;
-    var i=Math.min(n,Math.max(1,Math.round(el.scrollLeft/step)+1));
-    if(count)count.textContent=i+' / '+n;
-  },{passive:true});
-  var down=false,sx=0,sl=0,moved=false;
-  el.addEventListener('pointerdown',function(e){down=true;moved=false;sx=e.clientX;sl=el.scrollLeft;el.classList.add('dragging');});
-  el.addEventListener('pointermove',function(e){if(!down)return;var dx=e.clientX-sx;if(Math.abs(dx)>5)moved=true;el.scrollLeft=sl-dx;});
-  ['pointerup','pointerleave','pointercancel'].forEach(function(ev){el.addEventListener(ev,function(){down=false;el.classList.remove('dragging');});});
-  el.addEventListener('click',function(e){if(moved){e.stopPropagation();e.preventDefault();moved=false;}},true);
-})();
 /* Floating dataviz widgets lightbox */
 var HMW=[
   {src:'assets/hungermap/widget_1.webp',label:'Key drivers of insecurity'},
@@ -1900,24 +1894,30 @@ function jvNav(d){
   if(_jvChange)_jvChange(_jvI);
 }
 function jvClose(){
-  var v=document.getElementById('jview');v.classList.remove('open','page','proj');
+  var v=document.getElementById('jview');v.classList.remove('open','page','proj','fit','zoomed');
   _pjKey=null;
-  var img=document.getElementById('jview-img');img.style.width='';img.style.maxWidth='';img.style.height='';img.style.margin='';
+  var img=document.getElementById('jview-img');img.style.width='';img.style.maxWidth='';img.style.height='';img.style.margin='';img.onclick=null;
   document.body.style.overflow='';
   if(lenis)lenis.start();
   if(_jvTrigger&&_jvTrigger.focus)_jvTrigger.focus();
 }
 function jvZoom(d){
+  var v=document.getElementById('jview');
+  if(!v.classList.contains('fit'))return;
   var p=document.getElementById('jview-pane');
   var cx=(p.scrollLeft+p.clientWidth/2)/Math.max(p.scrollWidth,1);
   var cy=(p.scrollTop+p.clientHeight/2)/Math.max(p.scrollHeight,1);
-  _jvIdx=Math.max(0,Math.min(_jvSteps.length-1,_jvIdx+d));
+  _jvIdx=Math.max(0,Math.min(_jvScales.length-1,_jvIdx+d));
   _jvApply();
   requestAnimationFrame(function(){
     p.scrollLeft=cx*p.scrollWidth-p.clientWidth/2;
     p.scrollTop=cy*p.scrollHeight-p.clientHeight/2;
   });
 }
+window.addEventListener('resize',function(){
+  var v=document.getElementById('jview');
+  if(v&&v.classList.contains('open')&&v.classList.contains('fit')&&_jvNatW){_jvBuild();_jvApply();}
+});
 document.addEventListener('keydown',function(e){
   var v=document.getElementById('jview');
   if(!v||!v.classList.contains('open'))return;
@@ -2028,7 +2028,7 @@ dpRender();
 /* Horizontal archives (legacy + home preview): arrows, mouse drag, horizontal-only wheel (never traps page scroll) */
 window.lgScroll=function(d,id){
   var el=id?document.getElementById(id):document.querySelector('.lg-arch');if(!el)return;
-  var c=el.querySelector('.la-tile,.lg-card');var g=parseFloat(getComputedStyle(el).columnGap)||24;
+  var c=el.querySelector('.la-tile,.lg-card,.hmscreen');var g=parseFloat(getComputedStyle(el).columnGap)||24;
   var w=c?c.getBoundingClientRect().width+g:360;el.scrollBy({left:d*w,behavior:'smooth'});
 };
 (function(){
@@ -2036,7 +2036,10 @@ window.lgScroll=function(d,id){
     el.addEventListener('wheel',function(e){
       if(el.scrollWidth<=el.clientWidth)return;
       var d=Math.abs(e.deltaY)>=Math.abs(e.deltaX)?e.deltaY:e.deltaX;
-      var max=el.scrollWidth-el.clientWidth, next=Math.max(0,Math.min(max,el.scrollLeft+d));
+      var max=el.scrollWidth-el.clientWidth;
+      // release at the edges (1px tolerance) so the page never gets trapped
+      if((d>0 && el.scrollLeft>=max-1)||(d<0 && el.scrollLeft<=1))return;
+      var next=Math.max(0,Math.min(max,el.scrollLeft+d));
       if(next!==el.scrollLeft){el.scrollLeft=next;e.preventDefault();e.stopPropagation();}
     },{passive:false});
     var down=false,sx=0,sl=0,moved=false;
