@@ -818,7 +818,7 @@ body.has-cursor, body.has-cursor *{cursor:none;}
 .hm-hero img{width:min(100%,960px);margin:0 auto;display:block;cursor:zoom-in;transition:transform .4s var(--ease);}
 .hm-hero img:hover{transform:translateY(-4px) scale(1.01);}
 /* HungerMap before/after comparison slider */
-.hmcmp{position:relative;width:min(100%,1040px);margin:26px auto 0;aspect-ratio:1.8;border-radius:12px;overflow:hidden;border:var(--b);--pos:50%;}
+.hmcmp{position:relative;width:min(100%,1400px);margin:26px auto 0;aspect-ratio:1.8;border-radius:12px;overflow:hidden;border:var(--b);--pos:50%;}
 .hmcmp img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;user-select:none;-webkit-user-drag:none;}
 .hmcmp-beforewrap{position:absolute;inset:0;clip-path:inset(0 calc(100% - var(--pos)) 0 0);}
 .hmcmp-handle{position:absolute;top:0;bottom:0;left:var(--pos);width:2px;margin-left:-1px;background:#fff;box-shadow:0 0 16px rgba(0,0,0,.5);pointer-events:none;z-index:2;}
@@ -840,10 +840,41 @@ body.has-cursor, body.has-cursor *{cursor:none;}
 .hmshot img{width:100%;display:block;cursor:zoom-in;transition:transform .35s var(--ease);}
 .hmshot img:hover{transform:scale(1.012);}
 .hmshot-notes{padding:12px 14px;display:flex;flex-wrap:wrap;gap:6px 16px;border-top:var(--b);}
-.hmgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
-.hmgrid .wide{grid-column:1/-1;}
+/* External screens carousel */
+.hmcar-wrap{position:relative;}
+.hmcar{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x proximity;padding-bottom:6px;cursor:grab;scrollbar-width:none;}
+.hmcar::-webkit-scrollbar{display:none;}
+.hmcar.dragging{cursor:grabbing;scroll-snap-type:none;}
+.hmcar .hmshot{flex:0 0 min(82%,860px);scroll-snap-align:start;}
+.hmcar-nav{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:14px;}
+.hmcar-count{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:rgba(168,216,234,.5);}
+.hmcar-btns{display:flex;gap:8px;}
+.hmcar-btn{width:38px;height:38px;border-radius:50%;border:var(--b);background:rgba(168,216,234,.05);color:var(--ice);font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .25s,border-color .25s,color .25s;}
+.hmcar-btn:hover{background:var(--teal);border-color:var(--teal);color:#fff;}
+/* Floating dataviz widgets, dual drifting bands */
+.hmw{margin-top:30px;}
+.hmw-title{font-family:var(--serif);font-size:clamp(20px,2.2vw,26px);color:#fff;font-weight:400;margin-bottom:8px;}
+.hmw-sub{font-size:14px;color:var(--slate);line-height:1.7;max-width:620px;}
+.hmw-band{overflow:hidden;margin-top:20px;}
+.hmw-band+.hmw-band{margin-top:4px;}
+.hmw-track{display:flex;width:max-content;animation:hmwL 75s linear infinite;padding:14px 0;}
+.hmw-band.rev .hmw-track{animation:hmwR 85s linear infinite;}
+.hmw-band:hover .hmw-track{animation-play-state:paused;}
+@keyframes hmwL{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes hmwR{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+.hmw-card{flex:0 0 auto;margin-right:16px;border-radius:14px;cursor:zoom-in;transition:transform .35s var(--ease);}
+.hmw-card:nth-child(odd){transform:translateY(8px);}
+.hmw-card:hover{transform:translateY(-5px) scale(1.03);}
+.hmw-card img{height:290px;width:auto;display:block;border-radius:14px;box-shadow:0 16px 32px -18px rgba(0,0,0,.65);}
+.hmw-note{display:flex;align-items:flex-start;gap:10px;margin-top:18px;font-size:13px;color:var(--slate);line-height:1.6;max-width:640px;}
+.hmw-note svg{flex-shrink:0;margin-top:2px;}
+.hmw-cta{margin-top:28px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;padding:20px 22px;border:var(--b);border-radius:12px;background:rgba(0,159,218,.05);}
+.hmw-cta p{font-size:14px;color:rgba(234,244,248,.75);line-height:1.6;max-width:560px;}
+.hmw-btn{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#fff;background:var(--teal);border-radius:30px;padding:11px 20px;text-decoration:none;white-space:nowrap;transition:background .25s;}
+.hmw-btn:hover{background:#009FDA;}
 .ugrid.u3{grid-template-columns:repeat(3,1fr);}
-@media (max-width:880px){.hmgrid{grid-template-columns:1fr;}.ugrid.u3{grid-template-columns:1fr;}}
+@media (max-width:880px){.ugrid.u3{grid-template-columns:1fr;}.hmcar .hmshot{flex-basis:88%;}.hmw-card img{height:225px;}}
+@media (prefers-reduced-motion:reduce){.hmw-track{animation:none!important;}.hmw-band{overflow-x:auto;}}
 
 /* ═════════════ V14 — CBT: highlighted findings · Ukraine pager module ═════════════ */
 .jfind{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:18px 0 44px;}
@@ -1289,10 +1320,11 @@ body.on-case .readbar{opacity:1;}
   <section class="sec alt">
     <span class="ey">The new platform, real screens</span>
     <h2 class="st">From one dense dashboard to a guided, thematic platform.</h2>
-    <p style="font-size:14px;color:var(--slate);line-height:1.7;max-width:620px;margin-bottom:8px;">The old HungerMap packed alerts, layers and legends into a single dark screen built for analysts. The redesign opens with one clear headline metric, organises the data into five thematic areas (food security, nutrition, climate, conflict, economy) and lets every audience drill from global to region level. These are the actual screens, click any of them to zoom.</p>
+    <p style="font-size:14px;color:var(--slate);line-height:1.7;max-width:620px;margin-bottom:8px;">The old HungerMap packed alerts, layers and legends into a single dark screen built for analysts. The redesign opens with one clear headline metric, organises the data into five thematic areas (food security, nutrition, climate, conflict, economy) and lets every audience drill from global to region level. These are the actual screens: browse the carousel, click any screen to zoom.</p>
     <div class="hmba">
-      <div class="hmgrid">
-        <figure class="hmshot new wide">
+      <div class="hmcar-wrap">
+        <div class="hmcar" id="hmCar">
+        <figure class="hmshot new">
           <div class="hmshot-bar"><span class="hmshot-t">After · Food security, global</span><span class="hmshot-pill">One headline metric, drivers and hotspots at a glance</span></div>
           <img src="assets/hungermap/hm2-food-global.webp" alt="HungerMap 2.0 global food security view: 319M headline, projected hunger hotspots, key drivers of insecurity donut, famine-risk panel and a clean light choropleth map" loading="lazy" decoding="async" tabindex="0" onclick="hmZoom(1)">
         </figure>
@@ -1320,11 +1352,62 @@ body.on-case .readbar{opacity:1;}
           <div class="hmshot-bar"><span class="hmshot-t">After · Nutrition, country</span><span class="hmshot-pill">Region-level nutrient breakdown</span></div>
           <img src="assets/hungermap/hm2-nutrition-country.webp" alt="HungerMap 2.0 nutrition country view of Cameroon: risk of inadequate micronutrient intake by region on a terrain map with per-nutrient percentages" loading="lazy" decoding="async" tabindex="0" onclick="hmZoom(7)">
         </figure>
-        <figure class="hmshot new wide">
-          <div class="hmshot-bar"><span class="hmshot-t">After · Internal dashboard, work in progress</span><span class="hmshot-pill">Forecasts, alerts and reports for WFP analysts</span></div>
+        </div>
+        <div class="hmcar-nav"><span class="hmcar-count" id="hmCarCount">1 / 7</span><div class="hmcar-btns"><button class="hmcar-btn" type="button" aria-label="Previous screen" onclick="hmCarNav(-1)">←</button><button class="hmcar-btn" type="button" aria-label="Next screen" onclick="hmCarNav(1)">→</button></div></div>
+      </div>
+      <figure class="hmshot new wide">
+        <div class="hmshot-bar"><span class="hmshot-t">After · Internal dashboard, work in progress</span><span class="hmshot-pill">Forecasts, alerts and reports for WFP analysts</span></div>
           <img src="assets/hungermap/hm2-internal-dashboard.webp" alt="HungerMap 2.0 internal dashboard, work in progress: analysis and statistics navigation with forecast summary, 30 days outlook, statistical explainability, reports, alerts and an external view switch" loading="lazy" decoding="async" tabindex="0" onclick="hmZoom(8)">
           <figcaption class="hmshot-notes"><div class="un"><div class="undot"></div>Same data backbone, expert tooling: forecast summary, 30-day outlook, statistical explainability</div><div class="un"><div class="undot"></div>Alerts and reports in one place</div><div class="un"><div class="undot"></div>One click to the external view</div></figcaption>
         </figure>
+      <div class="hmw">
+        <p class="hmw-title">Data visualisation, rebuilt <em style="color:var(--gold);font-style:italic;">widget by widget.</em></p>
+        <p class="hmw-sub">Every indicator became a modular card with one job: rankings, drivers, trends, hotspots. Hover to pause the flow, click any widget to zoom.</p>
+        <div class="hmw-band">
+          <div class="hmw-track">
+            <div class="hmw-card"><img src="assets/hungermap/widget_1.webp" alt="Key drivers of insecurity widget: donut chart, conflicts 47%, economic shocks 31%, climate 22%" loading="lazy" decoding="async" onclick="hmwZoom(0)"></div>
+            <div class="hmw-card"><img src="assets/hungermap/widget_9.webp" alt="Global needs numbers over time widget with activate-on-map toggle" loading="lazy" decoding="async" onclick="hmwZoom(1)"></div>
+            <div class="hmw-card"><img src="assets/hungermap/widget_hotspots.webp" alt="Projected hunger hotspots widget with activate-on-map toggle: Haiti, Mali, Palestine" loading="lazy" decoding="async" onclick="hmwZoom(2)"></div>
+            <div class="hmw-card"><img src="assets/hungermap/widget_14.webp" alt="Global inflation over time widget, monthly bars for 2024 and 2025" loading="lazy" decoding="async" onclick="hmwZoom(3)"></div>
+            <div class="hmw-card"><img src="assets/hungermap/widget_2.webp" alt="Top 10 countries by number of people in crisis or above, with activate-on-map toggle" loading="lazy" decoding="async" onclick="hmwZoom(4)"></div>
+            <div class="hmw-card"><img src="assets/hungermap/widget_8.webp" alt="Current hazard exposure summary widget: droughts, typhoons, floods, earthquakes, cyclones" loading="lazy" decoding="async" onclick="hmwZoom(5)"></div>
+            <div class="hmw-card"><img src="assets/hungermap/widget_11.webp" alt="Top 5 countries with exchange rate issues, with activate-on-map toggle" loading="lazy" decoding="async" onclick="hmwZoom(6)"></div>
+            <div class="hmw-card"><img src="assets/hungermap/widget_6.webp" alt="Percentage range of micronutrient inadequacy widget: folate, iron, zinc, vitamin A and B12" loading="lazy" decoding="async" onclick="hmwZoom(7)"></div>
+            <div class="hmw-card" aria-hidden="true"><img src="assets/hungermap/widget_1.webp" alt="" loading="lazy" decoding="async" onclick="hmwZoom(0)"></div>
+            <div class="hmw-card" aria-hidden="true"><img src="assets/hungermap/widget_9.webp" alt="" loading="lazy" decoding="async" onclick="hmwZoom(1)"></div>
+            <div class="hmw-card" aria-hidden="true"><img src="assets/hungermap/widget_hotspots.webp" alt="" loading="lazy" decoding="async" onclick="hmwZoom(2)"></div>
+            <div class="hmw-card" aria-hidden="true"><img src="assets/hungermap/widget_14.webp" alt="" loading="lazy" decoding="async" onclick="hmwZoom(3)"></div>
+            <div class="hmw-card" aria-hidden="true"><img src="assets/hungermap/widget_2.webp" alt="" loading="lazy" decoding="async" onclick="hmwZoom(4)"></div>
+            <div class="hmw-card" aria-hidden="true"><img src="assets/hungermap/widget_8.webp" alt="" loading="lazy" decoding="async" onclick="hmwZoom(5)"></div>
+            <div class="hmw-card" aria-hidden="true"><img src="assets/hungermap/widget_11.webp" alt="" loading="lazy" decoding="async" onclick="hmwZoom(6)"></div>
+            <div class="hmw-card" aria-hidden="true"><img src="assets/hungermap/widget_6.webp" alt="" loading="lazy" decoding="async" onclick="hmwZoom(7)"></div>
+          </div>
+        </div>
+        <div class="hmw-band rev">
+          <div class="hmw-track">
+            <div class="hmw-card"><img src="assets/hungermap/widget_10.webp" alt="People exposed to conflict events vs previous month widget: 83.4M vs 75.6M, explore data button" loading="lazy" decoding="async" onclick="hmwZoom(8)"></div>
+            <div class="hmw-card"><img src="assets/hungermap/widget_4.webp" alt="Top 10 countries with high food inflation, with activate-on-map toggle" loading="lazy" decoding="async" onclick="hmwZoom(9)"></div>
+            <div class="hmw-card"><img src="assets/hungermap/widget_7.webp" alt="Type of conflict events widget: repression, insurgency, atrocities, terrorism" loading="lazy" decoding="async" onclick="hmwZoom(10)"></div>
+            <div class="hmw-card"><img src="assets/hungermap/widget_13.webp" alt="Risk of inadequate micronutrient intake by countries, ranked list" loading="lazy" decoding="async" onclick="hmwZoom(11)"></div>
+            <div class="hmw-card"><img src="assets/hungermap/widget_15.webp" alt="Disaster trends over time widget, monthly comparison 2024 vs 2025" loading="lazy" decoding="async" onclick="hmwZoom(12)"></div>
+            <div class="hmw-card"><img src="assets/hungermap/widget_3.webp" alt="Top 10 countries with people close to conflict events, with activate-on-map toggle" loading="lazy" decoding="async" onclick="hmwZoom(13)"></div>
+            <div class="hmw-card"><img src="assets/hungermap/widget_12.webp" alt="Countries with the lowest MFI score widget" loading="lazy" decoding="async" onclick="hmwZoom(14)"></div>
+            <div class="hmw-card"><img src="assets/hungermap/widget_5.webp" alt="Top 10 countries by people living in stressed crop areas, with activate-on-map toggle" loading="lazy" decoding="async" onclick="hmwZoom(15)"></div>
+            <div class="hmw-card" aria-hidden="true"><img src="assets/hungermap/widget_10.webp" alt="" loading="lazy" decoding="async" onclick="hmwZoom(8)"></div>
+            <div class="hmw-card" aria-hidden="true"><img src="assets/hungermap/widget_4.webp" alt="" loading="lazy" decoding="async" onclick="hmwZoom(9)"></div>
+            <div class="hmw-card" aria-hidden="true"><img src="assets/hungermap/widget_7.webp" alt="" loading="lazy" decoding="async" onclick="hmwZoom(10)"></div>
+            <div class="hmw-card" aria-hidden="true"><img src="assets/hungermap/widget_13.webp" alt="" loading="lazy" decoding="async" onclick="hmwZoom(11)"></div>
+            <div class="hmw-card" aria-hidden="true"><img src="assets/hungermap/widget_15.webp" alt="" loading="lazy" decoding="async" onclick="hmwZoom(12)"></div>
+            <div class="hmw-card" aria-hidden="true"><img src="assets/hungermap/widget_3.webp" alt="" loading="lazy" decoding="async" onclick="hmwZoom(13)"></div>
+            <div class="hmw-card" aria-hidden="true"><img src="assets/hungermap/widget_12.webp" alt="" loading="lazy" decoding="async" onclick="hmwZoom(14)"></div>
+            <div class="hmw-card" aria-hidden="true"><img src="assets/hungermap/widget_5.webp" alt="" loading="lazy" decoding="async" onclick="hmwZoom(15)"></div>
+          </div>
+        </div>
+        <div class="hmw-note"><svg width="30" height="16" viewBox="0 0 30 16" fill="none"><rect x="1" y="1" width="28" height="14" rx="7" fill="rgba(0,159,218,.25)" stroke="#009FDA"/><circle cx="22" cy="8" r="5" fill="#009FDA"/></svg><span>Many of these widgets carry an <b style="color:var(--ice);font-weight:500;">Activate on map</b> toggle: switch it on and the widget's dataset overlays the world map as a live, interactive layer, rankings, hotspots and needs you can explore geographically.</span></div>
+        <div class="hmw-cta">
+          <p>The current HungerMap LIVE is public and running today, while 2.0 moves through development. Explore the platform this redesign builds on.</p>
+          <a class="hmw-btn" href="https://hungermap.wfp.org" target="_blank" rel="noopener">Open HungerMap LIVE ↗</a>
+        </div>
       </div>
     </div>
   </section>
@@ -1682,6 +1765,47 @@ var HM_SHOTS=[
   {src:'assets/hungermap/hm2-internal-dashboard.webp',label:'After, Internal dashboard, work in progress'}
 ];
 function hmZoom(i){jvGallery(HM_SHOTS.map(function(s){return{src:s.src,label:s.label,alt:s.label};}),i);}
+/* External screens carousel: arrows, drag (with click suppression), position counter */
+function hmCarNav(dir){
+  var el=document.getElementById('hmCar');if(!el)return;
+  var w=el.querySelector('.hmshot');var step=(w?w.getBoundingClientRect().width:600)+16;
+  el.scrollBy({left:dir*step,behavior:'smooth'});
+}
+(function(){
+  var el=document.getElementById('hmCar');if(!el)return;
+  var count=document.getElementById('hmCarCount');
+  var n=el.querySelectorAll('.hmshot').length;
+  el.addEventListener('scroll',function(){
+    var w=el.querySelector('.hmshot');var step=(w?w.getBoundingClientRect().width:600)+16;
+    var i=Math.min(n,Math.max(1,Math.round(el.scrollLeft/step)+1));
+    if(count)count.textContent=i+' / '+n;
+  },{passive:true});
+  var down=false,sx=0,sl=0,moved=false;
+  el.addEventListener('pointerdown',function(e){down=true;moved=false;sx=e.clientX;sl=el.scrollLeft;el.classList.add('dragging');});
+  el.addEventListener('pointermove',function(e){if(!down)return;var dx=e.clientX-sx;if(Math.abs(dx)>5)moved=true;el.scrollLeft=sl-dx;});
+  ['pointerup','pointerleave','pointercancel'].forEach(function(ev){el.addEventListener(ev,function(){down=false;el.classList.remove('dragging');});});
+  el.addEventListener('click',function(e){if(moved){e.stopPropagation();e.preventDefault();moved=false;}},true);
+})();
+/* Floating dataviz widgets lightbox */
+var HMW=[
+  {src:'assets/hungermap/widget_1.webp',label:'Key drivers of insecurity'},
+  {src:'assets/hungermap/widget_9.webp',label:'Global needs numbers over time, activates on the map'},
+  {src:'assets/hungermap/widget_hotspots.webp',label:'Projected hunger hotspots, activates on the map'},
+  {src:'assets/hungermap/widget_14.webp',label:'Global inflation over time'},
+  {src:'assets/hungermap/widget_2.webp',label:'Top 10 countries by people in crisis or above, activates on the map'},
+  {src:'assets/hungermap/widget_8.webp',label:'Current hazard exposure summary'},
+  {src:'assets/hungermap/widget_11.webp',label:'Top 5 countries with exchange rate issues, activates on the map'},
+  {src:'assets/hungermap/widget_6.webp',label:'Percentage range of micronutrient inadequacy'},
+  {src:'assets/hungermap/widget_10.webp',label:'People exposed to conflict events vs previous month'},
+  {src:'assets/hungermap/widget_4.webp',label:'Top 10 countries with high food inflation, activates on the map'},
+  {src:'assets/hungermap/widget_7.webp',label:'Type of conflict events'},
+  {src:'assets/hungermap/widget_13.webp',label:'Risk of inadequate micronutrient intake by countries'},
+  {src:'assets/hungermap/widget_15.webp',label:'Disaster trends over time'},
+  {src:'assets/hungermap/widget_3.webp',label:'Top 10 countries with people close to conflict events, activates on the map'},
+  {src:'assets/hungermap/widget_12.webp',label:'Countries with the lowest MFI score'},
+  {src:'assets/hungermap/widget_5.webp',label:'Top 10 countries by people in stressed crop areas, activates on the map'}
+];
+function hmwZoom(i){jvGallery(HMW.map(function(s){return{src:s.src,label:s.label,alt:s.label};}),i);}
 /* Before/after comparison slider: the invisible full-size range input drives --pos */
 (function(){
   var c=document.getElementById('hmCmp');if(!c)return;
