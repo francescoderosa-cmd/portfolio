@@ -875,10 +875,20 @@ body.has-cursor, body.has-cursor *{cursor:none;}
 .pp-form-scroll{flex:1 1 auto;min-height:0;overflow-y:auto;background:#0b6ab8;scrollbar-width:thin;}
 .pp-form-scroll img{width:100%;display:block;cursor:zoom-in;}
 .pp-form-cap{text-align:center;font-family:var(--mono);font-size:11px;letter-spacing:.04em;color:rgba(168,216,234,.5);margin-top:12px;}
-.pp-field{display:grid;grid-template-columns:minmax(0,680px) 210px;gap:clamp(20px,3vw,40px);align-items:center;justify-content:center;margin-top:26px;}
-.pp-field-photo img{width:100%;display:block;border-radius:14px;border:var(--b);box-shadow:0 20px 40px -24px rgba(0,0,0,.6);cursor:zoom-in;}
-.pp-field-photo figcaption{font-family:var(--mono);font-size:10.5px;letter-spacing:.03em;color:rgba(168,216,234,.5);margin-top:10px;}
-@media(max-width:820px){.pp-field{grid-template-columns:1fr;justify-items:center;}}
+/* Testimonial spotlight, one contextual quote per case study */
+.testi{padding:clamp(34px,5vw,64px) clamp(24px,5vw,64px) clamp(10px,2vw,24px);}
+.testi-inner{position:relative;max-width:840px;margin:0 auto;padding:clamp(32px,4.2vw,52px) clamp(26px,4.5vw,58px) clamp(26px,3.4vw,42px);border:1px solid rgba(168,216,234,.16);border-radius:16px;background:linear-gradient(160deg,rgba(45,125,154,.12),rgba(21,48,63,.5));overflow:hidden;}
+.testi-inner::before{content:"";position:absolute;top:0;left:6%;right:6%;height:1px;background:linear-gradient(90deg,transparent,rgba(227,162,74,.8),transparent);background-size:200% 100%;animation:tshine 7s linear infinite;}
+@keyframes tshine{from{background-position:200% 0}to{background-position:-200% 0}}
+.testi-mark{position:absolute;top:2px;left:16px;font-family:var(--serif);font-size:118px;line-height:1;color:var(--gold);opacity:.2;pointer-events:none;animation:tbreathe 5.5s ease-in-out infinite;}
+@keyframes tbreathe{0%,100%{opacity:.14;transform:none}50%{opacity:.3;transform:translateY(-4px)}}
+.testi-quote{position:relative;font-family:var(--serif);font-weight:400;font-size:clamp(19px,2.2vw,26px);line-height:1.5;color:#EAF4F8;}
+.testi-who{display:flex;align-items:center;gap:14px;margin-top:24px;}
+.testi-ava{flex:0 0 auto;width:44px;height:44px;border-radius:50%;background:rgba(227,162,74,.13);border:1px solid rgba(227,162,74,.45);color:var(--gold);font-family:var(--mono);font-size:13px;letter-spacing:.05em;display:flex;align-items:center;justify-content:center;}
+.testi-name{font-size:14.5px;font-weight:500;color:#fff;}
+.testi-role{font-size:12.5px;color:var(--slate);margin-top:2px;}
+.testi-ph{position:absolute;top:14px;right:16px;font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:rgba(227,162,74,.8);border:1px solid rgba(227,162,74,.35);border-radius:20px;padding:3px 10px;}
+@media(prefers-reduced-motion:reduce){.testi-inner::before,.testi-mark{animation:none;}}
 /* SRA field guidance videos, side by side, muted loop */
 .pp-videos{display:grid;grid-template-columns:1fr 1fr;gap:clamp(16px,2.4vw,30px);max-width:1040px;margin:26px auto 0;}
 .pp-vwrap{display:flex;flex-direction:column;}
@@ -1316,6 +1326,14 @@ body.on-case .readbar{opacity:1;}
     <div class="rgrid"><div class="rcard"><p class="rnum">01</p><div class="rhead"><div class="ricon"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><rect x="2" y="3" width="11" height="9" rx="2" stroke="#A8D8EA" stroke-width="1.2"/><path d="M5 7.5h5M5 10h4" stroke="#A8D8EA" stroke-width="1.2" stroke-linecap="round"/></svg></div><p class="rtitle">Digital transformation</p></div><p class="rtext">Mobile data collection, e-signatures, automated SMS, digital audit trails. From 69 days to near-real-time.</p><div class="rchips"><span class="rchip">KoBoToolbox</span><span class="rchip">SMS automation</span><span class="rchip">E-signatures</span></div></div><div class="rcard"><p class="rnum">02</p><div class="rhead"><div class="ricon"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M7.5 1.5L9 5h3.5L9.8 7.2l.8 3.3-3.1-1.9-3.1 1.9.8-3.3L2.5 5H6L7.5 1.5z" stroke="#A8D8EA" stroke-width="1.2" stroke-linejoin="round"/></svg></div><p class="rtitle">Assurance &amp; controls</p></div><p class="rtext">Data protection protocols, FSP reconciliation, digital paysheet transmission.</p><div class="rchips"><span class="rchip">Data privacy</span><span class="rchip">FSP reconciliation</span></div></div><div class="rcard"><p class="rnum">03</p><div class="rhead"><div class="ricon"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><rect x="2" y="2" width="11" height="11" rx="2" stroke="#A8D8EA" stroke-width="1.2"/><path d="M5 7.5h5M7.5 5v5" stroke="#A8D8EA" stroke-width="1.2" stroke-linecap="round"/></svg></div><p class="rtitle">Maximise existing tools</p></div><p class="rtext">BMIS has case management, but staff barely use it. Capacity building before new investment.</p><div class="rchips"><span class="rchip">BMIS adoption</span><span class="rchip">Staff training</span></div></div><div class="rcard"><p class="rnum">04</p><div class="rhead"><div class="ricon"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="5.5" stroke="#A8D8EA" stroke-width="1.2"/><path d="M7.5 5v2.5l1.5 1.5" stroke="#A8D8EA" stroke-width="1.2" stroke-linecap="round"/></svg></div><p class="rtitle">Coverage &amp; exit strategy</p></div><p class="rtext">Expand to Carriacou and Petite Martinique. Link SEED to livelihoods.</p><div class="rchips"><span class="rchip">Island expansion</span><span class="rchip">Livelihood link</span></div></div></div>
   </section>
   <div class="istrip"><span class="ey-l">Impact</span><p class="st-l">Why this work matters.</p><div class="igrid"><div class="iitem"><p class="ibig">2</p><p class="ilbl">national programmes<br>fully mapped</p></div><div class="iitem"><p class="ibig">38+</p><p class="ilbl">process steps<br>documented</p></div><div class="iitem"><p class="ibig">6</p><p class="ilbl">systemic gaps<br>identified &amp; addressed</p></div><div class="iitem"><p class="ibig">50+</p><p class="ilbl">people interviewed<br>beneficiaries &amp; ministry staff</p></div></div></div>
+  <div class="testi reveal" aria-label="Testimonial, placeholder">
+    <figure class="testi-inner">
+      <span class="testi-ph">Placeholder</span>
+      <span class="testi-mark" aria-hidden="true">“</span>
+      <blockquote class="testi-quote">A short testimonial from the people behind this project will appear here.</blockquote>
+      <figcaption class="testi-who"><span class="testi-ava">··</span><span><p class="testi-name">Full name</p><p class="testi-role">Ministry of Social Development · Government of Grenada</p></span></figcaption>
+    </figure>
+  </div>
   <div class="next-cs"><div><span class="next-lbl">Next case study</span><p class="next-title">HungerMap, prediction engine.</p></div><button class="next-btn" onclick="showPage('hungermap')">View next →</button></div>
 </div>
 
@@ -1486,7 +1504,7 @@ body.on-case .readbar{opacity:1;}
       <div class="tli"><div class="tldot" style="background:#E1F5EE;color:#085041">1</div><div><p class="tldate">Jul – Dec 2024</p><p class="tltitle">Workshops &amp; dual-audience architecture</p><p class="tltext">Facilitated workshops with country officers in Yemen, Nigeria, and Cameroon. Defined the dual-audience architecture, confirmed MVP features and Google.org requirements.</p><div class="tlchips"><span class="tlchip">Workshops</span><span class="tlchip">Requirements</span><span class="tlchip">Audience mapping</span><span class="tlchip">Roadmap V1→V3</span></div></div></div>
       <div class="tli"><div class="tldot" style="background:#E6F1FB;color:#0C447C">2</div><div><p class="tldate">Dec 2024 – Jan 2025</p><p class="tltitle">UX Research, critical user journeys for both audiences</p><p class="tltext">Mapped the distinct needs and mental models of both audiences. For the external audience: how do donors and governments go from awareness to action? For VAM Officers: how do they move from data to a resource allocation decision in under 2 minutes?</p><div class="tlchips"><span class="tlchip">UX research</span><span class="tlchip">Critical user journeys</span><span class="tlchip">UX highlights report</span></div></div></div>
       <div class="tli"><div class="tldot" style="background:#FAEEDA;color:#633806">3</div><div><p class="tldate">Jan – Feb 2025</p><p class="tltitle">UI design leadership, Figma production</p><p class="tltext">Led the UI production of both platform versions: visual system respecting WFP brand and Google.org requirements, typography, data visualisation colours, component library, admin drill-down interactions.</p><div class="tlchips"><span class="tlchip">Figma prototype</span><span class="tlchip">WFP brand compliance</span><span class="tlchip">Google.org integration</span><span class="tlchip">Component library</span></div></div></div>
-      <div class="tli"><div class="tldot" style="background:#1B3A4B;color:#A8D8EA">4</div><div><p class="tldate">Mar 2025</p><p class="tltitle">Usability testing, 3 country offices</p><p class="tltext">Structured testing of both platform versions in Nigeria, Yemen, and Cameroon with WFP Heads of Programme, VAM Officers, and Activity Managers.</p><div class="tlchips"><span class="tlchip">Nigeria · Yemen · Cameroon</span><span class="tlchip">15+ participants</span><span class="tlchip">Both audiences tested</span></div></div></div>
+      <div class="tli"><div class="tldot" style="background:#F3E4EC;color:#7C2B55">4</div><div><p class="tldate">Mar 2025</p><p class="tltitle">Usability testing, 3 country offices</p><p class="tltext">Structured testing of both platform versions in Nigeria, Yemen, and Cameroon with WFP Heads of Programme, VAM Officers, and Activity Managers.</p><div class="tlchips"><span class="tlchip">Nigeria · Yemen · Cameroon</span><span class="tlchip">15+ participants</span><span class="tlchip">Both audiences tested</span></div></div></div>
       <div class="tli" style="padding-bottom:0"><div class="tldot" style="background:#E3F5FC;color:#0C447C">5</div><div><p class="tldate">Aug – Oct 2025</p><p class="tltitle">UI &amp; DataViz finalisation, bridge to development</p><p class="tltext">Directed the finalisation of the interface with a dedicated UI &amp; DataViz designer and Google design partners: interactive behaviour, data presentation logic, and the design hand-off to front-end development.</p><div class="tlchips"><span class="tlchip">Design direction</span><span class="tlchip">DataViz components</span><span class="tlchip">Google design partners</span><span class="tlchip">Dev hand-off</span></div></div></div>
     </div>
   </section>
@@ -1506,6 +1524,14 @@ body.on-case .readbar{opacity:1;}
       <div class="iitem"><p class="ibig">Custom</p><p class="ilbl">dashboards each country<br>office can shape</p></div>
       <div class="iitem"><p class="ibig">Zero</p><p class="ilbl">empty widgets, core data<br>always populated</p></div>
     </div>
+  </div>
+  <div class="testi reveal" aria-label="Testimonial, placeholder">
+    <figure class="testi-inner">
+      <span class="testi-ph">Placeholder</span>
+      <span class="testi-mark" aria-hidden="true">“</span>
+      <blockquote class="testi-quote">A short testimonial from the people behind this project will appear here.</blockquote>
+      <figcaption class="testi-who"><span class="testi-ava">··</span><span><p class="testi-name">Full name</p><p class="testi-role">HungerMap team · WFP HQ</p></span></figcaption>
+    </figure>
   </div>
   <div class="next-cs"><div><span class="next-lbl">Next case study</span><p class="next-title">People Portal, a form everyone can use.</p></div><button class="next-btn" onclick="showPage('people')">View next →</button></div>
 </div>
@@ -1583,16 +1609,12 @@ body.on-case .readbar{opacity:1;}
     <span class="ey">From emergency response to product</span>
     <h2 class="st">Born in an emergency, in Gaza.</h2>
     <p class="hm-lead">The People Portal began as the <b>Self Registration App (SRA)</b>, built fast to answer the emergency in Gaza, families registered the moment they needed it, often by scanning a QR code at a distribution point. As the response matured, SRA grew into the People Portal, adding a registered-user space to <b>update location, bank and payment details, manage household members and apply to newly eligible programmes</b>.</p>
-    <figure class="pp-journey reveal"><img src="assets/people-portal/pp-saima-journey.webp" width="1800" height="1013" alt="Saima's journey: the identity-management steps in the Gaza emergency, from finding WFP on social media and signing up with a link, through SMS notifications and cashing out, to updating her location each time her family is displaced" loading="lazy" decoding="async" onclick="ppZoom(11)"><figcaption>Saima's journey, the SRA registration and cash-out steps in the Gaza emergency (persona illustration).</figcaption></figure>
+    <figure class="pp-journey reveal"><img src="assets/people-portal/pp-saima-journey.webp" width="1800" height="1013" alt="Saima's journey: the identity-management steps in the Gaza emergency, from finding WFP on social media and signing up with a link, through SMS notifications and cashing out, to updating her location each time her family is displaced" loading="lazy" decoding="async" onclick="ppZoom(9)"><figcaption>Saima's journey, the SRA registration and cash-out steps in the Gaza emergency (persona illustration).</figcaption></figure>
     <div class="pp-videos" id="ppVideos">
       <div class="pp-vwrap"><div class="pp-vframe"><video id="ppVidEn" muted loop playsinline preload="metadata" poster="assets/people-portal/pp-gaza-landing.webp" aria-label="Self Registration App field guidance, English"><source src="assets/people-portal/pp-sra-update-en.mp4" type="video/mp4"></video></div><p class="pp-vcap">English</p></div>
       <div class="pp-vwrap" id="ppVidArWrap"><div class="pp-vframe"><video id="ppVidAr" muted loop playsinline preload="metadata" poster="assets/people-portal/pp-gaza-landing.webp" aria-label="Self Registration App field guidance, Arabic"><source src="assets/people-portal/pp-sra-update-ar.mp4" type="video/mp4"></video></div><p class="pp-vcap">Arabic</p></div>
     </div>
     <p class="pp-form-cap">Field guidance for the Self Registration App, how to update your location when displaced. Shared on WFP's channels, shown muted and looping.</p>
-    <div class="pp-field">
-      <figure class="pp-field-photo"><img src="assets/people-portal/pp-qr-gaza.webp" alt="A person self-registering for WFP assistance by scanning a QR code poster at a distribution point in Gaza" loading="lazy" decoding="async" onclick="ppZoom(10)"><figcaption>Self-registering by QR code at a distribution point in Gaza. Photo: WFP</figcaption></figure>
-      <div class="pp-phonebox"><div class="pp-phone" onclick="ppZoom(9)"><img src="assets/people-portal/pp-gaza-landing.webp" alt="Self Registration App entry screen used in Gaza, in Arabic" loading="lazy" decoding="async"></div><p class="pp-phone-cap">Self Registration App (SRA), Gaza</p></div>
-    </div>
   </section>
 
   <section class="sec">
@@ -1616,6 +1638,14 @@ body.on-case .readbar{opacity:1;}
     </div>
   </div>
 
+  <div class="testi reveal" aria-label="Testimonial, placeholder">
+    <figure class="testi-inner">
+      <span class="testi-ph">Placeholder</span>
+      <span class="testi-mark" aria-hidden="true">“</span>
+      <blockquote class="testi-quote">A short testimonial from the people behind this project will appear here.</blockquote>
+      <figcaption class="testi-who"><span class="testi-ava">··</span><span><p class="testi-name">Full name</p><p class="testi-role">Supply Chain, Identity Management · WFP</p></span></figcaption>
+    </figure>
+  </div>
   <div class="next-cs"><div><span class="next-lbl">Next case study</span><p class="next-title">Designing for dignity in crisis.</p></div><button class="next-btn" onclick="showPage('cbt')">View next →</button></div>
 </div>
 
@@ -1734,6 +1764,14 @@ body.on-case .readbar{opacity:1;}
   </section>
 
   <div class="istrip"><span class="ey-l">Impact</span><p class="st-l">Designing for programmes that reach millions.</p><div class="igrid"><div class="iitem"><p class="ibig">5</p><p class="ilbl">countries in<br>active crisis</p></div><div class="iitem"><p class="ibig">6</p><p class="ilbl">lived experiences<br>from the field</p></div><div class="iitem"><p class="ibig">Global</p><p class="ilbl">framework adopted<br>by WFP CBT teams</p></div><div class="iitem"><p class="ibig">Real</p><p class="ilbl">every insight<br>from field interviews</p></div></div></div>
+  <div class="testi reveal" aria-label="Testimonial, placeholder">
+    <figure class="testi-inner">
+      <span class="testi-ph">Placeholder</span>
+      <span class="testi-mark" aria-hidden="true">“</span>
+      <blockquote class="testi-quote">A short testimonial from the people behind this project will appear here.</blockquote>
+      <figcaption class="testi-who"><span class="testi-ava">··</span><span><p class="testi-name">Full name</p><p class="testi-role">Cash-Based Transfers division · WFP</p></span></figcaption>
+    </figure>
+  </div>
   <div class="next-cs"><div><span class="next-lbl">Next case study</span><p class="next-title">CashBook App, field operations tool.</p></div><button class="next-btn" onclick="showPage('cashbook')">View next →</button></div>
 </div>
 
@@ -1798,6 +1836,14 @@ body.on-case .readbar{opacity:1;}
   </section>
 
   <div class="istrip"><span class="ey-l">The concept in one sentence</span><p class="st-l" style="max-width:600px;margin-bottom:0">"A practical tool for your daily work activities that can support you on a laptop or on your mobile phone while working live with your team."</p></div>
+  <div class="testi reveal" aria-label="Testimonial, placeholder">
+    <figure class="testi-inner">
+      <span class="testi-ph">Placeholder</span>
+      <span class="testi-mark" aria-hidden="true">“</span>
+      <blockquote class="testi-quote">A short testimonial from the people behind this project will appear here.</blockquote>
+      <figcaption class="testi-who"><span class="testi-ava">··</span><span><p class="testi-name">Full name</p><p class="testi-role">WFP Country Office colleague</p></span></figcaption>
+    </figure>
+  </div>
   <div class="next-cs"><div><span class="next-lbl">View legacy work</span><p class="next-title">Prada, Edenred, TIM, and more.</p></div><button class="next-btn" onclick="showPage('legacy')">View all →</button></div>
 </div>
 
@@ -1979,8 +2025,6 @@ var PP_SHOTS=[
   {src:'assets/people-portal/pp-m-welcome.webp',label:'Mobile, welcome'},
   {src:'assets/people-portal/pp-m-access.webp',label:'Mobile, identify yourself'},
   {src:'assets/people-portal/pp-m-consent.webp',label:'Mobile, consent to data collection and use'},
-  {src:'assets/people-portal/pp-gaza-landing.webp',label:'Self Registration App (SRA), Gaza (Arabic)'},
-  {src:'assets/people-portal/pp-qr-gaza.webp',label:'Self-registering by QR code in Gaza. Photo: WFP'},
   {src:'assets/people-portal/pp-saima-journey.webp',label:'Saima’s journey, the SRA steps in the Gaza emergency (persona illustration)'}
 ];
 function ppZoom(i){jvGallery(PP_SHOTS.map(function(s){return{src:s.src,label:s.label,alt:s.label};}),i);}
