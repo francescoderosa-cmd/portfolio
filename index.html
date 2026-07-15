@@ -840,7 +840,7 @@ body.has-cursor, body.has-cursor *{cursor:none;}
 .hmshot img{width:100%;display:block;cursor:zoom-in;transition:transform .35s var(--ease);}
 .hmshot img:hover{transform:scale(1.012);}
 .hmshot-notes{padding:12px 14px;display:flex;flex-wrap:wrap;gap:6px 16px;border-top:var(--b);}
-.hmshot.hminternal{max-width:760px;margin-inline:auto;}
+.hmshot.hminternal{width:72%;max-width:2400px;margin-inline:auto;}
 /* External screens carousel */
 .hmcar-wrap{position:relative;}
 .hmcar{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x proximity;padding-bottom:6px;cursor:grab;scrollbar-width:none;}
@@ -881,7 +881,8 @@ body.has-cursor, body.has-cursor *{cursor:none;}
 .hmw-btn{margin-top:8px;font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#fff;background:#1B3A4B;border-radius:30px;padding:13px 26px;text-decoration:none;white-space:nowrap;transition:background .25s,transform .25s;}
 .hmw-btn:hover{background:#122938;transform:translateY(-2px);}
 .ugrid.u3{grid-template-columns:repeat(3,1fr);}
-@media (max-width:880px){.ugrid.u3{grid-template-columns:1fr;}.hmcar .hmshot{flex-basis:88%;}.hmw-card img{height:225px;}.hmshot.hminternal{max-width:100%;}}
+@media (max-width:1200px){.hmshot.hminternal{width:92%;}}
+@media (max-width:880px){.ugrid.u3{grid-template-columns:1fr;}.hmcar .hmshot{flex-basis:88%;}.hmw-card img{height:225px;}.hmshot.hminternal{width:100%;}}
 @media (prefers-reduced-motion:reduce){.hmw-track{animation:none!important;}.hmw-band{overflow-x:auto;}}
 
 /* ═════════════ V14 — CBT: highlighted findings · Ukraine pager module ═════════════ */
@@ -1369,6 +1370,7 @@ body.on-case .readbar{opacity:1;}
           <img src="assets/hungermap/hm2-internal-dashboard.webp" alt="HungerMap 2.0 internal dashboard, work in progress: analysis and statistics navigation with forecast summary, 30 days outlook, statistical explainability, reports, alerts and an external view switch" loading="lazy" decoding="async" tabindex="0" onclick="hmZoom(8)">
           <figcaption class="hmshot-notes"><div class="un"><div class="undot"></div>Same data backbone, expert tooling: forecast summary, 30-day outlook, statistical explainability</div><div class="un"><div class="undot"></div>Alerts and reports in one place</div><div class="un"><div class="undot"></div>One click to the external view</div></figcaption>
         </figure>
+        <p class="hm-disc" style="justify-content:center;"><svg width="13" height="13" viewBox="0 0 13 13" fill="none"><rect x="2.4" y="6" width="8.2" height="5.4" rx="1" stroke="currentColor" stroke-width="1.1"/><path d="M4.3 6V4.6a2.2 2.2 0 0 1 4.4 0V6" stroke="currentColor" stroke-width="1.1"/></svg><span><b>Access restricted.</b> The internal dashboard is available to WFP staff only.</span></p>
       <div class="hmw">
         <p class="hmw-title">Data visualisation, rebuilt <em style="color:var(--gold);font-style:italic;">widget by widget.</em></p>
         <p class="hmw-sub">Every indicator became a modular card with one job: rankings, drivers, trends, hotspots. Hover to pause the flow, click any widget to zoom.</p>
