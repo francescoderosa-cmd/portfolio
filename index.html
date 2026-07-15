@@ -817,6 +817,17 @@ body.has-cursor, body.has-cursor *{cursor:none;}
 @media (max-width:700px){.deckgrid{grid-template-columns:1fr;}}
 .hm-hero img{width:min(100%,960px);margin:0 auto;display:block;cursor:zoom-in;transition:transform .4s var(--ease);}
 .hm-hero img:hover{transform:translateY(-4px) scale(1.01);}
+/* HungerMap before/after comparison slider */
+.hmcmp{position:relative;width:min(100%,1040px);margin:26px auto 0;aspect-ratio:1.8;border-radius:12px;overflow:hidden;border:var(--b);--pos:50%;}
+.hmcmp img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;user-select:none;-webkit-user-drag:none;}
+.hmcmp-beforewrap{position:absolute;inset:0;clip-path:inset(0 calc(100% - var(--pos)) 0 0);}
+.hmcmp-handle{position:absolute;top:0;bottom:0;left:var(--pos);width:2px;margin-left:-1px;background:#fff;box-shadow:0 0 16px rgba(0,0,0,.5);pointer-events:none;z-index:2;}
+.hmcmp-handle span{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:40px;height:40px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;gap:3px;box-shadow:0 4px 16px rgba(0,0,0,.4);}
+.hmcmp-tag{position:absolute;top:12px;z-index:2;font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:4px 11px;border-radius:20px;pointer-events:none;transition:opacity .25s var(--ease);}
+.hmcmp-tag-b{left:12px;background:rgba(10,21,32,.78);color:var(--ice);}
+.hmcmp-tag-a{right:12px;background:rgba(0,159,218,.88);color:#fff;}
+.hmcmp input[type=range]{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0;z-index:3;-webkit-appearance:none;appearance:none;}
+.hmcmp-hint{display:block;text-align:center;font-family:var(--mono);font-size:11px;letter-spacing:.04em;color:rgba(168,216,234,.5);margin-top:12px;}
 /* HungerMap real before/after gallery */
 .hmba{display:flex;flex-direction:column;gap:18px;margin-top:26px;}
 .hmshot{border-radius:12px;overflow:hidden;border:var(--b);background:rgba(168,216,234,.03);}
@@ -1224,11 +1235,17 @@ body.on-case .readbar{opacity:1;}
   </div>
 
   <section class="sec">
-    <span class="ey">The redesigned platform</span>
-    <h2 class="st">One map, rebuilt for two audiences.</h2>
-    <div class="hm-hero reveal">
-      <img src="assets/hungermap/hm-mockup.webp" alt="Laptop mockup of the redesigned HungerMap: Global Acute Food Insecurity view with 319M headline figure, key drivers of insecurity, top 10 countries and an IPC choropleth world map" loading="lazy" decoding="async" tabindex="0" onclick="jvOpen('assets/hungermap/hm-mockup.webp','HungerMap 2.0, redesigned UI')">
+    <span class="ey">The redesign, before / after</span>
+    <h2 class="st">One platform, rebuilt. Drag to compare.</h2>
+    <div class="hmcmp reveal" id="hmCmp">
+      <img class="hmcmp-after" src="assets/hungermap/hm2-food-global.webp" alt="After: HungerMap 2.0 homepage, light thematic UI with one headline metric, key drivers and hunger hotspots" decoding="async">
+      <div class="hmcmp-beforewrap"><img class="hmcmp-before" src="assets/hungermap/hm1-old-global.webp" alt="Before: previous HungerMap LIVE homepage, dark map with alert dots, layers and legends all at once" decoding="async"></div>
+      <div class="hmcmp-handle"><span><svg width="16" height="12" viewBox="0 0 16 12" fill="none"><path d="M5 1L1 6l4 5M11 1l4 5-4 5" stroke="#1B3A4B" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+      <span class="hmcmp-tag hmcmp-tag-b">Before · HungerMap LIVE</span>
+      <span class="hmcmp-tag hmcmp-tag-a">After · HungerMap 2.0</span>
+      <input type="range" min="0" max="100" value="50" step="0.5" aria-label="Compare the old and the new HungerMap homepage">
     </div>
+    <span class="hmcmp-hint">Drag the handle, or use arrow keys, to compare the two homepages</span>
   </section>
 
   <section class="sec alt">
@@ -1270,15 +1287,10 @@ body.on-case .readbar{opacity:1;}
   </section>
 
   <section class="sec alt">
-    <span class="ey">Before / after, the real screens</span>
+    <span class="ey">The new platform, real screens</span>
     <h2 class="st">From one dense dashboard to a guided, thematic platform.</h2>
     <p style="font-size:14px;color:var(--slate);line-height:1.7;max-width:620px;margin-bottom:8px;">The old HungerMap packed alerts, layers and legends into a single dark screen built for analysts. The redesign opens with one clear headline metric, organises the data into five thematic areas (food security, nutrition, climate, conflict, economy) and lets every audience drill from global to region level. These are the actual screens, click any of them to zoom.</p>
     <div class="hmba">
-      <figure class="hmshot">
-        <div class="hmshot-bar"><span class="hmshot-t">Before, HungerMap LIVE</span><span class="hmshot-pill">One screen, everything at once</span></div>
-        <img src="assets/hungermap/hm1-old-global.webp" alt="The previous HungerMap LIVE: dark world map with conflict and climate alert dots, choropleth layer, legends and layer icons all shown at once" loading="lazy" decoding="async" tabindex="0" onclick="hmZoom(0)">
-        <figcaption class="hmshot-notes"><div class="un"><div class="undot"></div>Alert dots, choropleth and legends compete on one view</div><div class="un"><div class="undot"></div>Expert language, no hierarchy or guidance</div><div class="un"><div class="undot"></div>One version for every audience</div></figcaption>
-      </figure>
       <div class="hmgrid">
         <figure class="hmshot new wide">
           <div class="hmshot-bar"><span class="hmshot-t">After · Food security, global</span><span class="hmshot-pill">One headline metric, drivers and hotspots at a glance</span></div>
@@ -1670,6 +1682,18 @@ var HM_SHOTS=[
   {src:'assets/hungermap/hm2-internal-dashboard.webp',label:'After, Internal dashboard, work in progress'}
 ];
 function hmZoom(i){jvGallery(HM_SHOTS.map(function(s){return{src:s.src,label:s.label,alt:s.label};}),i);}
+/* Before/after comparison slider: the invisible full-size range input drives --pos */
+(function(){
+  var c=document.getElementById('hmCmp');if(!c)return;
+  var r=c.querySelector('input[type=range]');
+  var tb=c.querySelector('.hmcmp-tag-b'), ta=c.querySelector('.hmcmp-tag-a');
+  function set(){
+    c.style.setProperty('--pos',r.value+'%');
+    if(tb)tb.style.opacity=r.value<12?'0':'1';
+    if(ta)ta.style.opacity=r.value>88?'0':'1';
+  }
+  r.addEventListener('input',set);set();
+})();
 /* full-page mode: fit image to width, scroll vertically through the whole screen */
 function jvSite(src,label,maxw){
   _jvItems=null;_jvTrigger=document.activeElement;
