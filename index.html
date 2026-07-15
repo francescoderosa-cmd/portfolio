@@ -887,6 +887,9 @@ body.has-cursor, body.has-cursor *{cursor:none;}
 .pp-vcap{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:rgba(168,216,234,.55);text-align:center;margin-top:9px;}
 .pp-videos.solo{grid-template-columns:1fr;max-width:600px;}
 @media(max-width:640px){.pp-videos{grid-template-columns:1fr;}}
+.pp-journey{max-width:1100px;margin:26px auto 0;}
+.pp-journey img{width:100%;height:auto;display:block;border-radius:14px;border:var(--b);box-shadow:0 20px 40px -24px rgba(0,0,0,.6);cursor:zoom-in;}
+.pp-journey figcaption{text-align:center;font-family:var(--mono);font-size:10.5px;letter-spacing:.04em;color:rgba(168,216,234,.5);margin-top:11px;}
 .pp-phones{display:flex;gap:clamp(16px,2.6vw,34px);flex-wrap:wrap;justify-content:center;margin-top:28px;}
 .pp-phonebox{display:flex;flex-direction:column;}
 .pp-phone{flex:0 0 auto;width:clamp(190px,22vw,250px);border-radius:22px;overflow:hidden;border:5px solid #0d1b24;box-shadow:0 22px 44px -22px rgba(0,0,0,.6);cursor:zoom-in;transition:transform .35s var(--ease);}
@@ -1610,6 +1613,7 @@ body.on-case .readbar{opacity:1;}
     <span class="ey">From emergency response to product</span>
     <h2 class="st">Born in an emergency, in Gaza.</h2>
     <p class="hm-lead">The People Portal began as the <b>Self Registration App (SRA)</b>, built fast to answer the emergency in Gaza so families could register for assistance the moment they needed it, often by scanning a QR code at a distribution point. As the response matured, SRA grew into the People Portal, adding a full space for registered people to <b>update their location, bank and payment details, manage their household members and apply to new programmes</b> they become eligible for, much of which stays confidential.</p>
+    <figure class="pp-journey reveal"><img src="assets/people-portal/pp-saima-journey.webp" width="1800" height="1013" alt="Saima's journey: the identity-management steps in the Gaza emergency, from finding WFP on social media and signing up with a link, through SMS notifications and cashing out, to updating her location each time her family is displaced" loading="lazy" decoding="async" onclick="ppZoom(11)"><figcaption>Saima's journey, the SRA registration and cash-out steps in the Gaza emergency (persona illustration).</figcaption></figure>
     <div class="pp-videos" id="ppVideos">
       <div class="pp-vwrap"><div class="pp-vframe"><video id="ppVidEn" muted loop playsinline preload="metadata" poster="assets/people-portal/pp-gaza-landing.webp" aria-label="Self Registration App field guidance, English"><source src="assets/people-portal/pp-sra-update-en.mp4" type="video/mp4"></video></div><p class="pp-vcap">English</p></div>
       <div class="pp-vwrap" id="ppVidArWrap"><div class="pp-vframe"><video id="ppVidAr" muted loop playsinline preload="metadata" poster="assets/people-portal/pp-gaza-landing.webp" aria-label="Self Registration App field guidance, Arabic"><source src="assets/people-portal/pp-sra-update-ar.mp4" type="video/mp4"></video></div><p class="pp-vcap">Arabic</p></div>
@@ -2007,7 +2011,8 @@ var PP_SHOTS=[
   {src:'assets/people-portal/pp-m-access.webp',label:'Mobile, identify yourself'},
   {src:'assets/people-portal/pp-m-consent.webp',label:'Mobile, consent to data collection and use'},
   {src:'assets/people-portal/pp-gaza-landing.webp',label:'Self Registration App (SRA), Gaza (Arabic)'},
-  {src:'assets/people-portal/pp-qr-gaza.webp',label:'Self-registering by QR code in Gaza. Photo: WFP'}
+  {src:'assets/people-portal/pp-qr-gaza.webp',label:'Self-registering by QR code in Gaza. Photo: WFP'},
+  {src:'assets/people-portal/pp-saima-journey.webp',label:'Saima’s journey, the SRA steps in the Gaza emergency (persona illustration)'}
 ];
 function ppZoom(i){jvGallery(PP_SHOTS.map(function(s){return{src:s.src,label:s.label,alt:s.label};}),i);}
 /* SRA guidance videos: play only when in view (saves the download), muted loop, EN/AR kept in sync.
