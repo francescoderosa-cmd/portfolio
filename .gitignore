@@ -13,11 +13,13 @@ assets/**/*.png
 assets/*.zip
 
 # raw video and source photos dropped into people-portal — keep local, NEVER publish
-# (only the optimised pp-*.webp are served)
+# (only the optimised pp-*.webp are served), EXCEPT the two public WFP SRA guidance videos
 assets/**/*.mp4
 assets/**/*.mov
 assets/people-portal/*.jpg
 assets/people-portal/*.jpeg
+!assets/people-portal/pp-sra-update-en.mp4
+!assets/people-portal/pp-sra-update-ar.mp4
 
 # working material dropped into assets, never publish archives
 assets/*.zip
