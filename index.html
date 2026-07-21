@@ -2397,8 +2397,12 @@ window.lgScroll=function(d,id){
 (function(){
   document.querySelectorAll('.lg-arch').forEach(function(el){
     el.addEventListener('wheel',function(e){
-      // wheel inside a scrollable mockup scrolls the mockup, never the strip
-      if(e.target.closest&&e.target.closest('.mock-scroll,.phone-scroll'))return;
+      // wheel inside a scrollable mockup scrolls the mockup first; once the page inside
+      // is exhausted in that direction, hand the motion over to the horizontal strip
+      var frame=e.target.closest&&e.target.closest('.mock-scroll,.phone-scroll');
+      if(frame&&Math.abs(e.deltaY)>=Math.abs(e.deltaX)){
+        if((e.deltaY>0&&frame.scrollTop<frame.scrollHeight-frame.clientHeight-1)||(e.deltaY<0&&frame.scrollTop>1))return;
+      }
       if(el.scrollWidth<=el.clientWidth)return;
       var d=Math.abs(e.deltaY)>=Math.abs(e.deltaX)?e.deltaY:e.deltaX;
       var max=el.scrollWidth-el.clientWidth;
