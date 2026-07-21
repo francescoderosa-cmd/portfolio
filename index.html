@@ -918,6 +918,17 @@ body.has-cursor, body.has-cursor *{cursor:none;}
 .prscreens .hmscreen img{aspect-ratio:auto;height:auto;object-fit:initial;object-position:initial;}
 .phone-scroll{aspect-ratio:9/18.6;overflow-y:auto;scrollbar-width:none;background:#fff;}
 .phone-scroll::-webkit-scrollbar{display:none;}
+/* Prada UX: journey architecture + key flows */
+.puxj{display:flex;gap:6px;margin-top:28px;}
+.puxj-ph{flex:1;min-width:0;padding:18px 15px 16px;border-radius:10px;}
+.puxj-l{font-family:var(--mono);font-size:10px;letter-spacing:.08em;color:var(--gold);display:block;margin-bottom:7px;}
+.puxj-name{font-family:var(--serif);font-size:clamp(16px,1.6vw,21px);color:#fff;font-weight:400;margin-bottom:7px;}
+.puxj-t{font-size:12px;line-height:1.5;color:rgba(234,244,248,.7);}
+.puxj-axis{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-family:var(--mono);font-size:10.5px;letter-spacing:.05em;color:rgba(168,216,234,.5);margin-top:12px;}
+.puxflow{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-top:12px;font-family:var(--mono);font-size:10.5px;color:var(--ice);}
+.puxflow span{padding:3px 9px;border:1px solid rgba(168,216,234,.25);border-radius:20px;white-space:nowrap;}
+.puxflow i{font-style:normal;color:rgba(168,216,234,.45);}
+@media(max-width:880px){.puxj{flex-direction:column;}}
 .fdoc{display:grid;grid-template-columns:230px 1fr;gap:clamp(26px,4vw,52px);align-items:center;margin-top:30px;max-width:900px;}
 .fdoc-card{position:relative;width:100%;aspect-ratio:3/4;border-radius:10px;background:linear-gradient(160deg,#f8f6f2,#e9e5de);box-shadow:0 26px 46px -24px rgba(0,0,0,.6);padding:24px 20px;overflow:hidden;}
 .fdoc-line{height:7px;border-radius:4px;background:rgba(27,58,75,.15);margin-bottom:9px;}
@@ -1889,6 +1900,26 @@ body.on-case .readbar{opacity:1;}
   </section>
 
   <section class="sec">
+    <span class="ey">The UX beneath the surface</span>
+    <h2 class="st">One journey, mapped template by template.</h2>
+    <p class="hm-lead">The redesign started from an AS-IS mapping of the existing site, then rebuilt the experience as a system: every page belongs to one of <b>28 numbered template families</b>, each serving a precise stage of the journey. The architecture below is reconstructed from the delivered design files, L01 to L28.</p>
+    <div class="puxj" role="img" aria-label="Journey architecture: five stages mapped to the 28 template families">
+      <div class="puxj-ph" style="background:#256981"><span class="puxj-l">L03 · L13–L14</span><p class="puxj-name">Discover</p><p class="puxj-t">Homepage, Stories and editorial articles</p></div>
+      <div class="puxj-ph" style="background:#1F5A70"><span class="puxj-l">L05–L11</span><p class="puxj-name">Browse</p><p class="puxj-t">Navigation levels, category, sub-category, listing</p></div>
+      <div class="puxj-ph" style="background:#1A4B5E"><span class="puxj-l">L04 · L08</span><p class="puxj-name">Decide</p><p class="puxj-t">Product page, zoom and Total Look</p></div>
+      <div class="puxj-ph" style="background:#143B4A"><span class="puxj-l">L20–L24</span><p class="puxj-name">Buy</p><p class="puxj-t">Search, shopping bag, checkout, orders and returns</p></div>
+      <div class="puxj-ph" style="background:#0E2E3C"><span class="puxj-l">L12 · L15–L19</span><p class="puxj-name">Own</p><p class="puxj-t">Wardrobe, profile, agenda and store locator</p></div>
+    </div>
+    <div class="puxj-axis"><span>Plus access and support families: login, reset, FAQs, legal (L01–L02, L25–L28)</span><span>Every screen in this case study belongs to one of these stages</span></div>
+    <p class="hm-sub-k" style="margin-top:36px;">Three flows carried the strategy</p>
+    <div class="hm-cards3">
+      <div class="hm-card"><p class="hm-k">01 · The editorial funnel</p><p class="hm-h">From runway to bag</p><p>Every story, show and campaign can end in a purchase without ever feeling like a shop.</p><div class="puxflow"><span>Runway look</span><i>→</i><span>Shop by Look</span><i>→</i><span>Product</span><i>→</i><span>Bag</span></div></div>
+      <div class="hm-card"><p class="hm-k">02 · Frictionless checkout</p><p class="hm-h">Guest or account, three steps</p><p>Checkout welcomes guests without an account and resolves in three numbered steps.</p><div class="puxflow"><span>Guest / account</span><i>→</i><span>Shipping</span><i>→</i><span>Gift</span><i>→</i><span>Payment</span></div></div>
+      <div class="hm-card"><p class="hm-k">03 · The ownership loop</p><p class="hm-h">From wishlist to the maison</p><p>The Wardrobe separates desire from ownership, and hands both to a personal shopper in boutique.</p><div class="puxflow"><span>What I desire</span><i>→</i><span>What I own</span><i>→</i><span>Boutique appointment</span></div></div>
+    </div>
+  </section>
+
+  <section class="sec alt">
     <span class="ey">The screens, desktop</span>
     <h2 class="st">From story to checkout.</h2>
     <p style="font-size:14px;color:var(--slate);line-height:1.7;max-width:900px;margin-bottom:8px;">Five moments of the shipped design, as delivered. Scroll the strip sideways, hover a mockup and scroll to browse the full page inside it, or click to open it in the viewer.</p>
@@ -1905,7 +1936,7 @@ body.on-case .readbar{opacity:1;}
     </div>
   </section>
 
-  <section class="sec alt">
+  <section class="sec">
     <span class="ey">Mobile</span>
     <h2 class="st">The same couture, in one hand.</h2>
     <p style="font-size:14px;color:var(--slate);line-height:1.7;max-width:900px;margin-bottom:8px;">Every template was designed for mobile as a first-class citizen: the homepage editorial flow, the personal Wardrobe and the build-your-look experience.</p>
@@ -1916,7 +1947,7 @@ body.on-case .readbar{opacity:1;}
     </div>
   </section>
 
-  <section class="sec">
+  <section class="sec alt">
     <span class="ey">From design to development</span>
     <h2 class="st">Documented to be built.</h2>
     <p class="hm-lead">A design only counts if engineering can build it. Alongside the screens, the hand-off included <b>functional documentation</b> mapping behaviours, states and rules template by template, the working reference for the WebSphere development team.</p>
