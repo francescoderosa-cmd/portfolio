@@ -912,7 +912,12 @@ body.has-cursor, body.has-cursor *{cursor:none;}
 .ppscreens .hmscreen img{cursor:zoom-in;height:auto;}
 @media(max-width:880px){.ppscreens .hmscreen{flex-basis:84vw;}.ppscreens .hmscreen:nth-child(even){margin-top:0;}}
 /* Prada legacy case study */
-.prscreens .hmscreen img{object-position:top;}
+/* fixed-frame mockups: the full page scrolls INSIDE the frame on hover, no need to open the lightbox */
+.mock-scroll{overflow-y:auto;scrollbar-width:thin;scrollbar-color:rgba(27,58,75,.35) transparent;background:#fff;}
+.prscreens .hmscreen .mock-scroll{aspect-ratio:9/5;}
+.prscreens .hmscreen img{aspect-ratio:auto;height:auto;object-fit:initial;object-position:initial;}
+.phone-scroll{aspect-ratio:9/18.6;overflow-y:auto;scrollbar-width:none;background:#fff;}
+.phone-scroll::-webkit-scrollbar{display:none;}
 .fdoc{display:grid;grid-template-columns:230px 1fr;gap:clamp(26px,4vw,52px);align-items:center;margin-top:30px;max-width:900px;}
 .fdoc-card{position:relative;width:100%;aspect-ratio:3/4;border-radius:10px;background:linear-gradient(160deg,#f8f6f2,#e9e5de);box-shadow:0 26px 46px -24px rgba(0,0,0,.6);padding:24px 20px;overflow:hidden;}
 .fdoc-line{height:7px;border-radius:4px;background:rgba(27,58,75,.15);margin-bottom:9px;}
@@ -1584,7 +1589,7 @@ body.on-case .readbar{opacity:1;}
     </div>
     <div class="pp-form-frame reveal">
       <div class="pp-form-bar"><i></i><i></i><i></i><span>WFP People Portal · registration</span></div>
-      <div class="pp-form-scroll"><img src="assets/people-portal/pp-form.webp" alt="The People Portal registration form: personal data, gender, head-of-household, family roles as buttons, marital status, disability, principal or alternate, location, phone and email with 'I don't have' options, a 6-digit PIN and bank information" loading="lazy" decoding="async" onclick="ppZoom(5)"></div>
+      <div class="pp-form-scroll" data-lenis-prevent><img src="assets/people-portal/pp-form.webp" alt="The People Portal registration form: personal data, gender, head-of-household, family roles as buttons, marital status, disability, principal or alternate, location, phone and email with 'I don't have' options, a 6-digit PIN and bank information" loading="lazy" decoding="async" onclick="ppZoom(5)"></div>
     </div>
     <p class="pp-form-cap">The full registration form, scroll inside the frame, or click to open it full-screen. All data shown is placeholder.</p>
   </section>
@@ -1886,14 +1891,14 @@ body.on-case .readbar{opacity:1;}
   <section class="sec">
     <span class="ey">The screens, desktop</span>
     <h2 class="st">From story to checkout.</h2>
-    <p style="font-size:14px;color:var(--slate);line-height:1.7;max-width:900px;margin-bottom:8px;">Five moments of the shipped design, as delivered. Scroll the strip sideways, click any screen to open the full page.</p>
+    <p style="font-size:14px;color:var(--slate);line-height:1.7;max-width:900px;margin-bottom:8px;">Five moments of the shipped design, as delivered. Scroll the strip sideways, hover a mockup and scroll to browse the full page inside it, or click to open it in the viewer.</p>
     <div class="hmscreens-wrap">
       <div class="lg-arch hmscreens prscreens" id="prScreens" tabindex="0" role="region" aria-label="Prada.com screens, scroll horizontally to browse">
-        <figure class="hmshot new hmscreen"><div class="hmshot-bar"><span class="hmshot-t">Login &amp; campaign</span><span class="hmshot-pill">The house before the shop</span></div><img src="assets/legacy/prada-login.webp" width="1600" height="1000" alt="Prada.com login over the Prada Etiquette campaign hero" loading="lazy" decoding="async" onclick="prZoom(0)"></figure>
-        <figure class="hmshot new hmscreen"><div class="hmshot-bar"><span class="hmshot-t">Category</span><span class="hmshot-pill">Editorial category, Shop by Look</span></div><img src="assets/legacy/prada-category.webp" width="1200" height="4089" alt="Prada.com woman category page: campaign hero, handbags, shoes, Prada Cinema eyewear and Shop by Look" loading="lazy" decoding="async" onclick="prZoom(1)"></figure>
-        <figure class="hmshot new hmscreen"><div class="hmshot-bar"><span class="hmshot-t">Stories</span><span class="hmshot-pill">Runway into content</span></div><img src="assets/legacy/prada-article.webp" width="1200" height="2929" alt="Prada.com Stories article for the Pre-Fall 2017 fashion show with gallery, shoppable look and discover-more looks" loading="lazy" decoding="async" onclick="prZoom(2)"></figure>
-        <figure class="hmshot new hmscreen"><div class="hmshot-bar"><span class="hmshot-t">Product page</span><span class="hmshot-pill">Craft, story, boutique</span></div><img src="assets/legacy/prada-pdp.webp" width="1200" height="3792" alt="Prada.com product page for an embroidered velvet bag: store availability, materials, complete the look and personal shopper appointment" loading="lazy" decoding="async" onclick="prZoom(3)"></figure>
-        <figure class="hmshot new hmscreen"><div class="hmshot-bar"><span class="hmshot-t">Checkout</span><span class="hmshot-pill">Guest or account, three steps</span></div><img src="assets/legacy/prada-checkout.webp" width="1400" height="1783" alt="Prada.com checkout: returning customer and guest checkout, order summary and payment information" loading="lazy" decoding="async" onclick="prZoom(4)"></figure>
+        <figure class="hmshot new hmscreen"><div class="hmshot-bar"><span class="hmshot-t">Category</span><span class="hmshot-pill">Editorial category, Shop by Look</span></div><div class="mock-scroll" data-lenis-prevent><img src="assets/legacy/prada-category.webp" width="1200" height="4089" alt="Prada.com woman category page: campaign hero, handbags, shoes, Prada Cinema eyewear and Shop by Look" loading="lazy" decoding="async" onclick="prZoom(0)"></div></figure>
+        <figure class="hmshot new hmscreen"><div class="hmshot-bar"><span class="hmshot-t">Product listing</span><span class="hmshot-pill">The e-commerce engine</span></div><div class="mock-scroll" data-lenis-prevent><img src="assets/legacy/prada-listing.webp" width="1200" height="2143" alt="Prada.com product listing for decollete shoes: filter and sort bar, product grid with buy and wishlist actions" loading="lazy" decoding="async" onclick="prZoom(1)"></div></figure>
+        <figure class="hmshot new hmscreen"><div class="hmshot-bar"><span class="hmshot-t">Stories</span><span class="hmshot-pill">Runway into content</span></div><div class="mock-scroll" data-lenis-prevent><img src="assets/legacy/prada-article.webp" width="1200" height="2929" alt="Prada.com Stories article for the Pre-Fall 2017 fashion show with gallery, shoppable look and discover-more looks" loading="lazy" decoding="async" onclick="prZoom(2)"></div></figure>
+        <figure class="hmshot new hmscreen"><div class="hmshot-bar"><span class="hmshot-t">Product page</span><span class="hmshot-pill">Craft, story, boutique</span></div><div class="mock-scroll" data-lenis-prevent><img src="assets/legacy/prada-pdp.webp" width="1200" height="3792" alt="Prada.com product page for an embroidered velvet bag: store availability, materials, complete the look and personal shopper appointment" loading="lazy" decoding="async" onclick="prZoom(3)"></div></figure>
+        <figure class="hmshot new hmscreen"><div class="hmshot-bar"><span class="hmshot-t">Checkout</span><span class="hmshot-pill">Guest or account, three steps</span></div><div class="mock-scroll" data-lenis-prevent><img src="assets/legacy/prada-checkout.webp" width="1400" height="1783" alt="Prada.com checkout: returning customer and guest checkout, order summary and payment information" loading="lazy" decoding="async" onclick="prZoom(4)"></div></figure>
       </div>
       <div class="hmscreens-bar"><span class="hmscreens-hint">Scroll, drag or use the arrows to explore &rarr;</span><div class="hmscreens-nav"><button class="hmscreens-btn" type="button" aria-label="Previous screen" onclick="lgScroll(-1,'prScreens')">&larr;</button><button class="hmscreens-btn" type="button" aria-label="Next screen" onclick="lgScroll(1,'prScreens')">&rarr;</button></div></div>
       <p class="hm-disc" style="justify-content:center;"><svg width="13" height="13" viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="6.5" r="5.6" stroke="currentColor" stroke-width="1.1"/><path d="M6.5 5.6v3.2M6.5 4.1v.05" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg><span><b>Attribution.</b> Work produced in my role at Reply for Prada. Screens show the interface design as delivered.</span></p>
@@ -1905,9 +1910,9 @@ body.on-case .readbar{opacity:1;}
     <h2 class="st">The same couture, in one hand.</h2>
     <p style="font-size:14px;color:var(--slate);line-height:1.7;max-width:900px;margin-bottom:8px;">Every template was designed for mobile as a first-class citizen: the homepage editorial flow, the personal Wardrobe and the build-your-look experience.</p>
     <div class="pp-phones">
-      <div class="pp-phonebox"><div class="pp-phone" onclick="prZoom(5)"><img src="assets/legacy/prada-m-home.webp" alt="Prada.com mobile homepage: SS 2017 womenswear, stories, campaigns and personal shopper booking" loading="lazy" decoding="async"></div><p class="pp-phone-cap">Mobile homepage</p></div>
-      <div class="pp-phonebox"><div class="pp-phone" onclick="prZoom(6)"><img src="assets/legacy/prada-m-wardrobe.webp" alt="Prada.com mobile Wardrobe: What I desire and What I own product grids with appointment booking" loading="lazy" decoding="async"></div><p class="pp-phone-cap">Personal Wardrobe</p></div>
-      <div class="pp-phonebox"><div class="pp-phone" onclick="prZoom(7)"><img src="assets/legacy/prada-m-look.webp" alt="Prada.com mobile Total Look page: build your look by selecting the runway items" loading="lazy" decoding="async"></div><p class="pp-phone-cap">Build your look</p></div>
+      <div class="pp-phonebox"><div class="pp-phone" onclick="prZoom(5)"><div class="phone-scroll" data-lenis-prevent><img src="assets/legacy/prada-m-home.webp" alt="Prada.com mobile homepage: SS 2017 womenswear, stories, campaigns and personal shopper booking" loading="lazy" decoding="async"></div></div><p class="pp-phone-cap">Mobile homepage</p></div>
+      <div class="pp-phonebox"><div class="pp-phone" onclick="prZoom(6)"><div class="phone-scroll" data-lenis-prevent><img src="assets/legacy/prada-m-wardrobe.webp" alt="Prada.com mobile Wardrobe: What I desire and What I own product grids with appointment booking" loading="lazy" decoding="async"></div></div><p class="pp-phone-cap">Personal Wardrobe</p></div>
+      <div class="pp-phonebox"><div class="pp-phone" onclick="prZoom(7)"><div class="phone-scroll" data-lenis-prevent><img src="assets/legacy/prada-m-look.webp" alt="Prada.com mobile Total Look page: build your look by selecting the runway items" loading="lazy" decoding="async"></div></div><p class="pp-phone-cap">Build your look</p></div>
     </div>
   </section>
 
@@ -2142,8 +2147,8 @@ var PP_SHOTS=[
 function ppZoom(i){jvGallery(PP_SHOTS.map(function(s){return{src:s.src,label:s.label,alt:s.label};}),i);}
 /* Prada legacy case study gallery */
 var PR_SHOTS=[
-  {src:'assets/legacy/prada-login.webp',label:'Prada.com, login over the campaign'},
   {src:'assets/legacy/prada-category.webp',label:'Prada.com, editorial category with Shop by Look'},
+  {src:'assets/legacy/prada-listing.webp',label:'Prada.com, product listing with filters'},
   {src:'assets/legacy/prada-article.webp',label:'Prada.com, Stories article, Pre-Fall 2017'},
   {src:'assets/legacy/prada-pdp.webp',label:'Prada.com, product page'},
   {src:'assets/legacy/prada-checkout.webp',label:'Prada.com, checkout'},
@@ -2392,6 +2397,8 @@ window.lgScroll=function(d,id){
 (function(){
   document.querySelectorAll('.lg-arch').forEach(function(el){
     el.addEventListener('wheel',function(e){
+      // wheel inside a scrollable mockup scrolls the mockup, never the strip
+      if(e.target.closest&&e.target.closest('.mock-scroll,.phone-scroll'))return;
       if(el.scrollWidth<=el.clientWidth)return;
       var d=Math.abs(e.deltaY)>=Math.abs(e.deltaX)?e.deltaY:e.deltaX;
       var max=el.scrollWidth-el.clientWidth;
@@ -2401,8 +2408,14 @@ window.lgScroll=function(d,id){
       if(next!==el.scrollLeft){el.scrollLeft=next;e.preventDefault();e.stopPropagation();}
     },{passive:false});
     var down=false,sx=0,sl=0,moved=false;
-    el.addEventListener('pointerdown',function(e){if(e.pointerType!=='mouse')return;down=true;moved=false;sx=e.clientX;sl=el.scrollLeft;el.setPointerCapture(e.pointerId);});
-    el.addEventListener('pointermove',function(e){if(!down)return;var dx=e.clientX-sx;if(Math.abs(dx)>4)moved=true;el.scrollLeft=sl-dx;});
+    // capture the pointer only once a real drag starts: capturing on pointerdown retargets the
+    // click to the strip and silently kills every image's click-to-zoom
+    el.addEventListener('pointerdown',function(e){if(e.pointerType!=='mouse')return;down=true;moved=false;sx=e.clientX;sl=el.scrollLeft;});
+    el.addEventListener('pointermove',function(e){
+      if(!down)return;var dx=e.clientX-sx;
+      if(Math.abs(dx)>4&&!moved){moved=true;try{el.setPointerCapture(e.pointerId);}catch(err){}}
+      if(moved)el.scrollLeft=sl-dx;
+    });
     el.addEventListener('pointerup',function(){down=false;});
     el.addEventListener('click',function(e){if(moved){e.preventDefault();e.stopPropagation();}},true);
     el.addEventListener('keydown',function(e){if(e.key==='ArrowRight'){window.lgScroll(1,el.id);e.preventDefault();}else if(e.key==='ArrowLeft'){window.lgScroll(-1,el.id);e.preventDefault();}});
