@@ -555,7 +555,7 @@ nav{background:var(--navy);border-bottom:1px solid var(--line);}
 /* Remap two shared tokens that were tuned for a light canvas (now used only by case studies) */
 :root{--slate:#8FB8CC;--b:0.5px solid rgba(168,216,234,.14);}
 
-#page-grenada,#page-hungermap,#page-people,#page-cbt,#page-cashbook,#page-legacy,#page-prada,#page-ferrero{background:var(--navy);color:#EAF4F8;}
+#page-grenada,#page-hungermap,#page-people,#page-cbt,#page-cashbook,#page-legacy,#page-prada,#page-ferrero,#page-tim{background:var(--navy);color:#EAF4F8;}
 
 /* Section canvases */
 .sec.alt{background:rgba(168,216,234,.04);}
@@ -918,6 +918,17 @@ body.has-cursor, body.has-cursor *{cursor:none;}
 .prscreens .hmscreen img{aspect-ratio:auto;height:auto;object-fit:initial;object-position:initial;}
 .phone-scroll{aspect-ratio:9/18.6;overflow-y:auto;scrollbar-width:none;background:#fff;}
 .phone-scroll::-webkit-scrollbar{display:none;}
+/* TIM Music case study */
+.timhero{width:min(100%,1100px);margin:26px auto 0;}
+.timhero img{width:100%;display:block;cursor:zoom-in;}
+.timscreens .hmscreen .mock-scroll{aspect-ratio:16/10;}
+.timscreens .hmscreen img{aspect-ratio:auto;height:auto;object-fit:initial;object-position:initial;}
+.rfi{display:flex;flex-direction:column;gap:10px;margin-top:26px;}
+.rfi-row{display:grid;grid-template-columns:200px 1fr;gap:clamp(14px,2vw,28px);align-items:center;padding:18px 20px;border:var(--b);border-radius:12px;background:rgba(168,216,234,.03);}
+.rfi-ask{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--gold);}
+.rfi-ans{font-size:14px;line-height:1.6;color:rgba(234,244,248,.78);}
+.rfi-ans b{color:#fff;font-weight:500;}
+@media(max-width:760px){.rfi-row{grid-template-columns:1fr;gap:8px;}}
 /* Ferrero Magic Kinder case study */
 .mkscreens .hmscreen .mock-scroll{aspect-ratio:4/3;}
 .mkscreens .hmscreen img{aspect-ratio:auto;height:auto;object-fit:initial;object-position:initial;}
@@ -1192,7 +1203,7 @@ body.on-case .readbar{opacity:1;}
     <div class="vother-grid">
       <div class="la-tile" tabindex="0" style="cursor:pointer" onclick="showPage('prada')"><div class="la-tile-bg" style="background:radial-gradient(120% 120% at 30% 22%,rgba(45,125,154,.42),var(--navy-d) 68%)"><span class="la-tile-mark">Prada</span></div><div class="la-tile-info"><span class="la-tile-idx">01 / 06</span><h3 class="la-tile-title">Prada.com e-commerce</h3><p class="la-tile-tags">Art Direction · UX/UI Design · View case →</p></div></div>
       <div class="la-tile" tabindex="0"><div class="la-tile-bg" style="background:radial-gradient(120% 120% at 72% 26%,rgba(143,184,204,.34),var(--navy-d) 66%)"><span class="la-tile-mark">Miu Miu</span></div><div class="la-tile-info"><span class="la-tile-idx">02 / 06</span><h3 class="la-tile-title">Miumiu.com e-commerce</h3><p class="la-tile-tags">Art Direction · UX Design</p></div></div>
-      <div class="la-tile" tabindex="0"><div class="la-tile-bg" style="background:radial-gradient(120% 120% at 28% 74%,rgba(227,162,74,.34),var(--navy-d) 66%)"><span class="la-tile-mark">TIM</span></div><div class="la-tile-info"><span class="la-tile-idx">03 / 06</span><h3 class="la-tile-title">TIM Music</h3><p class="la-tile-tags">UI/UX Design · Omnichannel</p></div></div>
+      <div class="la-tile" tabindex="0" style="cursor:pointer" onclick="showPage('tim')"><div class="la-tile-bg" style="background:radial-gradient(120% 120% at 28% 74%,rgba(227,162,74,.34),var(--navy-d) 66%)"><span class="la-tile-mark">TIM</span></div><div class="la-tile-info"><span class="la-tile-idx">03 / 06</span><h3 class="la-tile-title">TIM Music</h3><p class="la-tile-tags">UI/UX Design · Streaming · View case →</p></div></div>
       <div class="la-tile" tabindex="0" style="cursor:pointer" onclick="showPage('ferrero')"><div class="la-tile-bg" style="background:radial-gradient(120% 120% at 68% 72%,rgba(230,126,55,.36),var(--navy-d) 66%)"><span class="la-tile-mark">Ferrero</span></div><div class="la-tile-info"><span class="la-tile-idx">04 / 06</span><h3 class="la-tile-title">Magic Kinder</h3><p class="la-tile-tags">UX/UI Design · Kids ecosystem · View case →</p></div></div>
       <div class="la-tile" tabindex="0"><div class="la-tile-bg" style="background:radial-gradient(120% 120% at 30% 30%,rgba(168,216,234,.30),var(--navy-d) 66%)"><span class="la-tile-mark">CMV</span></div><div class="la-tile-info"><span class="la-tile-idx">05 / 06</span><h3 class="la-tile-title">Citomegalovirus app</h3><p class="la-tile-tags">UI/UX Design</p></div></div>
       <div class="la-tile" tabindex="0"><div class="la-tile-bg" style="background:radial-gradient(120% 120% at 70% 68%,rgba(143,184,204,.32),var(--navy-d) 66%)"><span class="la-tile-mark">UnipolSai</span></div><div class="la-tile-info"><span class="la-tile-idx">06 / 06</span><h3 class="la-tile-title">SmartHome</h3><p class="la-tile-tags">UI/UX Design · IoT</p></div></div>
@@ -2061,6 +2072,81 @@ body.on-case .readbar{opacity:1;}
   <div class="next-cs"><div><span class="next-lbl">More legacy work</span><p class="next-title">Prada, TIM, and more.</p></div><button class="next-btn" onclick="showPage('legacy')">View all →</button></div>
 </div>
 
+<!-- ══════════════════════ TIM MUSIC, legacy case study ══════════════════════ -->
+<div id="page-tim" class="page">
+  <div class="back-bar" onclick="showPage('legacy')"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 2L4 7l5 5" stroke="#5B8FA8" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>All legacy work</div>
+  <div class="cov">
+    <span class="cov-tag">Reply · TIM (Telecom Italia) · UX/UI Design · 2016–2017</span>
+    <h1 class="cov-title">TIMmusic, a shared identity<br>made for <em>music.</em></h1>
+    <div class="cov-top">
+      <div><p class="cov-sub">TIM was unifying the look of its entertainment services, TIMvision, TIMmusic, TIMgames and TIMreading, under one visual concept. My work: take that shared identity and make it carry a full streaming product, from editorial storytelling to playlists, radio and recommendations, across web, iOS and Android.</p><div class="cov-chips"><span class="cov-chip">UX/UI Design</span><span class="cov-chip">Information Architecture</span><span class="cov-chip">Streaming &amp; Media</span><span class="cov-chip">Design System</span><span class="cov-chip">Multi-platform</span></div></div>
+      <div class="cov-meta"><div class="cm-i"><p class="cm-l">Role</p><p class="cm-v">UX/UI Designer, Reply</p></div><div class="cm-i"><p class="cm-l">Client</p><p class="cm-v">TIM, Telecom Italia</p></div><div class="cm-i"><p class="cm-l">Product</p><p class="cm-v">TIMmusic, streaming for TIM customers</p></div><div class="cm-i"><p class="cm-l">Platforms in scope</p><p class="cm-v">Responsive web · iOS · Android, mobile and tablet</p></div></div>
+    </div>
+    <div class="cov-nums"><div class="cn"><p class="cn-big">54</p><p class="cn-lbl">final web<br>screens</p></div><div class="cn"><p class="cn-big">12</p><p class="cn-lbl">sections,<br>onboarding to artist</p></div><div class="cn"><p class="cn-big">3</p><p class="cn-lbl">platforms<br>in scope</p></div><div class="cn"><p class="cn-big">4</p><p class="cn-lbl">sibling services,<br>one identity</p></div></div>
+  </div>
+
+  <section class="sec alt">
+    <span class="ey">The challenge</span>
+    <h2 class="st">Inherit a look, earn a behaviour.</h2>
+    <p class="hm-lead">A shared corporate concept is a gift and a cage: it guarantees family resemblance, but it was never designed around <b>album art, playlists and a player that never leaves the screen</b>. TIMmusic had to feel unmistakably TIM, and behave like a music service people use every day.</p>
+    <div class="hm-cards3">
+      <div class="hm-card"><p class="hm-k">01 · The constraint</p><p class="hm-h">One identity, four services</p><p>The visual concept was shared with TIMvision, TIMgames and TIMreading. Music got its own declination, not its own language.</p></div>
+      <div class="hm-card"><p class="hm-k">02 · The content</p><p class="hm-h">A catalogue, not a catalogue page</p><p>Editorial playlists and personal ones, radio, offline listening, recommendations, charts and artist pages: every surface competes for the same screen.</p></div>
+      <div class="hm-card"><p class="hm-k">03 · The proof</p><p class="hm-h">Method, before pixels</p><p>The client's request asked for architecture and interaction thinking first, and only then a visual mockup that proved the concept could sing.</p></div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <span class="ey">The request, answered</span>
+    <h2 class="st">Three asks, three deliverables.</h2>
+    <p class="hm-lead">The client's request for information was precise about what it wanted to see. Each ask mapped to a piece of work, and each is visible in the screens below.</p>
+    <div class="rfi">
+      <div class="rfi-row"><p class="rfi-ask">Ask 01 · Architecture</p><p class="rfi-ans"><b>First and second level information architecture.</b> Twelve sections, from onboarding and search to charts, genres, artists and the personal library, with a persistent right rail for saving, creating and reaching your playlists from anywhere.</p></div>
+      <div class="rfi-row"><p class="rfi-ask">Ask 02 · Interactions</p><p class="rfi-ans"><b>Wireframes for creating a playlist and editing the listening queue.</b> The two moments where a streaming service either feels effortless or falls apart, designed as an inline edit mode with undo, restore and confirm.</p></div>
+      <div class="rfi-row"><p class="rfi-ask">Ask 03 · Visual proof</p><p class="rfi-ans"><b>A mockup that creates a playlist and plays a track.</b> Delivered as a full-fidelity design where cover art drives the palette of the page and the player stays docked while you browse.</p></div>
+    </div>
+    <p class="hm-disc"><svg width="13" height="13" viewBox="0 0 13 13" fill="none"><rect x="2.4" y="6" width="8.2" height="5.4" rx="1" stroke="currentColor" stroke-width="1.1"/><path d="M4.3 6V4.6a2.2 2.2 0 0 1 4.4 0V6" stroke="currentColor" stroke-width="1.1"/></svg><span><b>Confidential.</b> The client's brief is an internal document and can't be shown here; only what it asked for is described.</span></p>
+  </section>
+
+  <section class="sec alt">
+    <span class="ey">The design</span>
+    <h2 class="st">Let the artwork light the room.</h2>
+    <p style="font-size:14px;color:var(--slate);line-height:1.7;max-width:900px;margin-bottom:8px;">Full-bleed artwork, type that steps back, and a player that stays with you: the home screen with a track playing. Click to zoom.</p>
+    <figure class="hmshot new timhero">
+      <div class="hmshot-bar"><span class="hmshot-t">Home, playing</span><span class="hmshot-pill">The player never leaves</span></div>
+      <img src="assets/legacy/tim-player.webp" width="1400" height="875" alt="TIMmusic web home with a full-bleed Adele hero, editorial cards and the docked player bar playing a track" loading="lazy" decoding="async" onclick="timZoom(0)">
+    </figure>
+  </section>
+
+  <section class="sec">
+    <span class="ey">The screens</span>
+    <h2 class="st">From discovery to your own playlist.</h2>
+    <p style="font-size:14px;color:var(--slate);line-height:1.7;max-width:900px;margin-bottom:8px;">Five moments of the delivered design. Scroll the strip sideways, browse inside each mockup, click to zoom.</p>
+    <div class="hmscreens-wrap">
+      <div class="lg-arch hmscreens timscreens" id="timScreens" tabindex="0" role="region" aria-label="TIMmusic screens, scroll horizontally to browse">
+        <figure class="hmshot new hmscreen"><div class="hmshot-bar"><span class="hmshot-t">Home</span><span class="hmshot-pill">Editorial first, catalogue below</span></div><div class="mock-scroll" data-lenis-prevent><img src="assets/legacy/tim-home.webp" width="1200" height="2193" alt="TIMmusic home: hero album, Instamix banner, new releases, recommendations, recently played and trending playlists" loading="lazy" decoding="async" onclick="timZoom(1)"></div></figure>
+        <figure class="hmshot new hmscreen"><div class="hmshot-bar"><span class="hmshot-t">Per Te</span><span class="hmshot-pill">Recommendations with a reason</span></div><div class="mock-scroll" data-lenis-prevent><img src="assets/legacy/tim-perte.webp" width="1200" height="2249" alt="TIMmusic Per Te page: playlist, album and track filters, your mix, artists you may like, a because-you-listened block and genres" loading="lazy" decoding="async" onclick="timZoom(2)"></div></figure>
+        <figure class="hmshot new hmscreen"><div class="hmshot-bar"><span class="hmshot-t">Your playlist</span><span class="hmshot-pill">Made by you, coloured by you</span></div><div class="mock-scroll" data-lenis-prevent><img src="assets/legacy/tim-playlist.webp" width="1200" height="1097" alt="TIMmusic personal playlist page: user cover art, track count and duration, play button and track table" loading="lazy" decoding="async" onclick="timZoom(3)"></div></figure>
+        <figure class="hmshot new hmscreen"><div class="hmshot-bar"><span class="hmshot-t">Edit mode</span><span class="hmshot-pill">Undo, restore, confirm</span></div><div class="mock-scroll" data-lenis-prevent><img src="assets/legacy/tim-playlist-edit.webp" width="1200" height="1097" alt="TIMmusic playlist edit mode: cancel, restore and confirm actions, editable title, cover replacement and delete" loading="lazy" decoding="async" onclick="timZoom(4)"></div></figure>
+        <figure class="hmshot new hmscreen"><div class="hmshot-bar"><span class="hmshot-t">Artist</span><span class="hmshot-pill">Top tracks, albums, related</span></div><div class="mock-scroll" data-lenis-prevent><img src="assets/legacy/tim-artist.webp" width="1200" height="2042" alt="TIMmusic artist page: full-bleed portrait, tour banner, most played singles, albums, playlists featuring the artist and similar artists" loading="lazy" decoding="async" onclick="timZoom(5)"></div></figure>
+      </div>
+      <div class="hmscreens-bar"><span class="hmscreens-hint">Scroll, drag or use the arrows to explore &rarr;</span><div class="hmscreens-nav"><button class="hmscreens-btn" type="button" aria-label="Previous screen" onclick="lgScroll(-1,'timScreens')">&larr;</button><button class="hmscreens-btn" type="button" aria-label="Next screen" onclick="lgScroll(1,'timScreens')">&rarr;</button></div></div>
+      <p class="hm-disc" style="justify-content:center;"><svg width="13" height="13" viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="6.5" r="5.6" stroke="currentColor" stroke-width="1.1"/><path d="M6.5 5.6v3.2M6.5 4.1v.05" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg><span><b>Attribution.</b> Work produced in my role at Reply for TIM. Screens show the interface design as delivered; artists, artwork and figures are placeholder content from the design files.</span></p>
+    </div>
+  </section>
+
+  <div class="istrip"><span class="ey-l">What defined it</span><p class="st-l">A corporate concept, fluent in music.</p>
+    <div class="igrid">
+      <div class="iitem"><p class="ibig">Docked</p><p class="ilbl">the player follows you,<br>page to page</p></div>
+      <div class="iitem"><p class="ibig">Artwork</p><p class="ilbl">covers set the palette<br>of every page</p></div>
+      <div class="iitem"><p class="ibig">Undo</p><p class="ilbl">every playlist edit<br>is reversible</p></div>
+      <div class="iitem"><p class="ibig">Family</p><p class="ilbl">recognisable beside<br>TIM's other services</p></div>
+    </div>
+  </div>
+
+  <div class="next-cs"><div><span class="next-lbl">More legacy work</span><p class="next-title">Prada, Ferrero, and more.</p></div><button class="next-btn" onclick="showPage('legacy')">View all →</button></div>
+</div>
+
 <!-- ══════════════════════ LEGACY ══════════════════════ -->
 <div id="page-legacy" class="page">
   <div class="back-bar" onclick="showPage('home')"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 2L4 7l5 5" stroke="#5B8FA8" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>All work</div>
@@ -2076,7 +2162,7 @@ body.on-case .readbar{opacity:1;}
   <div class="lg-grid lg-arch" id="lgArch" tabindex="0" role="region" aria-label="Private-sector projects, scroll horizontally to browse">
     <div class="la-tile" tabindex="0" style="cursor:pointer" onclick="showPage('prada')"><div class="la-tile-bg" style="background:radial-gradient(120% 120% at 30% 22%,rgba(45,125,154,.42),var(--navy-d) 68%)"><span class="la-tile-mark">Prada</span></div><div class="la-tile-info"><span class="la-tile-idx">01 / 06</span><h3 class="la-tile-title">Prada.com e-commerce</h3><p class="la-tile-tags">Art Direction · UX/UI Design · View case →</p></div></div>
     <div class="la-tile" tabindex="0"><div class="la-tile-bg" style="background:radial-gradient(120% 120% at 72% 26%,rgba(143,184,204,.34),var(--navy-d) 66%)"><span class="la-tile-mark">Miu Miu</span></div><div class="la-tile-info"><span class="la-tile-idx">02 / 06</span><h3 class="la-tile-title">Miumiu.com e-commerce</h3><p class="la-tile-tags">Art Direction · UX Design</p></div></div>
-    <div class="la-tile" tabindex="0"><div class="la-tile-bg" style="background:radial-gradient(120% 120% at 28% 74%,rgba(227,162,74,.34),var(--navy-d) 66%)"><span class="la-tile-mark">TIM</span></div><div class="la-tile-info"><span class="la-tile-idx">03 / 06</span><h3 class="la-tile-title">TIM Music</h3><p class="la-tile-tags">UI/UX Design · Omnichannel</p></div></div>
+    <div class="la-tile" tabindex="0" style="cursor:pointer" onclick="showPage('tim')"><div class="la-tile-bg" style="background:radial-gradient(120% 120% at 28% 74%,rgba(227,162,74,.34),var(--navy-d) 66%)"><span class="la-tile-mark">TIM</span></div><div class="la-tile-info"><span class="la-tile-idx">03 / 06</span><h3 class="la-tile-title">TIM Music</h3><p class="la-tile-tags">UI/UX Design · Streaming · View case →</p></div></div>
     <div class="la-tile" tabindex="0" style="cursor:pointer" onclick="showPage('ferrero')"><div class="la-tile-bg" style="background:radial-gradient(120% 120% at 68% 72%,rgba(230,126,55,.36),var(--navy-d) 66%)"><span class="la-tile-mark">Ferrero</span></div><div class="la-tile-info"><span class="la-tile-idx">04 / 06</span><h3 class="la-tile-title">Magic Kinder</h3><p class="la-tile-tags">UX/UI Design · Kids ecosystem · View case →</p></div></div>
     <div class="la-tile" tabindex="0"><div class="la-tile-bg" style="background:radial-gradient(120% 120% at 30% 30%,rgba(168,216,234,.30),var(--navy-d) 66%)"><span class="la-tile-mark">CMV</span></div><div class="la-tile-info"><span class="la-tile-idx">05 / 06</span><h3 class="la-tile-title">Citomegalovirus app</h3><p class="la-tile-tags">UI/UX Design</p></div></div>
     <div class="la-tile" tabindex="0"><div class="la-tile-bg" style="background:radial-gradient(120% 120% at 70% 68%,rgba(143,184,204,.32),var(--navy-d) 66%)"><span class="la-tile-mark">UnipolSai</span></div><div class="la-tile-info"><span class="la-tile-idx">06 / 06</span><h3 class="la-tile-title">SmartHome</h3><p class="la-tile-tags">UI/UX Design · IoT</p></div></div>
@@ -2265,6 +2351,16 @@ var MK_SHOTS=[
   {src:'assets/legacy/mk-m-video.webp',label:'Video player'}
 ];
 function mkZoom(i){jvGallery(MK_SHOTS.map(function(s){return{src:s.src,label:s.label,alt:s.label};}),i);}
+/* TIM Music gallery */
+var TIM_SHOTS=[
+  {src:'assets/legacy/tim-player.webp',label:'TIMmusic, home with the docked player'},
+  {src:'assets/legacy/tim-home.webp',label:'TIMmusic, home'},
+  {src:'assets/legacy/tim-perte.webp',label:'TIMmusic, Per Te recommendations'},
+  {src:'assets/legacy/tim-playlist.webp',label:'TIMmusic, your personal playlist'},
+  {src:'assets/legacy/tim-playlist-edit.webp',label:'TIMmusic, playlist edit mode'},
+  {src:'assets/legacy/tim-artist.webp',label:'TIMmusic, artist page'}
+];
+function timZoom(i){jvGallery(TIM_SHOTS.map(function(s){return{src:s.src,label:s.label,alt:s.label};}),i);}
 /* SRA guidance videos: play only when in view (saves the download), muted loop, EN/AR kept in sync.
    If the Arabic file isn't there yet, gracefully collapse to a single centred English video. */
 (function(){
