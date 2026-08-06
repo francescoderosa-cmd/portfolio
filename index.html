@@ -492,25 +492,21 @@ nav{background:var(--navy);border-bottom:1px solid var(--line);}
 .vstat-l{font-size:13px;color:rgba(234,244,248,.6);margin-top:12px;line-height:1.45;}
 
 /* Selected work, big rows */
-.vwork{display:grid;grid-template-columns:60px 1fr 300px;gap:28px;align-items:center;padding:clamp(24px,3.4vw,42px) 0;border-top:1px solid var(--line);text-decoration:none;cursor:pointer;transition:padding .3s ease,background .3s ease;}
-.vworks .vwork:last-child{border-bottom:1px solid var(--line);}
-.vwork:hover{background:linear-gradient(90deg,rgba(45,125,154,.1),rgba(45,125,154,0));padding-left:18px;padding-right:18px;}
-.vwork-idx{font-family:var(--mono);font-size:13px;color:var(--teal);}
-.vwork-title{font-family:var(--serif);font-weight:400;font-size:clamp(22px,2.5vw,33px);color:#fff;line-height:1.12;margin-bottom:10px;transition:color .25s;}
-.vwork:hover .vwork-title{color:var(--ice);}
-.vwork-desc{font-size:14px;color:rgba(234,244,248,.62);line-height:1.6;max-width:540px;margin-bottom:12px;}
-.vwork-tags{font-family:var(--mono);font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:rgba(168,216,234,.5);}
-.vwork-thumb{height:148px;border-radius:12px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;background:var(--navy-d);}
-.vwork-thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;transition:transform .5s var(--ease);}
-.vwork:hover .vwork-thumb img{transform:scale(1.05);}
+/* Selected work: cinema list, full-bleed image bands with overlaid titles */
+.vcin-wrap{margin:0 calc(clamp(20px,6vw,72px)*-1) calc(clamp(54px,8vw,116px)*-1);}
+.vcin{position:relative;display:block;height:53vh;min-height:300px;overflow:hidden;border-top:1px solid var(--line);cursor:pointer;text-decoration:none;}
+.vcin img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;transition:transform 1s var(--ease);}
+.vcin:hover img,.vcin:focus-visible img{transform:scale(1.035);}
+.vcin-grad{position:absolute;inset:0;background:linear-gradient(180deg,rgba(21,48,63,.16) 30%,rgba(21,48,63,.84) 82%,var(--navy-d) 100%);}
+.vcin-txt{position:absolute;left:clamp(20px,6vw,72px);right:clamp(20px,6vw,72px);bottom:clamp(20px,3.5vh,40px);}
+.vcin-idx{font-family:var(--mono);font-size:12px;color:var(--ice);opacity:.8;}
+.vcin-title{font-family:var(--serif);font-weight:400;font-size:clamp(26px,4.2vw,52px);line-height:1.08;letter-spacing:-.015em;color:#fff;margin:8px 0 10px;transition:transform .5s var(--ease);}
+.vcin:hover .vcin-title{transform:translateX(10px);}
+.vcin-tags{font-family:var(--mono);font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:rgba(168,216,234,.75);}
 /* Floating work preview, follows the cursor over the list (Proposal A) */
-#vprev{position:fixed;left:0;top:0;z-index:900;width:min(460px,32vw);aspect-ratio:16/10;border-radius:14px;overflow:hidden;pointer-events:none;opacity:0;transition:opacity .25s var(--ease);box-shadow:0 32px 64px -24px rgba(0,0,0,.65);border:1px solid rgba(168,216,234,.2);background:var(--navy-d);}
-#vprev.on{opacity:1;}
-#vprev img{width:100%;height:100%;object-fit:cover;object-position:center top;}
-@media (hover:none),(max-width:920px){#vprev{display:none;}}
 .vword{font-family:var(--serif);font-size:58px;color:rgba(255,255,255,.16);white-space:nowrap;}
-.vwork-go{position:absolute;right:14px;bottom:12px;font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--ice);opacity:0;transform:translateX(-6px);transition:all .3s;}
-.vwork:hover .vwork-go{opacity:1;transform:none;}
+.vcin-go{position:absolute;right:0;bottom:2px;font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--ice);opacity:0;transform:translateX(-6px);transition:all .3s;}
+.vcin:hover .vcin-go{opacity:1;transform:none;}
 
 /* Other work */
 .vother{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
@@ -550,8 +546,7 @@ nav{background:var(--navy);border-bottom:1px solid var(--line);}
   .vhero-foot{grid-template-columns:1fr;gap:24px;}
   .vhero-cta{justify-content:flex-start;}
   .vstats{grid-template-columns:1fr 1fr;}
-  .vwork{grid-template-columns:1fr;gap:14px;}
-  .vwork-thumb{height:120px;}
+  .vcin{height:40vh;min-height:240px;}
   .vother{grid-template-columns:1fr;}
   .vapp{grid-template-columns:1fr;gap:30px;}
   .vxp-row{grid-template-columns:1fr;gap:6px;}
@@ -726,7 +721,7 @@ body.has-cursor, body.has-cursor *{cursor:none;}
 .cov-title em{color:var(--gold);}
 .vlabel b{color:var(--gold);}
 .vmarq-track span::after{color:var(--gold);}
-.vwork-go{color:var(--gold);}
+.vcin-go{color:var(--gold);}
 
 /* ═════════════ V10, BRIGHTER, SLIGHTLY LARGER NUMBERS IN WHITE BOXES ═════════════ */
 .vstat-n,.cn-big,.knum,.ibig{color:var(--teal);}
@@ -1164,56 +1159,59 @@ body.on-case .readbar{opacity:1;}
   <!-- SELECTED WORK -->
   <section class="vsec" id="v-work">
     <div class="vsec-head"><h2 class="vsec-title">Selected work, WFP</h2><span class="vlabel"><b>(03)</b>&nbsp; 2023-2025</span></div>
-    <div class="vworks">
-      <a class="vwork reveal" onclick="showPage('grenada')" data-prev="assets/grenada/abigail-journey-preview.webp">
-        <span class="vwork-idx">(01)</span>
-        <div class="vwork-main">
-          <h3 class="vwork-title">Grenada, social protection system redesign</h3>
-          <p class="vwork-desc">End-to-end service design with the Government of Grenada: process mapping, gap analysis and a digital transformation blueprint for SEED + BRISP.</p>
-          <p class="vwork-tags">Service Design · Gap analysis · Gov. advisory · 2025</p>
+    <div class="vcin-wrap">
+      <a class="vcin reveal" onclick="showPage('grenada')">
+        <img src="assets/covers/grenada-cover.webp" alt="" loading="lazy" decoding="async">
+        <div class="vcin-grad"></div>
+        <div class="vcin-txt">
+          <span class="vcin-idx">(01)</span>
+          <h3 class="vcin-title">Grenada, social protection system redesign</h3>
+          <p class="vcin-tags">Service Design · Gap analysis · Gov. advisory · 2025</p>
+          <span class="vcin-go">View case →</span>
         </div>
-        <div class="vwork-thumb"><img src="assets/grenada/abigail-journey-preview.webp" alt="" loading="lazy" decoding="async"><span class="vwork-go">View case →</span></div>
       </a>
-      <a class="vwork reveal" onclick="showPage('hungermap')" data-prev="assets/hungermap/hm-mockup.webp">
-        <span class="vwork-idx">(02)</span>
-        <div class="vwork-main">
-          <h3 class="vwork-title">HungerMap, from static map to prediction engine</h3>
-          <p class="vwork-desc">Full UX research and UI design lead for WFP's food-security platform, workshops, Figma prototype and field testing in Nigeria, Yemen and Cameroon.</p>
-          <p class="vwork-tags">UX Research · Data viz · UI Lead · 2024–25</p>
+      <a class="vcin reveal" onclick="showPage('hungermap')">
+        <img src="assets/covers/hungermap-cover.webp" alt="" loading="lazy" decoding="async">
+        <div class="vcin-grad"></div>
+        <div class="vcin-txt">
+          <span class="vcin-idx">(02)</span>
+          <h3 class="vcin-title">HungerMap, from static map to prediction engine</h3>
+          <p class="vcin-tags">UX Research · Data viz · UI Lead · 2024–25</p>
+          <span class="vcin-go">View case →</span>
         </div>
-        <div class="vwork-thumb"><img src="assets/hungermap/hm-mockup.webp" alt="" loading="lazy" decoding="async"><span class="vwork-go">View case →</span></div>
       </a>
-      <a class="vwork reveal" onclick="showPage('people')" data-prev="assets/people-portal/pp-welcome.webp">
-        <span class="vwork-idx">(03)</span>
-        <div class="vwork-main">
-          <h3 class="vwork-title">People Portal, self-registration for assistance</h3>
-          <p class="vwork-desc">UI/UX for WFP's mobile-first portal that lets people in crisis register from their own phone, designed for every level of digital literacy. Live in Gaza, Ukraine and Sudan.</p>
-          <p class="vwork-tags">UI/UX · Accessible forms · Identity management · Innovation Accelerator</p>
+      <a class="vcin reveal" onclick="showPage('people')">
+        <img src="assets/covers/people-cover.webp" alt="" loading="lazy" decoding="async">
+        <div class="vcin-grad"></div>
+        <div class="vcin-txt">
+          <span class="vcin-idx">(03)</span>
+          <h3 class="vcin-title">People Portal, self-registration for assistance</h3>
+          <p class="vcin-tags">UI/UX · Accessible forms · Identity management · Innovation Accelerator</p>
+          <span class="vcin-go">View case →</span>
         </div>
-        <div class="vwork-thumb"><img src="assets/people-portal/pp-welcome.webp" alt="" loading="lazy" decoding="async"><span class="vwork-go">View case →</span></div>
       </a>
-      <a class="vwork reveal" onclick="showPage('cbt')" data-prev="assets/cbt/drina-cover-preview.webp">
-        <span class="vwork-idx">(04)</span>
-        <div class="vwork-main">
-          <h3 class="vwork-title">Designing for dignity in crisis</h3>
-          <p class="vwork-desc">User journey maps for Cash-Based Transfer programmes, field research across Gaza, Lebanon, Somalia, Ukraine and Jordan, designing for people in active conflict zones.</p>
-          <p class="vwork-tags">Field research · Journey maps · Inclusive design</p>
+      <a class="vcin reveal" onclick="showPage('cbt')">
+        <img src="assets/covers/cbt-cover.webp" alt="" loading="lazy" decoding="async">
+        <div class="vcin-grad"></div>
+        <div class="vcin-txt">
+          <span class="vcin-idx">(04)</span>
+          <h3 class="vcin-title">Designing for dignity in crisis</h3>
+          <p class="vcin-tags">Field research · Journey maps · Inclusive design</p>
+          <span class="vcin-go">View case →</span>
         </div>
-        <div class="vwork-thumb"><img src="assets/cbt/drina-cover-preview.webp" alt="" loading="lazy" decoding="async"><span class="vwork-go">View case →</span></div>
       </a>
-      <a class="vwork reveal" onclick="showPage('cashbook')" data-prev="assets/cashbook/deck-4.webp">
-        <span class="vwork-idx">(05)</span>
-        <div class="vwork-main">
-          <h3 class="vwork-title">CashBook App, offline-first field operations tool</h3>
-          <p class="vwork-desc">Concept and UX design of a WebApp for WFP field officers managing cash distributions, works offline, supports 3 user types and integrates with SharePoint.</p>
-          <p class="vwork-tags">Product Design · Offline-first · Web App</p>
+      <a class="vcin reveal" onclick="showPage('cashbook')">
+        <img src="assets/covers/cashbook-cover.webp" alt="" loading="lazy" decoding="async">
+        <div class="vcin-grad"></div>
+        <div class="vcin-txt">
+          <span class="vcin-idx">(05)</span>
+          <h3 class="vcin-title">CashBook App, offline-first field operations tool</h3>
+          <p class="vcin-tags">Product Design · Offline-first · Web App</p>
+          <span class="vcin-go">View case →</span>
         </div>
-        <div class="vwork-thumb"><img src="assets/cashbook/deck-4.webp" alt="" loading="lazy" decoding="async"><span class="vwork-go">View case →</span></div>
       </a>
     </div>
   </section>
-
-  <div id="vprev" aria-hidden="true"><img src="" alt=""></div>
 
   <!-- OTHER WORK -->
   <section class="vsec">
@@ -2769,31 +2767,6 @@ window.lgScroll=function(d,id){
   });
   dLink.addEventListener('click',function(){if(activePage&&typeof showPage==='function')showPage(activePage);});
 })();
-/* Selected work: floating preview follows the cursor over the list (Proposal A) */
-(function(){
-  var prev=document.getElementById('vprev');if(!prev)return;
-  if(window.matchMedia('(hover:none)').matches)return;
-  var img=prev.querySelector('img');
-  var reduce=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
-  var x=0,y=0,cx=0,cy=0,raf=0,on=false;
-  function loop(){
-    cx+=(x-cx)*(reduce?1:.16); cy+=(y-cy)*(reduce?1:.16);
-    var w=prev.offsetWidth||460,h=prev.offsetHeight||288;
-    prev.style.left=Math.min(cx+28,window.innerWidth-w-18)+'px';
-    prev.style.top=Math.max(16,Math.min(cy-h*.5,window.innerHeight-h-16))+'px';
-    raf=(on||Math.abs(x-cx)>.5||Math.abs(y-cy)>.5)?requestAnimationFrame(loop):0;
-  }
-  [].slice.call(document.querySelectorAll('.vworks .vwork[data-prev]')).forEach(function(r){
-    r.addEventListener('pointerenter',function(e){
-      if(e.pointerType!=='mouse')return;
-      img.src=r.getAttribute('data-prev');
-      x=e.clientX;y=e.clientY;cx=x;cy=y;on=true;prev.classList.add('on');
-      if(!raf)raf=requestAnimationFrame(loop);
-    });
-    r.addEventListener('pointermove',function(e){if(e.pointerType!=='mouse')return;x=e.clientX;y=e.clientY;if(!raf)raf=requestAnimationFrame(loop);});
-    r.addEventListener('pointerleave',function(){on=false;prev.classList.remove('on');});
-  });
-})();
 function toggleMenu(){document.getElementById('nav-links').classList.toggle('open');}
 function closeMenu(){document.getElementById('nav-links').classList.remove('open');}
 
@@ -2829,7 +2802,7 @@ function armReveals(){
     var mx=window.innerWidth/2,my=window.innerHeight/2,rx=mx,ry=my;
     window.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;cdot.style.transform='translate('+mx+'px,'+my+'px) translate(-50%,-50%)';},{passive:true});
     (function cloop(){rx+=(mx-rx)*.18;ry+=(my-ry)*.18;cring.style.transform='translate('+rx.toFixed(1)+'px,'+ry.toFixed(1)+'px) translate(-50%,-50%)';requestAnimationFrame(cloop);})();
-    var hotSel='a,button,.vwork,.voth,.lg-card,.next-btn,.n-link,.n-logo,[onclick]';
+    var hotSel='a,button,.vcin,.voth,.lg-card,.next-btn,.n-link,.n-logo,[onclick]';
     document.addEventListener('mouseover',function(e){if(e.target.closest&&e.target.closest(hotSel))cring.classList.add('hot');});
     document.addEventListener('mouseout',function(e){if(e.target.closest&&e.target.closest(hotSel))cring.classList.remove('hot');});
   }
@@ -2856,7 +2829,7 @@ function armReveals(){
     '.ctcard','.pstep','.aitem','.aquote','.atext','.cot-title','.cot-sub','.pb-wrap','.pv-card',
     '.cm-i','.cn','.iitem','.next-title','.vsec-title'];
   document.querySelectorAll(sel.join(',')).forEach(function(el){el.classList.add('reveal');});
-  document.querySelectorAll('.fgrid,.lgrid,.lg-grid,.ggrid,.rgrid,.ugrid,.pgrid5,.fgrid3,.jgrid,.tl,.kgrid,.ctgrid,.cov-nums,.igrid,.cov-meta,.path-steps,.alist,.vstats,.vworks,.vother,.vapp-list,.vxp,.vpills,.vquotes').forEach(function(group){
+  document.querySelectorAll('.fgrid,.lgrid,.lg-grid,.ggrid,.rgrid,.ugrid,.pgrid5,.fgrid3,.jgrid,.tl,.kgrid,.ctgrid,.cov-nums,.igrid,.cov-meta,.path-steps,.alist,.vstats,.vcin-wrap,.vother,.vapp-list,.vxp,.vpills,.vquotes').forEach(function(group){
     Array.prototype.slice.call(group.children).forEach(function(child,i){
       if(child.classList.contains('reveal'))child.style.transitionDelay=(Math.min(i,6)*0.06)+'s';
     });
