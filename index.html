@@ -322,6 +322,8 @@ footer{padding:18px 48px;border-top:var(--b);display:flex;justify-content:space-
 .lg-arch .la-tile:nth-child(4n){margin-top:clamp(28px,7vh,90px);}
 .la-tile-bg{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;transition:transform .6s var(--ease);background-size:cover;background-position:center;}
 .la-tile-mark{font-family:var(--serif);font-size:clamp(30px,5vw,58px);color:rgba(255,255,255,.10);letter-spacing:-.02em;transition:opacity .4s;}
+.la-tile.has-img .la-tile-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,27,36,0) 48%,rgba(13,27,36,.72));}
+.la-tile.has-img .la-tile-mark{position:absolute;left:16px;bottom:11px;z-index:1;font-size:clamp(15px,1.5vw,22px);color:#fff;letter-spacing:0;}
 .la-tile-info{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:12px;padding:26px;background:linear-gradient(180deg,rgba(13,27,36,.25),rgba(13,27,36,.68));opacity:0;transition:opacity .45s var(--ease);}
 .la-tile-idx{font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--gold);}
 .la-tile-title{font-family:var(--serif);font-size:clamp(22px,2.4vw,30px);color:#fff;line-height:1.15;}
@@ -331,12 +333,12 @@ footer{padding:18px 48px;border-top:var(--b);display:flex;justify-content:space-
 .la-tile:hover .la-tile-bg{transform:scale(1.06);}
 @media (max-width:700px){.lg-arch .la-tile{flex:0 0 82vw;}.lg-arch .la-tile:nth-child(2n),.lg-arch .la-tile:nth-child(4n){margin-top:0;}}
 /* home "Other work": centered, non-scrolling grid of tiles (~20% bigger than before) */
-.vother-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:clamp(16px,1.6vw,30px);margin-top:28px;}
+.vother-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(16px,1.6vw,30px);margin-top:28px;}
 .vother-grid .la-tile-mark{font-size:clamp(26px,3.2vw,40px);}
 .vother-grid .la-tile-title{font-size:clamp(16px,1.4vw,20px);}
 .vother-grid .la-tile-tags{font-size:9px;letter-spacing:.06em;}
 .vother-grid .la-tile-idx{font-size:10px;}
-@media (max-width:900px){.vother-grid{grid-template-columns:repeat(3,minmax(0,1fr));}}
+@media (max-width:900px){.vother-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
 @media (max-width:520px){.vother-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;}}
 .lg-arch::-webkit-scrollbar{height:6px;}
 .lg-arch::-webkit-scrollbar-track{background:transparent;}
@@ -413,7 +415,7 @@ html.lenis,html.lenis body{height:auto;}
 }
 
 /* ═════════════ V2, DARK EDITORIAL HOME (dsgnpixl-inspired, own palette) ═════════════ */
-:root{--navy-d:#15303f;--line:rgba(168,216,234,.14);--mono:'DM Mono',ui-monospace,SFMono-Regular,Menlo,monospace;}
+:root{--navy-d:#15303f;--line:rgba(168,216,234,.14);--mono:'DM Mono',ui-monospace,SFMono-Regular,Menlo,monospace;--ease:cubic-bezier(.22,.61,.36,1);}
 
 /* Nav goes dark (shared; flows into the navy case-study covers) */
 nav{background:var(--navy);border-bottom:1px solid var(--line);}
@@ -495,13 +497,17 @@ nav{background:var(--navy);border-bottom:1px solid var(--line);}
 /* Selected work: cinema list, full-bleed image bands with overlaid titles */
 .vcin-wrap{margin:0 calc(clamp(20px,6vw,72px)*-1) calc(clamp(54px,8vw,116px)*-1);}
 .vcin{position:relative;display:block;height:53vh;min-height:300px;overflow:hidden;border-top:1px solid var(--line);cursor:pointer;text-decoration:none;}
-.vcin img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;transition:transform 1s var(--ease);}
-.vcin:hover img,.vcin:focus-visible img{transform:scale(1.035);}
+.vcin img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;
+  transform:translateZ(0) scale(1);transform-origin:center;backface-visibility:hidden;will-change:transform;
+  transition:transform 1.1s var(--ease);}
+.vcin:hover img,.vcin:focus-visible img{transform:translateZ(0) scale(1.045);}
 .vcin-grad{position:absolute;inset:0;background:linear-gradient(180deg,rgba(21,48,63,.16) 30%,rgba(21,48,63,.84) 82%,var(--navy-d) 100%);}
 .vcin-txt{position:absolute;left:clamp(20px,6vw,72px);right:clamp(20px,6vw,72px);bottom:clamp(20px,3.5vh,40px);}
 .vcin-idx{font-family:var(--mono);font-size:12px;color:var(--ice);opacity:.8;}
-.vcin-title{font-family:var(--serif);font-weight:400;font-size:clamp(26px,4.2vw,52px);line-height:1.08;letter-spacing:-.015em;color:#fff;margin:8px 0 10px;transition:transform .5s var(--ease);}
-.vcin:hover .vcin-title{transform:translateX(10px);}
+.vcin-title{font-family:var(--serif);font-weight:400;font-size:clamp(26px,4.2vw,52px);line-height:1.08;letter-spacing:-.015em;color:#fff;margin:8px 0 10px;
+  transform:translate3d(0,0,0);transition:transform .55s var(--ease);}
+.vcin:hover .vcin-title{transform:translate3d(10px,0,0);}
+@media (prefers-reduced-motion:reduce){.vcin img,.vcin-title{transition:none;}.vcin:hover img{transform:none;}}
 .vcin-tags{font-family:var(--mono);font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:rgba(168,216,234,.75);}
 /* Floating work preview, follows the cursor over the list (Proposal A) */
 .vword{font-family:var(--serif);font-size:58px;color:rgba(255,255,255,.16);white-space:nowrap;}
@@ -1217,13 +1223,11 @@ body.on-case .readbar{opacity:1;}
   <section class="vsec">
     <div class="vsec-head"><h2 class="vsec-title">Other work</h2><span class="vlabel" style="cursor:pointer" onclick="showPage('legacy')">Explore →</span></div>
     <div class="vother-grid">
-      <div class="la-tile" tabindex="0" style="cursor:pointer" onclick="showPage('prada')"><div class="la-tile-bg" style="background:radial-gradient(120% 120% at 30% 22%,rgba(45,125,154,.42),var(--navy-d) 68%)"><span class="la-tile-mark">Prada</span></div><div class="la-tile-info"><span class="la-tile-idx">01 / 06</span><h3 class="la-tile-title">Prada.com e-commerce</h3><p class="la-tile-tags">Art Direction · UX/UI Design · View case →</p></div></div>
-      <div class="la-tile" tabindex="0"><div class="la-tile-bg" style="background:radial-gradient(120% 120% at 72% 26%,rgba(143,184,204,.34),var(--navy-d) 66%)"><span class="la-tile-mark">Miu Miu</span></div><div class="la-tile-info"><span class="la-tile-idx">02 / 06</span><h3 class="la-tile-title">Miumiu.com e-commerce</h3><p class="la-tile-tags">Art Direction · UX Design</p></div></div>
-      <div class="la-tile" tabindex="0" style="cursor:pointer" onclick="showPage('tim')"><div class="la-tile-bg" style="background:radial-gradient(120% 120% at 28% 74%,rgba(227,162,74,.34),var(--navy-d) 66%)"><span class="la-tile-mark">TIM</span></div><div class="la-tile-info"><span class="la-tile-idx">03 / 06</span><h3 class="la-tile-title">TIM Music</h3><p class="la-tile-tags">UI/UX Design · Streaming · View case →</p></div></div>
-      <div class="la-tile" tabindex="0" style="cursor:pointer" onclick="showPage('ferrero')"><div class="la-tile-bg" style="background:radial-gradient(120% 120% at 68% 72%,rgba(230,126,55,.36),var(--navy-d) 66%)"><span class="la-tile-mark">Ferrero</span></div><div class="la-tile-info"><span class="la-tile-idx">04 / 06</span><h3 class="la-tile-title">Magic Kinder</h3><p class="la-tile-tags">UX/UI Design · Kids ecosystem · View case →</p></div></div>
-      <div class="la-tile" tabindex="0" style="cursor:pointer" onclick="showPage('cmv')"><div class="la-tile-bg" style="background:radial-gradient(120% 120% at 30% 30%,rgba(232,120,140,.30),var(--navy-d) 66%)"><span class="la-tile-mark">CMV</span></div><div class="la-tile-info"><span class="la-tile-idx">05 / 06</span><h3 class="la-tile-title">Citomegalovirus app</h3><p class="la-tile-tags">UI/UX Design · Healthcare · View case →</p></div></div>
-      <div class="la-tile" tabindex="0"><div class="la-tile-bg" style="background:radial-gradient(120% 120% at 70% 68%,rgba(143,184,204,.32),var(--navy-d) 66%)"><span class="la-tile-mark">UnipolSai</span></div><div class="la-tile-info"><span class="la-tile-idx">06 / 06</span><h3 class="la-tile-title">SmartHome</h3><p class="la-tile-tags">UI/UX Design · IoT</p></div></div>
-    </div>
+      <div class="la-tile has-img" tabindex="0" style="cursor:pointer" onclick="showPage('prada')"><div class="la-tile-bg" style="background-image:url(assets/covers/prada-tile.webp)"><span class="la-tile-mark">Prada</span></div><div class="la-tile-info"><span class="la-tile-idx">01 / 04</span><h3 class="la-tile-title">Prada.com e-commerce</h3><p class="la-tile-tags">Art Direction · UX/UI Design · View case →</p></div></div>
+            <div class="la-tile has-img" tabindex="0" style="cursor:pointer" onclick="showPage('tim')"><div class="la-tile-bg" style="background-image:url(assets/covers/tim-tile.webp)"><span class="la-tile-mark">TIM</span></div><div class="la-tile-info"><span class="la-tile-idx">02 / 04</span><h3 class="la-tile-title">TIM Music</h3><p class="la-tile-tags">UI/UX Design · Streaming · View case →</p></div></div>
+      <div class="la-tile has-img" tabindex="0" style="cursor:pointer" onclick="showPage('ferrero')"><div class="la-tile-bg" style="background-image:url(assets/covers/ferrero-tile.webp)"><span class="la-tile-mark">Ferrero</span></div><div class="la-tile-info"><span class="la-tile-idx">03 / 04</span><h3 class="la-tile-title">Magic Kinder</h3><p class="la-tile-tags">UX/UI Design · Kids ecosystem · View case →</p></div></div>
+      <div class="la-tile has-img" tabindex="0" style="cursor:pointer" onclick="showPage('cmv')"><div class="la-tile-bg" style="background-image:url(assets/covers/cmv-tile.webp)"><span class="la-tile-mark">CMV</span></div><div class="la-tile-info"><span class="la-tile-idx">04 / 04</span><h3 class="la-tile-title">Citomegalovirus app</h3><p class="la-tile-tags">UI/UX Design · Healthcare · View case →</p></div></div>
+          </div>
   </section>
 
   <div class="lightzone">
@@ -2022,7 +2026,7 @@ body.on-case .readbar{opacity:1;}
     </figure>
   </div>
 
-  <div class="next-cs"><div><span class="next-lbl">More legacy work</span><p class="next-title">Miu Miu, TIM, Ferrero, and more.</p></div><button class="next-btn" onclick="showPage('legacy')">View all →</button></div>
+  <div class="next-cs"><div><span class="next-lbl">More legacy work</span><p class="next-title">Prada, TIM, Ferrero, and more.</p></div><button class="next-btn" onclick="showPage('legacy')">View all →</button></div>
 </div>
 
 <!-- ══════════════════════ FERRERO MAGIC KINDER, legacy case study ══════════════════════ -->
@@ -2232,13 +2236,11 @@ body.on-case .readbar{opacity:1;}
     <div class="lg-archnav"><button class="lg-archbtn" onclick="lgScroll(-1,'lgArch')" aria-label="Previous projects">&larr;</button><button class="lg-archbtn" onclick="lgScroll(1,'lgArch')" aria-label="More projects">&rarr;</button></div>
   </div>
   <div class="lg-grid lg-arch" id="lgArch" tabindex="0" role="region" aria-label="Private-sector projects, scroll horizontally to browse">
-    <div class="la-tile" tabindex="0" style="cursor:pointer" onclick="showPage('prada')"><div class="la-tile-bg" style="background:radial-gradient(120% 120% at 30% 22%,rgba(45,125,154,.42),var(--navy-d) 68%)"><span class="la-tile-mark">Prada</span></div><div class="la-tile-info"><span class="la-tile-idx">01 / 06</span><h3 class="la-tile-title">Prada.com e-commerce</h3><p class="la-tile-tags">Art Direction · UX/UI Design · View case →</p></div></div>
-    <div class="la-tile" tabindex="0"><div class="la-tile-bg" style="background:radial-gradient(120% 120% at 72% 26%,rgba(143,184,204,.34),var(--navy-d) 66%)"><span class="la-tile-mark">Miu Miu</span></div><div class="la-tile-info"><span class="la-tile-idx">02 / 06</span><h3 class="la-tile-title">Miumiu.com e-commerce</h3><p class="la-tile-tags">Art Direction · UX Design</p></div></div>
-    <div class="la-tile" tabindex="0" style="cursor:pointer" onclick="showPage('tim')"><div class="la-tile-bg" style="background:radial-gradient(120% 120% at 28% 74%,rgba(227,162,74,.34),var(--navy-d) 66%)"><span class="la-tile-mark">TIM</span></div><div class="la-tile-info"><span class="la-tile-idx">03 / 06</span><h3 class="la-tile-title">TIM Music</h3><p class="la-tile-tags">UI/UX Design · Streaming · View case →</p></div></div>
-    <div class="la-tile" tabindex="0" style="cursor:pointer" onclick="showPage('ferrero')"><div class="la-tile-bg" style="background:radial-gradient(120% 120% at 68% 72%,rgba(230,126,55,.36),var(--navy-d) 66%)"><span class="la-tile-mark">Ferrero</span></div><div class="la-tile-info"><span class="la-tile-idx">04 / 06</span><h3 class="la-tile-title">Magic Kinder</h3><p class="la-tile-tags">UX/UI Design · Kids ecosystem · View case →</p></div></div>
-    <div class="la-tile" tabindex="0" style="cursor:pointer" onclick="showPage('cmv')"><div class="la-tile-bg" style="background:radial-gradient(120% 120% at 30% 30%,rgba(232,120,140,.30),var(--navy-d) 66%)"><span class="la-tile-mark">CMV</span></div><div class="la-tile-info"><span class="la-tile-idx">05 / 06</span><h3 class="la-tile-title">Citomegalovirus app</h3><p class="la-tile-tags">UI/UX Design · Healthcare · View case →</p></div></div>
-    <div class="la-tile" tabindex="0"><div class="la-tile-bg" style="background:radial-gradient(120% 120% at 70% 68%,rgba(143,184,204,.32),var(--navy-d) 66%)"><span class="la-tile-mark">UnipolSai</span></div><div class="la-tile-info"><span class="la-tile-idx">06 / 06</span><h3 class="la-tile-title">SmartHome</h3><p class="la-tile-tags">UI/UX Design · IoT</p></div></div>
-  </div>
+    <div class="la-tile has-img" tabindex="0" style="cursor:pointer" onclick="showPage('prada')"><div class="la-tile-bg" style="background-image:url(assets/covers/prada-tile.webp)"><span class="la-tile-mark">Prada</span></div><div class="la-tile-info"><span class="la-tile-idx">01 / 04</span><h3 class="la-tile-title">Prada.com e-commerce</h3><p class="la-tile-tags">Art Direction · UX/UI Design · View case →</p></div></div>
+        <div class="la-tile has-img" tabindex="0" style="cursor:pointer" onclick="showPage('tim')"><div class="la-tile-bg" style="background-image:url(assets/covers/tim-tile.webp)"><span class="la-tile-mark">TIM</span></div><div class="la-tile-info"><span class="la-tile-idx">02 / 04</span><h3 class="la-tile-title">TIM Music</h3><p class="la-tile-tags">UI/UX Design · Streaming · View case →</p></div></div>
+    <div class="la-tile has-img" tabindex="0" style="cursor:pointer" onclick="showPage('ferrero')"><div class="la-tile-bg" style="background-image:url(assets/covers/ferrero-tile.webp)"><span class="la-tile-mark">Ferrero</span></div><div class="la-tile-info"><span class="la-tile-idx">03 / 04</span><h3 class="la-tile-title">Magic Kinder</h3><p class="la-tile-tags">UX/UI Design · Kids ecosystem · View case →</p></div></div>
+    <div class="la-tile has-img" tabindex="0" style="cursor:pointer" onclick="showPage('cmv')"><div class="la-tile-bg" style="background-image:url(assets/covers/cmv-tile.webp)"><span class="la-tile-mark">CMV</span></div><div class="la-tile-info"><span class="la-tile-idx">04 / 04</span><h3 class="la-tile-title">Citomegalovirus app</h3><p class="la-tile-tags">UI/UX Design · Healthcare · View case →</p></div></div>
+      </div>
   <p class="vattr" style="border-top:var(--b);max-width:none;padding-bottom:clamp(30px,4vw,46px)">The work shown was produced in my roles at the World Food Programme and Reply, on behalf of the respective organisations and clients. All names, logos and trademarks belong to their owners and appear for portfolio purposes only.</p>
   <section class="cotsec" style="margin-top:0"><div><h2 class="cot-title">Let's work together.</h2><p class="cot-sub">Available for senior design roles, consulting, and advisory.</p></div><div class="cot-links"><a class="cot-link" href="mailto:info@francescoderosa.design"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="1" y="3" width="12" height="8" rx="1.5" stroke="#2D7D9A" stroke-width="1.2"/><path d="M1 4.5l6 4 6-4" stroke="#2D7D9A" stroke-width="1.2" stroke-linecap="round"/></svg>info@francescoderosa.design</a></div></section>
   <footer><span class="ft-name">Francesco de Rosa</span><span class="ft-copy">© 2026, Digital &amp; Service Design Lead</span></footer>
