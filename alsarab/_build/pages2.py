@@ -165,7 +165,7 @@ def about_page(base=""):
                         '<span>Ministry licence 213/2009</span><span>NDEO member (USA)</span>'
                         '<span>Six genres</span><span>Five branches</span></div></div>'
                         '<div class="rv"><div style="border-radius:var(--radius);overflow:hidden;'
-                        'aspect-ratio:4/5;background:var(--stage) url(%s) center/cover" role="img" '
+                        'aspect-ratio:4/5;background:var(--deep) url(%s) center/cover" role="img" '
                         'aria-label="Al Sarab dancers on stage"></div></div></div>' % img(base, "contemporary"))
             + section(head_block("The team", "Who teaches here")
                       + '<div class="cards g4">%s</div>' % team

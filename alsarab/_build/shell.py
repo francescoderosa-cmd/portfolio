@@ -54,14 +54,14 @@ CHEV = ('<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor"
         'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>')
 
 
-def mark(stroke_var="--sand"):
+def mark(stroke_var="--bg"):
     return ('<svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="22" fill="currentColor"/>'
             '<g fill="none" stroke="var(%s)" stroke-width="3" stroke-linecap="round">'
             '<path d="M9 19c5-4 11-4 16 0s11 4 16 0"/><path d="M9 27c5-4 11-4 16 0s11 4 16 0"/>'
             '<path d="M13 35c4-2.6 8-2.6 12 0"/></g></svg>' % stroke_var)
 
 
-def brand(base, stroke="--sand"):
+def brand(base, stroke="--bg"):
     return ('<a class="brand" href="%sindex.html" aria-label="%s &mdash; home">%s'
             '<span class="brand-tx"><span class="brand-ar">%s</span>'
             '<span class="brand-en">AL SARAB</span></span></a>'
@@ -146,7 +146,7 @@ def footer(base):
                % (SITE["instagram"], IC_IG, SITE["facebook"], IC_FB, SITE["youtube"], IC_YT))
 
     return ('<footer><div class="container"><div class="cols">'
-            '<div>' + brand(base, "--stage") +
+            '<div>' + brand(base, "--deep") +
             '<p class="about">' + FOOTER_ABOUT + '</p>' + fsocial + '</div>'
             + cols + contact +
             '</div><div class="legal">'
@@ -163,7 +163,7 @@ FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com">'
          '&family=Reem+Kufi:wght@400;600&display=swap">')
 
 FAVICON = ("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E"
-           "%3Ccircle cx='24' cy='24' r='22' fill='%239C4F3A'/%3E%3Cg fill='none' stroke='%23EAE4D9'"
+           "%3Ccircle cx='24' cy='24' r='22' fill='%235F4F9B'/%3E%3Cg fill='none' stroke='%23E7E2F1'"
            " stroke-width='3' stroke-linecap='round'%3E%3Cpath d='M9 19c5-4 11-4 16 0s11 4 16 0'/%3E"
            "%3Cpath d='M9 27c5-4 11-4 16 0s11 4 16 0'/%3E%3Cpath d='M13 35c4-2.6 8-2.6 12 0'/%3E"
            "%3C/g%3E%3C/svg%3E")
@@ -179,7 +179,7 @@ def page(title, desc, body, base="", active="", extra_js="", data_js=""):
         '<meta name="robots" content="noindex, nofollow">\n'
         '<title>' + full_title + '</title>\n'
         '<meta name="description" content="' + desc + '">\n'
-        '<meta name="theme-color" content="#170C0A">\n'
+        '<meta name="theme-color" content="#140E1E">\n'
         '<link rel="icon" href="' + FAVICON + '">\n'
         + FONTS + '\n'
         '<link rel="stylesheet" href="' + base + 'assets/site.css">\n'

@@ -202,12 +202,12 @@ def home(base=""):
           '<p>The school\'s home is in Jbeil (Byblos), with branches that have carried the programme '
           'north to Koura and south towards Beirut. Its sister ensemble, Al Sarab Dance Company, '
           'tours separately &mdash; you can find them at <a href="%s" target="_blank" rel="noopener" '
-          'style="color:var(--clay)">alsarabdancecompany.com</a>.</p>'
+          'style="color:var(--brand)">alsarabdancecompany.com</a>.</p>'
           '<div class="stamp"><span>Ministry of Education 213/2009</span><span>NDEO member (USA)</span>'
           '<span>Curriculum-based</span><span>Ages 3 to adult</span></div>'
           '<div style="margin-top:26px">%s</div></div>'
           '<div class="rv"><div style="border-radius:var(--radius);overflow:hidden;aspect-ratio:4/5;'
-          'background:var(--stage) url(%s) center/cover" role="img" aria-label="Al Sarab dancers '
+          'background:var(--deep) url(%s) center/cover" role="img" aria-label="Al Sarab dancers '
           'performing on stage"></div>'
           '<div class="rows" style="margin-top:30px">%s</div></div>'
           '</div>'
@@ -320,9 +320,9 @@ def classes_page(base=""):
             + section(head_block("Levels &amp; ages", "How the levels work",
                                  "Placement is by age and by level, not by age alone. A trial class "
                                  "decides where a student starts.")
-                      + '<div class="split"><div class="rv"><p class="label" style="color:var(--clay);'
+                      + '<div class="split"><div class="rv"><p class="label" style="color:var(--brand);'
                         'margin-bottom:14px">Levels</p><div class="rows">%s</div></div>'
-                        '<div class="rv"><p class="label" style="color:var(--clay);margin-bottom:14px">'
+                        '<div class="rv"><p class="label" style="color:var(--brand);margin-bottom:14px">'
                         'Age groups</p><div class="rows">%s</div></div></div>' % (levels, ages),
                       cls="section tight")
             + section(head_block("This week", "Classes at Al Sarab")
@@ -396,9 +396,9 @@ def schedule_page(base=""):
                   "%d classes a week across six genres and three studios in Jbeil and Koura. "
                   "Most classes are 55 minutes. Places are booked for the academic year %s."
                   % (len(CLASSES), SITE["term"]))
-            + section('<div class="split"><div class="rv"><p class="label" style="color:var(--clay);'
+            + section('<div class="split"><div class="rv"><p class="label" style="color:var(--brand);'
                       'margin-bottom:14px">Levels</p><div class="rows">%s</div></div>'
-                      '<div class="rv"><p class="label" style="color:var(--clay);margin-bottom:14px">'
+                      '<div class="rv"><p class="label" style="color:var(--brand);margin-bottom:14px">'
                       'Age groups</p><div class="rows">%s</div></div></div>'
                       '<p class="note">Schedule last updated %s. For the interactive version with '
                       'filters, use <a href="%sclasses.html">classes &amp; booking</a>, or see '
@@ -486,7 +486,7 @@ def style_detail(g, base="../"):
                   btn(base, "contact.html", "Book a trial class", "btn-light")
                   + btn(base, "classes.html#schedule", "See the schedule", "btn-outline-light", arrow=False))
             + crumbs(base, [("Home", "index.html"), ("Dance genres", "dance-styles.html"), (g["name"], None)])
-            + section('<div class="split"><div class="rv"><p class="label" style="color:var(--clay);'
+            + section('<div class="split"><div class="rv"><p class="label" style="color:var(--brand);'
                       'margin-bottom:16px">About</p><h2 style="font-size:34px;margin-bottom:20px">%s at '
                       'Al Sarab</h2><p style="font-size:17px">%s</p></div>'
                       '<div class="rv"><div class="facts">'
@@ -495,7 +495,7 @@ def style_detail(g, base="../"):
                       '<div class="r"><span class="k">Class length</span><span class="v">40&ndash;55 min</span></div>'
                       '<div class="r"><span class="k">Studios</span><span class="v">%s</span></div>'
                       '<div class="r"><span class="k">Fee</span><span class="v">%s</span></div></div>'
-                      '<p class="label" style="color:var(--clay);margin:30px 0 14px">What to expect</p>'
+                      '<p class="label" style="color:var(--brand);margin:30px 0 14px">What to expect</p>'
                       '<ul class="ticks">%s</ul>'
                       '</div></div>'
                       % (g["name"], g["long"], ", ".join(levels_here) or "&mdash;",
@@ -545,7 +545,7 @@ def teacher_detail(t, base="../"):
               '<span style="font-size:72px">%s</span></div>'
               '<div class="body"><p class="label">%s</p><h1 style="font-size:40px">%s</h1>'
               '<p class="role">%s</p><p>%s</p>'
-              '<p class="label" style="color:var(--clay);margin-top:10px">Genres taught</p>'
+              '<p class="label" style="color:var(--brand);margin-top:10px">Genres taught</p>'
               '<div class="chips">%s</div></div></div></div></section>'
               % (initials, "Teaching team", t["name"], t["role"], bio, styles)
             + section(head_block("Background", "About %s" % t["name"])
