@@ -177,7 +177,12 @@ def home(base=""):
                    "open workshops with guest choreographers &mdash; and its company has taken the "
                    "stage from Byblos to Beirut.")
         + '<div class="cards g3">%s</div>' % "".join(event_card(base, e) for e in up)
-        + '<div style="margin-top:32px">%s</div>' % btn(base, "events.html", "All events", "btn-ghost"),
+        + '<div style="margin-top:32px">%s</div>' % btn(base, "events.html", "All events", "btn-ghost")
+        + '<div class="offer rv" style="margin-top:44px"><div>'
+          '<h3>Dancing at your event?</h3>'
+          '<p>Al Sarab also performs &mdash; weddings, private parties, galas and commissioned '
+          'shows, anywhere in Lebanon.</p></div>%s</div>'
+          % btn(base, "performances.html", "Hire us"),
         sid="events")
 
     news = section(

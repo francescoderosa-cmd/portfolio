@@ -367,6 +367,122 @@ def rental_page(base=""):
                 body, base=base, active="studio-rental.html")
 
 
+# ---------------------------------------------------------------- performances for hire
+def performances_page(base=""):
+    from data import PERFORMANCE_FORMATS, PERF_FAQ
+
+    cards = ""
+    for f in PERFORMANCE_FORMATS:
+        items = "".join("<li>%s</li>" % i for i in f["items"])
+        cards += ('<article class="card rv%s"><div class="ph" style="background-image:url(%s)"></div>'
+                  '<div class="body"><div class="meta"><span class="tag hot">%s</span>'
+                  '<span class="tag">%s</span><span class="tag">%s</span></div>'
+                  '<h3>%s</h3><p>%s</p>'
+                  '<ul class="ticks" style="margin-top:4px">%s</ul>'
+                  '<div class="foot"><span>Repertoire: %s</span>'
+                  '<a class="linkarrow" href="#enquiry">Enquire about this%s</a></div></div></article>'
+                  % (" featured" if f["featured"] else "", img(base, f["img"]), f["name"],
+                     f["dur"], f["size"], f["name"], f["blurb"], items, f["genres"], ARROW))
+
+    genre_chips = "".join('<a class="chip" style="text-decoration:none" href="%sdance-styles/%s.html">%s</a>'
+                          % (base, g["slug"], g["name"]) for g in GENRES)
+
+    fields = [("h-name", "Your name", "text"), ("h-mail", "Email", "email"),
+              ("h-date", "Event date", "date"), ("h-place", "Venue or city", "text"),
+              ("h-guests", "Guests expected", "text"), ("h-length", "Set length wanted", "text")]
+    inputs = "".join('<div><label class="label" for="%s">%s</label>'
+                     '<input class="inp" id="%s" name="%s" type="%s"%s></div>'
+                     % (i, l, i, l.lower().replace(" ", "_"), t,
+                        " required" if i in ("h-name", "h-mail") else "")
+                     for i, l, t in fields)
+
+    body = (phero(base, "Hire us", "Al Sarab at your event",
+                  "Weddings, private parties, galas and commissioned shows. Al Sarab has been "
+                  "putting dancers on stage in Lebanon since 1991 &mdash; including a full "
+                  "production at Metro Al Madina in Beirut. The same dancers can perform at "
+                  "your event.", "performances",
+                  btn(base, "#enquiry", "Send an enquiry", "btn-light", arrow=False)
+                  + btn(base, "#formats", "See the formats", "btn-outline-light", arrow=False))
+
+            + section('<div class="split"><div class="rv">'
+                      '<p class="label" style="color:var(--brand);margin-bottom:16px">What this is</p>'
+                      '<h2 style="font-size:34px;margin-bottom:20px">We come to you and perform</h2>'
+                      '<p class="muted" style="font-size:17px">This is the performance side of the '
+                      'school: a choreographed set danced by Al Sarab at your wedding, your party or '
+                      'your event. It is not a class &mdash; nobody in the room has to dance.</p>'
+                      '<p class="muted" style="margin-top:16px">If what you actually want is your own '
+                      'group learning a routine together, that is a '
+                      '<a href="%sprivate-events.html" style="color:var(--brand)">private session</a> '
+                      'instead. If you want the room, not the dancers, see '
+                      '<a href="%sstudio-rental.html" style="color:var(--brand)">studio rental</a>.</p>'
+                      '</div>'
+                      '<div class="rv"><div class="facts">'
+                      '<div class="r"><span class="k">Formats</span><span class="v">Wedding, party, gala, full show</span></div>'
+                      '<div class="r"><span class="k">Set length</span><span class="v">10&ndash;70 min</span></div>'
+                      '<div class="r"><span class="k">Dancers</span><span class="v">3 to 14+</span></div>'
+                      '<div class="r"><span class="k">Travel</span><span class="v">Across Lebanon</span></div>'
+                      '<div class="r"><span class="k">Ensemble</span>'
+                      '<span class="v"><span class="tag ph">To confirm</span></span></div>'
+                      '<div class="r"><span class="k">Fee</span><span class="v">Quoted per booking</span></div>'
+                      '</div></div></div>' % (base, base), cls="section tight")
+
+            + section(head_block("Formats", "Four ways to book us",
+                                 "Every booking is quoted individually &mdash; the format sets the "
+                                 "shape, then the length, the number of dancers and the travel set "
+                                 "the fee.")
+                      + '<div class="cards g2">%s</div>' % cards, sid="formats")
+
+            + section(head_block("Repertoire", "What we can dance",
+                                 "Raqs Sharqi is the most-asked-for at weddings, and the one Al Sarab "
+                                 "teaches as a full technique rather than a party skill. Any genre "
+                                 "in the curriculum can be programmed.")
+                      + '<div class="chips rv">%s</div>' % genre_chips, cls="section tight")
+
+            + section(head_block("How it works", "From enquiry to the night")
+                      + '<div class="steps">'
+                        '<div class="step rv"><span class="n">01</span><h3>Tell us the event</h3>'
+                        '<p>Date, venue, how many guests, and roughly how long you want us on.</p></div>'
+                        '<div class="step rv"><span class="n">02</span><h3>We propose and quote</h3>'
+                        '<p>A format, a repertoire suggestion and a fee, within 1 to 2 working days.</p></div>'
+                        '<div class="step rv"><span class="n">03</span><h3>We build it</h3>'
+                        '<p>Choreography, music and costume agreed with you, then rehearsed. We check '
+                        'the floor plan before the date.</p></div>'
+                        '<div class="step rv"><span class="n">04</span><h3>We perform</h3>'
+                        '<p>We arrive with everything we need and fit into your run of show.</p></div>'
+                        '</div>', cls="section tight")
+
+            + section(head_block("Enquiry", "Tell us about your event")
+                      + '<div class="split"><form class="box rv" data-mailto="%s" '
+                        'data-subject="Performance booking enquiry">%s'
+                        '<div><label class="label" for="h-type">Type of event</label>'
+                        '<select class="inp" id="h-type" name="event_type">%s'
+                        '<option>Something else</option></select></div>'
+                        '<div><label class="label" for="h-genre">Genre you have in mind</label>'
+                        '<select class="inp" id="h-genre" name="genre">'
+                        '<option>No preference &mdash; advise us</option>%s</select></div>'
+                        '<div><label class="label" for="h-notes">Anything else we should know?</label>'
+                        '<textarea class="inp" id="h-notes" name="notes" placeholder="Run of show, '
+                        'music you want, whether there is a stage&hellip;"></textarea></div>'
+                        '<button class="btn btn-primary" type="submit">Send enquiry%s</button>'
+                        '<p class="form-note">Opens your mail app with everything filled in, ready to '
+                        'send to %s. We reply within 1 to 2 working days.</p></form>'
+                        '<div class="rv"><h3 style="font-size:26px;margin-bottom:18px">Good to know</h3>'
+                        '<div class="faq">%s</div></div></div>'
+                        % (SITE["email"], inputs,
+                           "".join('<option>%s</option>' % f["name"] for f in PERFORMANCE_FORMATS),
+                           "".join('<option>%s</option>' % g["name"] for g in GENRES),
+                           ARROW, SITE["email"], faq_items(PERF_FAQ)),
+                      sid="enquiry", cls="section tight")
+
+            + section('<div class="offer rv"><div><h3>Looking for the school instead?</h3>'
+                      '<p>Classes run Monday, Wednesday and Friday in Jbeil and Koura, from three '
+                      'years old to adult.</p></div>%s</div>'
+                      % btn(base, "classes.html", "See the classes", "btn-ghost"), cls="section tight"))
+
+    return page("Performances", "Hire Al Sarab to perform at your wedding, party, gala or private "
+                "show in Lebanon.", body, base=base, active="performances.html")
+
+
 # ---------------------------------------------------------------- private events
 def private_page(base=""):
     cards = ""

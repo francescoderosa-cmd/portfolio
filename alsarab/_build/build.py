@@ -75,6 +75,7 @@ def main():
     made.append(write(out, "faq.html", pages2.faq_page()))
     made.append(write(out, "contact.html", pages2.contact_page()))
     made.append(write(out, "studio-rental.html", pages2.rental_page()))
+    made.append(write(out, "performances.html", pages2.performances_page()))
     made.append(write(out, "private-events.html", pages2.private_page()))
     made.append(write(out, "corporate-programmes.html", pages2.programmes_page()))
     made.append(write(out, "terms.html", pages2.terms_page()))

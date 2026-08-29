@@ -587,6 +587,73 @@ FAQ = [
     ]),
 ]
 
+# ---------------------------------------------------------------- performances for hire
+# NOTE FOR REVIEW: it is not yet settled whether the performers are Al Sarab Dance
+# Company (which tours separately) or ensembles drawn from the school. The copy below
+# is deliberately neutral — it says "Al Sarab" — and the Ensemble row in the facts box
+# is flagged as unconfirmed. Settle this before the page goes anywhere public.
+PERFORMANCE_FORMATS = [
+    dict(name="Wedding", img="perf-wedding", featured=True,
+         dur="15&ndash;40 min", size="4&ndash;10 dancers",
+         genres="Raqs Sharqi, Jazz, Modern",
+         blurb="An entrance, a set piece, or a full sequence built into the evening. "
+               "The zaffe tradition and a choreographed Raqs Sharqi number are the two "
+               "most-asked-for; both can be cut to the length your venue allows.",
+         items=["Choreography built for your run of show",
+                "Costume and music agreed in advance",
+                "Site visit or floor plan check before the date",
+                "Travel across Lebanon"]),
+    dict(name="Private party", img="ev-showcase", featured=False,
+         dur="10&ndash;25 min", size="3&ndash;6 dancers",
+         genres="Raqs Sharqi, Jazz",
+         blurb="A short, high-energy set for a birthday, an anniversary or a house "
+               "celebration. Small enough to work in a room without a stage.",
+         items=["Works without a stage or rig",
+                "Repertoire from our existing pieces",
+                "One set or two shorter appearances",
+                "Music supplied or matched to your DJ"]),
+    dict(name="Corporate &amp; gala", img="ev-recital", featured=False,
+         dur="20&ndash;45 min", size="6&ndash;14 dancers",
+         genres="Contemporary, Modern, Raqs Sharqi",
+         blurb="A programmed piece for an opening, an award evening or a company "
+               "celebration &mdash; closer to a concert set than to entertainment.",
+         items=["Programmed as a sequence, not a single number",
+                "Technical rider for lighting and sound",
+                "Rehearsal in the venue where possible",
+                "Bilingual introduction if needed"]),
+    dict(name="Exclusive show", img="hero", featured=False,
+         dur="45&ndash;70 min", size="10+ dancers",
+         genres="Full repertoire",
+         blurb="A full-length commissioned work, or an existing production restaged "
+               "for your venue &mdash; as Al Sarab did at Metro Al Madina in Beirut.",
+         items=["Original commission or restaging",
+                "Creation period agreed with you",
+                "Full technical and wardrobe production",
+                "Photography and filming arranged"]),
+]
+
+PERF_FAQ = [
+    ("How far in advance should we book?",
+     "For a wedding in high season, as early as you can &mdash; choreography, costume and "
+     "rehearsal all sit before the date. For a short party set, a few weeks is usually enough. "
+     "Placeholder: confirm the real lead times."),
+    ("Do you travel outside Byblos?",
+     "Yes, across Lebanon. Travel is quoted with the booking. Placeholder: confirm whether there "
+     "is a distance limit and how travel is charged."),
+    ("Can the choreography be made for us specifically?",
+     "Yes. Every wedding and gala booking is built around your run of show, your venue and the "
+     "music you want. Existing repertoire is the faster and cheaper route if you prefer it."),
+    ("What do you need from the venue?",
+     "A flat, clean performance area and a way to play the music. Anything beyond that &mdash; "
+     "lighting, a raised stage, a sound engineer &mdash; is agreed in the technical rider."),
+    ("How much does it cost?",
+     "Rates depend on the format, the number of dancers, the length and the travel. Every booking "
+     "is quoted individually &mdash; send an enquiry and we will come back within 1 to 2 working days."),
+    ("Is this the same thing as booking a class?",
+     "No. Here Al Sarab comes to you and performs. If you want your group to learn a dance "
+     "themselves, that is a <a href=\"private-events.html\">private session</a> instead."),
+]
+
 # ---------------------------------------------------------------- private sessions
 PACKAGES = [
     dict(name="Classic", dur="60 min", price="On request", featured=False,

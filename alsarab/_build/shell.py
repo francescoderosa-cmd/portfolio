@@ -15,6 +15,12 @@ NAV = [
         ("Fees", "pricing.html"),
     ]),
     ("Events", "events.html", None),
+    ("Hire us", None, [
+        ("Performances", "performances.html"),
+        ("Private sessions", "private-events.html"),
+        ("Programmes", "corporate-programmes.html"),
+        ("Studio rental", "studio-rental.html"),
+    ]),
     ("Al Sarab", None, [
         ("News &amp; stories", "news.html"),
         ("Studios", "studios.html"),
@@ -30,10 +36,13 @@ FOOTER_NAV = [
                  ("Dance genres", "dance-styles.html"), ("Events &amp; workshops", "events.html"),
                  ("News", "news.html")]),
     ("Book &amp; visit", [("Book a class", "classes.html"), ("Fees", "pricing.html"),
-                          ("Private sessions", "private-events.html"),
-                          ("Studio rental", "studio-rental.html"),
-                          ("Programmes", "corporate-programmes.html"),
+                          ("Drop-in", "drop-in.html"), ("Studios", "studios.html"),
                           ("FAQ", "faq.html"), ("Contact", "contact.html")]),
+    ("Hire us", [("Performances", "performances.html"),
+                 ("Weddings", "performances.html#formats"),
+                 ("Private sessions", "private-events.html"),
+                 ("Programmes", "corporate-programmes.html"),
+                 ("Studio rental", "studio-rental.html")]),
 ]
 
 # ---------------------------------------------------------------- icons
