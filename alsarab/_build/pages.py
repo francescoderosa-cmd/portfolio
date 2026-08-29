@@ -63,7 +63,7 @@ def style_card(base, g, cls="style-card rv"):
     return ('<article class="%s" data-tags="%s"><div class="ph" style="background-image:url(%s)"></div>'
             '<div class="body"><div class="meta">%s</div><h3>%s</h3><p>%s</p>'
             '<div class="links"><a href="%sdance-styles/%s.html">Explore %s</a>'
-            '<a href="%sclasses.html#schedule">See classes</a></div></div></article>'
+            '<a href="%sclasses.html#calendar">See classes</a></div></div></article>'
             % (cls, "|".join(g["tags"]), img(base, g["img"]), tags, g["name"], g["short"],
                base, g["slug"], g["name"], base))
 
@@ -125,9 +125,42 @@ def home(base=""):
             '<div><p class="label">Branches</p><strong>Jbeil &middot; Koura &middot; Rabieh</strong></div>'
             '</div></div></div></header>'
             % (SITE["full"], img(base, "hero"), genre_names,
-               btn(base, "classes.html", "Book your first class", "btn-light"),
+               btn(base, "classes.html#trial", "Book a trial class", "btn-light"),
                btn(base, "#schedule", "See the schedule", "btn-outline-light", arrow=False),
                SITE["founded"], SITE["founder"], SITE["licence"]))
+
+    # launch modules — one door to each main section of the site
+    LAUNCH = [
+        ("The School", "classes.html", "modern",
+         "Six genres, one written curriculum, from three years old to adult. Programmes, the "
+         "class calendar and a free trial."),
+        ("Hire Us", "hire-us.html", "perf-wedding",
+         "Weddings, videos, commissioned choreography and studio booking. Tell us what you need "
+         "and we quote it."),
+        ("Summer Camp", "summer-camp.html", "acro",
+         "Two weeks of dance next summer, for our own dancers and for anyone who wants to try. "
+         "Places can be reserved now."),
+        ("The Teachers", "instructors.html", "contemporary",
+         "Sixteen instructors, choreographers and dance educators &mdash; and the reason families "
+         "stay with us for years."),
+        ("Merchandising", "merchandising.html", "news-2",
+         "Hoodies, T-shirts and the pieces the levels wear. Reserve online, try and pay at the "
+         "school."),
+        ("Contacts", "contact.html", "ev-showcase",
+         "Center Al Haref, Byblos. Reception answers on class days &mdash; Monday, Wednesday and "
+         "Friday, 4 to 9PM."),
+    ]
+    launch = section(
+        head_block("The school", "Where would you like to start?",
+                   "Six ways into Al Sarab &mdash; whether you want to dance, to hire us, or "
+                   "just to find the door.")
+        + '<div class="launch">%s</div>'
+          % "".join('<a href="%s" class="rv"><div class="ph" style="background-image:url(%s)"></div>'
+                    '<div class="body"><p class="label">%s</p><h3>%s</h3><p>%s</p>'
+                    '<span class="go">Open%s</span></div></a>'
+                    % (base + href, img(base, im), "Al Sarab", title, txt, ARROW)
+                    for title, href, im, txt in LAUNCH),
+        sid="explore")
 
     sched = section(
         head_block("Weekly schedule", "When are classes at Al Sarab?",
@@ -138,7 +171,7 @@ def home(base=""):
         + schedule_module(view_toggle=False)
         + '<p class="note">Sample timetable. The confirmed grid, fees and age placement are given at '
           'registration &mdash; <a href="%scontact.html">ask us for the current schedule</a>.</p>'
-          '<div style="margin-top:26px">%s</div>' % (base, btn(base, "schedule.html", "View full schedule", "btn-ghost")),
+          '<div style="margin-top:26px">%s</div>' % (base, btn(base, "classes.html#calendar", "The full calendar", "btn-ghost")),
         sid="schedule")
 
     lead = TEACHERS[0]
@@ -166,7 +199,7 @@ def home(base=""):
                    "widened into a full movement curriculum, with levels running from pre-school "
                    "creative movement to pre-professional training.")
         + '<div class="cards g3">%s</div>' % "".join(style_card(base, g) for g in GENRES)
-        + '<div style="margin-top:32px">%s</div>' % btn(base, "dance-styles.html", "All dance genres", "btn-ghost"),
+        + '<div style="margin-top:32px">%s</div>' % btn(base, "classes.html#programmes", "All programmes", "btn-ghost"),
         sid="classes")
 
     from data import EVENTS, NEWS
@@ -182,7 +215,7 @@ def home(base=""):
           '<h3>Dancing at your event?</h3>'
           '<p>Al Sarab also performs &mdash; weddings, private parties, galas and commissioned '
           'shows, anywhere in Lebanon.</p></div>%s</div>'
-          % btn(base, "performances.html", "Hire us"),
+          % btn(base, "hire-us.html", "Hire us"),
         sid="events")
 
     news = section(
@@ -235,7 +268,7 @@ def home(base=""):
     return page("Al Sarab Dance School",
                 "Curriculum-based dance school in Byblos, Lebanon. Modern, Contemporary, Classical "
                 "Ballet, Jazz, Raqs Sharqi and Acro for every age, since 1991.",
-                hero + sched + teachers + classes + events + news + about + faq + contact,
+                hero + launch + sched + teachers + classes + events + news + about + faq + contact,
                 base=base, active="index.html",
                 extra_js="schedule.js", data_js=schedule_data_js(base))
 
@@ -312,16 +345,60 @@ def contact_form(base, subject="Class enquiry"):
 
 
 # ---------------------------------------------------------------- classes (booking)
+def trial_block(base):
+    """Walk-in / trial booking. Lives on the Classes page as #trial."""
+    return ('<div class="trial rv" id="trial">'
+            '<div><p class="label" style="color:var(--brand);margin-bottom:14px">Walk-in</p>'
+            '<h2>Book a trial class</h2>'
+            '<p>Every new student starts with a trial &mdash; it is how we decide the level. Walk '
+            'in on a class day, or send this and we will put you in the class we think fits.</p>'
+            '<p>Reception is open %s at Center Al Haref, Byblos. Bring clothes you can move in; '
+            'shoes are not needed for most genres.</p>'
+            '<div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:20px">%s%s</div></div>'
+            '<form class="box" data-mailto="%s" data-subject="Trial class request">'
+            '<div><label class="label" for="t-name">Student name</label>'
+            '<input class="inp" id="t-name" name="student" required></div>'
+            '<div class="two">'
+            '<div><label class="label" for="t-age">Age</label>'
+            '<input class="inp" id="t-age" name="age" required></div>'
+            '<div><label class="label" for="t-mail">Email</label>'
+            '<input class="inp" id="t-mail" name="email" type="email" required></div></div>'
+            '<div><label class="label" for="t-genre">Genre</label>'
+            '<select class="inp" id="t-genre" name="genre">'
+            '<option>No preference &mdash; advise us</option>%s</select></div>'
+            '<div><label class="label" for="t-branch">Branch</label>'
+            '<select class="inp" id="t-branch" name="branch"><option>Jbeil</option>'
+            '<option>Koura</option></select></div>'
+            '<button class="btn btn-primary" type="submit">Request a trial%s</button>'
+            '<p class="form-note">Opens your mail app, ready to send to %s. The trial is free.</p>'
+            '</form></div>'
+            % (SITE["hours_short"],
+               btn(base, "tel:" + SITE["phone_raw"], "Call " + SITE["phone"], "btn-ghost", arrow=False),
+               btn(base, SITE["maps"], "Find us", "btn-ghost", arrow=False),
+               SITE["email"],
+               "".join('<option>%s</option>' % g["name"] for g in GENRES),
+               ARROW, SITE["email"]))
+
+
 def classes_page(base=""):
     levels = "".join('<div class="row-item"><b>%s</b><span>%s</span></div>' % (n, d) for n, d in LEVELS)
     ages = "".join('<div class="row-item"><b>%s</b><span>%s</span></div>' % (n, d) for n, d in AGES)
 
-    body = (phero(base, "Classes", "Dance classes in Byblos &mdash; schedule and booking",
-                  "Six genres across three studios in Jbeil and Koura. Book a place for the academic "
-                  "year, or come for a trial class first. Every level is available to beginners and "
-                  "no experience is needed to start.", "jazz",
-                  btn(base, "#schedule", "See this week", "btn-light", arrow=False)
-                  + btn(base, "pricing.html", "Fees", "btn-outline-light", arrow=False))
+    body = (phero(base, "School &middot; Classes", "The programmes, the calendar, and how to start",
+                  "Six genres taught inside one written curriculum, across three studios in Jbeil "
+                  "and Koura. Everything on this page: what you can study, when it runs, and how "
+                  "to book a trial.", "jazz",
+                  btn(base, "#programmes", "The programmes", "btn-light", arrow=False)
+                  + btn(base, "#calendar", "Class calendar", "btn-outline-light", arrow=False)
+                  + btn(base, "#trial", "Book a trial", "btn-outline-light", arrow=False))
+
+            + section(head_block("Programmes", "What you can study here",
+                                 "Al Sarab began with Modern. Over the last fifteen years the "
+                                 "programme has widened into six disciplines, from pre-school "
+                                 "creative movement to pre-professional training.")
+                      + '<div class="cards g3">%s</div>' % "".join(style_card(base, g) for g in GENRES),
+                      sid="programmes")
+
             + section(head_block("Levels &amp; ages", "How the levels work",
                                  "Placement is by age and by level, not by age alone. A trial class "
                                  "decides where a student starts.")
@@ -330,36 +407,45 @@ def classes_page(base=""):
                         '<div class="rv"><p class="label" style="color:var(--brand);margin-bottom:14px">'
                         'Age groups</p><div class="rows">%s</div></div></div>' % (levels, ages),
                       cls="section tight")
-            + section(head_block("This week", "Classes at Al Sarab")
+
+            + section(head_block("Calendar", "The class week",
+                                 "Classes run Monday, Wednesday and Friday afternoons in Jbeil and "
+                                 "Koura, with a full junior programme on Saturday mornings. Most "
+                                 "classes are 55 minutes.")
                       + schedule_controls()
                       + schedule_module()
                       + '<p class="note">Sample timetable &mdash; the confirmed grid is given at '
                         'registration. Last updated %s.</p>' % SITE["updated"],
-                      sid="schedule")
-            + section(head_block("Booking", "Three ways to join")
+                      sid="calendar")
+
+            + section(trial_block(base), cls="section tight")
+
+            + section(head_block("Fees", "What a year costs",
+                                 "Fees depend on the genre, the level and how many classes a week "
+                                 "a student takes. They are given at registration &mdash; the trial "
+                                 "class itself is free.")
                       + '<div class="cards g3">'
-                        '<div class="price-card rv"><h3>Academic year</h3>'
+                        '<div class="price-card rv"><h3>One class a week</h3>'
                         '<p class="amount">%s<small>%s &middot; %s</small></p>'
                         '<ul><li>A place in one class per week</li><li>Assessment and end-of-year '
                         'evaluation</li><li>Recital place included</li><li>Costume billed separately</li></ul>'
                         '%s</div>'
-                        '<div class="price-card rv featured"><h3>Two or more classes</h3>'
-                        '<p class="amount">%s<small>Per additional class</small></p>'
+                        '<div class="price-card rv featured"><h3>Two or more</h3>'
+                        '<p class="amount">%s<small>Reduced rate per extra class</small></p>'
                         '<ul><li>Second and third genres at a reduced rate</li>'
                         '<li>Timetabled to pair on the same afternoon</li>'
                         '<li>One assessment record across genres</li><li>Sibling reduction available</li></ul>'
                         '%s</div>'
                         '<div class="price-card rv"><h3>Trial class</h3>'
-                        '<p class="amount">Free<small>One class, before you commit</small></p>'
+                        '<p class="amount">Free<small>Before you commit</small></p>'
                         '<ul><li>Placement advice on the spot</li><li>No registration needed</li>'
-                        '<li>Any genre, any branch</li><li>Free all week during Open Studios</li></ul>'
+                        '<li>Any genre, any branch</li><li>Walk in on a class day</li></ul>'
                         '%s</div></div>'
                         % (PRICE, SITE["term"], SITE["term_dates"],
-                           btn(base, "contact.html", "Register", "btn-ghost"),
+                           btn(base, "contact.html", "Ask for the fee sheet", "btn-ghost"),
                            PRICE, btn(base, "contact.html", "Ask about rates", "btn-primary"),
-                           btn(base, "contact.html", "Book a trial", "btn-ghost")))
-            + section(head_block("Dance genres", "What you can study here")
-                      + '<div class="cards g3">%s</div>' % "".join(style_card(base, g) for g in GENRES))
+                           btn(base, "#trial", "Book a trial", "btn-ghost")),
+                      cls="section tight")
             + section(head_block("Questions", "Before you book")
                       + '<div class="faq rv">%s</div>' % faq_items([
                           ("How much does a course cost?",
@@ -490,7 +576,7 @@ def style_detail(g, base="../"):
     body = (phero(base, "Dance genre", g["name"], g["short"], g["img"],
                   btn(base, "contact.html", "Book a trial class", "btn-light")
                   + btn(base, "classes.html#schedule", "See the schedule", "btn-outline-light", arrow=False))
-            + crumbs(base, [("Home", "index.html"), ("Dance genres", "dance-styles.html"), (g["name"], None)])
+            + crumbs(base, [("Home", "index.html"), ("Classes", "classes.html#programmes"), (g["name"], None)])
             + section('<div class="split"><div class="rv"><p class="label" style="color:var(--brand);'
                       'margin-bottom:16px">About</p><h2 style="font-size:34px;margin-bottom:20px">%s at '
                       'Al Sarab</h2><p style="font-size:17px">%s</p></div>'

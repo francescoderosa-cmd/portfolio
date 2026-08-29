@@ -6,43 +6,31 @@ import theme
 
 # ---------------------------------------------------------------- nav model
 NAV = [
-    ("Classes", None, [
-        ("Schedule &amp; booking", "classes.html"),
-        ("Full weekly schedule", "schedule.html"),
-        ("Drop-in", "drop-in.html"),
-        ("Dance genres", "dance-styles.html"),
-        ("Teachers", "instructors.html"),
-        ("Fees", "pricing.html"),
+    ("Home", "index.html", None),
+    ("School", None, [
+        ("History &amp; info", "about.html"),
+        ("The Teachers", "instructors.html"),
+        ("Classes", "classes.html"),
+        ("Student &amp; parent portal", "portal.html"),
     ]),
-    ("Events", "events.html", None),
-    ("Hire us", None, [
-        ("Performances", "performances.html"),
-        ("Private sessions", "private-events.html"),
-        ("Programmes", "corporate-programmes.html"),
-        ("Studio rental", "studio-rental.html"),
-    ]),
-    ("Al Sarab", None, [
-        ("News &amp; stories", "news.html"),
-        ("Studios", "studios.html"),
-        ("About the school", "about.html"),
-        ("Contact", "contact.html"),
-        ("Student portal", "portal.html"),
-    ]),
-    ("FAQ", "faq.html", None),
+    ("Hire Us", "hire-us.html", None),
+    ("Merchandising", "merchandising.html", None),
+    ("Summer Camp", "summer-camp.html", None),
+    ("Contacts", "contact.html", None),
 ]
 
 FOOTER_NAV = [
-    ("Explore", [("About", "about.html"), ("Teachers", "instructors.html"),
-                 ("Dance genres", "dance-styles.html"), ("Events &amp; workshops", "events.html"),
-                 ("News", "news.html")]),
-    ("Book &amp; visit", [("Book a class", "classes.html"), ("Fees", "pricing.html"),
-                          ("Drop-in", "drop-in.html"), ("Studios", "studios.html"),
-                          ("FAQ", "faq.html"), ("Contact", "contact.html")]),
-    ("Hire us", [("Performances", "performances.html"),
-                 ("Weddings", "performances.html#formats"),
-                 ("Private sessions", "private-events.html"),
-                 ("Programmes", "corporate-programmes.html"),
-                 ("Studio rental", "studio-rental.html")]),
+    ("School", [("History &amp; info", "about.html"), ("The Teachers", "instructors.html"),
+                ("Classes &amp; calendar", "classes.html"),
+                ("Book a trial", "classes.html#trial"),
+                ("Student &amp; parent portal", "portal.html")]),
+    ("Services", [("Hire us", "hire-us.html"), ("Weddings", "hire-us.html#weddings"),
+                  ("Videos", "hire-us.html#videos"),
+                  ("Choreography", "hire-us.html#choreography"),
+                  ("Studio booking", "hire-us.html#studio-booking")]),
+    ("More", [("Merchandising", "merchandising.html"), ("Summer Camp", "summer-camp.html"),
+              ("Events", "events.html"), ("News &amp; stories", "news.html"),
+              ("Fees", "pricing.html"), ("FAQ", "faq.html")]),
 ]
 
 # ---------------------------------------------------------------- icons
@@ -124,7 +112,7 @@ def nav(base, active):
         '<div class="nav-links label">' + "".join(items) + '</div>'
         '<div class="nav-right">' + social +
         '<a class="lang" href="%sar.html" hreflang="ar">AR</a>' % base +
-        '<a class="btn btn-primary" href="%sclasses.html">Book a class</a>' % base +
+        '<a class="btn btn-primary" href="%sclasses.html#trial">Book a trial</a>' % base +
         '<button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" '
         'aria-controls="mobile"><span></span></button>'
         '</div></div>'

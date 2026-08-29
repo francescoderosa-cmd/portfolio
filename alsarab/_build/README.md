@@ -1,6 +1,6 @@
 # Al Sarab — proposal site generator
 
-Generates the 57-page static site served at `/alsarab/`.
+Generates the static site served at `/alsarab/` (49 pages).
 The folder is named `_build/` so GitHub Pages (Jekyll) never publishes it.
 
 ## Rebuild
@@ -25,7 +25,8 @@ pages without a `<title>`, or text that Jekyll would try to interpret.
 | `data.py` | all content: school facts, teachers, genres, timetable, events, news, FAQ, performance formats. Marked at the top with what is real (from alsarabdance.com) and what is placeholder. |
 | `shell.py` | page chrome — head, promo banner, nav model, footer, shared fragments. |
 | `pages.py` | home, booking, schedule, drop-in, today, genres, teachers. |
-| `pages2.py` | events, news, about, studios, fees, FAQ, contact, performances, rental, private, programmes, terms, portal, Arabic. |
+| `pages2.py` | events, news, about, fees, FAQ, contact, terms, portal, Arabic. Also holds the retired page builders (studios, rental, private, programmes, performances) — no longer called from `build.py`, kept in case a section comes back. |
+| `pages3.py` | Hire Us, Merchandising, Summer Camp. |
 | `build.py` | writes every page and copies `assets/img/`. |
 | `check.py` | post-build verification. |
 
@@ -47,15 +48,33 @@ brand on ground 5.4:1 / 8.7:1, button label on brand 6.5:1 / 8.0:1.
 
 ## Navigation
 
-Five top-level items. Two of them exist to keep apart things the visitor would
-otherwise confuse:
+Six top-level items, agreed with the school:
 
-- **Events** — what the school itself puts on: recitals, workshops, the archive.
-- **Hire us** — what the school sells: `performances.html` (weddings, parties,
-  galas, commissioned shows), private sessions, programmes, studio rental.
+| nav | page | contains |
+|---|---|---|
+| Home | `index.html` | hero, six launch modules into the rest of the site, then the standing sections |
+| School ▾ | — | History & info (`about.html`), The Teachers (`instructors.html`), Classes (`classes.html`), Student & parent portal (`portal.html`) |
+| Hire Us | `hire-us.html` | one page, four services: Weddings, Videos, Choreography, Studio booking |
+| Merchandising | `merchandising.html` | reserve-only shop list |
+| Summer Camp | `summer-camp.html` | next camp first, last camp below |
+| Contacts | `contact.html` | phone, email, form |
 
-Before this split, the four commercial pages lived only in the footer and there was
-nowhere to say that Al Sarab performs at other people's events.
+**Classes is one page, not three.** It carries the programmes (the six genres),
+the levels and ages, the class calendar (`#calendar`), the walk-in trial form
+(`#trial`) and the fee cards. The old `schedule.html`, `today.html`,
+`drop-in.html` and `dance-styles.html` were folded into it and are no longer built.
+
+**Hire Us is one page, not four.** `performances.html`, `private-events.html`,
+`corporate-programmes.html` and `studio-rental.html` were folded into it as the
+four service blocks and are no longer built. Every service button goes to one
+shared `#request` form — nothing is priced or paid online anywhere on the site.
+
+### Pages kept but out of the main nav
+
+`events.html` (+ 6 details), `news.html` (+ 6 details), `pricing.html`, `faq.html`,
+`terms.html`, `ar.html`. They were not in the structure the school gave us, but
+deleting them would throw away work, so they live in the footer under **More**
+until someone decides. Say the word and one line in `build.py` drops each one.
 
 Source photographs live in `assets/img/` and come from Al Sarab's own gallery
 (the 2019 production at Metro Al Madina, Beirut).
@@ -68,9 +87,9 @@ anywhere public.
 
 ## Open question for the client
 
-`performances.html` ("Hire us") sells Al Sarab as performers for weddings, parties
-and commissioned shows. **It is not settled whether the dancers are Al Sarab Dance
-Company — which tours separately — or ensembles drawn from the school.** The copy
-says "Al Sarab" throughout so it reads correctly either way, and the Ensemble row in
-the page's facts box carries a visible "To confirm" chip. Settle this and the wording
-tightens in one pass; see the note at the top of `PERFORMANCE_FORMATS` in `data.py`.
+`hire-us.html` sells Al Sarab as performers for weddings, videos and commissioned
+choreography. **It is not settled whether the dancers are Al Sarab Dance Company —
+which tours separately — or ensembles drawn from the school.** The copy says
+"Al Sarab" throughout so it reads correctly either way, and the last item in the
+page FAQ is flagged as a placeholder for exactly this. Settle it and the wording
+tightens in one pass; see the note above `HIRE_SERVICES` in `data.py`.

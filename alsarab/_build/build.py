@@ -15,6 +15,7 @@ import theme
 import data
 import pages
 import pages2
+import pages3
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 IMG_SRC = os.path.abspath(os.path.join(HERE, "..", "img"))
@@ -50,6 +51,8 @@ def main():
         f.write(theme.JS)
     with open(os.path.join(out, "assets", "schedule.js"), "w", encoding="utf-8", newline="\n") as f:
         f.write(theme.SCHEDULE_JS)
+    with open(os.path.join(out, "assets", "merch.js"), "w", encoding="utf-8", newline="\n") as f:
+        f.write(theme.MERCH_JS)
 
     dest_img = os.path.join(out, "assets", "img")
     os.makedirs(dest_img, exist_ok=True)
@@ -59,27 +62,23 @@ def main():
 
     made = []
 
-    # ---- root pages
+    # ---- main nav: Home / School / Hire Us / Merchandising / Summer Camp / Contacts
     made.append(write(out, "index.html", pages.home()))
-    made.append(write(out, "classes.html", pages.classes_page()))
-    made.append(write(out, "schedule.html", pages.schedule_page()))
-    made.append(write(out, "drop-in.html", pages.dropin_page()))
-    made.append(write(out, "today.html", pages.today_page()))
-    made.append(write(out, "dance-styles.html", pages.styles_index()))
-    made.append(write(out, "instructors.html", pages.teachers_index()))
+    made.append(write(out, "about.html", pages2.about_page()))          # School > History & info
+    made.append(write(out, "instructors.html", pages.teachers_index()))  # School > The Teachers
+    made.append(write(out, "classes.html", pages.classes_page()))        # School > Classes
+    made.append(write(out, "portal.html", pages2.portal_page()))         # School > Portal
+    made.append(write(out, "hire-us.html", pages3.hire_us_page()))
+    made.append(write(out, "merchandising.html", pages3.merch_page()))
+    made.append(write(out, "summer-camp.html", pages3.camp_page()))
+    made.append(write(out, "contact.html", pages2.contact_page()))
+
+    # ---- secondary: reachable from the footer, not in the main nav
     made.append(write(out, "events.html", pages2.events_index()))
     made.append(write(out, "news.html", pages2.news_index()))
-    made.append(write(out, "about.html", pages2.about_page()))
-    made.append(write(out, "studios.html", pages2.studios_index()))
     made.append(write(out, "pricing.html", pages2.pricing_page()))
     made.append(write(out, "faq.html", pages2.faq_page()))
-    made.append(write(out, "contact.html", pages2.contact_page()))
-    made.append(write(out, "studio-rental.html", pages2.rental_page()))
-    made.append(write(out, "performances.html", pages2.performances_page()))
-    made.append(write(out, "private-events.html", pages2.private_page()))
-    made.append(write(out, "corporate-programmes.html", pages2.programmes_page()))
     made.append(write(out, "terms.html", pages2.terms_page()))
-    made.append(write(out, "portal.html", pages2.portal_page()))
     made.append(write(out, "ar.html", pages2.arabic_page()))
 
     # ---- detail pages
@@ -91,8 +90,6 @@ def main():
         made.append(write(out, "events/%s.html" % e["slug"], pages2.event_detail(e)))
     for n in data.NEWS:
         made.append(write(out, "news/%s.html" % n["slug"], pages2.news_detail(n)))
-    for k in data.STUDIOS:
-        made.append(write(out, "studios/%s.html" % data.STUDIO[k]["slug"], pages2.studio_detail(k)))
 
     print("%d pages written to %s" % (len(made), out))
     for rel in made:

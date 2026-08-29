@@ -554,7 +554,7 @@ FAQ = [
     ]),
     ("Private &amp; Group Sessions", "Birthdays, groups and one-off bookings.", [
         ("Can we book a private group session?",
-         "Yes &mdash; see <a href=\"private-events.html\">private sessions</a> for the formats and "
+         "Yes &mdash; see <a href=\"hire-us.html#request\">Hire Us</a> for the formats and "
          "how to enquire."),
         ("What is the minimum group size?",
          "Six people."),
@@ -565,7 +565,7 @@ FAQ = [
     ]),
     ("Studio Rental", "Renting a room for rehearsal or a workshop.", [
         ("Can I rent a studio?",
-         "Yes, when it is not timetabled. See <a href=\"studio-rental.html\">studio rental</a>."),
+         "Yes, when it is not timetabled. See <a href=\"hire-us.html#studio-booking\">studio booking</a>."),
         ("What is included?",
          "Mirror wall, sprung floor, sound system and air conditioning. Studio 2 also has acro mats."),
         ("What is the minimum booking?",
@@ -583,8 +583,189 @@ FAQ = [
          "They share a founder and a home but are separate. The school teaches; the company "
          "performs and tours."),
         ("Do you run classes in schools or for companies?",
-         "See <a href=\"corporate-programmes.html\">programmes</a>."),
+         "See <a href=\"hire-us.html#choreography\">Hire Us</a>."),
     ]),
+]
+
+# ---------------------------------------------------------------- hire us (one page, four services)
+# Each service is a section on hire-us.html with its own "Request info" button.
+# Nobody books online: every button opens an enquiry so the school can set price and date.
+HIRE_SERVICES = [
+    dict(slug="weddings", name="Weddings", img="perf-wedding",
+         tagline="We dance at your wedding",
+         blurb="A choreographed set danced by Al Sarab at your wedding &mdash; an entrance, a "
+               "zaffe, a Raqs Sharqi number, or a full sequence built into the run of the evening. "
+               "Nobody in the room has to dance: we perform, you watch.",
+         points=["15 to 40 minutes, 4 to 10 dancers",
+                 "Choreography built around your run of show",
+                 "Music and costume agreed in advance",
+                 "Floor plan checked before the date",
+                 "We travel across Lebanon"],
+         cta="Request info about a wedding"),
+    dict(slug="videos", name="Videos", img="contemporary",
+         tagline="Dance made for the camera",
+         blurb="Choreography created and filmed for a screen rather than a stage &mdash; music "
+               "videos, brand films, campaign content, or a piece of your own you want captured "
+               "properly. Shot in our studios or on location.",
+         points=["Concept and choreography developed with you",
+                 "Dancers cast from the school and the company",
+                 "Shot in Studio 1 or on location",
+                 "Rehearsal and shoot days quoted separately",
+                 "Filming crew arranged, or work with yours"],
+         cta="Request info about a video"),
+    dict(slug="choreography", name="Choreography", img="modern",
+         tagline="A piece made for your project",
+         blurb="Commissioned choreography for a theatre production, a school show, a competition "
+               "piece or a company of your own. Created by Al Sarab and taught to your dancers, "
+               "or performed by ours.",
+         points=["Original work, or restaging of existing repertoire",
+                 "Taught to your dancers or danced by ours",
+                 "Creation period agreed with you",
+                 "Rehearsal direction through to opening",
+                 "Notation and video handover on request"],
+         cta="Request info about a commission"),
+    dict(slug="studio-booking", name="Studio booking", img="studio-1",
+         tagline="Rent one of our rooms",
+         blurb="Three professional dance studios at Center Al Haref in Byblos and one in Koura, "
+               "available when they are not timetabled. Sprung floors, mirror walls, sound "
+               "systems and air conditioning.",
+         points=["Studio 1 &middot; Jbeil &mdash; 90 m&sup2;, up to 24 dancers",
+                 "Studio 2 &middot; Jbeil &mdash; 60 m&sup2;, up to 16 dancers, acro mats",
+                 "Studio &middot; Koura &mdash; 70 m&sup2;, up to 20 dancers",
+                 "Two-hour minimum booking",
+                 "Rehearsals, workshops, auditions, filming"],
+         cta="Request info about a studio"),
+]
+
+HIRE_FAQ = [
+    ("How do I get a price?",
+     "Send an enquiry from any of the sections above. Every booking is different &mdash; the "
+     "length, the number of dancers, the travel and the creation time all change the fee &mdash; "
+     "so we quote each one individually and come back within 1 to 2 working days."),
+    ("How far in advance should I ask?",
+     "As early as you can for anything that needs new choreography: a wedding in high season, a "
+     "commission, a shoot. A studio booking can usually be arranged in the same week. "
+     "Placeholder: confirm the real lead times."),
+    ("Do you travel outside Byblos?",
+     "Yes, across Lebanon. Travel is included in the quote. Placeholder: confirm whether there is "
+     "a distance limit."),
+    ("Can we come and learn a dance ourselves instead?",
+     "Yes &mdash; a private group session for a birthday, a hen party or a team day. Ask through "
+     "the form and say that is what you want."),
+    ("Who actually performs?",
+     "Placeholder &mdash; to confirm with the school whether bookings are danced by Al Sarab Dance "
+     "Company, which tours separately, or by ensembles drawn from the school."),
+]
+
+# ---------------------------------------------------------------- merchandising
+# Reserve online, pay and collect at the school. No online payment anywhere on this page.
+MERCH_NOTE = ("You cannot buy online. Reserve what you want in your name and it is held at "
+              "reception for you to try, pay for and collect at the school.")
+
+MERCH_SIZES_ADULT = ["XS", "S", "M", "L", "XL", "XXL"]
+MERCH_SIZES_KIDS = ["4&ndash;6", "6&ndash;8", "8&ndash;10", "10&ndash;12", "12&ndash;14"]
+
+MERCH = [
+    dict(slug="hoodie", name="Al Sarab hoodie", cat="Outerwear", icon="hoodie",
+         blurb="Heavyweight hoodie with the Al Sarab mark on the chest and the Arabic wordmark "
+               "across the back. The one everybody wears to and from class.",
+         sizes="adult", colours=["Lilac", "Black", "Sand"]),
+    dict(slug="tshirt", name="Logo T-shirt", cat="Tops", icon="tshirt",
+         blurb="Cotton T-shirt with the school mark. Cut loose enough to warm up in and to pull "
+               "over a leotard.",
+         sizes="both", colours=["White", "Black", "Lilac"]),
+    dict(slug="joggers", name="Joggers", cat="Bottoms", icon="joggers",
+         blurb="Tapered joggers with a cuffed ankle, in the same weight as the hoodie. Worn over "
+               "practice clothes between classes.",
+         sizes="adult", colours=["Black", "Grey"]),
+    dict(slug="leggings", name="Training leggings", cat="Bottoms", icon="leggings",
+         blurb="High-waisted leggings for Modern, Contemporary and Jazz. Opaque, with a wide "
+               "waistband that stays put through floorwork.",
+         sizes="both", colours=["Black", "Deep lilac"]),
+    dict(slug="leotard", name="Ballet leotard", cat="Uniform", icon="leotard",
+         blurb="The graded-syllabus leotard for Classical Ballet levels. Level colours are set by "
+               "the syllabus &mdash; reception will tell you which one your level wears.",
+         sizes="kids", colours=["By level"]),
+    dict(slug="warmup-jacket", name="Warm-up jacket", cat="Outerwear", icon="jacket",
+         blurb="Zip-through jacket for recital call times and cold studios in winter. Worn by the "
+               "Recital Unit and the Showcase Unit.",
+         sizes="both", colours=["Black"]),
+    dict(slug="dance-bag", name="Dance bag", cat="Accessories", icon="bag",
+         blurb="Holdall with a separate shoe compartment, big enough for a costume and a change "
+               "of clothes on recital day.",
+         sizes="one", colours=["Black", "Lilac"]),
+    dict(slug="tote", name="Cotton tote", cat="Accessories", icon="tote",
+         blurb="Canvas tote with the Arabic wordmark. For the ones who only ever bring shoes and "
+               "a water bottle.",
+         sizes="one", colours=["Natural", "Black"]),
+    dict(slug="bottle", name="Water bottle", cat="Accessories", icon="bottle",
+         blurb="Insulated steel bottle, 750ml, with the school mark. Reception refills it for free "
+               "on class days.",
+         sizes="one", colours=["Lilac", "Steel"]),
+    dict(slug="socks", name="Grip socks", cat="Accessories", icon="socks",
+         blurb="Grip socks for Modern and Contemporary floorwork, and for anyone still deciding "
+               "whether to go barefoot.",
+         sizes="one", colours=["Black"]),
+]
+
+# ---------------------------------------------------------------- summer camp
+CAMP = dict(
+    year="2027",
+    label="Summer Camp 2027",
+    dates="Dates to be announced &mdash; expected July 2027",
+    ages="6 to 16 years",
+    place="Center Al Haref, Byblos, with outdoor sessions nearby",
+    daily="9:00AM &ndash; 3:00PM, Monday to Friday",
+    length="Two weeks, or one week",
+    intro=("Two weeks of dance in the summer, for dancers who train with us all year and for "
+           "anyone who wants to try. Mornings are technique, afternoons are making things &mdash; "
+           "and the last day is a showing for families."),
+    activities=[
+        ("Technique every morning", "Modern, Ballet and Jazz taught as a graded block, in the "
+         "same curriculum as the school year. Levels are set on the first morning."),
+        ("Choreography lab", "Campers make their own short pieces in small groups, with a teacher "
+         "attached to each group. It is the part they remember."),
+        ("Acro and conditioning", "Spotted tumbling, balances and strength work on mats, for "
+         "everyone regardless of level."),
+        ("Raqs Sharqi and rhythm", "Isolations, layering and rhythm reading &mdash; the Arabic "
+         "repertoire taught as a technique, not as a party trick."),
+        ("Outdoors and away from the mirror", "Afternoons out of the studio: games, improvisation "
+         "in the open air, and a day trip in the second week."),
+        ("Showing on the last day", "Everything made during the camp, shown to families. No "
+         "tickets, no costumes bought &mdash; just the work."),
+    ],
+    reserve_note=("Places for Summer 2027 can be reserved now. Reserving costs nothing and holds a "
+                  "name on the list &mdash; we contact you with dates, fees and the full programme "
+                  "as soon as they are set."),
+    last=dict(
+        label="Summer Camp 2026",
+        when="July 2026",
+        summary=("The 2026 camp ran for two weeks in Byblos across all six genres. Mornings were "
+                 "technique, afternoons were the choreography lab, and the final Friday was a "
+                 "showing for families in Studio 1."),
+        stats=[("Campers", "Placeholder"), ("Weeks", "Two"), ("Teachers", "Placeholder"),
+               ("Pieces made", "Placeholder")],
+        gallery=["acro", "jazz", "contemporary", "raqs", "news-2", "ev-showcase"],
+    ),
+)
+
+CAMP_FAQ = [
+    ("Does my child need dance experience?",
+     "No. Levels are set on the first morning and beginners are placed together. Campers who train "
+     "with us all year continue in their own level."),
+    ("What should they bring?",
+     "Clothes they can move in, a water bottle, lunch and a change of clothes for the afternoon. "
+     "Ballet shoes only if they already have them."),
+    ("How much does it cost?",
+     "Fees for 2027 are not set yet. Reserve a place and we will send them as soon as they are, "
+     "with no obligation."),
+    ("Can they come for one week instead of two?",
+     "Yes. Say so when you reserve and we will hold a one-week place."),
+    ("Is there transport?",
+     "Placeholder &mdash; confirm whether pick-up is offered and from where."),
+    ("What happens on the last day?",
+     "A showing in Studio 1 of everything made during the camp. Families are invited; there is "
+     "nothing to buy and nothing to prepare."),
 ]
 
 # ---------------------------------------------------------------- performances for hire
@@ -651,7 +832,7 @@ PERF_FAQ = [
      "is quoted individually &mdash; send an enquiry and we will come back within 1 to 2 working days."),
     ("Is this the same thing as booking a class?",
      "No. Here Al Sarab comes to you and performs. If you want your group to learn a dance "
-     "themselves, that is a <a href=\"private-events.html\">private session</a> instead."),
+     "themselves, that is a private group session &mdash; ask through the Hire Us form."),
 ]
 
 # ---------------------------------------------------------------- private sessions

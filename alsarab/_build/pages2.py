@@ -141,7 +141,7 @@ def about_page(base=""):
                         'the same assessment, taught closer to home.</p>'
                         '<div style="margin-top:24px;display:flex;gap:12px;flex-wrap:wrap">%s%s</div></div>'
                         '<div class="rv"><div class="rows">%s</div></div></div>'
-                        % (btn(base, "studios.html", "See the studios", "btn-ghost"),
+                        % (btn(base, "hire-us.html#studio-booking", "See the studios", "btn-ghost"),
                            btn(base, SITE["maps"], "Open in Google Maps", "btn-ghost", arrow=False),
                            "".join('<div class="row-item"><b>%s</b><span>%s</span></div>' % (n, d)
                                    for n, d in BRANCHES)))
@@ -264,15 +264,15 @@ def pricing_page(base=""):
                                  "Choose a class in the schedule and call reception to check there "
                                  "is room.")
                       + '<div style="display:flex;gap:12px;flex-wrap:wrap">%s%s</div>'
-                      % (btn(base, "drop-in.html", "Drop-in", "btn-ghost"),
-                         btn(base, "schedule.html", "See the schedule", "btn-ghost")), cls="section tight")
+                      % (btn(base, "classes.html#trial", "Book a trial", "btn-ghost"),
+                         btn(base, "classes.html#calendar", "See the calendar", "btn-ghost")), cls="section tight")
             + section(head_block("Programmes", "Schools, groups and companies",
                                  "Al Sarab runs programmes outside the timetable &mdash; for schools, "
                                  "groups and private sessions. Rates are quoted per programme.")
                       + '<div style="display:flex;gap:12px;flex-wrap:wrap">%s%s%s</div>'
-                      % (btn(base, "corporate-programmes.html", "Programmes", "btn-ghost"),
-                         btn(base, "private-events.html", "Private sessions", "btn-ghost"),
-                         btn(base, "studio-rental.html", "Studio rental", "btn-ghost")), cls="section tight")
+                      % (btn(base, "hire-us.html#choreography", "Choreography", "btn-ghost"),
+                         btn(base, "hire-us.html#weddings", "Weddings", "btn-ghost"),
+                         btn(base, "hire-us.html#studio-booking", "Studio booking", "btn-ghost")), cls="section tight")
             + section(head_block("Questions", "About fees and registration")
                       + '<div class="faq rv">%s</div>' % faq_items(FAQ[2][2]), cls="section tight"))
     return page("Fees", "Course fees and registration at Al Sarab in Byblos, Lebanon.",
