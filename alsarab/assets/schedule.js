@@ -57,8 +57,8 @@ function card(x){
     '<div class="meta"><span class="tag lv">'+x.level+'</span><span class="tag">'+x.age+'</span>'+
     '<span class="tag">'+x.genre+'</span></div>'+
     '<p class="who"><b>'+x.teacher+'</b> &middot; '+x.start+'&ndash;'+x.end+'</p>'+
-    '<div class="row"><span class="price">'+x.price+'</span>'+
-    '<a class="btn btn-primary btn-sm" href="'+BASE+'contact.html">Book</a></div></div>';
+    '<div class="row"><a class="btn btn-primary btn-sm" href="'+BASE+
+    'classes.html#trial">Book a trial</a></div></div>';
 }
 
 function render(){

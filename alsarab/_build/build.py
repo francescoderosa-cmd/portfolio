@@ -76,7 +76,6 @@ def main():
     # ---- secondary: reachable from the footer, not in the main nav
     made.append(write(out, "events.html", pages2.events_index()))
     made.append(write(out, "news.html", pages2.news_index()))
-    made.append(write(out, "pricing.html", pages2.pricing_page()))
     made.append(write(out, "faq.html", pages2.faq_page()))
     made.append(write(out, "terms.html", pages2.terms_page()))
     made.append(write(out, "ar.html", pages2.arabic_page()))

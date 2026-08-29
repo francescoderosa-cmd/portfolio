@@ -32,6 +32,11 @@ SITE = dict(
     term="2025 / 2026",
     term_dates="22 September &ndash; 20 June",
     updated="21 August 2026",
+
+    # Student & parent web app. Set this to the published URL and the CTAs go live
+    # on portal.html and on the homepage. Empty means "not published yet".
+    portal_url="",
+    portal_name="Al Sarab Student & Parent App",
 )
 
 FOOTER_ABOUT = (
@@ -240,11 +245,9 @@ NADRA_BIO = (
 )
 
 # ---------------------------------------------------------------- schedule
-PRICE = "Fees on request"
-
 def _c(day, studio, start, end, name, genre, level, age, teacher):
     return dict(day=day, studio=studio, start=start, end=end, name=name, genre=genre,
-                level=level, age=age, teacher=teacher, price=PRICE,
+                level=level, age=age, teacher=teacher,
                 slug=GENRE_BY_NAME[genre]["slug"])
 
 CLASSES = [
@@ -514,20 +517,20 @@ FAQ = [
          "See our <a href=\"news/which-genre-suits-you.html\">beginner's guide</a>, or call us and "
          "describe what you are after."),
     ]),
-    ("Fees &amp; Registration", "What it costs and how payment works.", [
-        ("How much does a course cost?",
-         "Fees depend on the genre, the level and the number of classes per week. They are given "
-         "at registration &mdash; call or write and we will send the current sheet."),
-        ("How do I pay?",
-         "Placeholder answer. Accepted payment methods would be listed here."),
-        ("Can fees be paid in instalments?",
-         "Placeholder answer. Any instalment plan would be described here."),
-        ("Is there a sibling or family reduction?",
-         "Placeholder answer."),
-        ("What is the cancellation policy?",
-         "Placeholder answer."),
-        ("Do you offer gift certificates?",
-         "Placeholder answer."),
+    ("Registration", "Joining the school, and what happens after the trial.", [
+        ("How do I register a student?",
+         "After the trial class. We confirm the level, and reception takes the registration on a "
+         "class day &mdash; Monday, Wednesday or Friday, 4 to 9PM."),
+        ("What do you need from us?",
+         "Placeholder answer. The details reception asks for at registration would be listed here."),
+        ("Can we register for more than one genre?",
+         "Yes, and the timetable is built for it &mdash; Acro pairs with Modern on the same "
+         "afternoon, for example."),
+        ("Can we join part-way through the year?",
+         "Usually yes in foundation levels. It depends on the genre and how far into the syllabus "
+         "the level has gone."),
+        ("Who do we speak to about anything else?",
+         "Reception on a class day, or write to alsarab.dance@gmail.com."),
     ]),
     ("Location &amp; Access", "Finding us, and what is in the building.", [
         ("Where is the school?",
@@ -580,8 +583,9 @@ FAQ = [
          "It is curriculum-based: written level objectives, an assessment officer and an "
          "end-of-year evaluation, under Ministry of Education licence 213/2009 and NDEO membership."),
         ("Is Al Sarab Dance Company the same as the school?",
-         "They share a founder and a home but are separate. The school teaches; the company "
-         "performs and tours."),
+         "Yes. The school and the company are one organisation &mdash; the same founder, the same "
+         "home and the same dancers. The school is what we teach; the company is what we put on "
+         "stage."),
         ("Do you run classes in schools or for companies?",
          "See <a href=\"hire-us.html#choreography\">Hire Us</a>."),
     ]),
@@ -653,8 +657,8 @@ HIRE_FAQ = [
      "Yes &mdash; a private group session for a birthday, a hen party or a team day. Ask through "
      "the form and say that is what you want."),
     ("Who actually performs?",
-     "Placeholder &mdash; to confirm with the school whether bookings are danced by Al Sarab Dance "
-     "Company, which tours separately, or by ensembles drawn from the school."),
+     "Al Sarab dancers. The school and Al Sarab Dance Company are one organisation, so a booking "
+     "is cast from the same people who teach and perform."),
 ]
 
 # ---------------------------------------------------------------- merchandising
@@ -735,7 +739,7 @@ CAMP = dict(
          "tickets, no costumes bought &mdash; just the work."),
     ],
     reserve_note=("Places for Summer 2027 can be reserved now. Reserving costs nothing and holds a "
-                  "name on the list &mdash; we contact you with dates, fees and the full programme "
+                  "name on the list &mdash; we contact you with the dates and the full programme "
                   "as soon as they are set."),
     last=dict(
         label="Summer Camp 2026",
@@ -756,9 +760,6 @@ CAMP_FAQ = [
     ("What should they bring?",
      "Clothes they can move in, a water bottle, lunch and a change of clothes for the afternoon. "
      "Ballet shoes only if they already have them."),
-    ("How much does it cost?",
-     "Fees for 2027 are not set yet. Reserve a place and we will send them as soon as they are, "
-     "with no obligation."),
     ("Can they come for one week instead of two?",
      "Yes. Say so when you reserve and we will hold a one-week place."),
     ("Is there transport?",
@@ -769,10 +770,6 @@ CAMP_FAQ = [
 ]
 
 # ---------------------------------------------------------------- performances for hire
-# NOTE FOR REVIEW: it is not yet settled whether the performers are Al Sarab Dance
-# Company (which tours separately) or ensembles drawn from the school. The copy below
-# is deliberately neutral — it says "Al Sarab" — and the Ensemble row in the facts box
-# is flagged as unconfirmed. Settle this before the page goes anywhere public.
 PERFORMANCE_FORMATS = [
     dict(name="Wedding", img="perf-wedding", featured=True,
          dur="15&ndash;40 min", size="4&ndash;10 dancers",

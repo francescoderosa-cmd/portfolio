@@ -1,6 +1,6 @@
 # Al Sarab — proposal site generator
 
-Generates the static site served at `/alsarab/` (49 pages).
+Generates the static site served at `/alsarab/` (48 pages).
 The folder is named `_build/` so GitHub Pages (Jekyll) never publishes it.
 
 ## Rebuild
@@ -52,12 +52,12 @@ Six top-level items, agreed with the school:
 
 | nav | page | contains |
 |---|---|---|
-| Home | `index.html` | hero, six launch modules into the rest of the site, then the standing sections |
-| School ▾ | — | History & info (`about.html`), The Teachers (`instructors.html`), Classes (`classes.html`), Student & parent portal (`portal.html`) |
-| Hire Us | `hire-us.html` | one page, four services: Weddings, Videos, Choreography, Studio booking |
-| Merchandising | `merchandising.html` | reserve-only shop list |
-| Summer Camp | `summer-camp.html` | next camp first, last camp below |
-| Contacts | `contact.html` | phone, email, form |
+| HOME | `index.html` | hero, four launch modules (SCHOOL / HIRE US / MERCHANDISING / SUMMER CAMP), the app CTA, then the standing sections |
+| SCHOOL ▾ | — | History & info (`about.html`), The Teachers (`instructors.html`), Classes (`classes.html`), Student & parent portal (`portal.html`) |
+| HIRE US | `hire-us.html` | one page, four services: Weddings, Videos, Choreography, Studio booking |
+| MERCHANDISING | `merchandising.html` | reserve-only shop list |
+| SUMMER CAMP | `summer-camp.html` | next camp first, last camp below |
+| CONTACTS | `contact.html` | phone, email, form |
 
 **Classes is one page, not three.** It carries the programmes (the six genres),
 the levels and ages, the class calendar (`#calendar`), the walk-in trial form
@@ -71,7 +71,7 @@ shared `#request` form — nothing is priced or paid online anywhere on the site
 
 ### Pages kept but out of the main nav
 
-`events.html` (+ 6 details), `news.html` (+ 6 details), `pricing.html`, `faq.html`,
+`events.html` (+ 6 details), `news.html` (+ 6 details), `faq.html`,
 `terms.html`, `ar.html`. They were not in the structure the school gave us, but
 deleting them would throw away work, so they live in the footer under **More**
 until someone decides. Say the word and one line in `build.py` drops each one.
@@ -85,11 +85,35 @@ The layout, page set and module inventory follow usc.se as a working reference
 for this draft. Colour, type and identity are meant to diverge before this goes
 anywhere public.
 
-## Open question for the client
+## No money on the site
 
-`hire-us.html` sells Al Sarab as performers for weddings, videos and commissioned
-choreography. **It is not settled whether the dancers are Al Sarab Dance Company —
-which tours separately — or ensembles drawn from the school.** The copy says
-"Al Sarab" throughout so it reads correctly either way, and the last item in the
-page FAQ is flagged as a placeholder for exactly this. Settle it and the wording
-tightens in one pass; see the note above `HIRE_SERVICES` in `data.py`.
+The school does not want costs published. There are no fees, prices, rates or
+payment terms anywhere: no `pricing.html`, no fee column in the timetable, no fee
+cards on Classes, no fee row on the genre or camp pages, and no money questions in
+the FAQ.
+
+Two places still say the word, correctly:
+
+- **Hire Us** — "we come back with dates and a quote". The school asked for the
+  enquiry route explicitly, and no figure is shown.
+- **Merchandising** — "Available at reception", and the reserve flow says you pay
+  at the school. Again, no figure.
+
+If you add a price anywhere, `check.py` will not catch it. Grep the built site for
+`price|fee|cost|SEK|USD|LBP` before publishing.
+
+## The student & parent app
+
+`SITE["portal_url"]` in `data.py` is empty. While it is empty, the CTA on
+`portal.html` and on the homepage renders as an inert, dimmed button with a
+"Link to come" chip beside it — a button that goes nowhere is worse than an
+obvious placeholder.
+
+**When the web app is published, set `portal_url` to its URL and rebuild.** Both
+CTAs become real links that open in a new tab. Nothing else needs touching.
+
+## Settled
+
+The school and Al Sarab Dance Company are **one organisation** — same founder,
+same home, same dancers. The FAQ and the Hire Us copy now say so; the earlier
+"to confirm" flags are gone.

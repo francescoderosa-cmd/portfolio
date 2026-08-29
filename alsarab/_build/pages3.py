@@ -47,7 +47,7 @@ def hire_us_page(base=""):
             '<div class="svc-body"><p class="label">%s</p><h3>%s</h3><p class="svc-lead">%s</p>'
             '<ul class="ticks">%s</ul>'
             '<div class="svc-cta">%s<span class="muted" style="font-size:13px">'
-            'Price and dates agreed with you &mdash; nothing is charged online.</span></div>'
+            'The school comes back to you with dates and a quote.</span></div>'
             '</div></article>'
             % (" flip" if i % 2 else "", s["slug"], img(base, s["img"]), s["name"],
                s["tagline"], s["name"], s["blurb"], points,
@@ -63,7 +63,7 @@ def hire_us_page(base=""):
 
     body = (phero(base, "Hire Us", "What Al Sarab can do for you",
                   "Four things the school offers outside its own timetable. Nothing is bought "
-                  "online: tell us what you need and we come back with a price and a date, "
+                  "online: tell us what you need and we come back with dates and a quote, "
                   "usually within 1 to 2 working days.", "perf-wedding",
                   btn(base, "#request", "Request info", "btn-light", arrow=False))
 
@@ -75,7 +75,7 @@ def hire_us_page(base=""):
 
             + section(head_block("Request info", "Tell us what you need",
                                  "One form for all four services. Pick what it is about, add "
-                                 "whatever detail you have, and we will come back with a price "
+                                 "whatever detail you have, and we will come back with a quote "
                                  "and available dates.")
                       + '<div class="split"><form class="box rv" id="request-form" '
                         'data-mailto="%s" data-subject="Hire Us enquiry">'
@@ -123,7 +123,7 @@ def merch_page(base=""):
                   '<div class="thumb">%s<span class="ph-note">Photo to come</span></div>'
                   '<div class="body"><p class="tagline">%s</p><h3>%s</h3><p>%s</p>'
                   '<div class="meta">%s</div>'
-                  '<div class="foot"><span class="price">On sale at reception</span>'
+                  '<div class="foot"><span class="price">Available at reception</span>'
                   '<button class="btn btn-primary btn-sm" type="button" data-reserve="%s">'
                   'Reserve</button></div></div></article>'
                   % (m["cat"], garment(m["icon"]), m["cat"], m["name"], m["blurb"], colours, m["name"]))
@@ -149,7 +149,7 @@ def merch_page(base=""):
                       '<p>Pick an item, choose a size, send the reservation. Reception puts your '
                       'name on it and holds it for you to try, pay for and collect at the school. '
                       'Nothing is charged here.</p></div>'
-                      '<span class="tag ph">No online payment</span></div>'
+                      '<span class="tag todo">No online payment</span></div>'
                       '<div class="chips rv" data-filter-group="#merch-grid" style="margin-bottom:30px">'
                       '<button class="chip" type="button" aria-pressed="false" data-value="">All items</button>'
                       '%s</div>'
@@ -184,9 +184,6 @@ def merch_page(base=""):
                            "".join('<option>%d</option>' % n for n in range(1, 6)),
                            inputs, ARROW, SITE["email"],
                            faq_items([
-                               ("How much does it cost?",
-                                "Prices are at reception and are not published here. Placeholder "
-                                "&mdash; add the real price list when it is confirmed."),
                                ("How long is it held for me?",
                                 "Placeholder &mdash; confirm how long reception holds a reservation."),
                                ("Can I try before paying?",
@@ -241,8 +238,6 @@ def camp_page(base=""):
                       '<div class="r"><span class="k">Hours</span><span class="v">%s</span></div>'
                       '<div class="r"><span class="k">Ages</span><span class="v">%s</span></div>'
                       '<div class="r"><span class="k">Where</span><span class="v">%s</span></div>'
-                      '<div class="r"><span class="k">Fees</span>'
-                      '<span class="v"><span class="tag ph">Not set yet</span></span></div>'
                       '</div></div></div>'
                       % (CAMP["year"], CAMP["intro"], CAMP["reserve_note"],
                          btn(base, "#reserve", "Reserve a place"),

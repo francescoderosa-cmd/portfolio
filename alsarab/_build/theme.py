@@ -97,6 +97,8 @@ button,input,textarea,select{font:inherit;color:inherit}
 .btn-outline-light{background:transparent;color:#fff;border-color:rgba(255,255,255,.45)}
 .btn-outline-light:hover{background:rgba(255,255,255,.12)}
 .arrow{width:15px;height:15px;flex:none}
+.cta-wrap{display:inline-flex;align-items:center;gap:12px;flex-wrap:wrap}
+.btn[aria-disabled="true"]{opacity:.5;cursor:not-allowed;pointer-events:none}
 .linkarrow{font-family:Oswald,sans-serif;font-size:13px;letter-spacing:.09em;
   text-transform:uppercase;color:var(--brand);display:inline-flex;gap:8px;align-items:center}
 .linkarrow:hover{color:var(--brand-2)}
@@ -127,6 +129,7 @@ button,input,textarea,select{font:inherit;color:inherit}
 .nav-links{display:flex;align-items:center;gap:22px}
 .nav-item{position:relative}
 .nav-item>a,.nav-item>button{background:none;border:0;padding:0;cursor:pointer;
+  font:inherit;text-transform:inherit;letter-spacing:inherit;
   display:inline-flex;align-items:center;gap:6px;position:relative;
   color:color-mix(in oklab,var(--ink) 70%,transparent);transition:color .2s}
 .nav-item>a:hover,.nav-item>button:hover,.nav-item.open>button,.nav-item>a[aria-current]{color:var(--ink)}
@@ -163,7 +166,8 @@ button,input,textarea,select{font:inherit;color:inherit}
 .mobile.open{display:block}
 .mobile .grp{padding:18px 0;border-bottom:1px solid var(--line-2)}
 .mobile .grp>.label{color:var(--brand);margin-bottom:10px}
-.mobile a{display:block;padding:9px 0;font-family:Oswald,sans-serif;font-size:17px;letter-spacing:.02em}
+.mobile a{display:block;padding:9px 0;font-family:Oswald,sans-serif;font-size:17px;
+  letter-spacing:.08em;text-transform:uppercase}
 .mobile .foot{display:flex;gap:12px;align-items:center;padding:18px 0}
 @media (max-width:1280px){.nav-links,.nav-social,.lang{display:none}.burger{display:flex}}
 @media (max-width:560px){.nav .btn{display:none}}
@@ -218,7 +222,8 @@ button,input,textarea,select{font:inherit;color:inherit}
 .tag.lv{background:color-mix(in oklab,var(--ember) 26%,transparent);color:var(--ink)}
 .tag.hot{background:color-mix(in oklab,var(--brand) 20%,transparent);color:var(--brand)}
 .tag.free{background:color-mix(in oklab,var(--ok) 24%,transparent);color:var(--ink)}
-.tag.ph{background:transparent;border:1px dashed var(--line);color:var(--ink-2)}
+.tag.todo{background:transparent;border:1px dashed var(--line);color:var(--ink-2)}
+.phero .tag.todo,.hero .tag.todo{border-color:rgba(240,234,250,.4);color:rgba(240,234,250,.78)}
 .chips{display:flex;flex-wrap:wrap;gap:9px}
 .chip{font-family:Oswald,sans-serif;font-size:13px;letter-spacing:.07em;text-transform:uppercase;
   border:1px solid var(--line);background:transparent;border-radius:100px;padding:8px 16px;
@@ -433,7 +438,8 @@ table.flat td.n a:hover{color:var(--brand)}
 .ticks li::before{content:"";position:absolute;left:0;top:9px;width:9px;height:9px;border-left:2px solid var(--brand);border-bottom:2px solid var(--brand);transform:rotate(-45deg)}
 
 /* ============ launch modules (home) ============ */
-.launch{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.launch{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+@media (max-width:1080px){.launch{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:900px){.launch{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:600px){.launch{grid-template-columns:1fr}}
 .launch a{position:relative;overflow:hidden;border-radius:var(--radius);background:var(--deep);
@@ -816,8 +822,8 @@ function card(x){
     '<div class="meta"><span class="tag lv">'+x.level+'</span><span class="tag">'+x.age+'</span>'+
     '<span class="tag">'+x.genre+'</span></div>'+
     '<p class="who"><b>'+x.teacher+'</b> &middot; '+x.start+'&ndash;'+x.end+'</p>'+
-    '<div class="row"><span class="price">'+x.price+'</span>'+
-    '<a class="btn btn-primary btn-sm" href="'+BASE+'contact.html">Book</a></div></div>';
+    '<div class="row"><a class="btn btn-primary btn-sm" href="'+BASE+
+    'classes.html#trial">Book a trial</a></div></div>';
 }
 
 function render(){

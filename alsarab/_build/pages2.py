@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-"""Page bodies, part 2: events, news, about, studios, fees, FAQ, contact, extras."""
+"""Page bodies, part 2: events, news, about, FAQ, contact, portal, terms, Arabic."""
 
 from data import (SITE, STUDIOS, STUDIO, GENRES, TEACHERS, EVENTS, NEWS, FAQ, BRANCHES,
-                  PACKAGES, PRICE, LEVELS)
+                  PACKAGES, LEVELS)
 from shell import (page, section, head_block, phero, phead, crumbs, btn, faq_items,
-                   share_block, ARROW)
+                   share_block, app_cta, ARROW)
 from pages import img, event_card, news_card, person_card, contact_block, contact_form, social_pills
 
 
@@ -182,7 +182,7 @@ def studios_index(base=""):
         s = STUDIO[k]
         cards += ('<article class="card rv"><div class="ph" style="background-image:url(%s)"></div>'
                   '<div class="body"><div class="meta"><span class="tag">%s</span>'
-                  '<span class="tag ph">Specs placeholder</span></div>'
+                  '<span class="tag todo">Specs placeholder</span></div>'
                   '<h3>%s &middot; %s</h3><p>%s</p>'
                   '<div class="foot"><span>%s &mdash; %s</span>'
                   '<a class="linkarrow" href="%sstudios/%s.html">Explore studio%s</a></div></div></article>'
@@ -227,56 +227,6 @@ def studio_detail(key, base="../"):
     return page("%s, %s" % (s["name"], s["loc"]),
                 "%s at Al Sarab in %s, Lebanon." % (s["name"], s["loc"]),
                 body, base=base, active="studios.html")
-
-
-# ---------------------------------------------------------------- pricing
-def pricing_page(base=""):
-    body = (phead("Fees", "What it costs to dance here",
-                  "Fees depend on the genre, the level and how many classes a week a student takes. "
-                  "Every level is available to beginners, and no experience is needed to start.")
-            + section('<div class="offer rv"><div><h3>Fees are given at registration</h3>'
-                      '<p>Al Sarab publishes its fee sheet at registration rather than online. Call '
-                      '%s or send a message and we will send you the current one.</p></div>%s</div>'
-                      % (SITE["phone"], btn(base, "contact.html", "Ask for the fee sheet")),
-                      cls="section tight")
-            + section(head_block("Term fees", "Academic year %s" % SITE["term"])
-                      + '<div class="cards g3">'
-                        '<div class="price-card rv"><h3>One class a week</h3>'
-                        '<p class="amount">%s<small>%s</small></p>'
-                        '<ul><li>A place in one class per week</li><li>Written assessment and '
-                        'end-of-year evaluation</li><li>Place in the June recital</li>'
-                        '<li>Costume billed separately</li></ul>%s</div>'
-                        '<div class="price-card rv featured"><h3>Two or more</h3>'
-                        '<p class="amount">%s<small>Reduced rate per extra class</small></p>'
-                        '<ul><li>Additional genres at a reduced rate</li><li>Timetabled to pair on the '
-                        'same afternoon</li><li>One assessment record across genres</li>'
-                        '<li>Sibling reduction available</li></ul>%s</div>'
-                        '<div class="price-card rv"><h3>Trial class</h3>'
-                        '<p class="amount">Free<small>Before you commit</small></p>'
-                        '<ul><li>One class in the level we think fits</li><li>Placement advice after '
-                        'it</li><li>No registration needed</li><li>Free all week in September</li></ul>'
-                        '%s</div></div>'
-                        % (PRICE, SITE["term_dates"], btn(base, "contact.html", "Register", "btn-ghost"),
-                           PRICE, btn(base, "contact.html", "Ask about rates", "btn-primary"),
-                           btn(base, "contact.html", "Book a trial", "btn-ghost")))
-            + section(head_block("Drop-in", "Joining a single class",
-                                 "Drop-in places open once the year timetable is confirmed. "
-                                 "Choose a class in the schedule and call reception to check there "
-                                 "is room.")
-                      + '<div style="display:flex;gap:12px;flex-wrap:wrap">%s%s</div>'
-                      % (btn(base, "classes.html#trial", "Book a trial", "btn-ghost"),
-                         btn(base, "classes.html#calendar", "See the calendar", "btn-ghost")), cls="section tight")
-            + section(head_block("Programmes", "Schools, groups and companies",
-                                 "Al Sarab runs programmes outside the timetable &mdash; for schools, "
-                                 "groups and private sessions. Rates are quoted per programme.")
-                      + '<div style="display:flex;gap:12px;flex-wrap:wrap">%s%s%s</div>'
-                      % (btn(base, "hire-us.html#choreography", "Choreography", "btn-ghost"),
-                         btn(base, "hire-us.html#weddings", "Weddings", "btn-ghost"),
-                         btn(base, "hire-us.html#studio-booking", "Studio booking", "btn-ghost")), cls="section tight")
-            + section(head_block("Questions", "About fees and registration")
-                      + '<div class="faq rv">%s</div>' % faq_items(FAQ[2][2]), cls="section tight"))
-    return page("Fees", "Course fees and registration at Al Sarab in Byblos, Lebanon.",
-                body, base=base, active="pricing.html")
 
 
 # ---------------------------------------------------------------- faq
@@ -422,7 +372,7 @@ def performances_page(base=""):
                       '<div class="r"><span class="k">Dancers</span><span class="v">3 to 14+</span></div>'
                       '<div class="r"><span class="k">Travel</span><span class="v">Across Lebanon</span></div>'
                       '<div class="r"><span class="k">Ensemble</span>'
-                      '<span class="v"><span class="tag ph">To confirm</span></span></div>'
+                      '<span class="v"><span class="tag todo">To confirm</span></span></div>'
                       '<div class="r"><span class="k">Fee</span><span class="v">Quoted per booking</span></div>'
                       '</div></div></div>' % (base, base), cls="section tight")
 
@@ -599,24 +549,37 @@ def terms_page(base=""):
 
 
 def portal_page(base=""):
-    body = (phead("Student portal", "For enrolled students and families",
-                  "Placeholder. In the reference layout this slot links to an external system &mdash; "
-                  "for Al Sarab it could hold assessment records, costume information, recital call "
-                  "sheets and invoices.")
-            + section('<div class="cards g3">'
-                      '<div class="price-card rv"><h3>Assessment</h3><p class="amount">&mdash;'
-                      '<small>Placeholder</small></p><ul><li>Level objectives</li>'
-                      '<li>End-of-year evaluation</li><li>Progress across genres</li></ul></div>'
-                      '<div class="price-card rv"><h3>Recital</h3><p class="amount">&mdash;'
-                      '<small>Placeholder</small></p><ul><li>Call sheets</li><li>Costume fittings</li>'
-                      '<li>Ticket allocation</li></ul></div>'
-                      '<div class="price-card rv"><h3>Account</h3><p class="amount">&mdash;'
-                      '<small>Placeholder</small></p><ul><li>Invoices</li><li>Registration details</li>'
-                      '<li>Contact preferences</li></ul></div></div>', cls="section tight")
+    body = (phero(base, "School &middot; Portal", SITE["portal_name"],
+                  "The web app for enrolled students and their families &mdash; assessment "
+                  "records, recital call sheets, costume information and school notices, in one "
+                  "place. Sign in with the details reception gives you at registration.",
+                  "studio-2",
+                  app_cta(base))
+            + section('<div class="split"><div class="rv">'
+                      '<h2 style="font-size:32px;margin-bottom:18px">What is in it</h2>'
+                      '<p class="muted" style="font-size:17px">The app is where the written side of '
+                      'the curriculum lives. Everything a family would otherwise have to ask '
+                      'reception for is in there, kept up to date by the teaching team.</p>'
+                      '<p class="muted" style="margin-top:18px">Access is for enrolled students and '
+                      'their parents. If you have not received your sign-in details, ask at '
+                      'reception on a class day.</p>'
+                      '<div style="margin-top:26px">%s</div></div>'
+                      '<div class="rv"><div class="rows">'
+                      '<div class="row-item"><b>Assessment</b><span>Level objectives, end-of-year '
+                      'evaluation, progress across genres</span></div>'
+                      '<div class="row-item"><b>Recital</b><span>Call sheets, costume fittings, '
+                      'rehearsal dates</span></div>'
+                      '<div class="row-item"><b>Timetable</b><span>Your own classes, changes and '
+                      'closures</span></div>'
+                      '<div class="row-item"><b>Notices</b><span>Messages from the school to your '
+                      'family</span></div>'
+                      '</div></div></div>' % app_cta(base))
             + section('<div class="offer rv"><div><h3>Not enrolled yet?</h3>'
-                      '<p>Book a free trial class and we will place you.</p></div>%s</div>'
-                      % btn(base, "contact.html", "Book a trial class"), cls="section tight"))
-    return page("Student portal", "Student portal for Al Sarab families.",
+                      '<p>The app is for registered families. Start with a free trial class.</p>'
+                      '</div>%s</div>'
+                      % btn(base, "classes.html#trial", "Book a trial class"), cls="section tight"))
+    return page("Student &amp; parent portal",
+                "The Al Sarab web app for enrolled students and their families.",
                 body, base=base, active="portal.html")
 
 

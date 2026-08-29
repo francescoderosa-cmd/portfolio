@@ -6,17 +6,17 @@ import theme
 
 # ---------------------------------------------------------------- nav model
 NAV = [
-    ("Home", "index.html", None),
-    ("School", None, [
+    ("HOME", "index.html", None),
+    ("SCHOOL", None, [
         ("History &amp; info", "about.html"),
         ("The Teachers", "instructors.html"),
         ("Classes", "classes.html"),
         ("Student &amp; parent portal", "portal.html"),
     ]),
-    ("Hire Us", "hire-us.html", None),
-    ("Merchandising", "merchandising.html", None),
-    ("Summer Camp", "summer-camp.html", None),
-    ("Contacts", "contact.html", None),
+    ("HIRE US", "hire-us.html", None),
+    ("MERCHANDISING", "merchandising.html", None),
+    ("SUMMER CAMP", "summer-camp.html", None),
+    ("CONTACTS", "contact.html", None),
 ]
 
 FOOTER_NAV = [
@@ -30,7 +30,7 @@ FOOTER_NAV = [
                   ("Studio booking", "hire-us.html#studio-booking")]),
     ("More", [("Merchandising", "merchandising.html"), ("Summer Camp", "summer-camp.html"),
               ("Events", "events.html"), ("News &amp; stories", "news.html"),
-              ("Fees", "pricing.html"), ("FAQ", "faq.html")]),
+              ("FAQ", "faq.html")]),
 ]
 
 # ---------------------------------------------------------------- icons
@@ -67,6 +67,22 @@ def brand(base, stroke="--bg"):
 
 def link(base, href):
     return href if href.startswith(("http", "mailto:", "tel:", "#")) else base + href
+
+
+def app_cta(base, label="Open the app"):
+    """CTA for the student & parent web app.
+
+    SITE["portal_url"] is empty until the app is published. Rather than ship a
+    button that goes nowhere, render it inert and say why. Both branches return a
+    single inline-flex wrapper, so this drops into a flex row as one item.
+    """
+    if SITE["portal_url"]:
+        inner = ('<a class="btn btn-primary" href="%s" target="_blank" rel="noopener">%s%s</a>'
+                 % (SITE["portal_url"], label, ARROW))
+    else:
+        inner = ('<span class="btn btn-primary" aria-disabled="true">%s</span>'
+                 '<span class="tag todo">Link to come</span>' % label)
+    return '<span class="cta-wrap">%s</span>' % inner
 
 
 # ---------------------------------------------------------------- chrome

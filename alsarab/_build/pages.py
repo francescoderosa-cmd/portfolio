@@ -4,8 +4,9 @@
 import json
 from data import (SITE, STUDIOS, STUDIO, GENRES, GENRE_BY_NAME, STYLE_FILTERS, TEACHERS,
                   TEACHER_BY_NAME, BIO_PLACEHOLDER, NADRA_BIO, CLASSES, DAY_ORDER, LEVELS,
-                  AGES, BRANCHES, PRICE)
-from shell import (page, section, head_block, phero, phead, crumbs, btn, faq_items, ARROW)
+                  AGES, BRANCHES)
+from shell import (page, section, head_block, phero, phead, crumbs, btn, faq_items, app_cta,
+                   ARROW)
 
 # ---------------------------------------------------------------- shared bits
 def img(base, name):
@@ -15,7 +16,7 @@ def img(base, name):
 def schedule_data_js(base):
     rows = [dict(day=c["day"], studio=c["studio"], start=c["start"], end=c["end"], name=c["name"],
                  genre=c["genre"], level=c["level"], age=c["age"], teacher=c["teacher"],
-                 price=c["price"], slug=c["slug"]) for c in CLASSES]
+                 slug=c["slug"]) for c in CLASSES]
     studio_map = {k: dict(name=v["name"], loc=v["loc"]) for k, v in STUDIO.items()}
     return ("var BASE=%s;var STUDIOS=%s;var STUDIO=%s;var CLASSES=%s;"
             % (json.dumps(base), json.dumps(STUDIOS), json.dumps(studio_map), json.dumps(rows)))
@@ -89,18 +90,19 @@ def classes_for_genre(genre):
 
 def flat_table(base, rows, book=True):
     head = ('<thead><tr><th>Time</th><th>Class</th><th>Level</th><th>Age</th><th>Studio</th>'
-            '<th>Teacher</th><th>Fee</th>' + ('<th></th>' if book else '') + '</tr></thead>')
+            '<th>Teacher</th>' + ('<th></th>' if book else '') + '</tr></thead>')
     body = ""
     for c in sorted(rows, key=lambda x: (x["start"], STUDIO[x["studio"]]["name"])):
         body += ('<tr><td class="t">%s&ndash;%s</td>'
                  '<td class="n"><a href="%sdance-styles/%s.html">%s</a></td>'
                  '<td><span class="tag lv">%s</span></td><td>%s</td><td>%s &middot; %s</td>'
-                 '<td><a href="%sinstructors/%s.html">%s</a></td><td>%s</td>'
+                 '<td><a href="%sinstructors/%s.html">%s</a></td>'
                  % (c["start"], c["end"], base, c["slug"], c["name"], c["level"], c["age"],
                     STUDIO[c["studio"]]["name"], STUDIO[c["studio"]]["loc"], base,
-                    TEACHER_BY_NAME[c["teacher"]]["slug"], c["teacher"], c["price"]))
+                    TEACHER_BY_NAME[c["teacher"]]["slug"], c["teacher"]))
         if book:
-            body += '<td><a class="btn btn-primary btn-sm" href="%scontact.html">Book</a></td>' % base
+            body += ('<td><a class="btn btn-primary btn-sm" href="%sclasses.html#trial">'
+                     'Trial</a></td>' % base)
         body += '</tr>'
     return '<div class="grid-wrap"><table class="flat">%s<tbody>%s</tbody></table></div>' % (head, body)
 
@@ -129,37 +131,35 @@ def home(base=""):
                btn(base, "#schedule", "See the schedule", "btn-outline-light", arrow=False),
                SITE["founded"], SITE["founder"], SITE["licence"]))
 
-    # launch modules — one door to each main section of the site
+    # launch modules — one door per main section
     LAUNCH = [
-        ("The School", "classes.html", "modern",
-         "Six genres, one written curriculum, from three years old to adult. Programmes, the "
+        ("SCHOOL", "classes.html", "modern",
+         "Six genres, one written curriculum, from three years old to adult. The programmes, the "
          "class calendar and a free trial."),
-        ("Hire Us", "hire-us.html", "perf-wedding",
+        ("HIRE US", "hire-us.html", "perf-wedding",
          "Weddings, videos, commissioned choreography and studio booking. Tell us what you need "
-         "and we quote it."),
-        ("Summer Camp", "summer-camp.html", "acro",
+         "and we come back with dates."),
+        ("MERCHANDISING", "merchandising.html", "news-2",
+         "Hoodies, T-shirts and the pieces the levels wear. Reserve online, try and collect at "
+         "the school."),
+        ("SUMMER CAMP", "summer-camp.html", "acro",
          "Two weeks of dance next summer, for our own dancers and for anyone who wants to try. "
          "Places can be reserved now."),
-        ("The Teachers", "instructors.html", "contemporary",
-         "Sixteen instructors, choreographers and dance educators &mdash; and the reason families "
-         "stay with us for years."),
-        ("Merchandising", "merchandising.html", "news-2",
-         "Hoodies, T-shirts and the pieces the levels wear. Reserve online, try and pay at the "
-         "school."),
-        ("Contacts", "contact.html", "ev-showcase",
-         "Center Al Haref, Byblos. Reception answers on class days &mdash; Monday, Wednesday and "
-         "Friday, 4 to 9PM."),
     ]
     launch = section(
         head_block("The school", "Where would you like to start?",
-                   "Six ways into Al Sarab &mdash; whether you want to dance, to hire us, or "
-                   "just to find the door.")
+                   "Four ways into Al Sarab &mdash; whether you want to dance, to hire us, or "
+                   "just to wear the hoodie.")
         + '<div class="launch">%s</div>'
           % "".join('<a href="%s" class="rv"><div class="ph" style="background-image:url(%s)"></div>'
-                    '<div class="body"><p class="label">%s</p><h3>%s</h3><p>%s</p>'
+                    '<div class="body"><p class="label">Al Sarab</p><h3>%s</h3><p>%s</p>'
                     '<span class="go">Open%s</span></div></a>'
-                    % (base + href, img(base, im), "Al Sarab", title, txt, ARROW)
-                    for title, href, im, txt in LAUNCH),
+                    % (base + href, img(base, im), title, txt, ARROW)
+                    for title, href, im, txt in LAUNCH)
+        + '<div class="offer rv" style="margin-top:30px"><div><h3>%s</h3>'
+          '<p>Enrolled students and their families sign in for assessment records, recital call '
+          'sheets, the timetable and school notices.</p></div>'
+          '%s</div>' % (SITE["portal_name"], app_cta(base)),
         sid="explore")
 
     sched = section(
@@ -169,7 +169,7 @@ def home(base=""):
                    "Places are booked for the academic year.")
         + schedule_controls(teacher=False, beginner=True)
         + schedule_module(view_toggle=False)
-        + '<p class="note">Sample timetable. The confirmed grid, fees and age placement are given at '
+        + '<p class="note">Sample timetable. The confirmed grid and age placement are given at '
           'registration &mdash; <a href="%scontact.html">ask us for the current schedule</a>.</p>'
           '<div style="margin-top:26px">%s</div>' % (base, btn(base, "classes.html#calendar", "The full calendar", "btn-ghost")),
         sid="schedule")
@@ -298,8 +298,8 @@ def news_card(base, n):
 
 def contact_block(base, heading="Visit us in Byblos"):
     return (head_block("Contact", heading,
-                       "Reception answers on class days. For registration, timetables and fees, a "
-                       "phone call is usually the fastest way.")
+                       "Reception answers on class days. For registration, timetables and "
+                       "placement, a phone call is usually the fastest way.")
             + '<div class="split"><div class="rv"><div class="info">'
               '<div><p class="label">Address</p><p>%s<br>%s</p></div>'
               '<div><p class="label">Opening hours</p><p>%s</p></div>'
@@ -325,8 +325,8 @@ def social_pills():
 
 
 def contact_form(base, subject="Class enquiry"):
-    opts = ["Registration and placement", "Fees", "Private group session", "Studio rental",
-            "Teaching application", "Something else"]
+    opts = ["Registration and placement", "Trial class", "Summer Camp", "Merchandising",
+            "Hire us for an event", "Teaching application", "Something else"]
     return ('<form class="box rv" data-mailto="%s" data-subject="%s">'
             '<div><label class="label" for="c-name">Name</label>'
             '<input class="inp" id="c-name" name="name" required></div>'
@@ -420,38 +420,8 @@ def classes_page(base=""):
 
             + section(trial_block(base), cls="section tight")
 
-            + section(head_block("Fees", "What a year costs",
-                                 "Fees depend on the genre, the level and how many classes a week "
-                                 "a student takes. They are given at registration &mdash; the trial "
-                                 "class itself is free.")
-                      + '<div class="cards g3">'
-                        '<div class="price-card rv"><h3>One class a week</h3>'
-                        '<p class="amount">%s<small>%s &middot; %s</small></p>'
-                        '<ul><li>A place in one class per week</li><li>Assessment and end-of-year '
-                        'evaluation</li><li>Recital place included</li><li>Costume billed separately</li></ul>'
-                        '%s</div>'
-                        '<div class="price-card rv featured"><h3>Two or more</h3>'
-                        '<p class="amount">%s<small>Reduced rate per extra class</small></p>'
-                        '<ul><li>Second and third genres at a reduced rate</li>'
-                        '<li>Timetabled to pair on the same afternoon</li>'
-                        '<li>One assessment record across genres</li><li>Sibling reduction available</li></ul>'
-                        '%s</div>'
-                        '<div class="price-card rv"><h3>Trial class</h3>'
-                        '<p class="amount">Free<small>Before you commit</small></p>'
-                        '<ul><li>Placement advice on the spot</li><li>No registration needed</li>'
-                        '<li>Any genre, any branch</li><li>Walk in on a class day</li></ul>'
-                        '%s</div></div>'
-                        % (PRICE, SITE["term"], SITE["term_dates"],
-                           btn(base, "contact.html", "Ask for the fee sheet", "btn-ghost"),
-                           PRICE, btn(base, "contact.html", "Ask about rates", "btn-primary"),
-                           btn(base, "#trial", "Book a trial", "btn-ghost")),
-                      cls="section tight")
-            + section(head_block("Questions", "Before you book")
+            + section(head_block("Questions", "Before you start")
                       + '<div class="faq rv">%s</div>' % faq_items([
-                          ("How much does a course cost?",
-                           "Fees depend on the genre, the level and the number of classes per week, "
-                           "and are given at registration. Call +961 71 049 801 and we will send the "
-                           "current sheet."),
                           ("Can I try before registering?",
                            "Yes. Every new student is booked into a trial class first &mdash; it is "
                            "how we place people."),
@@ -499,7 +469,7 @@ def schedule_page(base=""):
             + section('<div class="offer rv"><div><h3>Machine-readable schedule</h3>'
                       '<p>A JSON and plain-text feed of the timetable would sit here, so the schedule '
                       'can be pulled into other systems. Placeholder module.</p></div>'
-                      '<span class="tag ph">Placeholder</span></div>', cls="section tight"))
+                      '<span class="tag todo">Placeholder</span></div>', cls="section tight"))
 
     return page("Schedule", "The full weekly dance class schedule at Al Sarab in Byblos, Lebanon.",
                 body, base=base, active="schedule.html")
@@ -527,7 +497,7 @@ def dropin_page(base=""):
                         '<div class="step rv"><span class="n">03</span><h3>Come and dance</h3>'
                         '<p>Arrive ten minutes early. Bring water and clothes you can move in.</p></div>'
                         '<div class="step rv"><span class="n">04</span><h3>Decide after</h3>'
-                        '<p>If it fits, the drop-in fee is credited against year registration.</p></div></div>',
+                        '<p>If it fits, reception takes the registration on the spot.</p></div></div>',
                       cls="section tight"))
     return page("Drop-in", "Join a single dance class at Al Sarab without registering for the year.",
                 body, base=base, active="drop-in.html")
@@ -584,13 +554,12 @@ def style_detail(g, base="../"):
                       '<div class="r"><span class="k">Levels</span><span class="v">%s</span></div>'
                       '<div class="r"><span class="k">Ages</span><span class="v">%s</span></div>'
                       '<div class="r"><span class="k">Class length</span><span class="v">40&ndash;55 min</span></div>'
-                      '<div class="r"><span class="k">Studios</span><span class="v">%s</span></div>'
-                      '<div class="r"><span class="k">Fee</span><span class="v">%s</span></div></div>'
+                      '<div class="r"><span class="k">Studios</span><span class="v">%s</span></div></div>'
                       '<p class="label" style="color:var(--brand);margin:30px 0 14px">What to expect</p>'
                       '<ul class="ticks">%s</ul>'
                       '</div></div>'
                       % (g["name"], g["long"], ", ".join(levels_here) or "&mdash;",
-                         "3 yrs to adult", "Jbeil &middot; Koura", PRICE, expect))
+                         "3 yrs to adult", "Jbeil &middot; Koura", expect))
             + section(head_block("Timetable", "%s classes this week" % g["name"],
                                  "Every %s class on the current timetable, across both branches."
                                  % g["name"])
