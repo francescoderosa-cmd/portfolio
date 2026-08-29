@@ -157,8 +157,8 @@ def home(base=""):
                     % (base + href, img(base, im), title, txt, ARROW)
                     for title, href, im, txt in LAUNCH)
         + '<div class="offer rv" style="margin-top:30px"><div><h3>%s</h3>'
-          '<p>Enrolled students and their families sign in for assessment records, recital call '
-          'sheets, the timetable and school notices.</p></div>'
+          '<p>Enrolled students and their families sign in to follow attendance term by term, '
+          'plus assessment records, the timetable and school notices.</p></div>'
           '%s</div>' % (SITE["portal_name"], app_cta(base)),
         sid="explore")
 

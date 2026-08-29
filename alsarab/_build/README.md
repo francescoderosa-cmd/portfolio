@@ -112,6 +112,12 @@ obvious placeholder.
 **When the web app is published, set `portal_url` to its URL and rebuild.** Both
 CTAs become real links that open in a new tab. Nothing else needs touching.
 
+What the page says the app holds, in order: **Attendance** (every class a student
+attended or missed, term by term), Assessment, Timetable, Notices. Attendance leads
+because it is what parents actually open the app for; the recital block that used to
+sit there was moved out — recital information belongs on `events.html`, not in a
+parent's daily view.
+
 ## Settled
 
 The school and Al Sarab Dance Company are **one organisation** — same founder,

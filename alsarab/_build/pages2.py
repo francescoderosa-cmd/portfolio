@@ -550,9 +550,9 @@ def terms_page(base=""):
 
 def portal_page(base=""):
     body = (phero(base, "School &middot; Portal", SITE["portal_name"],
-                  "The web app for enrolled students and their families &mdash; assessment "
-                  "records, recital call sheets, costume information and school notices, in one "
-                  "place. Sign in with the details reception gives you at registration.",
+                  "The web app for enrolled students and their families &mdash; attendance, "
+                  "assessment records, the timetable and school notices, in one place. Sign in "
+                  "with the details reception gives you at registration.",
                   "studio-2",
                   app_cta(base))
             + section('<div class="split"><div class="rv">'
@@ -560,15 +560,19 @@ def portal_page(base=""):
                       '<p class="muted" style="font-size:17px">The app is where the written side of '
                       'the curriculum lives. Everything a family would otherwise have to ask '
                       'reception for is in there, kept up to date by the teaching team.</p>'
+                      '<p class="muted" style="margin-top:18px">Attendance is the part parents ask '
+                      'for most. Every class a student attends or misses is marked by the teacher and '
+                      'shows up in the app the same afternoon, so a family can see the term at a '
+                      'glance rather than asking at reception.</p>'
                       '<p class="muted" style="margin-top:18px">Access is for enrolled students and '
                       'their parents. If you have not received your sign-in details, ask at '
                       'reception on a class day.</p>'
                       '<div style="margin-top:26px">%s</div></div>'
                       '<div class="rv"><div class="rows">'
+                      '<div class="row-item"><b>Attendance</b><span>Every class your child has '
+                      'attended or missed, term by term</span></div>'
                       '<div class="row-item"><b>Assessment</b><span>Level objectives, end-of-year '
                       'evaluation, progress across genres</span></div>'
-                      '<div class="row-item"><b>Recital</b><span>Call sheets, costume fittings, '
-                      'rehearsal dates</span></div>'
                       '<div class="row-item"><b>Timetable</b><span>Your own classes, changes and '
                       'closures</span></div>'
                       '<div class="row-item"><b>Notices</b><span>Messages from the school to your '
@@ -579,7 +583,7 @@ def portal_page(base=""):
                       '</div>%s</div>'
                       % btn(base, "classes.html#trial", "Book a trial class"), cls="section tight"))
     return page("Student &amp; parent portal",
-                "The Al Sarab web app for enrolled students and their families.",
+                "Attendance, assessment and school notices for Al Sarab families, in one web app.",
                 body, base=base, active="portal.html")
 
 
