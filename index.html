@@ -1042,8 +1042,12 @@ body.has-cursor, body.has-cursor *{cursor:none;}
 .lightzone :focus-visible{outline-color:#1C5E74;}
 
 /* ═════════════ V12 — POLISH: line-mask titles · reading progress ═════════════ */
-.mline{display:block;overflow:hidden;}
-.mline-in{display:block;transform:translateY(112%);transition:transform .8s cubic-bezier(.22,.61,.36,1);}
+.mline{display:block;overflow:hidden;padding-bottom:.22em;margin-bottom:-.22em;}  /* la maschera deve essere piu' alta della riga: le discendenti (g, p, y) escono dal
+     box di linea e overflow:hidden le taglierebbe. Il margine negativo riassorbe lo
+     spazio, cosi' il ritmo verticale non cambia. */
+.mline-in{display:block;transform:translateY(126%);transition:transform .8s cubic-bezier(.22,.61,.36,1);}
+  /* 126% e non 112%: la maschera ora e' .22em piu' alta per le discendenti, quindi la riga
+     deve scendere di piu' per restare nascosta prima del reveal. */
 .masked.reveal{opacity:1;transform:none;transition:none;}
 .masked.in .mline-in{transform:none;}
 .readbar{position:fixed;top:0;left:0;height:3px;width:0;background:var(--gold);z-index:500;pointer-events:none;opacity:0;transition:opacity .3s ease;}
