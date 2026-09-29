@@ -25,9 +25,13 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Crect width='18' height='18' rx='4' fill='%231B3A4B'/%3E%3Crect x='2' y='4' width='8' height='1.5' rx='.75' fill='%23A8D8EA'/%3E%3Crect x='2' y='7.5' width='11' height='1.5' rx='.75' fill='%236DC4E0'/%3E%3Crect x='2' y='11' width='6' height='1.5' rx='.75' fill='%232D7D9A'/%3E%3Ccircle cx='13.5' cy='11.5' r='3' fill='%232D7D9A'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<!-- Type: Neue Haas Grotesk + Dharma Gothic + Trade Gothic Next (Adobe Fonts).
+     When the Adobe kit is live, uncomment the next line and the real faces take over:
+     the CSS already names them first in every font stack. -->
+<!-- <link rel="stylesheet" href="https://use.typekit.net/XXXXXXX.css"> -->
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Archivo+Narrow:wght@400;500;600&family=Big+Shoulders+Display:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--navy:#1B3A4B;--teal:#2D7D9A;--slate:#5B8FA8;--ice:#A8D8EA;--warm:#F2F0EB;--serif:'DM Serif Display',Georgia,serif;--sans:'DM Sans',system-ui,sans-serif;--r:12px;--b:0.5px solid rgba(27,58,75,0.12);}
+:root{--navy:#1B3A4B;--teal:#2D7D9A;--slate:#5B8FA8;--ice:#A8D8EA;--warm:#F2F0EB;--serif:'neue-haas-grotesk-display','Neue Haas Grotesk Display','Archivo',Helvetica,Arial,sans-serif;--sans:'neue-haas-grotesk-text','Neue Haas Grotesk Text','Archivo',Helvetica,Arial,sans-serif;--disp:'dharma-gothic-e','Dharma Gothic E','Big Shoulders Display','Archivo',sans-serif;--r:12px;--b:0.5px solid rgba(27,58,75,0.12);}
 *{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;}
 body{font-family:var(--sans);background:var(--navy);color:#EAF4F8;-webkit-font-smoothing:antialiased;}
 /* Typography: avoid last-line widows in body copy, balance short headings */
@@ -415,7 +419,7 @@ html.lenis,html.lenis body{height:auto;}
 }
 
 /* ═════════════ V2, DARK EDITORIAL HOME (dsgnpixl-inspired, own palette) ═════════════ */
-:root{--navy-d:#15303f;--line:rgba(168,216,234,.14);--mono:'DM Mono',ui-monospace,SFMono-Regular,Menlo,monospace;--ease:cubic-bezier(.22,.61,.36,1);}
+:root{--navy-d:#15303f;--line:rgba(168,216,234,.14);--mono:'trade-gothic-next-condensed','Trade Gothic Next Condensed','Archivo Narrow',Helvetica,Arial,sans-serif;--ease:cubic-bezier(.22,.61,.36,1);}
 
 /* Nav goes dark (shared; flows into the navy case-study covers) */
 nav{background:var(--navy);border-bottom:1px solid var(--line);}
@@ -1094,6 +1098,30 @@ body.on-case .readbar{opacity:1;}
   footer{flex-direction:column;gap:10px;align-items:flex-start;}
   .sec,.wsec,.istrip,.cov,.back-bar,.next-cs,.cotsec,.legacy-hero,footer{padding-left:18px;padding-right:18px;}
 }
+
+/* ═════════════ TYPE v2 · Neue Haas Grotesk system, Dharma hero, Trade Gothic labels ═════════════
+   Un grottesco a peso 400 nei titoli si sgonfia dove il DM Serif teneva: qui si recupera
+   presenza con il peso e si stringe la crenatura, che alle misure display è obbligatoria. */
+.an,.aquote,.ba-title,.cn-big,.cot-title,.cov-title,.ft-name,.gbig,.hmw-cta h3,.hmw-title,
+.hname,.ibig,.jav,.jquote,.jvi-title,.knum,.la-tile-mark,.la-tile-title,.lg-tbg,.lgn-v,
+.lh-title,.n-name,.next-title,.pav,.pstep-num,.ptl-steps,.puxj-name,.rnum,.sr-big,.st,.st-l,
+.tbg,.testi-quote,.ukr-sum-t,.vabout-lead,.vapp-statement,.vcin-title,.vcontact-title,
+.vmarq-track span,.voth-c,.vquote blockquote,.vsec-title,.vstat-n,.vword,.wsec-t,.xp-word{
+  font-weight:500;letter-spacing:-.022em;}
+
+/* i numeri grandi reggono un peso in più, e in grottesco vanno allineati in colonna */
+.vstat-n,.cn-big,.knum,.ibig,.rnum,.gbig,.sr-big,.pstep-num{
+  font-weight:600;letter-spacing:-.03em;font-variant-numeric:tabular-nums;}
+
+/* hero: l'unico punto dove entra il Dharma Gothic, condensato e maiuscolo */
+.vhero-title{font-family:var(--disp);font-weight:700;text-transform:uppercase;
+  font-size:clamp(58px,12.4vw,182px);line-height:.86;letter-spacing:-.005em;}
+.vhero-title em{font-style:normal;}
+
+/* le etichette passano a un condensato: a parità di corpo occupano meno, quindi respirano un filo di più */
+.vlabel,.vcin-tags,.la-tile-tags,.vfoot span,.cov-chip,.lg-archhint,.pp-phone-cap,
+.hmcmp-hint,.hmscreens-hint,.pager-count,.vq-role,.xp-hint{letter-spacing:.11em;}
+
 </style>
 </head>
 <body>
