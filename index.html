@@ -1133,6 +1133,35 @@ body.on-case .readbar{opacity:1;}
 /* le etichette restano condensate: a 10-11px stanno piu' strette del mono che sostituiscono */
 .vlabel,.vcin-tags,.la-tile-tags,.vfoot span,.cov-chip,.lg-archhint,.pp-phone-cap,
 .hmcmp-hint,.hmscreens-hint,.pager-count,.vq-role,.xp-hint{letter-spacing:.11em;}
+
+/* ═════════════ FIELDWORK · il dittico della missione, Grenada ═════════════
+   Due scatti con ruoli opposti: in piedi che conduce, seduto che ascolta. Lo sfalsamento
+   verticale li tiene insieme come una coppia invece di allinearli come due figure separate. */
+.field{display:grid;grid-template-columns:1.45fr 1fr;gap:clamp(16px,2.2vw,30px);
+  align-items:start;margin:4px 0 30px;}
+.field figure{margin:0;}
+.field figure:nth-child(2){margin-top:clamp(26px,6vw,88px);}
+.field .ph{position:relative;border:1px solid var(--line);border-radius:14px;overflow:hidden;
+  background:var(--navy-d);cursor:zoom-in;}
+.field .ph img{display:block;width:100%;height:100%;object-fit:cover;
+  transform:translateZ(0);will-change:transform;transition:transform .9s var(--ease);}
+.field .ph:hover img,.field .ph:focus-visible img{transform:translateZ(0) scale(1.035);}
+.field .ph--w{aspect-ratio:4/3;}
+.field .ph--t{aspect-ratio:3/4;}
+.field figcaption{margin-top:13px;font-family:var(--mono);font-size:10.5px;letter-spacing:.11em;
+  text-transform:uppercase;color:rgba(168,216,234,.52);line-height:1.75;}
+.field figcaption b{display:block;font-family:var(--serif);font-weight:500;font-size:18px;
+  letter-spacing:-.01em;text-transform:none;color:#fff;margin-bottom:6px;}
+.field-note{display:flex;gap:10px;align-items:flex-start;max-width:74ch;margin:0 0 40px;
+  font-size:13px;line-height:1.7;color:rgba(168,216,234,.58);}
+.field-note span{color:var(--gold);font-family:var(--mono);font-size:10px;letter-spacing:.1em;
+  text-transform:uppercase;padding-top:3px;white-space:nowrap;}
+@media (max-width:760px){
+  .field{grid-template-columns:1fr;gap:20px;}
+  .field figure:nth-child(2){margin-top:0;}
+  .field .ph--t{aspect-ratio:4/3;}
+}
+
 </style>
 </head>
 <body>
@@ -1402,6 +1431,21 @@ body.on-case .readbar{opacity:1;}
   </section>
   <section class="sec">
     <span class="ey">User research, beneficiary journeys</span><h2 class="st">Two people. Two stories. The same broken system.</h2>
+    <div class="field">
+      <figure class="reveal">
+        <div class="ph ph--w" tabindex="0" onclick="grField(0)" onkeydown="if(event.key==='Enter')grField(0)">
+          <img src="assets/grenada/field-workshop-preview.webp" width="1100" height="825" alt="Francesco running a focus group in Grenada, seen from behind in a WFP shirt, with people receiving government assistance seated around tables" loading="lazy" decoding="async">
+        </div>
+        <figcaption><b>Focus group with the people the programmes serve</b>Grenada &middot; 2025 &middot; their words became the journeys below</figcaption>
+      </figure>
+      <figure class="reveal">
+        <div class="ph ph--t" tabindex="0" onclick="grField(1)" onkeydown="if(event.key==='Enter')grField(1)">
+          <img src="assets/grenada/field-interview-preview.webp" width="1086" height="1448" alt="Francesco seated at a table in Grenada, leaning in and listening to people receiving government assistance during a focus group" loading="lazy" decoding="async">
+        </div>
+        <figcaption><b>Listening at the table</b>What the programmes feel like from their side, and where the government could do better</figcaption>
+      </figure>
+    </div>
+    <p class="field-note"><span>Privacy</span>Faces are obscured to protect the privacy of the people who took part.</p>
     <div class="jmaps">
       <figure class="jmap reveal">
         <figcaption><b>Joseph's journey</b><span>68 · cocoa farmer · Saint Andrew · BRISP · scroll sideways, click to zoom</span></figcaption>
@@ -2453,6 +2497,12 @@ var PR_SHOTS=[
   {src:'assets/legacy/prada-m-look.webp',label:'Prada.com mobile, build your look'}
 ];
 function prZoom(i){jvGallery(PR_SHOTS.map(function(s){return{src:s.src,label:s.label,alt:s.label};}),i);}
+/* Grenada field photography */
+var GR_FIELD=[
+  {src:'assets/grenada/field-workshop.webp',label:'Focus group with people receiving government assistance, Grenada 2025'},
+  {src:'assets/grenada/field-interview.webp',label:'Listening at the table, focus group, Grenada 2025'}
+];
+function grField(i){jvGallery(GR_FIELD.map(function(s){return{src:s.src,label:s.label,alt:s.label};}),i);}
 /* Ferrero Magic Kinder gallery */
 var MK_SHOTS=[
   {src:'assets/legacy/mk-hub-play.webp',label:'Hub app, Play and Learn'},
