@@ -87,9 +87,12 @@ def app_cta(base, label="Open the app"):
 
 # ---------------------------------------------------------------- chrome
 def promo():
+    """The review banner. Nothing is rendered once SITE["publish"] is True."""
+    if SITE["publish"]:
+        return ""
     return (
         '<div class="promo" id="promo"><div class="container">'
-        '<p><b>Design proposal.</b> Structure, layout and modules only &mdash; timetable, fees, '
+        '<p><b>Design proposal.</b> Structure, layout and modules only &mdash; timetable, '
         'studio specifications and some copy are placeholders for review.</p>'
         '<button type="button" aria-label="Dismiss notice">&times;</button>'
         '</div></div>')
@@ -164,8 +167,10 @@ def footer(base):
             + cols + contact +
             '</div><div class="legal">'
             '<span>&copy; 2026 %s &middot; Ministry of Education licence %s</span>'
-            '<span><a href="%sterms.html">Terms</a> &middot; Design proposal, not the live school site</span>'
-            '</div></div></footer>' % (SITE["full"], SITE["licence"], base))
+            '<span><a href="%sterms.html">Terms</a>%s</span>'
+            '</div></div></footer>'
+            % (SITE["full"], SITE["licence"], base,
+               "" if SITE["publish"] else " &middot; Design proposal, not the live school site"))
 
 
 # ---------------------------------------------------------------- page shell
@@ -189,7 +194,7 @@ def page(title, desc, body, base="", active="", extra_js="", data_js=""):
         "<!doctype html>\n<html lang=\"en\">\n<head>\n"
         '<meta charset="utf-8">\n'
         '<meta name="viewport" content="width=device-width, initial-scale=1">\n'
-        '<meta name="robots" content="noindex, nofollow">\n'
+        + ('' if SITE["publish"] else '<meta name="robots" content="noindex, nofollow">\n') +
         '<title>' + full_title + '</title>\n'
         '<meta name="description" content="' + desc + '">\n'
         '<meta name="theme-color" content="#140E1E">\n'
