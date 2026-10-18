@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Al Sarab — the new website</title>
+<meta name="description" content="A first look at the new Al Sarab Alternative Dance School website.">
+<meta name="theme-color" content="#1E1621">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Ccircle cx='24' cy='24' r='22' fill='%23B3ABD2'/%3E%3Cg fill='none' stroke='%231E1621' stroke-width='3' stroke-linecap='round'%3E%3Cpath d='M9 19c5-4 11-4 16 0s11 4 16 0'/%3E%3Cpath d='M9 27c5-4 11-4 16 0s11 4 16 0'/%3E%3Cpath d='M13 35c4-2.6 8-2.6 12 0'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=Jost:ital,wght@0,300..600;1,300..600&family=Reem+Kufi:wght@400;600&display=swap">
+<style>
+:root{
+  --bg:#1E1621; --bg-2:#271E2C; --card:#261D2B;
+  --ink:#EFEAF8; --ink-2:#9B90AE;
+  --line:rgba(239,234,248,.16); --line-2:rgba(239,234,248,.07);
+  --brand:#B3ABD2; --brand-2:#C7C0E0; --on-brand:#1E1621;
+  --panel:#EFEEF6; --panel-ink:#241C38; --panel-ink-2:#6B5F84;
+  --panel-line:rgba(36,28,56,.15); --panel-brand:#5F4F9B;
+  --display:"Bodoni Moda",Didot,"Times New Roman",serif;
+  --ui:Jost,"Century Gothic",-apple-system,"Segoe UI",sans-serif;
+  --cut:11px;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--ui);
+  font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased}
+h1,h2{font-family:var(--display);font-weight:500;margin:0;line-height:1.06;
+  letter-spacing:-.005em;text-wrap:balance}
+h3{font-family:var(--ui);font-weight:500;margin:0;font-size:18px;line-height:1.3}
+p{margin:0}
+ul{margin:0;padding:0;list-style:none}
+a{color:inherit}
+.wrap{max-width:900px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));
+  padding-right:max(20px,env(safe-area-inset-right,0px))}
+.label{font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--brand)}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  font-family:var(--ui);font-weight:500;font-size:14px;letter-spacing:.08em;
+  text-transform:uppercase;min-height:52px;padding:14px 28px;border:1px solid transparent;
+  text-decoration:none;cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+.btn-primary{background:var(--brand);color:var(--on-brand);border-radius:0;
+  clip-path:polygon(0 0,100% 0,100% calc(100% - var(--cut)),calc(100% - var(--cut)) 100%,0 100%)}
+.btn-primary:hover{background:var(--brand-2)}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--line);border-radius:2px}
+.btn-ghost:hover{border-color:var(--ink-2);background:var(--bg-2)}
+.arrow{width:14px;height:14px;flex:none}
+
+/* hero */
+header.hero{border-bottom:1px solid var(--line-2);padding-block:56px 48px}
+header.hero h1{font-size:clamp(38px,8.4vw,76px);margin:18px 0 22px}
+header.hero h1 em{font-style:italic;color:var(--brand-2);display:block}
+header.hero p.lead{color:var(--ink-2);font-size:17.5px;max-width:58ch}
+.cta-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:32px}
+
+section{padding-block:48px;border-bottom:1px solid var(--line-2)}
+section:last-of-type{border-bottom:0}
+.sec-head{margin-bottom:28px}
+.sec-head h2{font-size:clamp(26px,4.4vw,38px);margin:14px 0 12px}
+.sec-head p{color:var(--ink-2);max-width:62ch}
+
+/* link grid */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media (max-width:760px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:460px){.grid{grid-template-columns:1fr}}
+.grid a{display:flex;flex-direction:column;gap:7px;text-decoration:none;
+  background:var(--card);border:1px solid var(--line-2);border-radius:2px;
+  padding:20px 20px 22px;transition:border-color .2s,transform .2s}
+.grid a:hover{border-color:var(--brand);transform:translateY(-2px)}
+.grid a .n{font-family:var(--display);font-size:27px;font-weight:500;line-height:1.1}
+.grid a .d{font-size:13.5px;color:var(--ink-2);line-height:1.5}
+
+/* ignore / need lists */
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:34px}
+@media (max-width:720px){.cols{grid-template-columns:1fr;gap:28px}}
+.stack{display:flex;flex-direction:column;gap:14px}
+.item{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start}
+.item .mark{width:18px;height:18px;flex:none;margin-top:4px}
+.item b{font-weight:500;display:block}
+.item span{color:var(--ink-2);font-size:14.5px;line-height:1.55}
+
+.panel{background:var(--panel);color:var(--panel-ink);
+  border-radius:2px;padding:34px 30px;margin-block:8px}
+.panel .label{color:var(--panel-brand)}
+.panel h2{color:var(--panel-ink);font-size:clamp(24px,4vw,34px);margin:14px 0 14px}
+.panel p{color:var(--panel-ink-2)}
+.panel .item span{color:var(--panel-ink-2)}
+.panel .item b{color:var(--panel-ink)}
+.panel ol{margin:22px 0 0;padding:0;list-style:none;counter-reset:q;
+  display:flex;flex-direction:column;gap:18px}
+.panel ol li{counter-increment:q;display:grid;grid-template-columns:auto 1fr;gap:14px;
+  padding-top:18px;border-top:1px solid var(--panel-line)}
+.panel ol li::before{content:counter(q,decimal-leading-zero);
+  font-family:var(--display);font-size:26px;color:var(--panel-brand);line-height:1;
+  grid-row:span 2}
+.panel ol li b{font-weight:500;display:block;color:var(--panel-ink)}
+.panel ol li span{color:var(--panel-ink-2);font-size:14.5px;line-height:1.55}
+
+footer{padding-block:40px 64px;color:var(--ink-2);font-size:13.5px}
+footer a{color:var(--brand)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+<header class="hero">
+  <p class="label">Al Sarab Alternative Dance School &middot; Byblos</p>
+  <h1>The new website,<em>ready to look at.</em></h1>
+  <p class="lead">Forty-eight pages, complete and working — the classes and the calendar, the
+  sixteen teachers, hiring the school for weddings and videos, the merchandise, the summer
+  camp, and the student app. Nothing to install. It opens on your phone.</p>
+  <div class="cta-row">
+    <a class="btn btn-primary" href="https://francescoderosa.design/alsarab/">Open the website
+      <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+    <a class="btn btn-ghost" href="#look">What to look at</a>
+  </div>
+</header>
+
+<section id="look">
+  <div class="sec-head">
+    <p class="label">Go straight to</p>
+    <h2>The parts worth your time</h2>
+    <p>Every link opens the real page. Try the filters on the calendar and the Reserve buttons
+    on the merchandise — they work.</p>
+  </div>
+  <div class="grid">
+    <a href="https://francescoderosa.design/alsarab/">
+      <span class="n">Home</span>
+      <span class="d">Where everything starts, and the four doors into the rest.</span></a>
+    <a href="https://francescoderosa.design/alsarab/classes.html">
+      <span class="n">Classes</span>
+      <span class="d">The six genres, the levels, the weekly calendar with filters, and the free
+      trial form.</span></a>
+    <a href="https://francescoderosa.design/alsarab/instructors.html">
+      <span class="n">Teachers</span>
+      <span class="d">All sixteen, each with their own page. Your profile is in there.</span></a>
+    <a href="https://francescoderosa.design/alsarab/hire-us.html">
+      <span class="n">Hire Us</span>
+      <span class="d">Weddings, videos, choreography, studio booking — one form for all four.</span></a>
+    <a href="https://francescoderosa.design/alsarab/merchandising.html">
+      <span class="n">Merch</span>
+      <span class="d">Reserve online, try and collect at the school. Press Reserve on
+      something.</span></a>
+    <a href="https://francescoderosa.design/alsarab/summer-camp.html">
+      <span class="n">Summer Camp</span>
+      <span class="d">Summer 2027 first, last year's camp below it.</span></a>
+  </div>
+</section>
+
+<section>
+  <div class="cols">
+    <div>
+      <div class="sec-head">
+        <p class="label">Please ignore</p>
+        <h2>Three things that are on purpose</h2>
+      </div>
+      <div class="stack">
+        <div class="item">
+          <svg class="mark" viewBox="0 0 24 24" fill="none" stroke="var(--brand)" stroke-width="2"
+            aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v6M12 16.5v.5"
+            stroke-linecap="round"/></svg>
+          <span><b>The banner at the top of every page</b>It says this is a proposal. It comes
+          off the day the site goes live.</span>
+        </div>
+        <div class="item">
+          <svg class="mark" viewBox="0 0 24 24" fill="none" stroke="var(--brand)" stroke-width="2"
+            aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v6M12 16.5v.5"
+            stroke-linecap="round"/></svg>
+          <span><b>The timetable is invented</b>It is realistic, with your real teachers and
+          genres, but it is not your schedule. It shows how the calendar behaves.</span>
+        </div>
+        <div class="item">
+          <svg class="mark" viewBox="0 0 24 24" fill="none" stroke="var(--brand)" stroke-width="2"
+            aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v6M12 16.5v.5"
+            stroke-linecap="round"/></svg>
+          <span><b>"Photo to come" and the greyed-out app button</b>The teacher portraits and the
+          merchandise photos are waiting for yours. The app button switches on the day you send
+          the link.</span>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="sec-head">
+        <p class="label">What is real</p>
+        <h2>Everything else</h2>
+      </div>
+      <div class="stack">
+        <div class="item">
+          <svg class="mark" viewBox="0 0 24 24" fill="none" stroke="var(--brand)" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="m4 12.5 5 5L20 6.5"/></svg>
+          <span><b>The school's own facts</b>Founded January 1991 by Dr. Nadra Majeed Assaf,
+          Ministry of Education licence 213/2009, NDEO member, the five branches, the six
+          genres, the sixteen names and roles.</span>
+        </div>
+        <div class="item">
+          <svg class="mark" viewBox="0 0 24 24" fill="none" stroke="var(--brand)" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="m4 12.5 5 5L20 6.5"/></svg>
+          <span><b>The photographs</b>All from your own production at Metro Al Madina in
+          Beirut.</span>
+        </div>
+        <div class="item">
+          <svg class="mark" viewBox="0 0 24 24" fill="none" stroke="var(--brand)" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="m4 12.5 5 5L20 6.5"/></svg>
+          <span><b>Every form and filter</b>They all work. The forms open your email with the
+          message already written — no prices anywhere, as you asked.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="panel">
+    <p class="label">Over to you</p>
+    <h2>What we need from the school</h2>
+    <p>These five things are what stands between this and a finished website. Nothing else is
+    waiting on you.</p>
+    <ol>
+      <li><b>Teacher photographs and short biographies</b>
+        <span>Sixteen of them. The names and roles are already correct.</span></li>
+      <li><b>The real class timetable for the year</b>
+        <span>On the current website it only exists as images, so it needs typing out once.</span></li>
+      <li><b>Photographs of the merchandise</b>
+        <span>One per item is enough. Hoodie, T-shirt, joggers, leggings, and the rest.</span></li>
+      <li><b>Summer Camp 2027 dates</b>
+        <span>As soon as they are decided. People can already reserve a place without them.</span></li>
+      <li><b>The link to the student &amp; parent app</b>
+        <span>Once it is published. Then the buttons switch on by themselves.</span></li>
+    </ol>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head">
+    <p class="label">Two questions</p>
+    <h2>What we would like to hear back</h2>
+  </div>
+  <div class="stack">
+    <div class="item">
+      <svg class="mark" viewBox="0 0 24 24" fill="none" stroke="var(--brand)" stroke-width="2"
+        stroke-linecap="round" aria-hidden="true"><path d="M8 9.5a4 4 0 1 1 4 4v2"/>
+        <path d="M12 19v.5"/></svg>
+      <span><b>Does the dark look feel like Al Sarab?</b>The colour comes from your own logo, and
+      the dark background was chosen because your photographs are all stage photographs — they
+      look washed out on a pale page.</span>
+    </div>
+    <div class="item">
+      <svg class="mark" viewBox="0 0 24 24" fill="none" stroke="var(--brand)" stroke-width="2"
+        stroke-linecap="round" aria-hidden="true"><path d="M8 9.5a4 4 0 1 1 4 4v2"/>
+        <path d="M12 19v.5"/></svg>
+      <span><b>Is anything missing from the structure?</b>Something the school does that has
+      nowhere to live on the site yet. Easier to add now than later.</span>
+    </div>
+  </div>
+  <div class="cta-row">
+    <a class="btn btn-primary" href="https://francescoderosa.design/alsarab/">Open the website
+      <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+  </div>
+</section>
+
+<footer>
+  <p>Design and build: Francesco de Rosa.
+  Photographs are the school's own, from the production at Metro Al Madina, Beirut.</p>
+  <p style="margin-top:10px">This preview page is not part of the website and will not be
+  delivered with it.</p>
+</footer>
+
+</div>
+</body>
+</html>
