@@ -177,11 +177,12 @@ def footer(base):
 FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com">'
          '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'
          '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?'
-         'family=Oswald:wght@400;500;600;700&family=Montserrat:wght@400;500;600'
+         'family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700'
+         '&family=Jost:ital,wght@0,300..600;1,300..600'
          '&family=Reem+Kufi:wght@400;600&display=swap">')
 
 FAVICON = ("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E"
-           "%3Ccircle cx='24' cy='24' r='22' fill='%235F4F9B'/%3E%3Cg fill='none' stroke='%23E7E2F1'"
+           "%3Ccircle cx='24' cy='24' r='22' fill='%23B3ABD2'/%3E%3Cg fill='none' stroke='%231E1621'"
            " stroke-width='3' stroke-linecap='round'%3E%3Cpath d='M9 19c5-4 11-4 16 0s11 4 16 0'/%3E"
            "%3Cpath d='M9 27c5-4 11-4 16 0s11 4 16 0'/%3E%3Cpath d='M13 35c4-2.6 8-2.6 12 0'/%3E"
            "%3C/g%3E%3C/svg%3E")
@@ -197,7 +198,7 @@ def page(title, desc, body, base="", active="", extra_js="", data_js=""):
         + ('' if SITE["publish"] else '<meta name="robots" content="noindex, nofollow">\n') +
         '<title>' + full_title + '</title>\n'
         '<meta name="description" content="' + desc + '">\n'
-        '<meta name="theme-color" content="#140E1E">\n'
+        '<meta name="theme-color" content="#1E1621">\n'
         '<link rel="icon" href="' + FAVICON + '">\n'
         + FONTS + '\n'
         '<link rel="stylesheet" href="' + base + 'assets/site.css">\n'

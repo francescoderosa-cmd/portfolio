@@ -155,7 +155,7 @@ def merch_page(base=""):
                       '%s</div>'
                       '<div class="cards g3" id="merch-grid">%s</div>'
                       '<p class="empty" data-filter-empty hidden>No item in that category.</p>'
-                      % (chips, cards), cls="section tight")
+                      % (chips, cards), cls="section tight panel")
 
             + section(head_block("Reserve", "Put your name on something",
                                  "Reserving is free and commits you to nothing. We hold the item "
@@ -246,7 +246,7 @@ def camp_page(base=""):
             + section(head_block("The programme", "What happens at camp",
                                  "Mornings are technique, afternoons are making things, and the "
                                  "last day is a showing for families.")
-                      + '<div class="pillars">%s</div>' % acts)
+                      + '<div class="pillars">%s</div>' % acts, cls="section panel")
 
             + section(head_block("Reserve", "Hold a place for Summer %s" % CAMP["year"],
                                  "Reserving is free and commits you to nothing. We contact you "
