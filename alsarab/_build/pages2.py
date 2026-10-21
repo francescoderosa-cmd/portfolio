@@ -170,7 +170,8 @@ def about_page(base=""):
             + section(head_block("The team", "Who teaches here")
                       + '<div class="cards g4">%s</div>' % team
                       + '<div style="margin-top:32px">%s</div>'
-                      % btn(base, "instructors.html", "Meet all teachers", "btn-ghost"), cls="section tight"))
+                      % btn(base, "instructors.html", "Meet all teachers", "btn-ghost"),
+                      cls="section tight panel"))
     return page("About", "Al Sarab Alternative Dance School has taught dance in Lebanon since 1991.",
                 body, base=base, active="about.html")
 

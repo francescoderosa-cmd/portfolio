@@ -191,7 +191,7 @@ def home(base=""):
         + '<div class="cards g4" style="margin-top:32px">%s</div>'
           % "".join(person_card(base, t) for t in TEACHERS[1:5])
         + '<div style="margin-top:32px">%s</div>' % btn(base, "instructors.html", "All teachers", "btn-ghost"),
-        sid="teachers")
+        cls="section panel", sid="teachers")
 
     classes = section(
         head_block("Our classes", "Six genres, one curriculum",
@@ -223,7 +223,7 @@ def home(base=""):
                    "Guides, teacher interviews, student stories and news from the school.")
         + '<div class="cards g3">%s</div>' % "".join(news_card(base, n) for n in NEWS[:3])
         + '<div style="margin-top:32px">%s</div>' % btn(base, "news.html", "All news", "btn-ghost"),
-        sid="news")
+        cls="section panel", sid="news")
 
     about = section(
         head_block("About the school", "Thirty-five years of dance education in Lebanon")
@@ -582,7 +582,7 @@ def teachers_index(base=""):
                   "written curriculum, with levels, assessment and an end-of-year evaluation &mdash; "
                   "and they are the reason students come back.")
             + section('<div class="cards g4">%s</div>' % "".join(person_card(base, t) for t in TEACHERS),
-                      cls="section tight")
+                      cls="section tight panel")
             + section('<div class="offer rv"><div><h3>Teach at Al Sarab</h3>'
                       '<p>We look for dancers who can teach, not only dancers. Write to us with your '
                       'training and teaching experience.</p></div>%s</div>'

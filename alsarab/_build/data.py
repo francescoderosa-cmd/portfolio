@@ -35,6 +35,12 @@ SITE = dict(
 
     # Student & parent web app. Set this to the published URL and the CTAs go live
     # on portal.html and on the homepage. Empty means "not published yet".
+    # REVIEW vs LIVE. While this is False every page carries the "Design proposal"
+    # banner and <meta name="robots" content="noindex, nofollow">, so the draft can
+    # sit on a public URL without being indexed. Flip to True the day the real
+    # content is in and the site is meant to be found.
+    publish=False,
+
     portal_url="",
     portal_name="Al Sarab Student & Parent App",
 )
