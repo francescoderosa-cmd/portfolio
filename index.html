@@ -1674,6 +1674,35 @@ body.has-cursor,body.has-cursor *{cursor:auto;}
    quotes to put in it. The markup stays; delete this rule to bring it back. */
 .testi{display:none;}
 
+/* ═════════════ V23 — GRENADA: the SEED process map ═════════════
+   One page, 1440 x 3947pt: far too tall to lay out flat. It sits in a frame
+   you scroll, with the digitalisation recap pinned alongside. */
+.seed{display:grid;grid-template-columns:minmax(0,1.62fr) minmax(0,.9fr);gap:clamp(24px,3.4vw,52px);align-items:start;margin-top:clamp(22px,3vw,38px);}
+.seed-map{margin:0;}
+.seed-frame{position:relative;height:min(82vh,820px);overflow:auto;border:1px solid var(--line);
+  border-radius:14px;background:#fff;box-shadow:0 1px 3px rgba(15,22,24,.06),0 10px 24px -14px rgba(15,22,24,.18);}
+.seed-frame a{display:block;}
+.seed-frame img{display:block;width:100%;height:auto;cursor:zoom-in;}
+.seed-map figcaption{margin-top:12px;display:flex;gap:10px;flex-wrap:wrap;align-items:baseline;
+  font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2);}
+.seed-map figcaption b{font-family:var(--disp);font-weight:600;letter-spacing:-.01em;text-transform:none;font-size:13.5px;color:var(--ink);}
+.seed-map figcaption a{color:var(--orange-ink);border-bottom:1px solid currentColor;}
+.seed-recap{position:sticky;top:110px;}
+.seed-k{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--orange-ink);margin-bottom:18px;}
+.seed-steps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:clamp(16px,2vw,26px);}
+.seed-steps li{display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:start;}
+.seed-n{font-family:var(--mono);font-size:12px;letter-spacing:.1em;color:var(--azure);padding-top:2px;}
+.seed-t{font-family:var(--disp);font-weight:600;font-size:16px;letter-spacing:-.015em;color:var(--ink);}
+.seed-d{margin-top:5px;font-size:14px;line-height:1.6;color:var(--ink-2);}
+.seed-foot{margin-top:clamp(20px,2.6vw,32px);padding-top:16px;border-top:1px solid var(--line);
+  font-size:14px;line-height:1.6;color:var(--ink-2);}
+.seed-foot b{color:var(--orange-ink);font-weight:600;}
+@media (max-width:980px){
+  .seed{grid-template-columns:1fr;}
+  .seed-recap{position:static;}
+  .seed-frame{height:min(68vh,560px);}
+}
+
 /* the name takes the same orange italic the hero gives to "human" */
 .about-lead em{font-family:var(--ser);font-style:italic;font-weight:400;
   letter-spacing:-.01em;color:var(--orange);}
@@ -2020,6 +2049,29 @@ body{overflow-x:clip;}
   <section class="sec alt">
     <span class="ey">Gap analysis</span><h2 class="st">Six systemic gaps. All fixable.</h2>
     <div class="ggrid"><div class="gcard"><div class="gtop"><p class="gbig">69</p><div class="gicon" style="background:#FEF3E2"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="7" stroke="#BA7517" stroke-width="1.3"/><path d="M9 5v4l2.5 2" stroke="#BA7517" stroke-width="1.3" stroke-linecap="round"/></svg></div></div><div class="gbody"><p class="gtitle">Process time</p><p class="gtext">Up to 69 days application to payment. 82% manual steps.</p><span class="gsev" style="background:#FEF3E2;color:#854F0B">Critical</span></div></div><div class="gcard"><div class="gtop"><p class="gbig">0</p><div class="gicon" style="background:#FCF0EF"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="3" y="4" width="12" height="10" rx="2" stroke="#A32D2D" stroke-width="1.3"/><path d="M6 8h6M6 11h4" stroke="#A32D2D" stroke-width="1.3" stroke-linecap="round"/></svg></div></div><div class="gbody"><p class="gtitle">Digital audit trail</p><p class="gtext">Sensitive paysheets couriered by hand. No encryption.</p><span class="gsev" style="background:#FCF0EF;color:#791F1F">Critical</span></div></div><div class="gcard"><div class="gtop"><p class="gbig">0%</p><div class="gicon" style="background:#E8F4F0"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="7" r="3.5" stroke="#0F6E56" stroke-width="1.3"/><path d="M3 16c0-3.314 2.686-5 6-5s6 1.686 6 5" stroke="#0F6E56" stroke-width="1.3" stroke-linecap="round"/></svg></div></div><div class="gbody"><p class="gtitle">Non-selected notified</p><p class="gtext">Zero communication to rejected applicants. They wait for months.</p><span class="gsev" style="background:#FEF3E2;color:#854F0B">High</span></div></div><div class="gcard"><div class="gtop"><p class="gbig">2</p><div class="gicon" style="background:#E3EEF5"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="7" stroke="#185FA5" stroke-width="1.3"/><path d="M6 9h6M9 6v6" stroke="#185FA5" stroke-width="1.3" stroke-linecap="round"/></svg></div></div><div class="gbody"><p class="gtitle">Islands excluded</p><p class="gtext">Carriacou and Petite Martinique have zero SEED coverage.</p><span class="gsev" style="background:#E6F1FB;color:#185FA5">Medium</span></div></div><div class="gcard"><div class="gtop"><p class="gbig">4×</p><div class="gicon" style="background:#F0F4EE"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M4 5h10M4 9h10M4 13h6" stroke="#3B6D11" stroke-width="1.3" stroke-linecap="round"/></svg></div></div><div class="gbody"><p class="gtitle">Approval loops</p><p class="gtext">90-page paysheets re-printed for every error. Four manual stages.</p><span class="gsev" style="background:#FEF3E2;color:#854F0B">High</span></div></div><div class="gcard"><div class="gtop"><p class="gbig">0</p><div class="gicon" style="background:#F2EEF8"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 3v6l3.5 2" stroke="#534AB7" stroke-width="1.3" stroke-linecap="round"/><path d="M5 14s1-2 4-2 4 2 4 2" stroke="#534AB7" stroke-width="1.3" stroke-linecap="round"/></svg></div></div><div class="gbody"><p class="gtitle">Exit strategy</p><p class="gtext">No link between assistance and livelihood programmes.</p><span class="gsev" style="background:#E6F1FB;color:#185FA5">Medium</span></div></div></div>
+  </section>
+  <section class="sec" id="seed-map-sec">
+    <span class="ey">Process mapping, as-is</span>
+    <h2 class="st">The whole SEED process, on one sheet.</h2>
+    <p class="hm-lead">Every step of the Social Empowerment and Economic Development programme as it runs today, from the moment a family applies to the moment money is in hand: who touches the file, what they do to it, where it waits. Published with the Government of Grenada. Scroll the map, or open the PDF.</p>
+    <div class="seed">
+      <figure class="seed-map">
+        <div class="seed-frame" data-lenis-prevent>
+          <a href="assets/grenada/seed-process-mapping.pdf" target="_blank" rel="noopener" aria-label="Open the SEED process map as a PDF, readable at any zoom"><img src="assets/grenada/seed-process-map.webp" alt="SEED programme as-is process map: 33 to 38 steps across application, data entry and eligibility, payment list and distribution, 51 to 69 days end to end" loading="lazy" decoding="async"></a>
+        </div>
+        <figcaption><b>SEED, as-is process map</b><span>scroll inside &middot; <a href="assets/grenada/seed-process-mapping.pdf" target="_blank" rel="noopener">open the PDF to read every step &#8599;</a></span></figcaption>
+      </figure>
+      <aside class="seed-recap">
+        <p class="seed-k">What the map argues for</p>
+        <ol class="seed-steps">
+          <li><span class="seed-n">01</span><div><p class="seed-t">Application, on a phone</p><p class="seed-d">Nine days of paper intake replaced by mobile data collection in KoBoToolbox, filled in at the community centre instead of carried to the ministry.</p></div></li>
+          <li><span class="seed-n">02</span><div><p class="seed-t">Eligibility, checked against data already held</p><p class="seed-d">Seventeen days of manual verification across nine steps. BMIS already holds case management; the gap is adoption, not software.</p></div></li>
+          <li><span class="seed-n">03</span><div><p class="seed-t">Payment list, signed digitally</p><p class="seed-d">Fifteen steps and fourteen days to approve one list. E-signatures and digital paysheet transmission remove the courier runs between offices.</p></div></li>
+          <li><span class="seed-n">04</span><div><p class="seed-t">Distribution, with a trail</p><p class="seed-d">Seven days when the money lands in a bank account, thirty-eight when it is cash in hand. Automated SMS tells people when it is ready; a digital audit trail reconciles against the provider.</p></div></li>
+        </ol>
+        <p class="seed-foot">Together these turn a <b>69-day</b> chain into something close to real time &mdash; the first of the four pillars below.</p>
+      </aside>
+    </div>
   </section>
   <section class="sec">
     <span class="ey">Recommendations</span><h2 class="st">Four pillars for lasting change.</h2>
@@ -3145,6 +3197,8 @@ var CB_APP=[
   {src:'assets/cashbook/app/cb-10-help.webp',label:'CashBook app, help and contacts'}
 ];
 function cbAppZoom(i){jvGallery(CB_APP.map(function(s){return{src:s.src,label:s.label,alt:s.label};}),i);}
+
+
 function cmvZoom(i){jvGallery(CMV_SHOTS.map(function(s){return{src:s.src,label:s.label,alt:s.label};}),i);}
 /* SRA guidance videos: play only when in view (saves the download), muted loop, EN/AR kept in sync.
    If the Arabic file isn't there yet, gracefully collapse to a single centred English video. */
