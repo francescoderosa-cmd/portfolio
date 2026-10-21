@@ -1290,17 +1290,31 @@ nav.stuck{background:rgba(255,255,255,.88);backdrop-filter:blur(14px);border-bot
 
 /* ── expertise ─────────────────────────────────────────────── */
 .xpl{display:grid;grid-template-columns:1.25fr .75fr;gap:clamp(30px,5vw,80px);align-items:start}
-.xpw{display:flex;flex-wrap:wrap;gap:4px 16px}
+.xpw{display:flex;flex-wrap:wrap;gap:4px 22px}
 .xpw a{font-family:var(--disp);font-weight:600;letter-spacing:-.03em;line-height:1.12;
-       font-size:clamp(22px,2.9vw,40px);color:#CBD2D4;transition:color .28s var(--ease);cursor:pointer}
-.xpw a:hover,.xpw a.live{color:var(--ink)}
+       font-size:clamp(22px,2.9vw,40px);color:#CBD2D4;cursor:pointer;
+       text-decoration-color:transparent;text-underline-offset:.14em;text-decoration-thickness:2px;
+       transform-origin:left center;
+       transition:color .28s var(--ease),transform .28s var(--ease),text-decoration-color .28s var(--ease)}
+/* scale, not font-size: a bigger font would reflow the whole wrapped list and
+   make every other word jump while you are reading it.
+   #F25C12 instead of --orange (#FF671F): at this size the brand orange on
+   white is 2.91:1, just under the 3:1 large-text floor — this reads the same
+   and clears it at 3.33:1. */
+.xpw a:hover,.xpw a.live,.xpw a:focus-visible{color:#F25C12;transform:scale(1.03);
+       text-decoration-line:underline;text-decoration-color:currentColor}
+/* the separating comma belongs to the sentence, not to the term: inline-block
+   keeps the hover underline off it, and it stays the resting grey */
+.xpw a .xc{display:inline-block;color:#858F92}
 .xpd{position:sticky;top:110px;padding-top:4px}
 .xpd-k{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--azure);min-height:15px}
 .xpd-t{margin-top:12px;font-size:clamp(15px,1.3vw,17.5px);line-height:1.62;color:var(--ink-2);min-height:92px}
-.xpd-a{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;
-       text-transform:uppercase;color:var(--orange-ink);border-bottom:1px solid currentColor;padding-bottom:3px;
-       opacity:0;pointer-events:none;cursor:pointer;transition:opacity .3s}
-.xpd-a.show{opacity:1;pointer-events:auto}
+/* not a link any more: the word itself is the click target, so this line only
+   names the project that word will take you to */
+.xpd-p{margin-top:18px;font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;
+       text-transform:uppercase;color:var(--orange-ink);min-height:14px;
+       opacity:0;transition:opacity .3s var(--ease)}
+.xpd-p.show{opacity:1}
 
 /* ── selected work: horizontal rail, half-size cards ───────── */
 /* While the rail is pinned, vertical scrolling drives it sideways; the page
@@ -1822,24 +1836,24 @@ body{overflow-x:clip;}
 
 <!-- ── EXPERTISE ────────────────────────────────────────────────── -->
 <section class="r-sec" id="expertise">
-  <div class="sec-head"><h2 class="sec-title">Areas of expertise</h2><span class="lbl"><b>(01)</b>&nbsp; Hover to read</span></div>
+  <div class="sec-head"><h2 class="sec-title">Areas of expertise</h2><span class="lbl"><b>(01)</b>&nbsp; Hover, then click</span></div>
   <div class="xpl">
     <div class="xpw" id="xpw">
-      <a data-d="Design &amp; Systems" data-p="Grenada" data-page="grenada" data-t="The whole experience across people, touchpoints and the back-stage operations that make it work.">Service Design,</a>
-      <a data-d="Research &amp; Insight" data-p="HungerMap" data-page="hungermap" data-t="Interviews, testing and synthesis that ground decisions in real behaviour, not assumptions.">UX Research,</a>
-      <a data-d="Strategy &amp; Transformation" data-p="Grenada" data-page="grenada" data-t="Aligning design to business goals, roadmaps and outcomes that can actually be measured.">Design Strategy,</a>
-      <a data-d="Strategy &amp; Transformation" data-p="Grenada" data-page="grenada" data-t="Moving manual, paper-heavy processes to clear, resilient digital services people trust.">Digital Transformation,</a>
-      <a data-d="Research &amp; Insight" data-p="HungerMap" data-page="hungermap" data-t="Complex, messy datasets turned into interfaces people can read and act on at a glance.">Data Visualization,</a>
-      <a data-d="Research &amp; Insight" data-p="Dignity" data-page="cbt" data-t="The real path people take end to end, with the moments of friction that matter surfaced.">User Journey Mapping,</a>
-      <a data-d="Research &amp; Insight" data-p="HungerMap" data-page="hungermap" data-t="Structured testing with real users to validate flows and catch problems before they ship.">Usability Testing,</a>
-      <a data-d="Design &amp; Systems" data-p="People Portal" data-page="people" data-t="Designing for the hardest case first: low literacy, low connectivity, high stakes.">Inclusive Design,</a>
-      <a data-d="Design &amp; Systems" data-p="CashBook" data-page="cashbook" data-t="End-to-end UX and UI for products that hold up in the field, not just in the deck.">Product Design,</a>
-      <a data-d="Design &amp; Systems" data-p="Grenada" data-page="grenada" data-t="Tangled operations made visible, so they can be questioned, simplified and measured.">Process Mapping.</a>
+      <a data-d="Design &amp; Systems" data-p="Grenada" data-page="grenada" data-t="The whole experience across people, touchpoints and the back-stage operations that make it work.">Service Design<span class="xc">,</span></a>
+      <a data-d="Research &amp; Insight" data-p="HungerMap" data-page="hungermap" data-t="Interviews, testing and synthesis that ground decisions in real behaviour, not assumptions.">UX Research<span class="xc">,</span></a>
+      <a data-d="Strategy &amp; Transformation" data-p="Grenada" data-page="grenada" data-t="Aligning design to business goals, roadmaps and outcomes that can actually be measured.">Design Strategy<span class="xc">,</span></a>
+      <a data-d="Strategy &amp; Transformation" data-p="Grenada" data-page="grenada" data-t="Moving manual, paper-heavy processes to clear, resilient digital services people trust.">Digital Transformation<span class="xc">,</span></a>
+      <a data-d="Research &amp; Insight" data-p="HungerMap" data-page="hungermap" data-t="Complex, messy datasets turned into interfaces people can read and act on at a glance.">Data Visualization<span class="xc">,</span></a>
+      <a data-d="Research &amp; Insight" data-p="Dignity" data-page="cbt" data-t="The real path people take end to end, with the moments of friction that matter surfaced.">User Journey Mapping<span class="xc">,</span></a>
+      <a data-d="Research &amp; Insight" data-p="HungerMap" data-page="hungermap" data-t="Structured testing with real users to validate flows and catch problems before they ship.">Usability Testing<span class="xc">,</span></a>
+      <a data-d="Design &amp; Systems" data-p="People Portal" data-page="people" data-t="Designing for the hardest case first: low literacy, low connectivity, high stakes.">Inclusive Design<span class="xc">,</span></a>
+      <a data-d="Design &amp; Systems" data-p="CashBook" data-page="cashbook" data-t="End-to-end UX and UI for products that hold up in the field, not just in the deck.">Product Design<span class="xc">,</span></a>
+      <a data-d="Design &amp; Systems" data-p="Grenada" data-page="grenada" data-t="Tangled operations made visible, so they can be questioned, simplified and measured.">Process Mapping<span class="xc">.</span></a>
     </div>
     <aside class="xpd">
       <p class="xpd-k" id="xpK">Ten areas</p>
-      <p class="xpd-t" id="xpT">Across research, design and strategy. Move over a term to read what it means in my practice, and which project it comes from.</p>
-      <a class="xpd-a" id="xpA">Explore <span id="xpP"></span> &rarr;</a>
+      <p class="xpd-t" id="xpT">Across research, design and strategy. Move over a term to read what it means in my practice, then click it to open the project it comes from.</p>
+      <p class="xpd-p" id="xpP"></p>
     </aside>
   </div>
 </section>
@@ -3765,37 +3779,33 @@ addEventListener('resize', pinLayout);
 addEventListener('load', pinLayout);
 pinLayout();
 
-// expertise detail
+// expertise detail — hovering a term fills the panel, clicking it opens the project
 var xpK=document.getElementById('xpK'), xpT=document.getElementById('xpT'),
-    xpA=document.getElementById('xpA'), xpP=document.getElementById('xpP'),
+    xpP=document.getElementById('xpP'),
     defK=xpK.textContent, defT=xpT.textContent;
 var xpWords = document.querySelectorAll('#xpw a');
-var xpPage = null;
 function xpShow(a){
   xpWords.forEach(function(x){ x.classList.remove('live'); });
   a.classList.add('live');
   xpK.innerHTML = a.dataset.d; xpT.textContent = a.dataset.t;
-  xpP.textContent = a.dataset.p; xpPage = a.dataset.page;
-  xpA.classList.add('show');
+  xpP.textContent = a.dataset.p; xpP.classList.add('show');
 }
 function xpReset(){
   xpWords.forEach(function(x){ x.classList.remove('live'); });
   xpK.textContent = defK; xpT.textContent = defT;
-  xpA.classList.remove('show'); xpPage = null;
+  xpP.textContent = ''; xpP.classList.remove('show');
 }
-function xpGo(){ if (xpPage && typeof showPage === 'function') showPage(xpPage); }
+function xpGo(a){ if (a.dataset.page && typeof showPage === 'function') showPage(a.dataset.page); }
 xpWords.forEach(function(a){
   a.setAttribute('tabindex','0');
+  a.setAttribute('role','link');
   a.addEventListener('mouseenter', function(){ xpShow(a); });
   a.addEventListener('focus', function(){ xpShow(a); });
-  a.addEventListener('click', function(){ if (a.dataset.page) showPage(a.dataset.page); });
-  a.addEventListener('keydown', function(e){ if (e.key === 'Enter' && a.dataset.page) showPage(a.dataset.page); });
+  a.addEventListener('click', function(){ xpGo(a); });
+  a.addEventListener('keydown', function(e){ if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); xpGo(a); } });
 });
-xpA.addEventListener('click', xpGo);
-xpA.addEventListener('keydown', function(e){ if (e.key === 'Enter') xpGo(); });
-/* the reset listens on the whole module, not on the word list: the Explore
-   link lives in the other column, so leaving the words to reach it used to
-   hide the very thing you were reaching for. */
+/* the reset listens on the whole module, not on the word list, so moving
+   across the gap towards the description does not blank it mid-read */
 document.querySelector('.xpl').addEventListener('mouseleave', xpReset);
 
 })();
