@@ -1674,6 +1674,35 @@ body.has-cursor,body.has-cursor *{cursor:auto;}
    quotes to put in it. The markup stays; delete this rule to bring it back. */
 .testi{display:none;}
 
+/* the About portrait carries the hero's gradient as a wash: soft-light keeps
+   the face readable while the azure, pink and orange come through */
+.about-ph{position:relative;isolation:isolate;}
+.about-ph img{filter:contrast(1.04);}
+/* three colours only, spread across the whole diagonal so each transition is
+   broad. Two passes: "color" lays the hue over the photo's own luminance,
+   "soft-light" puts the depth back so the face does not go flat. */
+.about-ph::before,.about-ph::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:linear-gradient(135deg,var(--a1) 0%,var(--a2) 50%,var(--a3) 100%);}
+.about-ph::before{mix-blend-mode:color;opacity:.42;}
+.about-ph::after{mix-blend-mode:soft-light;opacity:.5;}
+
+/* ═════════════ V22 — CASHBOOK: the shipped app ═════════════
+   Ten phone captures in the same horizontal strip the other case studies use,
+   staggered so the row reads as a sequence rather than a wall. */
+.cbscreens{align-items:flex-start;}
+.cbscreens .pp-phonebox{flex:0 0 auto;}
+.cbscreens .pp-phonebox:nth-child(even){margin-top:clamp(24px,4vh,60px);}
+.pp-phone{border-color:#131b20;box-shadow:0 14px 30px -18px rgba(15,22,24,.45);}
+.pp-phone img{height:auto;}
+/* The captures arrive already trimmed, so the frame simply follows the image:
+   no crop, nothing cut. */
+.cbscreens .pp-phone img{width:100%;height:auto;display:block;}
+/* the box is as wide as the phone, so a long caption wraps inside it instead
+   of stretching the column and opening a wider gap to the next screen */
+.cbscreens .pp-phonebox{width:clamp(190px,22vw,250px);}
+.cbscreens .pp-phone{width:100%;}
+.cbscreens .pp-phone-cap{white-space:normal;line-height:1.5;text-wrap:balance;}
+
 /* a gradient shadow in the site's own colours: azure falling to the left,
    orange to the right, overlapping under the middle so the two hues blend.
    The first, tight and neutral, is what actually separates a white artwork
@@ -2520,6 +2549,27 @@ body{overflow-x:clip;}
     </figure>
   </section>
 
+  <section class="sec">
+    <span class="ey">The app, as shipped</span>
+    <h2 class="st">The manual, in a pocket.</h2>
+    <p class="hm-lead">Ten screens from the live app. The four phases of a cash distribution &mdash; Engage &amp; Understand, Design &amp; Plan, Assist &amp; Assure, Review &amp; Renew &mdash; each one a colour, each step opening on who is accountable, who is responsible and what has to come out of it. Search runs across the whole manual, and every page carries a way to ask a human.</p>
+    <div class="hmscreens-wrap">
+      <div class="lg-arch hmscreens cbscreens" id="cbScreens" tabindex="0" role="region" aria-label="CashBook app screens, scroll horizontally to browse">
+        <div class="pp-phonebox"><div class="pp-phone" onclick="cbAppZoom(0)"><img src="assets/cashbook/app/cb-01-home.webp" alt="CashBook app home: synchronisation date with a refresh action, the Cash Policy entry card and a button to check the flow" loading="lazy" decoding="async"></div><p class="pp-phone-cap">Home &middot; works offline, says when it last synced</p></div>
+        <div class="pp-phonebox"><div class="pp-phone" onclick="cbAppZoom(1)"><img src="assets/cashbook/app/cb-02-about.webp" alt="CashBook app introduction text explaining the four phases of the manual and how it aligns to the WFP Cash Policy" loading="lazy" decoding="async"></div><p class="pp-phone-cap">What the CashBook is</p></div>
+        <div class="pp-phonebox"><div class="pp-phone" onclick="cbAppZoom(2)"><img src="assets/cashbook/app/cb-03-menu.webp" alt="CashBook app menu drawer: home, cash distribution flow with its four phases, my programmes, my account and language" loading="lazy" decoding="async"></div><p class="pp-phone-cap">Menu &middot; the four phases, always one tap away</p></div>
+        <div class="pp-phonebox"><div class="pp-phone" onclick="cbAppZoom(3)"><img src="assets/cashbook/app/cb-04-engage.webp" alt="CashBook app, Engage and Understand phase: people and markets run at the same time inside a dashed group" loading="lazy" decoding="async"></div><p class="pp-phone-cap">01 &middot; Engage &amp; Understand</p></div>
+        <div class="pp-phonebox"><div class="pp-phone" onclick="cbAppZoom(4)"><img src="assets/cashbook/app/cb-05-design.webp" alt="CashBook app, Design and Plan phase: determine transfer value, select transfer mechanism, set up payment solution" loading="lazy" decoding="async"></div><p class="pp-phone-cap">02 &middot; Design &amp; Plan</p></div>
+        <div class="pp-phonebox"><div class="pp-phone" onclick="cbAppZoom(5)"><img src="assets/cashbook/app/cb-06-assist.webp" alt="CashBook app, Assist and Assure phase: inform people of the plan, then import or collect data, then clean it" loading="lazy" decoding="async"></div><p class="pp-phone-cap">03 &middot; Assist &amp; Assure</p></div>
+        <div class="pp-phonebox"><div class="pp-phone" onclick="cbAppZoom(6)"><img src="assets/cashbook/app/cb-07-review.webp" alt="CashBook app, Review and Renew phase: process and price monitoring continually, assurance and outcome monitoring every six months" loading="lazy" decoding="async"></div><p class="pp-phone-cap">04 &middot; Review &amp; Renew</p></div>
+        <div class="pp-phonebox"><div class="pp-phone" onclick="cbAppZoom(7)"><img src="assets/cashbook/app/cb-08-step.webp" alt="CashBook app step detail for Collect: accountable role, responsible functions as chips, and the required outcomes written out" loading="lazy" decoding="async"></div><p class="pp-phone-cap">A step &middot; accountable, responsible, required outcomes</p></div>
+        <div class="pp-phonebox"><div class="pp-phone" onclick="cbAppZoom(8)"><img src="assets/cashbook/app/cb-09-search.webp" alt="CashBook app search across the manual, listing the documents a term appears in" loading="lazy" decoding="async"></div><p class="pp-phone-cap">Search &middot; across the whole manual</p></div>
+        <div class="pp-phonebox"><div class="pp-phone" onclick="cbAppZoom(9)"><img src="assets/cashbook/app/cb-10-help.webp" alt="CashBook app help and contacts form, with the topic pre-filled from where the request was opened" loading="lazy" decoding="async"></div><p class="pp-phone-cap">Help &middot; the topic fills itself in</p></div>
+      </div>
+      <div class="hmscreens-bar"><span class="hmscreens-hint">Scroll, drag or use the arrows &middot; click a screen to zoom &rarr;</span><div class="hmscreens-nav"><button class="hmscreens-btn" type="button" aria-label="Previous screen" onclick="lgScroll(-1,'cbScreens')">&larr;</button><button class="hmscreens-btn" type="button" aria-label="Next screen" onclick="lgScroll(1,'cbScreens')">&rarr;</button></div></div>
+    </div>
+  </section>
+
   <div class="istrip"><span class="ey-l">The concept in one sentence</span><p class="st-l" style="max-width:600px;margin-bottom:0">"A practical tool for your daily work activities that can support you on a laptop or on your mobile phone while working live with your team."</p></div>
   <div class="testi reveal" aria-label="Testimonial, placeholder">
     <figure class="testi-inner">
@@ -3080,6 +3130,19 @@ var CMV_SHOTS=[
   {src:'assets/legacy/cmv-tree.webp',label:'CMV app, navigation tree with the public and private areas'},
   {src:'assets/legacy/cmv-board.webp',label:'CMV app, the delivered design'}
 ];
+var CB_APP=[
+  {src:'assets/cashbook/app/cb-01-home.webp',label:'CashBook app, home with the last synchronisation'},
+  {src:'assets/cashbook/app/cb-02-about.webp',label:'CashBook app, what the manual covers'},
+  {src:'assets/cashbook/app/cb-03-menu.webp',label:'CashBook app, menu with the four phases'},
+  {src:'assets/cashbook/app/cb-04-engage.webp',label:'CashBook app, Engage & Understand'},
+  {src:'assets/cashbook/app/cb-05-design.webp',label:'CashBook app, Design & Plan'},
+  {src:'assets/cashbook/app/cb-06-assist.webp',label:'CashBook app, Assist & Assure'},
+  {src:'assets/cashbook/app/cb-07-review.webp',label:'CashBook app, Review & Renew'},
+  {src:'assets/cashbook/app/cb-08-step.webp',label:'CashBook app, a step: accountable, responsible, required outcomes'},
+  {src:'assets/cashbook/app/cb-09-search.webp',label:'CashBook app, search across the manual'},
+  {src:'assets/cashbook/app/cb-10-help.webp',label:'CashBook app, help and contacts'}
+];
+function cbAppZoom(i){jvGallery(CB_APP.map(function(s){return{src:s.src,label:s.label,alt:s.label};}),i);}
 function cmvZoom(i){jvGallery(CMV_SHOTS.map(function(s){return{src:s.src,label:s.label,alt:s.label};}),i);}
 /* SRA guidance videos: play only when in view (saves the download), muted loop, EN/AR kept in sync.
    If the Arabic file isn't there yet, gracefully collapse to a single centred English video. */
